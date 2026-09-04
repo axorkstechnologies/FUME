@@ -4,6 +4,7 @@ import { X, Check } from 'lucide-react';
 import { Fragrance, ThemeMode } from '../types';
 import { FlaconBottle } from './FlaconBottle';
 import { resetScrollLock } from '../utils/scrollLock';
+import { getPrice50, getPrice100 } from '../utils/pricing';
 
 interface FlaconDetailModalProps {
   fragrance: Fragrance | null;
@@ -71,7 +72,9 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
     };
   }, [onClose]);
 
-  const currentPrice = selectedSize === '50ml' ? fragrance.price : 2499;
+  const price50 = getPrice50(fragrance.id);
+  const price100 = getPrice100(price50);
+  const currentPrice = selectedSize === '50ml' ? price50 : price100;
 
   const handleAdd = () => {
     onAddToCart(fragrance, selectedSize, currentPrice);
@@ -274,7 +277,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                         : 'border-[#262626] text-[#8c8985] hover:border-white hover:text-white'
                     }`}
                   >
-                    50 ML (Rs {fragrance.price.toLocaleString()})
+                    50 ML (Rs {price50.toLocaleString()})
                   </button>
                   <button
                     onClick={() => setSelectedSize('100ml')}
@@ -288,7 +291,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                         : 'border-[#262626] text-[#8c8985] hover:border-white hover:text-white'
                     }`}
                   >
-                    100 ML (Rs 2,499)
+                    100 ML (Rs {price100.toLocaleString()})
                   </button>
                 </div>
               </div>

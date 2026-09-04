@@ -23,6 +23,7 @@ import { StoryView } from './components/StoryView';
 import { ContactView } from './components/ContactView';
 import { CareView } from './components/CareView';
 import { resetScrollLock } from './utils/scrollLock';
+import { getPrice50, getPrice100 } from './utils/pricing';
 
 export function App() {
   const [currentView, setCurrentView] = useState<ScreenView>('home');
@@ -58,9 +59,10 @@ export function App() {
       if (saved) {
         const parsed = JSON.parse(saved);
         return parsed.map((item: any) => {
-          const match = FRAGRANCES.find((f) => f.id === item.fragrance?.id);
-          const basePrice = match ? match.price : item.price;
-          const currentPrice = item.size === '100ml' ? 2499 : (basePrice < 500 ? (match ? match.price : 1899) : item.price);
+          const fid = item.fragrance?.id || '';
+          const p50 = getPrice50(fid);
+          const p100 = getPrice100(p50);
+          const currentPrice = item.size === '100ml' ? p100 : p50;
           return { ...item, price: currentPrice };
         });
       }
@@ -68,12 +70,13 @@ export function App() {
       // Ignore
     }
     // Start with 1 item so users immediately experience the shopping bag
+    const initialPrice50 = getPrice50(FRAGRANCES[0].id);
     return [
       {
         fragrance: FRAGRANCES[0], // Bloom
         quantity: 1,
         size: '50ml',
-        price: FRAGRANCES[0].price
+        price: initialPrice50
       }
     ];
   });
@@ -107,8 +110,12 @@ export function App() {
   const handleAddToCart = (
     fragrance: Fragrance,
     size: '50ml' | '100ml' = '50ml',
-    price: number = fragrance.price
+    price?: number
   ) => {
+    const p50 = getPrice50(fragrance.id);
+    const p100 = getPrice100(p50);
+    const resolvedPrice = price !== undefined ? price : (size === '100ml' ? p100 : p50);
+
     setCartItems((prev) => {
       const existingIdx = prev.findIndex(
         (i) => i.fragrance.id === fragrance.id && i.size === size
@@ -118,7 +125,7 @@ export function App() {
         updated[existingIdx].quantity += 1;
         return updated;
       }
-      return [...prev, { fragrance, quantity: 1, size, price }];
+      return [...prev, { fragrance, quantity: 1, size, price: resolvedPrice }];
     });
     setIsCartOpen(true);
   };

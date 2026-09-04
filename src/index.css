@@ -98,6 +98,20 @@ html {
   scroll-behavior: auto;
 }
 
+/* 3-column normal flow header with >=40px gap between CLIENT CARE and FUME */
+.site-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 40px;
+}
+
+.brand {
+  position: static;
+  transform: none;
+  justify-self: center;
+}
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;

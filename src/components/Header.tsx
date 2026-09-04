@@ -67,9 +67,17 @@ export const Header: React.FC<HeaderProps> = ({
           : 'bg-gradient-to-b from-[#0a0a0a]/90 via-[#0a0a0a]/40 to-transparent'
       }`}
     >
-      <div className="w-full max-w-[1700px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-14 h-20 md:h-24 grid grid-cols-[1fr_auto_1fr] items-center">
+      <div
+        className="site-header w-full max-w-[1700px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-12 h-20 md:h-24"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'minmax(0, 1fr) auto minmax(0, 1fr)',
+          alignItems: 'center',
+          columnGap: '40px'
+        }}
+      >
         {/* Left Navigation: Mobile Hamburger, Condensed (md), Full (lg) */}
-        <div className="flex items-center min-w-0 pr-6 xl:pr-8">
+        <div className="nav-left flex items-center min-w-0">
           {/* Mobile Hamburger Toggle (Left on mobile) */}
           <div className="flex md:hidden items-center">
             <button
@@ -88,7 +96,7 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           {/* Medium Screen Left Navigation (Condensed) */}
-          <nav className="hidden md:flex lg:hidden items-center gap-4 xl:gap-5">
+          <nav className="hidden md:flex lg:hidden items-center gap-4">
             <button
               onClick={() => handleLinkClick('home')}
               className={`text-[11px] uppercase tracking-[0.2em] font-sans transition-colors ${
@@ -148,14 +156,14 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
 
           {/* Desktop Left Navigation (Shop, Perfumes, Collections, Our Story, Concierge, Client Care) */}
-          <nav className="hidden lg:flex items-center justify-start gap-3 xl:gap-5 2xl:gap-7 w-full min-w-0">
+          <nav className="hidden lg:flex items-center justify-start gap-2 lg:gap-2.5 xl:gap-4.5 2xl:gap-6 w-full min-w-0">
             {navLinks.map((item) => {
               const isActive = currentView === item.view;
               return (
                 <button
                   key={item.view}
                   onClick={() => handleLinkClick(item.view)}
-                  className={`text-[10px] xl:text-[11px] uppercase tracking-[0.14em] xl:tracking-[0.2em] font-sans transition-colors cursor-pointer relative py-1 whitespace-nowrap ${
+                  className={`text-[10px] xl:text-[11px] uppercase tracking-[0.08em] lg:tracking-[0.09em] xl:tracking-[0.16em] font-sans transition-colors cursor-pointer relative py-1 whitespace-nowrap shrink-0 ${
                     isActive
                       ? isDarkTop
                         ? 'text-[#FAF8F5] font-medium after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-[#C5A059]'
@@ -177,7 +185,14 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Center: FUME Wordmark & SINCE 2024 */}
-        <div className="flex items-center justify-center px-2">
+        <div
+          className="brand flex items-center justify-center"
+          style={{
+            position: 'static',
+            transform: 'none',
+            justifySelf: 'center'
+          }}
+        >
           <button
             onClick={() => handleLinkClick('home')}
             className="cursor-pointer group flex flex-col items-center"
@@ -201,7 +216,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Right Navigation: Theme Toggle, Search, Account, Shopping Bag */}
-        <div className="flex items-center justify-end gap-4 sm:gap-6 md:gap-7 min-w-0 pl-2">
+        <div className="flex items-center justify-end gap-3 sm:gap-4 md:gap-5 min-w-0">
           {/* Theme Palette Toggle */}
           <button
             onClick={onToggleTheme}
