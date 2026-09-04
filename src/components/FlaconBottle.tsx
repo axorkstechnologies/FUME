@@ -157,12 +157,12 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
   if (variant === 'detail') {
     return (
       <div className={`relative w-full h-full flex items-center justify-center md:justify-end select-none ${className}`}>
-        <div className="relative aspect-square w-full max-w-[380px] sm:max-w-[420px] md:max-w-none md:w-auto md:h-full max-h-[520px] flex items-center justify-center md:justify-end [container-type:inline-size] mx-auto md:mx-0 md:ml-auto">
+        <div className="relative aspect-square w-auto h-full max-h-full max-w-[380px] sm:max-w-[420px] md:max-w-none md:w-auto md:h-full flex items-center justify-center md:justify-end [container-type:inline-size] mx-auto md:mx-0 md:ml-auto">
           {/* Fragrance Bottle Image */}
           <img
             src={fragrance.image}
             alt={`FUME ${nameToDisplay}`}
-            className={`w-full h-full object-contain object-center select-none ${imageClassName}`}
+            className={`w-full h-full object-contain md:object-right select-none ${imageClassName}`}
           />
 
           {/* Integrated Haute Parfumerie Flacon Label */}

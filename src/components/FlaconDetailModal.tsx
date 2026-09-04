@@ -1,7 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Check } from 'lucide-react';
 import { Fragrance, ThemeMode } from '../types';
 import { FlaconBottle } from './FlaconBottle';
+import { resetScrollLock } from '../utils/scrollLock';
 
 interface FlaconDetailModalProps {
   fragrance: Fragrance | null;
@@ -30,8 +32,8 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
   useEffect(() => {
     previousActiveElement.current = document.activeElement as HTMLElement | null;
 
-    const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
+    document.body.classList.add('overlay-open');
 
     closeButtonRef.current?.focus();
 
@@ -64,7 +66,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = originalOverflow;
+      resetScrollLock();
       previousActiveElement.current?.focus?.();
     };
   }, [onClose]);
@@ -80,9 +82,15 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
     }, 800);
   };
 
-  return (
+  return createPortal(
     <div
-      className="fixed inset-0 z-[70] overflow-y-auto bg-black/75 backdrop-blur-md flex items-center justify-center p-4 md:p-8"
+      className="fixed inset-0 z-[1000] flex items-center justify-center p-2 sm:p-4 backdrop-blur-xs"
+      style={{
+        position: 'fixed',
+        inset: 0,
+        zIndex: 1000,
+        backgroundColor: 'rgba(0,0,0,0.45)'
+      }}
       onClick={onClose}
     >
       <div
@@ -91,83 +99,84 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
         aria-modal="true"
         aria-label={`FUME ${fragrance.name} Details`}
         onClick={(e) => e.stopPropagation()}
-        className={`relative w-full max-w-4xl shadow-2xl my-8 animate-in fade-in zoom-in-95 duration-200 border ${
+        className={`relative shadow-2xl border overflow-hidden grid grid-cols-1 md:grid-cols-2 grid-rows-[minmax(180px,36%)_1fr] md:grid-rows-1 ${
           isLight
             ? 'bg-[#FAF8F5] text-[#1A1816] border-[#E8DFC9]'
             : 'bg-[#0a0a0a] text-[#f5f4f0] border-[#222222]'
         }`}
+        style={{
+          width: 'min(1120px, calc(100vw - 32px))',
+          height: 'min(860px, calc(100dvh - 32px))',
+          maxHeight: 'calc(100dvh - 32px)',
+          overflow: 'hidden'
+        }}
       >
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          {/* Left: Fragrance Bottle with Printed Plaque & Halo - Flush toward details column */}
+        {/* Close Button on panel — 44×44px hit area, full ×, top: 12px, right: 12px, z-index: 50 */}
+        <button
+          ref={closeButtonRef}
+          type="button"
+          aria-label="Close"
+          onClick={onClose}
+          className={`pdp-close absolute z-50 w-[44px] h-[44px] min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center transition-all cursor-pointer border ${
+            isLight
+              ? 'border-[#C5A059]/40 bg-white/95 text-[#1A1816] hover:bg-[#FAF8F5] hover:text-[#C5A059] shadow-sm'
+              : 'border-[#C5A059]/40 bg-[#141414]/95 text-[#EAE2D5] hover:bg-[#1f1d1b] hover:text-[#C5A059] shadow-sm'
+          }`}
+          style={{
+            position: 'absolute',
+            top: '12px',
+            right: '12px',
+            width: '44px',
+            height: '44px',
+            zIndex: 50
+          }}
+        >
+          <X className="w-5 h-5 shrink-0" strokeWidth={1.5} />
+        </button>
+
+        {/* Left: Fragrance Bottle Image Pane (min-height: 0; overflow: hidden;) */}
+        <div
+          className="pdp-media relative overflow-hidden flex items-center justify-center md:justify-end border-b md:border-b-0 md:border-r h-full"
+          style={{
+            backgroundColor: isLight ? fragrance.pastelBg : '#111111',
+            borderColor: isLight ? '#E8DFC9' : '#222222',
+            minHeight: 0,
+            overflow: 'hidden'
+          }}
+        >
+          {/* Soft Ambient Halo */}
           <div
-            className="pdp-media relative aspect-[3/4] md:aspect-auto md:h-full overflow-hidden flex items-center justify-center md:justify-end border-b md:border-b-0 md:border-r"
+            className="absolute inset-0 opacity-50 blur-[40px] pointer-events-none"
             style={{
-              backgroundColor: isLight ? fragrance.pastelBg : '#111111',
-              borderColor: isLight ? '#E8DFC9' : '#222222'
+              background: `radial-gradient(circle, ${fragrance.pastelGlow} 0%, transparent 70%)`
             }}
-          >
-            {/* Mobile close button on photo pane */}
-            <button
-              onClick={onClose}
-              className={`md:hidden absolute z-50 w-10 h-10 min-w-[40px] min-h-[40px] rounded-full flex items-center justify-center transition-all cursor-pointer border ${
-                isLight
-                  ? 'border-[#C5A059]/40 bg-white/95 text-[#1A1816] shadow-sm'
-                  : 'border-[#C5A059]/40 bg-[#141414]/95 text-[#EAE2D5] shadow-sm'
-              }`}
-              style={{
-                top: 'max(16px, env(safe-area-inset-top, 16px))',
-                right: '16px'
-              }}
-              aria-label="Close"
-            >
-              <X className="w-5 h-5 shrink-0" strokeWidth={1.5} />
-            </button>
+          />
 
-            {/* Soft Ambient Halo */}
-            <div
-              className="absolute inset-0 opacity-50 blur-[40px] pointer-events-none"
-              style={{
-                background: `radial-gradient(circle, ${fragrance.pastelGlow} 0%, transparent 70%)`
-              }}
-            />
+          <FlaconBottle
+            fragrance={fragrance}
+            variant="detail"
+            themeMode={themeMode}
+            customMonogram={monogram}
+            className="w-full h-full"
+            imageClassName="object-contain md:!object-right w-full h-full"
+          />
 
-            <FlaconBottle
-              fragrance={fragrance}
-              variant="detail"
-              themeMode={themeMode}
-              customMonogram={monogram}
-              className="w-full h-full"
-            />
-
-            <div className="absolute bottom-4 left-4 z-20 text-[9px] uppercase tracking-[0.3em] font-sans text-[#C5A059] font-medium bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-xs border border-[#C5A059]/30">
-              HAUTE FLACON • SINCE 2024
-            </div>
+          <div className="absolute bottom-4 left-4 z-20 text-[9px] uppercase tracking-[0.3em] font-sans text-[#C5A059] font-medium bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-xs border border-[#C5A059]/30 pointer-events-none">
+            HAUTE FLACON • SINCE 2024
           </div>
+        </div>
 
-          {/* Right: Olfactory Details & Actions (Cream Column) */}
-          <div
-            className="relative p-6 sm:p-8 md:p-12 flex flex-col justify-between space-y-8"
-            style={{
-              backgroundColor: isLight ? '#FAF8F5' : '#0a0a0a'
-            }}
-          >
-            {/* Close Button — 40×40px hit area, full ×, never a partial ring, never clipped */}
-            <button
-              ref={closeButtonRef}
-              onClick={onClose}
-              className={`absolute z-50 w-10 h-10 min-w-[40px] min-h-[40px] rounded-full flex items-center justify-center transition-all cursor-pointer border ${
-                isLight
-                  ? 'border-[#C5A059]/40 bg-white text-[#1A1816] hover:bg-[#FAF8F5] hover:text-[#C5A059] shadow-sm'
-                  : 'border-[#C5A059]/40 bg-[#141414] text-[#EAE2D5] hover:bg-[#1f1d1b] hover:text-[#C5A059] shadow-sm'
-              }`}
-              style={{
-                top: 'max(16px, env(safe-area-inset-top, 16px))',
-                right: '16px'
-              }}
-              aria-label="Close"
-            >
-              <X className="w-5 h-5 shrink-0" strokeWidth={1.5} />
-            </button>
+        {/* Right: Olfactory Details & Actions Pane (min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding-top: 56px) */}
+        <div
+          className="relative p-6 sm:p-8 md:p-10 flex flex-col justify-between space-y-8 h-full"
+          style={{
+            backgroundColor: isLight ? '#FAF8F5' : '#0a0a0a',
+            minHeight: 0,
+            overflowY: 'auto',
+            overscrollBehavior: 'contain',
+            paddingTop: '56px'
+          }}
+        >
 
             <div className="space-y-6">
               <div className="space-y-2">
@@ -375,7 +384,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </div>,
+    document.body
   );
 };

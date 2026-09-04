@@ -93,9 +93,9 @@
   animation: shimmerGold 3s infinite;
 }
 
-/* Custom scrollbar and smooth scrolling */
+/* Native scroll only */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 ::-webkit-scrollbar {

@@ -22,6 +22,7 @@ import { ContactModal } from './components/ContactModal';
 import { StoryView } from './components/StoryView';
 import { ContactView } from './components/ContactView';
 import { CareView } from './components/CareView';
+import { resetScrollLock } from './utils/scrollLock';
 
 export function App() {
   const [currentView, setCurrentView] = useState<ScreenView>('home');
@@ -92,10 +93,15 @@ export function App() {
   const [isStoryOpen, setIsStoryOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
 
-  // Scroll to top on view change
+  // Clean scroll lock reset and native scroll to top on view change
+  useEffect(() => {
+    resetScrollLock();
+  }, [currentView]);
+
   const handleNavigate = (view: ScreenView) => {
+    resetScrollLock();
     setCurrentView(view);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   const handleAddToCart = (

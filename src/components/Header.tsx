@@ -67,114 +67,117 @@ export const Header: React.FC<HeaderProps> = ({
           : 'bg-gradient-to-b from-[#0a0a0a]/90 via-[#0a0a0a]/40 to-transparent'
       }`}
     >
-      <div className="w-full max-w-[1700px] mx-auto px-5 sm:px-8 md:px-12 lg:px-16 h-20 md:h-24 flex items-center justify-between">
-        {/* Left Navigation (Pages): Shop, Perfumes, Collections, Our Story, Concierge, Client Care */}
-        <nav className="hidden lg:flex items-center gap-6 xl:gap-8 flex-1">
-          {navLinks.map((item) => {
-            const isActive = currentView === item.view;
-            return (
-              <button
-                key={item.view}
-                onClick={() => handleLinkClick(item.view)}
-                className={`text-[11px] uppercase tracking-[0.22em] font-sans transition-colors cursor-pointer relative py-1 ${
-                  isActive
-                    ? isDarkTop
-                      ? 'text-[#FAF8F5] font-medium after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-[#C5A059]'
+      <div className="w-full max-w-[1700px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-14 h-20 md:h-24 grid grid-cols-[1fr_auto_1fr] items-center">
+        {/* Left Navigation: Mobile Hamburger, Condensed (md), Full (lg) */}
+        <div className="flex items-center min-w-0 pr-6 xl:pr-8">
+          {/* Mobile Hamburger Toggle (Left on mobile) */}
+          <div className="flex md:hidden items-center">
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={`p-2 transition-colors cursor-pointer ${
+                isDarkTop
+                  ? 'text-[#FAF8F5] hover:text-[#C5A059]'
+                  : isLight
+                  ? 'text-[#2D2926] hover:text-[#C5A059]'
+                  : 'text-[#e5e3dc] hover:text-white'
+              }`}
+              aria-label="Toggle navigation menu"
+            >
+              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+
+          {/* Medium Screen Left Navigation (Condensed) */}
+          <nav className="hidden md:flex lg:hidden items-center gap-4 xl:gap-5">
+            <button
+              onClick={() => handleLinkClick('home')}
+              className={`text-[11px] uppercase tracking-[0.2em] font-sans transition-colors ${
+                currentView === 'home'
+                  ? 'text-[#C5A059] font-medium'
+                  : isDarkTop
+                  ? 'text-[#A39E95]'
+                  : isLight
+                  ? 'text-[#7D766E]'
+                  : 'text-[#8c8985]'
+              }`}
+            >
+              Shop
+            </button>
+            <button
+              onClick={() => handleLinkClick('perfumes')}
+              className={`text-[11px] uppercase tracking-[0.2em] font-sans transition-colors ${
+                currentView === 'perfumes'
+                  ? 'text-[#C5A059] font-medium'
+                  : isDarkTop
+                  ? 'text-[#A39E95]'
+                  : isLight
+                  ? 'text-[#7D766E]'
+                  : 'text-[#8c8985]'
+              }`}
+            >
+              Perfumes
+            </button>
+            <button
+              onClick={() => handleLinkClick('collections')}
+              className={`text-[11px] uppercase tracking-[0.2em] font-sans transition-colors ${
+                currentView === 'collections'
+                  ? 'text-[#C5A059] font-medium'
+                  : isDarkTop
+                  ? 'text-[#A39E95]'
+                  : isLight
+                  ? 'text-[#7D766E]'
+                  : 'text-[#8c8985]'
+              }`}
+            >
+              Collections
+            </button>
+            <button
+              onClick={() => handleLinkClick('story')}
+              className={`text-[11px] uppercase tracking-[0.2em] font-sans transition-colors ${
+                currentView === 'story'
+                  ? 'text-[#C5A059] font-medium'
+                  : isDarkTop
+                  ? 'text-[#A39E95]'
+                  : isLight
+                  ? 'text-[#7D766E]'
+                  : 'text-[#8c8985]'
+              }`}
+            >
+              Story
+            </button>
+          </nav>
+
+          {/* Desktop Left Navigation (Shop, Perfumes, Collections, Our Story, Concierge, Client Care) */}
+          <nav className="hidden lg:flex items-center justify-start gap-3 xl:gap-5 2xl:gap-7 w-full min-w-0">
+            {navLinks.map((item) => {
+              const isActive = currentView === item.view;
+              return (
+                <button
+                  key={item.view}
+                  onClick={() => handleLinkClick(item.view)}
+                  className={`text-[10px] xl:text-[11px] uppercase tracking-[0.14em] xl:tracking-[0.2em] font-sans transition-colors cursor-pointer relative py-1 whitespace-nowrap ${
+                    isActive
+                      ? isDarkTop
+                        ? 'text-[#FAF8F5] font-medium after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-[#C5A059]'
+                        : isLight
+                        ? 'text-[#1A1816] font-medium after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-[#C5A059]'
+                        : 'text-white font-medium after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-[#C5A059]'
+                      : isDarkTop
+                      ? 'text-[#A39E95] hover:text-[#C5A059]'
                       : isLight
-                      ? 'text-[#1A1816] font-medium after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-[#C5A059]'
-                      : 'text-white font-medium after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-[#C5A059]'
-                    : isDarkTop
-                    ? 'text-[#A39E95] hover:text-[#C5A059]'
-                    : isLight
-                    ? 'text-[#7D766E] hover:text-[#C5A059]'
-                    : 'text-[#8c8985] hover:text-[#C5A059]'
-                }`}
-              >
-                {item.label}
-              </button>
-            );
-          })}
-        </nav>
-
-        {/* Medium Screen Left Navigation (Condensed) */}
-        <nav className="hidden md:flex lg:hidden items-center gap-5 flex-1">
-          <button
-            onClick={() => handleLinkClick('home')}
-            className={`text-[11px] uppercase tracking-[0.2em] font-sans transition-colors ${
-              currentView === 'home'
-                ? 'text-[#C5A059] font-medium'
-                : isDarkTop
-                ? 'text-[#A39E95]'
-                : isLight
-                ? 'text-[#7D766E]'
-                : 'text-[#8c8985]'
-            }`}
-          >
-            Shop
-          </button>
-          <button
-            onClick={() => handleLinkClick('perfumes')}
-            className={`text-[11px] uppercase tracking-[0.2em] font-sans transition-colors ${
-              currentView === 'perfumes'
-                ? 'text-[#C5A059] font-medium'
-                : isDarkTop
-                ? 'text-[#A39E95]'
-                : isLight
-                ? 'text-[#7D766E]'
-                : 'text-[#8c8985]'
-            }`}
-          >
-            Perfumes
-          </button>
-          <button
-            onClick={() => handleLinkClick('collections')}
-            className={`text-[11px] uppercase tracking-[0.2em] font-sans transition-colors ${
-              currentView === 'collections'
-                ? 'text-[#C5A059] font-medium'
-                : isDarkTop
-                ? 'text-[#A39E95]'
-                : isLight
-                ? 'text-[#7D766E]'
-                : 'text-[#8c8985]'
-            }`}
-          >
-            Collections
-          </button>
-          <button
-            onClick={() => handleLinkClick('story')}
-            className={`text-[11px] uppercase tracking-[0.2em] font-sans transition-colors ${
-              currentView === 'story'
-                ? 'text-[#C5A059] font-medium'
-                : isDarkTop
-                ? 'text-[#A39E95]'
-                : isLight
-                ? 'text-[#7D766E]'
-                : 'text-[#8c8985]'
-            }`}
-          >
-            Story
-          </button>
-        </nav>
-
-        {/* Mobile Hamburger Toggle (Left on mobile) */}
-        <div className="flex md:hidden items-center">
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`p-2 transition-colors cursor-pointer ${
-              isDarkTop
-                ? 'text-[#FAF8F5] hover:text-[#C5A059]'
-                : isLight
-                ? 'text-[#2D2926] hover:text-[#C5A059]'
-                : 'text-[#e5e3dc] hover:text-white'
-            }`}
-            aria-label="Toggle navigation menu"
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
+                      ? 'text-[#7D766E] hover:text-[#C5A059]'
+                      : 'text-[#8c8985] hover:text-[#C5A059]'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              );
+            })}
+          </nav>
         </div>
 
         {/* Center: FUME Wordmark & SINCE 2024 */}
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center px-2">
           <button
             onClick={() => handleLinkClick('home')}
             className="cursor-pointer group flex flex-col items-center"
@@ -198,7 +201,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Right Navigation: Theme Toggle, Search, Account, Shopping Bag */}
-        <div className="flex items-center justify-end gap-4 sm:gap-6 md:gap-7 flex-1">
+        <div className="flex items-center justify-end gap-4 sm:gap-6 md:gap-7 min-w-0 pl-2">
           {/* Theme Palette Toggle */}
           <button
             onClick={onToggleTheme}
