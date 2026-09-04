@@ -159,7 +159,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                       isLight ? 'text-[#1A1816]' : 'text-[#d4d2cc]'
                     }`}
                   >
-                    ${fragrance.price}
+                    Rs {fragrance.price.toLocaleString()}
                   </p>
                 </div>
               </motion.div>

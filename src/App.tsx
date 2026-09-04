@@ -54,7 +54,15 @@ export function App() {
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
     try {
       const saved = localStorage.getItem('fume_cart');
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        return parsed.map((item: any) => {
+          const match = FRAGRANCES.find((f) => f.id === item.fragrance?.id);
+          const basePrice = match ? match.price : item.price;
+          const currentPrice = item.size === '100ml' ? 2499 : (basePrice < 500 ? (match ? match.price : 1899) : item.price);
+          return { ...item, price: currentPrice };
+        });
+      }
     } catch {
       // Ignore
     }

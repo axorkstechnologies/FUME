@@ -69,7 +69,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
     };
   }, [onClose]);
 
-  const currentPrice = selectedSize === '50ml' ? fragrance.price : Math.round(fragrance.price * 1.45);
+  const currentPrice = selectedSize === '50ml' ? fragrance.price : 2499;
 
   const handleAdd = () => {
     onAddToCart(fragrance, selectedSize, currentPrice);
@@ -82,7 +82,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 overflow-y-auto bg-black/75 backdrop-blur-md flex items-center justify-center p-4 md:p-8"
+      className="fixed inset-0 z-[70] overflow-y-auto bg-black/75 backdrop-blur-md flex items-center justify-center p-4 md:p-8"
       onClick={onClose}
     >
       <div
@@ -91,26 +91,12 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
         aria-modal="true"
         aria-label={`FUME ${fragrance.name} Details`}
         onClick={(e) => e.stopPropagation()}
-        className={`relative w-full max-w-4xl shadow-2xl overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200 border ${
+        className={`relative w-full max-w-4xl shadow-2xl my-8 animate-in fade-in zoom-in-95 duration-200 border ${
           isLight
             ? 'bg-[#FAF8F5] text-[#1A1816] border-[#E8DFC9]'
             : 'bg-[#0a0a0a] text-[#f5f4f0] border-[#222222]'
         }`}
       >
-        {/* Close Button - Top right of overlay */}
-        <button
-          ref={closeButtonRef}
-          onClick={onClose}
-          className={`absolute top-4 right-4 md:top-6 md:right-6 z-30 p-2.5 transition-colors cursor-pointer rounded-full ${
-            isLight
-              ? 'text-[#7D766E] hover:text-[#1A1816] bg-white/90 shadow-sm hover:bg-white border border-[#EAE2D5]'
-              : 'text-[#8c8985] hover:text-white bg-black/70 shadow-sm hover:bg-black/90 border border-[#222222]'
-          }`}
-          aria-label="Close"
-        >
-          <X className="w-5 h-5" />
-        </button>
-
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Left: Fragrance Bottle with Printed Plaque & Halo - Flush toward details column */}
           <div
@@ -120,6 +106,23 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
               borderColor: isLight ? '#E8DFC9' : '#222222'
             }}
           >
+            {/* Mobile close button on photo pane */}
+            <button
+              onClick={onClose}
+              className={`md:hidden absolute z-50 w-10 h-10 min-w-[40px] min-h-[40px] rounded-full flex items-center justify-center transition-all cursor-pointer border ${
+                isLight
+                  ? 'border-[#C5A059]/40 bg-white/95 text-[#1A1816] shadow-sm'
+                  : 'border-[#C5A059]/40 bg-[#141414]/95 text-[#EAE2D5] shadow-sm'
+              }`}
+              style={{
+                top: 'max(16px, env(safe-area-inset-top, 16px))',
+                right: '16px'
+              }}
+              aria-label="Close"
+            >
+              <X className="w-5 h-5 shrink-0" strokeWidth={1.5} />
+            </button>
+
             {/* Soft Ambient Halo */}
             <div
               className="absolute inset-0 opacity-50 blur-[40px] pointer-events-none"
@@ -141,20 +144,31 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
             </div>
           </div>
 
-          {/* Right: Olfactory Details & Actions */}
-          <div className="relative p-6 sm:p-8 md:p-12 flex flex-col justify-between space-y-8">
-            {/* Close Button - Top right of details column (visible on mobile) */}
+          {/* Right: Olfactory Details & Actions (Cream Column) */}
+          <div
+            className="relative p-6 sm:p-8 md:p-12 flex flex-col justify-between space-y-8"
+            style={{
+              backgroundColor: isLight ? '#FAF8F5' : '#0a0a0a'
+            }}
+          >
+            {/* Close Button — 40×40px hit area, full ×, never a partial ring, never clipped */}
             <button
+              ref={closeButtonRef}
               onClick={onClose}
-              className={`md:hidden absolute top-5 right-5 z-20 p-2 transition-colors cursor-pointer rounded-full ${
+              className={`absolute z-50 w-10 h-10 min-w-[40px] min-h-[40px] rounded-full flex items-center justify-center transition-all cursor-pointer border ${
                 isLight
-                  ? 'text-[#7D766E] hover:text-[#1A1816] bg-black/5 hover:bg-black/10'
-                  : 'text-[#8c8985] hover:text-white bg-white/10 hover:bg-white/20'
+                  ? 'border-[#C5A059]/40 bg-white text-[#1A1816] hover:bg-[#FAF8F5] hover:text-[#C5A059] shadow-sm'
+                  : 'border-[#C5A059]/40 bg-[#141414] text-[#EAE2D5] hover:bg-[#1f1d1b] hover:text-[#C5A059] shadow-sm'
               }`}
+              style={{
+                top: 'max(16px, env(safe-area-inset-top, 16px))',
+                right: '16px'
+              }}
               aria-label="Close"
             >
-              <X className="w-5 h-5" />
+              <X className="w-5 h-5 shrink-0" strokeWidth={1.5} />
             </button>
+
             <div className="space-y-6">
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
@@ -251,7 +265,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                         : 'border-[#262626] text-[#8c8985] hover:border-white hover:text-white'
                     }`}
                   >
-                    50 ML (${fragrance.price})
+                    50 ML (Rs {fragrance.price.toLocaleString()})
                   </button>
                   <button
                     onClick={() => setSelectedSize('100ml')}
@@ -265,7 +279,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                         : 'border-[#262626] text-[#8c8985] hover:border-white hover:text-white'
                     }`}
                   >
-                    100 ML (${Math.round(fragrance.price * 1.45)})
+                    100 ML (Rs 2,499)
                   </button>
                 </div>
               </div>
@@ -318,7 +332,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                     isLight ? 'text-[#1A1816]' : 'text-white'
                   }`}
                 >
-                  ${currentPrice}
+                  Rs {currentPrice.toLocaleString()}
                 </span>
               </div>
 
@@ -342,6 +356,22 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                   <span>ADD TO BAG</span>
                 )}
               </button>
+            </div>
+
+            {/* Direct WhatsApp Concierge Order / Query */}
+            <div className="pt-2 text-center border-t border-[#E8DFC9]/40">
+              <a
+                href={`https://wa.me/923132970468?text=${encodeURIComponent(
+                  `Hello FUME Concierge, I would like to inquire / order ${fragrance.name} (${selectedSize} - Rs ${currentPrice.toLocaleString()})${monogram ? ` with bespoke monogram "${monogram}"` : ''}.`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.22em] font-sans transition-colors py-1 ${
+                  isLight ? 'text-[#7D766E] hover:text-[#C5A059]' : 'text-[#8c8985] hover:text-[#C5A059]'
+                }`}
+              >
+                <span>✦ Order or Inquire via WhatsApp (+92 313 297 0468) →</span>
+              </a>
             </div>
           </div>
         </div>

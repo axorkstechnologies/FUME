@@ -19,6 +19,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = encodeURIComponent(`FUME Concierge Inquiry: ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    window.location.href = `mailto:jiaaryan20@gmail.com?subject=${subject}&body=${body}`;
     setSent(true);
     setTimeout(() => {
       setSent(false);
@@ -144,16 +147,33 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
               />
             </div>
 
-            <button
-              type="submit"
-              className={`w-full py-3.5 transition-colors uppercase tracking-[0.24em] font-medium text-[11px] cursor-pointer mt-2 ${
-                isLight
-                  ? 'bg-[#1A1816] text-[#FAF8F5] hover:bg-[#C5A059]'
-                  : 'bg-white text-black hover:bg-[#C5A059] hover:text-black'
-              }`}
-            >
-              TRANSMIT DOSSIER
-            </button>
+            <div className="space-y-2 pt-2">
+              <button
+                type="submit"
+                className={`w-full py-3.5 transition-colors uppercase tracking-[0.24em] font-medium text-[11px] cursor-pointer ${
+                  isLight
+                    ? 'bg-[#1A1816] text-[#FAF8F5] hover:bg-[#C5A059]'
+                    : 'bg-white text-black hover:bg-[#C5A059] hover:text-black'
+                }`}
+              >
+                TRANSMIT DOSSIER VIA EMAIL
+              </button>
+
+              <a
+                href={`https://wa.me/923132970468?text=${encodeURIComponent(
+                  `Hello FUME Concierge, my name is ${name || 'Patron'}${email ? ` (${email})` : ''}.\nInquiry: ${message || 'I would like to inquire regarding FUME bespoke services.'}`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`w-full py-3 border transition-colors uppercase tracking-[0.22em] font-medium text-[11px] cursor-pointer text-center block ${
+                  isLight
+                    ? 'border-[#C5A059] text-[#1A1816] hover:bg-[#C5A059]/10'
+                    : 'border-[#C5A059] text-[#EAE2D5] hover:bg-[#C5A059]/10'
+                }`}
+              >
+                DIRECT INQUIRY ON WHATSAPP (+92 313 297 0468)
+              </a>
+            </div>
           </form>
         )}
       </div>

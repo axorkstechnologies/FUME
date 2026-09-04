@@ -162,7 +162,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
                 <div className="flex items-center gap-4">
                   <span className="text-xs font-sans font-medium text-[#C5A059]">
-                    ${fragrance.price}
+                    Rs {fragrance.price.toLocaleString()}
                   </span>
                   <ArrowRight
                     className={`w-4 h-4 group-hover:translate-x-1 transition-transform ${

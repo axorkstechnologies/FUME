@@ -208,6 +208,24 @@ export const Footer: React.FC<FooterProps> = ({
                   Bottle Care & FAQs
                 </button>
               </li>
+              <li className="pt-1 border-t border-[#E5DAC8]/40">
+                <a
+                  href="mailto:jiaaryan20@gmail.com"
+                  className="hover:text-[#C5A059] transition-colors lowercase block"
+                >
+                  jiaaryan20@gmail.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/923132970468"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#C5A059] transition-colors block"
+                >
+                  WhatsApp: +92 313 297 0468
+                </a>
+              </li>
             </ul>
           </div>
 

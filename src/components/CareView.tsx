@@ -306,6 +306,31 @@ export const CareView: React.FC<CareViewProps> = ({
             Our dedicated client concierge is available daily for private orders, customized bridal flacons, and batch lookups.
           </p>
 
+          <div className="flex flex-wrap items-center justify-center gap-6 pt-1 text-xs font-sans">
+            <a
+              href="mailto:jiaaryan20@gmail.com"
+              className="text-[#C5A059] hover:underline"
+            >
+              jiaaryan20@gmail.com
+            </a>
+            <span className="text-[#8c8985]">•</span>
+            <a
+              href="tel:+923132970468"
+              className="text-[#C5A059] hover:underline"
+            >
+              +92 313 297 0468
+            </a>
+            <span className="text-[#8c8985]">•</span>
+            <a
+              href="https://wa.me/923132970468?text=Hello%20FUME%20Concierge"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#C5A059] hover:underline"
+            >
+              WhatsApp (+92 313 297 0468)
+            </a>
+          </div>
+
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <button
               onClick={onNavigateToContact}
@@ -313,16 +338,18 @@ export const CareView: React.FC<CareViewProps> = ({
             >
               CONTACT CONCIERGE
             </button>
-            <button
-              onClick={onShopPerfumes}
+            <a
+              href="https://wa.me/923132970468?text=Hello%20FUME%20Concierge"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`px-8 py-3.5 border transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer ${
                 isLight
                   ? 'border-[#C5A059] text-[#1A1816] hover:bg-white'
                   : 'border-[#C5A059] text-white hover:bg-white/5'
               }`}
             >
-              VIEW COLLECTION
-            </button>
+              CHAT ON WHATSAPP
+            </a>
           </div>
         </div>
       </div>

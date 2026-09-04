@@ -180,7 +180,7 @@ export const PerfumesView: React.FC<PerfumesViewProps> = ({
                       isLight ? 'text-[#1A1816]' : 'text-[#d4d2cc]'
                     }`}
                   >
-                    ${fragrance.price}
+                    Rs {fragrance.price.toLocaleString()}
                   </span>
                   <span className="text-[10px] text-[#C5A059] font-serif">✦</span>
                 </div>

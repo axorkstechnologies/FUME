@@ -138,7 +138,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                           isLight ? 'text-[#1A1816]' : 'text-white'
                         }`}
                       >
-                        ${item.price * item.quantity}
+                        Rs {(item.price * item.quantity).toLocaleString()}
                       </span>
                     </div>
 
@@ -202,12 +202,23 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 }`}
               >
                 <span>ESTIMATED TOTAL</span>
-                <span className="text-base">${subtotal}</span>
+                <span className="text-base">Rs {subtotal.toLocaleString()}</span>
               </div>
 
               <button
                 onClick={() => {
-                  alert(`Proceeding to FUME Secure Allocation Checkout ($${subtotal}). Thank you.`);
+                  const cartDetails = cartItems
+                    .map(
+                      (i) =>
+                        `• ${i.fragrance.name} (${i.size}, qty: ${i.quantity}) - Rs ${(
+                          i.price * i.quantity
+                        ).toLocaleString()}`
+                    )
+                    .join('\n');
+                  const msg = encodeURIComponent(
+                    `Hello FUME Concierge, I would like to place an order:\n\n${cartDetails}\n\nTotal: Rs ${subtotal.toLocaleString()}`
+                  );
+                  window.open(`https://wa.me/923132970468?text=${msg}`, '_blank');
                   onClose();
                 }}
                 className={`w-full py-4 text-xs uppercase tracking-[0.25em] font-sans font-medium transition-colors cursor-pointer flex items-center justify-center gap-2 ${
@@ -216,7 +227,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     : 'bg-[#C5A059] text-black hover:bg-white'
                 }`}
               >
-                <span>SECURE CHECKOUT</span>
+                <span>ORDER VIA WHATSAPP CHECKOUT</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
 

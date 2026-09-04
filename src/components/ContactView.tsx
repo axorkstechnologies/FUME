@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { ThemeMode } from '../types';
-import { Mail, Phone, MapPin, Clock, Check, Send, Sparkles } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Check, Send, Sparkles, MessageCircle } from 'lucide-react';
 
 interface ContactViewProps {
   onNavigateToCare: () => void;
@@ -22,6 +22,11 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const subject = encodeURIComponent(`FUME Inquiry: ${formData.inquiryType} - ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nInquiry Category: ${formData.inquiryType}\n\nMessage:\n${formData.message}`
+    );
+    window.location.href = `mailto:jiaaryan20@gmail.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -154,18 +159,27 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
               </h4>
               <div className="space-y-3 text-xs font-sans">
                 <a
-                  href="mailto:concierge@fume-parfums.com"
+                  href="mailto:jiaaryan20@gmail.com"
                   className="flex items-center gap-3 hover:text-[#C5A059] transition-colors"
                 >
                   <Mail className="w-4 h-4 text-[#C5A059] shrink-0" />
-                  <span>concierge@fume-parfums.com</span>
+                  <span>jiaaryan20@gmail.com</span>
                 </a>
                 <a
-                  href="tel:+33142688800"
+                  href="tel:+923132970468"
                   className="flex items-center gap-3 hover:text-[#C5A059] transition-colors"
                 >
                   <Phone className="w-4 h-4 text-[#C5A059] shrink-0" />
-                  <span>+33 (0)1 42 68 88 00 (Intl. Desk)</span>
+                  <span>+92 313 297 0468</span>
+                </a>
+                <a
+                  href="https://wa.me/923132970468"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 hover:text-[#C5A059] transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4 text-[#C5A059] shrink-0" />
+                  <span>WhatsApp: +92 313 297 0468</span>
                 </a>
                 <div className="flex items-center gap-3 text-[#7D766E]">
                   <MapPin className="w-4 h-4 text-[#C5A059] shrink-0" />
@@ -364,17 +378,35 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    className={`w-full py-4 transition-all uppercase tracking-[0.28em] font-medium text-[11px] cursor-pointer flex items-center justify-center gap-2 ${
-                      isLight
-                        ? 'bg-[#1A1816] text-[#FAF8F5] hover:bg-[#C5A059] hover:text-black'
-                        : 'bg-white text-black hover:bg-[#C5A059] hover:text-black'
-                    }`}
-                  >
-                    <span>TRANSMIT DOSSIER TO CONCIERGE</span>
-                    <Send className="w-3.5 h-3.5" />
-                  </button>
+                  <div className="pt-2 space-y-3">
+                    <button
+                      type="submit"
+                      className={`w-full py-4 transition-all uppercase tracking-[0.28em] font-medium text-[11px] cursor-pointer flex items-center justify-center gap-2 ${
+                        isLight
+                          ? 'bg-[#1A1816] text-[#FAF8F5] hover:bg-[#C5A059] hover:text-black'
+                          : 'bg-white text-black hover:bg-[#C5A059] hover:text-black'
+                      }`}
+                    >
+                      <span>TRANSMIT DOSSIER TO CONCIERGE</span>
+                      <Send className="w-3.5 h-3.5" />
+                    </button>
+
+                    <a
+                      href={`https://wa.me/923132970468?text=${encodeURIComponent(
+                        `Hello FUME Concierge, my name is ${formData.name || 'Patron'}${formData.email ? ` (${formData.email})` : ''}.\nInquiry category: ${formData.inquiryType}\nMessage:\n${formData.message || 'I would like to inquire regarding FUME haute fragrances.'}`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`w-full py-3.5 border transition-all uppercase tracking-[0.28em] font-medium text-[11px] cursor-pointer flex items-center justify-center gap-2 ${
+                        isLight
+                          ? 'border-[#C5A059] text-[#1A1816] hover:bg-[#C5A059]/10'
+                          : 'border-[#C5A059] text-[#EAE2D5] hover:bg-[#C5A059]/10'
+                      }`}
+                    >
+                      <MessageCircle className="w-3.5 h-3.5 text-[#C5A059]" />
+                      <span>DIRECT INQUIRY VIA WHATSAPP (+92 313 297 0468)</span>
+                    </a>
+                  </div>
                 </form>
               )}
             </div>
