@@ -22,75 +22,78 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     <section
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-0 bg-[#070707] text-[#f5f4f0]"
     >
-      {/* Dynamic Animated Ambient Colors & Scent Dispersion */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
-        {/* Animated Moving Gold & Amber Aura Behind the Flacon */}
-        <motion.div
-          className="absolute w-[450px] h-[450px] md:w-[700px] md:h-[700px] rounded-full blur-[100px] pointer-events-none"
-          style={{
-            background:
-              'radial-gradient(circle, rgba(197, 160, 89, 0.38) 0%, rgba(160, 115, 65, 0.22) 40%, rgba(10, 10, 10, 0.85) 75%, transparent 100%)'
-          }}
-          animate={{
-            scale: [1, 1.12, 0.96, 1],
-            rotate: [0, 90, 180, 360],
-            opacity: [0.55, 0.75, 0.55]
-          }}
-          transition={{
-            duration: 22,
-            repeat: Infinity,
-            ease: 'easeInOut'
-          }}
-        />
-
-        {/* Floating Warm Shimmer Halo */}
-        <motion.div
-          className="absolute w-[300px] h-[300px] md:w-[500px] md:h-[500px] rounded-full blur-[85px] pointer-events-none opacity-40"
-          style={{
-            background: 'radial-gradient(circle, rgba(230, 202, 140, 0.25) 0%, rgba(35, 25, 15, 0.6) 60%, transparent 80%)'
-          }}
-          animate={{
-            x: [-25, 30, -25],
-            y: [20, -30, 20]
-          }}
-          transition={{
-            duration: 16,
-            repeat: Infinity,
-            ease: 'easeInOut'
-          }}
-        />
-
-        {/* Animated Floating Flacon with Luxury Printed Plaque on Glass */}
-        <motion.div
-          key={activeFragrance.id}
-          className="relative w-full h-full max-w-5xl max-h-[850px] flex items-center justify-center select-none z-10"
-          animate={{
-            y: [0, -14, 0],
-            rotate: [0, 0.35, 0, -0.35, 0]
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: 'easeInOut'
-          }}
-        >
-          <FlaconBottle
-            fragrance={activeFragrance}
-            variant="hero"
-            themeMode="dark"
-            className="w-full h-full max-w-[500px] max-h-[620px] transition-transform duration-700 hover:scale-[1.03]"
+      {/* Dynamic Animated Ambient Colors, Scent Dispersion & Floating Flacon Stage */}
+      <div className="hero-stage absolute inset-0 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 flex items-center justify-center lg:justify-end pointer-events-none overflow-hidden">
+        {/* Right-positioned Hero Bottle Group with Ambient Halo and Aura */}
+        <div className="hero-bottle relative w-full max-w-[500px] lg:max-w-[520px] xl:max-w-[560px] h-full flex items-center justify-center lg:justify-end pointer-events-none lg:mr-2 xl:mr-8">
+          {/* Animated Moving Gold & Amber Aura Behind the Flacon */}
+          <motion.div
+            className="absolute w-[450px] h-[450px] md:w-[650px] md:h-[650px] rounded-full blur-[100px] pointer-events-none"
+            style={{
+              background:
+                'radial-gradient(circle, rgba(197, 160, 89, 0.38) 0%, rgba(160, 115, 65, 0.22) 40%, rgba(10, 10, 10, 0.85) 75%, transparent 100%)'
+            }}
+            animate={{
+              scale: [1, 1.12, 0.96, 1],
+              rotate: [0, 90, 180, 360],
+              opacity: [0.55, 0.75, 0.55]
+            }}
+            transition={{
+              duration: 22,
+              repeat: Infinity,
+              ease: 'easeInOut'
+            }}
           />
-        </motion.div>
 
-        {/* Soft bottom fade blending seamlessly from the dark hero into the page flow */}
-        <div
-          className={`absolute bottom-0 left-0 w-full h-44 bg-gradient-to-t pointer-events-none z-10 ${
-            isLight
-              ? 'from-[#FAF8F5] via-[#FAF8F5]/60 to-transparent'
-              : 'from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent'
-          }`}
-        />
+          {/* Floating Warm Shimmer Halo */}
+          <motion.div
+            className="absolute w-[300px] h-[300px] md:w-[480px] md:h-[480px] rounded-full blur-[85px] pointer-events-none opacity-40"
+            style={{
+              background: 'radial-gradient(circle, rgba(230, 202, 140, 0.25) 0%, rgba(35, 25, 15, 0.6) 60%, transparent 80%)'
+            }}
+            animate={{
+              x: [-20, 25, -20],
+              y: [15, -25, 15]
+            }}
+            transition={{
+              duration: 16,
+              repeat: Infinity,
+              ease: 'easeInOut'
+            }}
+          />
+
+          {/* Animated Floating Flacon with Luxury Printed Plaque on Glass */}
+          <motion.div
+            key={activeFragrance.id}
+            className="relative w-full h-full flex items-center justify-center lg:justify-end select-none z-10"
+            animate={{
+              y: [0, -14, 0],
+              rotate: [0, 0.35, 0, -0.35, 0]
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: 'easeInOut'
+            }}
+          >
+            <FlaconBottle
+              fragrance={activeFragrance}
+              variant="hero"
+              themeMode="dark"
+              className="w-full h-full max-w-[440px] lg:max-w-[480px] xl:max-w-[520px] max-h-[620px] transition-transform duration-700 hover:scale-[1.03]"
+            />
+          </motion.div>
+        </div>
       </div>
+
+      {/* Soft bottom fade blending seamlessly from the dark hero into the page flow */}
+      <div
+        className={`absolute bottom-0 left-0 w-full h-44 bg-gradient-to-t pointer-events-none z-10 ${
+          isLight
+            ? 'from-[#FAF8F5] via-[#FAF8F5]/60 to-transparent'
+            : 'from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent'
+        }`}
+      />
 
       {/* Editorial Content Overlay */}
       <div className="relative z-20 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 flex flex-col justify-between min-h-[calc(100vh-6rem)] md:min-h-[calc(100vh-8rem)] py-12 md:py-16">

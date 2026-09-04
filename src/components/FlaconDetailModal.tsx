@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { X, Check } from 'lucide-react';
 import { Fragrance, ThemeMode } from '../types';
 import { FlaconBottle } from './FlaconBottle';
@@ -23,6 +23,52 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
   const [monogram, setMonogram] = useState('');
   const [added, setAdded] = useState(false);
 
+  const modalRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const previousActiveElement = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    previousActiveElement.current = document.activeElement as HTMLElement | null;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    closeButtonRef.current?.focus();
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        onClose();
+        return;
+      }
+
+      if (e.key === 'Tab' && modalRef.current) {
+        const focusables = modalRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = originalOverflow;
+      previousActiveElement.current?.focus?.();
+    };
+  }, [onClose]);
+
   const currentPrice = selectedSize === '50ml' ? fragrance.price : Math.round(fragrance.price * 1.45);
 
   const handleAdd = () => {
@@ -35,31 +81,40 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-black/75 backdrop-blur-md flex items-center justify-center p-4 md:p-8">
+    <div
+      className="fixed inset-0 z-50 overflow-y-auto bg-black/75 backdrop-blur-md flex items-center justify-center p-4 md:p-8"
+      onClick={onClose}
+    >
       <div
+        ref={modalRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={`FUME ${fragrance.name} Details`}
+        onClick={(e) => e.stopPropagation()}
         className={`relative w-full max-w-4xl shadow-2xl overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200 border ${
           isLight
             ? 'bg-[#FAF8F5] text-[#1A1816] border-[#E8DFC9]'
             : 'bg-[#0a0a0a] text-[#f5f4f0] border-[#222222]'
         }`}
       >
-        {/* Close Button */}
+        {/* Close Button - Top right of overlay */}
         <button
+          ref={closeButtonRef}
           onClick={onClose}
-          className={`absolute top-6 right-6 z-20 p-2 transition-colors cursor-pointer rounded-full ${
+          className={`absolute top-4 right-4 md:top-6 md:right-6 z-30 p-2.5 transition-colors cursor-pointer rounded-full ${
             isLight
-              ? 'text-[#7D766E] hover:text-[#1A1816] bg-white/80'
-              : 'text-[#8c8985] hover:text-white bg-black/60'
+              ? 'text-[#7D766E] hover:text-[#1A1816] bg-white/90 shadow-sm hover:bg-white border border-[#EAE2D5]'
+              : 'text-[#8c8985] hover:text-white bg-black/70 shadow-sm hover:bg-black/90 border border-[#222222]'
           }`}
-          aria-label="Close details"
+          aria-label="Close"
         >
           <X className="w-5 h-5" />
         </button>
 
         <div className="grid grid-cols-1 md:grid-cols-2">
-          {/* Left: Fragrance Bottle with Printed Plaque & Halo */}
+          {/* Left: Fragrance Bottle with Printed Plaque & Halo - Flush toward details column */}
           <div
-            className="relative aspect-[3/4] md:aspect-auto md:h-full overflow-hidden flex items-center justify-center border-r"
+            className="pdp-media relative aspect-[3/4] md:aspect-auto md:h-full overflow-hidden flex items-center justify-center md:justify-end border-b md:border-b-0 md:border-r"
             style={{
               backgroundColor: isLight ? fragrance.pastelBg : '#111111',
               borderColor: isLight ? '#E8DFC9' : '#222222'
@@ -87,7 +142,19 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
           </div>
 
           {/* Right: Olfactory Details & Actions */}
-          <div className="p-8 md:p-12 flex flex-col justify-between space-y-8">
+          <div className="relative p-6 sm:p-8 md:p-12 flex flex-col justify-between space-y-8">
+            {/* Close Button - Top right of details column (visible on mobile) */}
+            <button
+              onClick={onClose}
+              className={`md:hidden absolute top-5 right-5 z-20 p-2 transition-colors cursor-pointer rounded-full ${
+                isLight
+                  ? 'text-[#7D766E] hover:text-[#1A1816] bg-black/5 hover:bg-black/10'
+                  : 'text-[#8c8985] hover:text-white bg-white/10 hover:bg-white/20'
+              }`}
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
             <div className="space-y-6">
               <div className="space-y-2">
                 <div className="flex items-center gap-2">

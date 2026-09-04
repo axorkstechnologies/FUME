@@ -156,8 +156,8 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
 
   if (variant === 'detail') {
     return (
-      <div className={`relative w-full h-full flex items-center justify-center select-none ${className}`}>
-        <div className="relative aspect-square w-full max-w-[440px] max-h-full flex items-center justify-center [container-type:inline-size] mx-auto">
+      <div className={`relative w-full h-full flex items-center justify-center md:justify-end select-none ${className}`}>
+        <div className="relative aspect-square w-full max-w-[380px] sm:max-w-[420px] md:max-w-none md:w-auto md:h-full max-h-[520px] flex items-center justify-center md:justify-end [container-type:inline-size] mx-auto md:mx-0 md:ml-auto">
           {/* Fragrance Bottle Image */}
           <img
             src={fragrance.image}
