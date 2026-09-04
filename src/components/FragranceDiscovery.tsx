@@ -38,10 +38,10 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
 
   const filteredFragrances = fragrances.filter((f) => {
     if (activeCategory === 'ALL') return true;
-    if (activeCategory === 'FOR HIM' || activeCategory === 'FOR HER' || activeCategory === 'UNISEX') {
-      return f.genderCategory === activeCategory;
-    }
-    return f.olfactoryFamily === activeCategory;
+    if (activeCategory === 'FOR HIM') return f.gender === 'him';
+    if (activeCategory === 'FOR HER') return f.gender === 'her';
+    if (activeCategory === 'UNISEX') return f.gender === 'unisex';
+    return f.families.includes(activeCategory.toLowerCase());
   });
 
   return (

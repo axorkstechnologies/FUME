@@ -10,6 +10,10 @@ export interface Fragrance {
   price: number;
   genderCategory: 'FOR HIM' | 'FOR HER' | 'UNISEX';
   olfactoryFamily: 'FRESH' | 'WOODY' | 'ORIENTAL';
+  gender: 'him' | 'her' | 'unisex';
+  families: string[]; // e.g. ['fresh', 'woody'] — canonical multi-family for filtering
+  discovery: boolean; // true for the 5 hero discovery scents
+  notesLine: string; // one-liner notes description from catalog
   image: string;
   topNotes: string;
   heartNotes: string;

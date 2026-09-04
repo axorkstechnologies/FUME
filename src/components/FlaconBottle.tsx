@@ -30,12 +30,13 @@ interface FlaconLabelProps {
 const FlaconLabel: React.FC<FlaconLabelProps> = ({ name, customMonogram, compact }) => {
   return (
     <div
-      className="absolute select-none pointer-events-none z-10 text-center"
+      className="bottle-label absolute select-none pointer-events-none z-10 text-center"
       style={{
         top: '40.40%',
         left: '44.10%',
         width: '26.50%',
         height: '30.20%',
+        transform: compact ? 'translateX(-2.5px)' : 'translateX(-6px)',
       }}
       aria-hidden="true"
     >

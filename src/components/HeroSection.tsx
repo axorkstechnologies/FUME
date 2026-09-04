@@ -157,7 +157,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </span>
             </div>
             <div className="flex flex-wrap items-center gap-1.5 justify-center md:justify-start">
-              {FRAGRANCES.slice(0, 5).map((frag) => {
+              {FRAGRANCES.filter(f => f.discovery).map((frag) => {
                 const isCurrent = activeFragrance.id === frag.id;
                 return (
                   <button

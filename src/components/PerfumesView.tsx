@@ -25,10 +25,10 @@ export const PerfumesView: React.FC<PerfumesViewProps> = ({
   const filteredFragrances = useMemo(() => {
     let list = fragrances.filter((f) => {
       if (selectedTag === 'ALL') return true;
-      if (selectedTag === 'FOR HIM' || selectedTag === 'FOR HER' || selectedTag === 'UNISEX') {
-        return f.genderCategory === selectedTag;
-      }
-      return f.olfactoryFamily === selectedTag;
+      if (selectedTag === 'FOR HIM') return f.gender === 'him';
+      if (selectedTag === 'FOR HER') return f.gender === 'her';
+      if (selectedTag === 'UNISEX') return f.gender === 'unisex';
+      return f.families.includes(selectedTag.toLowerCase());
     });
 
     if (sortBy === 'price-asc') {
@@ -69,7 +69,7 @@ export const PerfumesView: React.FC<PerfumesViewProps> = ({
               isLight ? 'text-[#7D766E]' : 'text-[#8c8985]'
             }`}
           >
-            Explore all eight signature FUME flacons, formulated in Grasse since 2024 for exceptional longevity.
+            Explore all signature FUME flacons, formulated in Grasse since 2024 for exceptional longevity.
           </p>
         </div>
 
