@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #FAF8F5;
+  --color-ivory-warm: #F5F1E9;
+  --color-ivory-soft: #FDFCFA;
+  --color-gold: #C5A059;
+  --color-gold-light: #E5C985;
+  --color-gold-dark: #9A7B39;
+  --color-gold-muted: #D4BA7A;
+  
+  --font-serif: "Bodoni Moda", "Cinzel", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+@keyframes floatOrb1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(40px, -60px) scale(1.12);
+  }
+  66% {
+    transform: translate(-35px, 45px) scale(0.92);
+  }
+}
+
+@keyframes floatOrb2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(-50px, 50px) scale(0.95);
+  }
+  66% {
+    transform: translate(45px, -35px) scale(1.15);
+  }
+}
+
+@keyframes floatOrb3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(30px, 40px) scale(1.08);
+  }
+}
+
+@keyframes shimmerGold {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-float-1 {
+  animation: floatOrb1 18s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: floatOrb2 22s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: floatOrb3 15s ease-in-out infinite;
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.shimmer-gold {
+  background: linear-gradient(
+    90deg,
+    rgba(197, 160, 89, 0) 0%,
+    rgba(229, 201, 133, 0.4) 50%,
+    rgba(197, 160, 89, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmerGold 3s infinite;
+}
+
+/* Custom scrollbar and smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f7f4ee;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d4ba7a;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c5a059;
+}

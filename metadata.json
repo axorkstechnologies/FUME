@@ -1,0 +1,8 @@
+{
+  "name": " FUME | Luxury Perfume House • Since 2024",
+  "description": "Scent, Refined. Sophisticated, long-lasting luxury fragrances crafted in Grasse and Paris since 2024.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
