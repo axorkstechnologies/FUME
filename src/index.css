@@ -98,18 +98,79 @@ html {
   scroll-behavior: auto;
 }
 
-/* 3-column normal flow header with >=40px gap between CLIENT CARE and FUME */
+/* Mobile Header (< 768px): Clean 3-column layout matching approved mobile UI */
 .site-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   align-items: center;
-  column-gap: 40px;
+  column-gap: 16px;
+  position: relative;
 }
 
 .brand {
   position: static;
   transform: none;
   justify-self: center;
+}
+
+/* Tablet & Desktop Header (>= 768px): Permanent Center Logo & Safe Zone Isolation */
+@media (min-width: 768px) {
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    column-gap: 0;
+  }
+
+  /* The "FUME" logo is permanently and perfectly centered in the viewport */
+  .brand {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    pointer-events: auto;
+    margin: 0;
+  }
+
+  /* Left navigation boundary: stops >= 45px before the center logo */
+  .nav-left {
+    max-width: calc(50% - 110px);
+    flex: 0 1 auto;
+    min-width: 0;
+    z-index: 20;
+  }
+
+  /* Right navigation boundary: stops >= 45px after the center logo */
+  .nav-right {
+    max-width: calc(50% - 110px);
+    flex: 0 1 auto;
+    min-width: 0;
+    z-index: 20;
+  }
+
+  /* Fluid, harmonious gap for navigation links so CLIENT CARE never touches FUME */
+  .nav-left nav {
+    gap: clamp(6px, 1.1vw, 22px);
+    max-width: 100%;
+  }
+
+  /* Proportional letter-spacing and font-size across laptop and desktop screens */
+  .nav-left nav button {
+    font-size: clamp(9.5px, 0.75vw, 11px);
+    letter-spacing: clamp(0.06em, 0.08vw, 0.15em);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+/* Fine-tune logo tracking on laptop & tablet (768px - 1280px) to maximize luxury elegance & clearance */
+@media (min-width: 768px) and (max-width: 1280px) {
+  .brand button span:first-child {
+    font-size: clamp(24px, 2.3vw, 28px);
+    letter-spacing: 0.32em;
+  }
 }
 
 ::-webkit-scrollbar {

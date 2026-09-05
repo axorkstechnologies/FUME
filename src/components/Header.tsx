@@ -67,15 +67,7 @@ export const Header: React.FC<HeaderProps> = ({
           : 'bg-gradient-to-b from-[#0a0a0a]/90 via-[#0a0a0a]/40 to-transparent'
       }`}
     >
-      <div
-        className="site-header w-full max-w-[1700px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-12 h-20 md:h-24"
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'minmax(0, 1fr) auto minmax(0, 1fr)',
-          alignItems: 'center',
-          columnGap: '40px'
-        }}
-      >
+      <div className="site-header w-full max-w-[1700px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-12 h-20 md:h-24">
         {/* Left Navigation: Mobile Hamburger, Condensed (md), Full (lg) */}
         <div className="nav-left flex items-center min-w-0">
           {/* Mobile Hamburger Toggle (Left on mobile) */}
@@ -185,14 +177,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Center: FUME Wordmark & SINCE 2024 */}
-        <div
-          className="brand flex items-center justify-center"
-          style={{
-            position: 'static',
-            transform: 'none',
-            justifySelf: 'center'
-          }}
-        >
+        <div className="brand flex items-center justify-center">
           <button
             onClick={() => handleLinkClick('home')}
             className="cursor-pointer group flex flex-col items-center"
@@ -216,7 +201,7 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
 
         {/* Right Navigation: Theme Toggle, Search, Account, Shopping Bag */}
-        <div className="flex items-center justify-end gap-3 sm:gap-4 md:gap-5 min-w-0">
+        <div className="nav-right flex items-center justify-end gap-3 sm:gap-4 md:gap-5 min-w-0">
           {/* Theme Palette Toggle */}
           <button
             onClick={onToggleTheme}
