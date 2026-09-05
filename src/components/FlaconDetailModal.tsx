@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Check } from 'lucide-react';
-import { Fragrance, ThemeMode } from '../types';
+import { Fragrance, ThemeMode, Film } from '../types';
 import { FlaconBottle } from './FlaconBottle';
+import { FilmPlayer } from './FilmPlayer';
+import { getPrimaryFilmForProduct } from '../data/films';
 import { resetScrollLock } from '../utils/scrollLock';
 import { getPrice50, getPrice100 } from '../utils/pricing';
 
@@ -10,6 +12,7 @@ interface FlaconDetailModalProps {
   fragrance: Fragrance | null;
   onClose: () => void;
   onAddToCart: (fragrance: Fragrance, size: '50ml' | '100ml', price: number) => void;
+  onOpenReel?: (film: Film) => void;
   themeMode: ThemeMode;
 }
 
@@ -17,6 +20,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
   fragrance,
   onClose,
   onAddToCart,
+  onOpenReel,
   themeMode
 }) => {
   if (!fragrance) return null;
@@ -25,6 +29,13 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
   const [selectedSize, setSelectedSize] = useState<'50ml' | '100ml'>('50ml');
   const [monogram, setMonogram] = useState('');
   const [added, setAdded] = useState(false);
+  const [mediaTab, setMediaTab] = useState<'bottle' | 'film'>('bottle');
+
+  const matchingFilm = getPrimaryFilmForProduct(fragrance.id);
+
+  useEffect(() => {
+    setMediaTab('bottle');
+  }, [fragrance.id]);
 
   const modalRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
@@ -147,26 +158,73 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
             overflow: 'hidden'
           }}
         >
-          {/* Soft Ambient Halo */}
-          <div
-            className="absolute inset-0 opacity-50 blur-[40px] pointer-events-none"
-            style={{
-              background: `radial-gradient(circle, ${fragrance.pastelGlow} 0%, transparent 70%)`
-            }}
-          />
+          {/* Bottle / Film Switcher (Visible when a fragrance film exists) */}
+          {matchingFilm && (
+            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-30 flex items-center bg-black/75 backdrop-blur-md rounded-full p-1 border border-white/20 shadow-xl pointer-events-auto">
+              <button
+                type="button"
+                onClick={() => setMediaTab('bottle')}
+                className={`px-3 py-1 rounded-full text-[9px] uppercase tracking-[0.22em] font-sans font-medium transition-all cursor-pointer ${
+                  mediaTab === 'bottle'
+                    ? 'bg-[#C5A059] text-black font-semibold shadow-sm'
+                    : 'text-white/80 hover:text-white'
+                }`}
+              >
+                FLACON
+              </button>
+              <button
+                type="button"
+                onClick={() => setMediaTab('film')}
+                className={`px-3 py-1 rounded-full text-[9px] uppercase tracking-[0.22em] font-sans font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
+                  mediaTab === 'film'
+                    ? 'bg-[#C5A059] text-black font-semibold shadow-sm'
+                    : 'text-white/80 hover:text-white'
+                }`}
+              >
+                <span>THE FILM</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] animate-pulse" />
+              </button>
+            </div>
+          )}
 
-          <FlaconBottle
-            fragrance={fragrance}
-            variant="detail"
-            themeMode={themeMode}
-            customMonogram={monogram}
-            className="w-full h-full"
-            imageClassName="object-contain md:!object-right w-full h-full"
-          />
+          {mediaTab === 'film' && matchingFilm ? (
+            <div className="relative w-full h-full flex items-center justify-center bg-black">
+              <FilmPlayer
+                film={matchingFilm}
+                aspectRatio="auto"
+                className="w-full h-full"
+                autoPlayInView={true}
+                initialMuted={false}
+                showControls={true}
+                showOverlayInfo={true}
+                onOpenReel={onOpenReel}
+                themeMode={themeMode}
+              />
+            </div>
+          ) : (
+            <>
+              {/* Soft Ambient Halo */}
+              <div
+                className="absolute inset-0 opacity-50 blur-[40px] pointer-events-none"
+                style={{
+                  background: `radial-gradient(circle, ${fragrance.pastelGlow} 0%, transparent 70%)`
+                }}
+              />
 
-          <div className="absolute bottom-4 left-4 z-20 text-[9px] uppercase tracking-[0.3em] font-sans text-[#C5A059] font-medium bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-xs border border-[#C5A059]/30 pointer-events-none">
-            HAUTE FLACON • SINCE 2024
-          </div>
+              <FlaconBottle
+                fragrance={fragrance}
+                variant="detail"
+                themeMode={themeMode}
+                customMonogram={monogram}
+                className="w-full h-full"
+                imageClassName="object-contain md:!object-right w-full h-full"
+              />
+
+              <div className="absolute bottom-4 left-4 z-20 text-[9px] uppercase tracking-[0.3em] font-sans text-[#C5A059] font-medium bg-black/40 backdrop-blur-xs px-2.5 py-1 rounded-xs border border-[#C5A059]/30 pointer-events-none">
+                HAUTE FLACON • SINCE 2024
+              </div>
+            </>
+          )}
         </div>
 
         {/* Right: Olfactory Details & Actions Pane (min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding-top: 56px) */}
@@ -207,6 +265,15 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                 <p className="text-xs uppercase tracking-[0.25em] text-[#C5A059] font-sans">
                   {fragrance.subtitle}
                 </p>
+                {matchingFilm && (
+                  <button
+                    type="button"
+                    onClick={() => setMediaTab('film')}
+                    className="inline-flex items-center gap-1.5 text-[9px] uppercase tracking-[0.25em] text-[#C5A059] hover:underline font-sans font-medium transition-colors cursor-pointer pt-1"
+                  >
+                    <span>✦ Watch Experience on Film ({matchingFilm.kicker}) →</span>
+                  </button>
+                )}
               </div>
 
               <p

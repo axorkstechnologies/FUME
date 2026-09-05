@@ -20,7 +20,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
   return (
     <section
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-0 bg-[#070707] text-[#f5f4f0]"
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28 lg:pt-32 bg-[#070707] text-[#f5f4f0]"
     >
       {/* Dynamic Animated Ambient Colors, Scent Dispersion & Floating Flacon Stage */}
       <div className="hero-stage absolute inset-0 w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 flex items-center justify-center lg:justify-end pointer-events-none overflow-hidden">

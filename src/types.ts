@@ -41,5 +41,25 @@ export interface Currency {
   rate: number;
 }
 
-export type ScreenView = 'home' | 'perfumes' | 'collections' | 'story' | 'contact' | 'care';
+export type ScreenView = 'home' | 'perfumes' | 'collections' | 'story' | 'contact' | 'care' | 'films';
 export type ThemeMode = 'light' | 'dark';
+
+export type FilmKind = 'lifestyle' | 'review' | 'house';
+
+export interface Film {
+  id: string;
+  src: string;
+  poster: string;
+  title: string;
+  kicker: string;
+  duration: string; // e.g. '0:43'
+  durationSec: number;
+  kind: FilmKind;
+  productId?: string; // id of associated fragrance, or undefined for house
+  productName?: string;
+  loop: boolean;
+  autoPlayMuted: boolean;
+  blurb: string;
+  author?: string;
+  authorRole?: string;
+}

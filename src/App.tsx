@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Fragrance, CartItem, ScreenView, ThemeMode } from './types';
+import { Fragrance, CartItem, ScreenView, ThemeMode, Film } from './types';
 import { FRAGRANCES } from './data/fragrances';
+import { FILMS } from './data/films';
 import { AmbientCanvas } from './components/AmbientCanvas';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
@@ -8,6 +9,8 @@ import { BrandMarquee } from './components/BrandMarquee';
 import { FeaturedCollection } from './components/FeaturedCollection';
 import { EditorialBrand } from './components/EditorialBrand';
 import { FragranceDiscovery } from './components/FragranceDiscovery';
+import { FilmsSection } from './components/FilmsSection';
+import { ReelViewerModal } from './components/ReelViewerModal';
 import { CampaignBanner } from './components/CampaignBanner';
 import { BrandStatement } from './components/BrandStatement';
 import { Footer } from './components/Footer';
@@ -28,6 +31,7 @@ import { getPrice50, getPrice100 } from './utils/pricing';
 export function App() {
   const [currentView, setCurrentView] = useState<ScreenView>('home');
   const [selectedFragrance, setSelectedFragrance] = useState<Fragrance | null>(null);
+  const [activeReelFilm, setActiveReelFilm] = useState<Film | null>(null);
 
   // Theme Mode: Default to 'light' (Luminous Ivory & Gold with pastel tones), with instant Nocturne Dark toggle
   const [themeMode, setThemeMode] = useState<ThemeMode>(() => {
@@ -221,14 +225,37 @@ export function App() {
               themeMode={themeMode}
             />
 
-            {/* 5. FULL-WIDTH PRODUCT / CAMPAIGN IMAGE */}
+            {/* 5. FUME ON FILM / REAL STORIES */}
+            <FilmsSection
+              films={FILMS}
+              fragrances={FRAGRANCES}
+              onSelectFragrance={(f) => setSelectedFragrance(f)}
+              onOpenReel={(film) => setActiveReelFilm(film)}
+              onViewAllPerfumes={() => handleNavigate('perfumes')}
+              themeMode={themeMode}
+            />
+
+            {/* 6. FULL-WIDTH PRODUCT / CAMPAIGN IMAGE */}
             <CampaignBanner
               onShopNow={() => handleNavigate('perfumes')}
             />
 
-            {/* 6. BRAND STATEMENT with Since 2024 */}
+            {/* 7. BRAND STATEMENT with Since 2024 */}
             <BrandStatement themeMode={themeMode} />
           </>
+        )}
+
+        {currentView === 'films' && (
+          <div className="pt-20 md:pt-28">
+            <FilmsSection
+              films={FILMS}
+              fragrances={FRAGRANCES}
+              onSelectFragrance={(f) => setSelectedFragrance(f)}
+              onOpenReel={(film) => setActiveReelFilm(film)}
+              onViewAllPerfumes={() => handleNavigate('perfumes')}
+              themeMode={themeMode}
+            />
+          </div>
         )}
 
         {currentView === 'perfumes' && (
@@ -286,6 +313,18 @@ export function App() {
         fragrance={selectedFragrance}
         onClose={() => setSelectedFragrance(null)}
         onAddToCart={handleAddToCart}
+        onOpenReel={(film) => setActiveReelFilm(film)}
+        themeMode={themeMode}
+      />
+
+      {/* Full-Screen Vertical Reel Viewer */}
+      <ReelViewerModal
+        isOpen={Boolean(activeReelFilm)}
+        films={FILMS}
+        initialFilmId={activeReelFilm?.id}
+        fragrances={FRAGRANCES}
+        onClose={() => setActiveReelFilm(null)}
+        onSelectFragrance={(f) => setSelectedFragrance(f)}
         themeMode={themeMode}
       />
 
