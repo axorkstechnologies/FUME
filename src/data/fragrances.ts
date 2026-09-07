@@ -448,6 +448,7 @@ export const FRAGRANCES: Fragrance[] = [
   {
     id: 'limm',
     name: "L'IMM",
+    title: "FUME FRAGRANCES – L'IMM",
     subtitle: 'AMBER WOODS & MINERAL AIR',
     concentration: 'Eau de Parfum',
     volume: '50 ML / 1.7 FL OZ',
@@ -458,7 +459,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['fresh', 'woody'],
     discovery: false,
     notesLine: 'Amber woods, grapefruit, mineral air',
-    image: IMG_D,
+    image: '/bottles/limm.webp',
     topNotes: 'Grapefruit, Bergamot, Ozonic Accord',
     heartNotes: 'Lavender, Rosemary, Geranium',
     baseNotes: 'Amber Woods, Mineral Musk, Patchouli',
@@ -548,6 +549,7 @@ export const FRAGRANCES: Fragrance[] = [
   {
     id: 'owood',
     name: "O'WOOD",
+    title: "FUME FRAGRANCES – O'WOOD",
     subtitle: 'OAKMOSS & SMOKED WOODS',
     concentration: 'Eau de Parfum',
     volume: '50 ML / 1.7 FL OZ',
@@ -558,7 +560,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['woody'],
     discovery: false,
     notesLine: 'Oakmoss, smoked woods, vetiver',
-    image: IMG_C,
+    image: '/bottles/owood.webp',
     topNotes: 'Bergamot, Green Leaves',
     heartNotes: 'Oakmoss, Smoked Woods',
     baseNotes: 'Vetiver, Cedarwood, Musk',
