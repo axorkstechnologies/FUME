@@ -23,16 +23,21 @@ export const PRESTIGE_IDS = new Set<string>([
 ]);
 
 export const getPrice50 = (id: string): number => {
+  if (id.toLowerCase() === 'discovery-set') return 1200;
   return PRESTIGE_IDS.has(id.toLowerCase()) ? 2499 : 1899;
 };
 
-export const getPrice100 = (price50: number): number => {
+export const getPrice100 = (price50: number, id?: string): number => {
+  if (id && id.toLowerCase() === 'discovery-set') return 1200;
   return price50 >= 2400 ? 4950 : 3750;
 };
 
 export const getFragrancePrices = (id: string) => {
+  if (id.toLowerCase() === 'discovery-set') {
+    return { price50: 1200, price100: 1200 };
+  }
   const price50 = getPrice50(id);
-  const price100 = getPrice100(price50);
+  const price100 = getPrice100(price50, id);
   return { price50, price100 };
 };
 

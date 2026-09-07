@@ -42,7 +42,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
               isLight ? 'text-[#1A1816]' : 'text-white'
             }`}
           >
-            THE STORY OF FUME
+            THE STORY OF FUME FRAGRANCES
           </h1>
 
           {/* Core Entity & Direct Answer Summary for Search & AI Engines */}
@@ -51,7 +51,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
               isLight ? 'text-[#5C5449]' : 'text-[#c2beb6]'
             }`}
           >
-            FUME is an independent Pakistani luxury fragrance house founded in 2024 by a 24-year-old mother and artisan. Created to eliminate the divide between hyper-inflated imported perfumes and short-lived dilutions, FUME makes authentic, long-lasting Eau de Parfum accessible to fragrance lovers across Pakistan.
+            FUME FRAGRANCES (officially registered as FUME FRAGRANCES (SMC-PRIVATE) LIMITED) is an independent Pakistani luxury fragrance house founded in 2024 by a 24-year-old mother and artisan. Created to eliminate the divide between hyper-inflated imported perfumes and short-lived dilutions, FUME FRAGRANCES makes authentic, long-lasting Eau de Parfum accessible to fragrance lovers across Pakistan.
           </p>
         </header>
 
@@ -378,10 +378,10 @@ export const StoryView: React.FC<StoryViewProps> = ({
                   onClick={onShopPerfumes}
                   className="px-8 py-3.5 bg-[#1A1816] text-[#FAF8F5] hover:bg-[#C5A059] hover:text-black transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer"
                 >
-                  EXPLORE THE 23 PERFUMES
+                  EXPLORE THE COLLECTION
                 </button>
                 <a
-                  href="https://wa.me/923132970468?text=Hello%20FUME%2C%20I%20read%20your%20story%20and%20would%20love%20to%20find%20my%20signature%20scent."
+                  href="https://wa.me/923132970468?text=Hello%20FUME%20FRAGRANCES%2C%20I%20read%20your%20story%20and%20would%20love%20to%20find%20my%20signature%20scent."
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`px-8 py-3.5 border transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer inline-flex items-center gap-2 ${

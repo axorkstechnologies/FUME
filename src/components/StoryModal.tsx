@@ -43,7 +43,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose, themeMo
               isLight ? 'text-[#1A1816]' : 'text-white'
             }`}
           >
-            THE STORY OF FUME
+            THE STORY OF FUME FRAGRANCES
           </h2>
         </div>
 
@@ -51,7 +51,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose, themeMo
         <div className="aspect-[16/9] w-full bg-[#111111] overflow-hidden rounded-xs border border-[#C5A059]/30 relative">
           <img
             src={HERO_BOTTLE_IMAGE}
-            alt="FUME Haute Parfumerie in Pakistan"
+            alt="FUME FRAGRANCES Haute Parfumerie in Pakistan"
             className="w-full h-full object-cover object-center filter brightness-90"
           />
           <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[9px] uppercase tracking-[0.25em] text-white/90 font-sans">
@@ -67,7 +67,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose, themeMo
           }`}
         >
           <p>
-            <strong>I didn’t start Fume simply because I wanted to start a business. I started it because I believed in something deeper.</strong>
+            <strong>I didn’t start FUME FRAGRANCES simply because I wanted to start a business. I started it because I believed in something deeper.</strong>
           </p>
           <p>
             For years, perfume lovers in Pakistan faced an unfair compromise: paying Rs 40,000+ for imported designer bottles that were often counterfeit or diluted, or settling for synthetic body sprays that faded in thirty minutes.
@@ -106,7 +106,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose, themeMo
           </div>
 
           <a
-            href="https://wa.me/923132970468?text=Hello%20FUME%2C%20I%20would%20love%20to%20learn%20more%20about%20your%20fragrances."
+            href="https://wa.me/923132970468?text=Hello%20FUME%20FRAGRANCES%2C%20I%20would%20love%20to%20learn%20more%20about%20your%20fragrances."
             target="_blank"
             rel="noopener noreferrer"
             className="text-[#C5A059] hover:underline flex items-center gap-1 font-medium cursor-pointer"

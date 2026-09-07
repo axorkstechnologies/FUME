@@ -44,19 +44,17 @@ export const Footer: React.FC<FooterProps> = ({
         >
           <div className="lg:col-span-5 space-y-2">
             <div className="flex items-center gap-3">
-              <span
-                className={`font-serif text-3xl md:text-4xl uppercase tracking-[0.35em] block ${
-                  isLight ? 'text-[#1A1816]' : 'text-[#f5f4f0]'
-                }`}
-              >
-                FUME
-              </span>
+              <img
+                src={isLight ? '/logo/logo-black.png' : '/logo/logo-white.png'}
+                alt="FUME FRAGRANCES"
+                className="h-8 md:h-10 w-auto object-contain select-none"
+              />
               <span className="text-[9px] uppercase tracking-[0.3em] text-[#C5A059] font-sans font-medium px-2 py-0.5 border border-[#C5A059]/40 rounded-xs">
                 EST. 2024
               </span>
             </div>
             <p className="text-xs uppercase tracking-[0.25em] text-[#C5A059]">
-              HAUTE PARFUMERIE • SCENT, REFINED.
+              FUME FRAGRANCES (SMC-PRIVATE) LIMITED
             </p>
           </div>
 
@@ -278,7 +276,7 @@ export const Footer: React.FC<FooterProps> = ({
           }`}
         >
           <span>
-            © 2024–{new Date().getFullYear()} FUME PARFUMS • CRAFTING INDELIBLE SILAGE SINCE 2024.
+            © 2024–{new Date().getFullYear()} FUME FRAGRANCES (SMC-PRIVATE) LIMITED. ALL RIGHTS RESERVED.
           </span>
           <div className="flex gap-6">
             <span>GRASSE • PARIS • LONDON</span>

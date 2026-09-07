@@ -65,10 +65,16 @@ const FlaconLabel: React.FC<FlaconLabelProps> = ({ name, customMonogram, compact
         {/* Top Brand Mark (Gold Hot-Stamp) */}
         <div className="relative z-1 w-full pt-[2%]">
           <span
-            className="uppercase tracking-[0.32em] text-[#C5A059] font-sans font-semibold block leading-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
+            className="uppercase tracking-[0.32em] text-[#C5A059] font-serif font-semibold block leading-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
             style={{ fontSize: compact ? 'clamp(4.5px, 2cqi, 7.5px)' : 'clamp(5.2px, 2.4cqi, 9.5px)' }}
           >
             FUME
+          </span>
+          <span
+            className="uppercase tracking-[0.2em] text-[#C5A059]/80 font-sans block leading-none mt-0.5"
+            style={{ fontSize: compact ? 'clamp(2.8px, 1.1cqi, 4.5px)' : 'clamp(3.2px, 1.3cqi, 5.5px)' }}
+          >
+            — FRAGRANCES —
           </span>
         </div>
 
@@ -95,9 +101,9 @@ const FlaconLabel: React.FC<FlaconLabelProps> = ({ name, customMonogram, compact
             className="flex items-center justify-center gap-0.5 uppercase tracking-[0.16em] text-[#EDE8E1] font-sans leading-none mb-[2%]"
             style={{ fontSize: compact ? 'clamp(3.2px, 1.4cqi, 5.5px)' : 'clamp(3.8px, 1.6cqi, 6.5px)' }}
           >
-            <span>GRASSE</span>
+            <span>50 ML</span>
             <span className="text-[#C5A059] text-[0.8em]">✦</span>
-            <span>PARIS</span>
+            <span>1.7 FL OZ</span>
           </div>
 
           {customMonogram ? (
@@ -107,14 +113,7 @@ const FlaconLabel: React.FC<FlaconLabelProps> = ({ name, customMonogram, compact
             >
               ENGRAVED: {customMonogram}
             </span>
-          ) : (
-            <span
-              className="uppercase tracking-[0.22em] text-[#C5A059] font-sans font-medium block leading-none"
-              style={{ fontSize: compact ? 'clamp(3.2px, 1.4cqi, 5.5px)' : 'clamp(3.6px, 1.5cqi, 6px)' }}
-            >
-              50 ML · 1.7 FL.OZ.
-            </span>
-          )}
+          ) : null}
         </div>
       </div>
     </div>
@@ -134,6 +133,7 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
 }) => {
   const isLight = themeMode === 'light';
   const nameToDisplay = customName || fragrance.name;
+  const isMasterAsset = fragrance.image.startsWith('/bottles/');
 
   if (variant === 'hero') {
     return (
@@ -142,13 +142,21 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
           {/* Flacon Image */}
           <img
             src={fragrance.image}
-            alt={`FUME ${nameToDisplay} Luxury Flacon`}
+            alt={`FUME FRAGRANCES – ${nameToDisplay} Luxury Flacon`}
             className={`w-full h-full object-contain object-center select-none drop-shadow-[0_30px_70px_rgba(0,0,0,0.85)] ${imageClassName}`}
             loading="eager"
           />
 
-          {/* Integrated Haute Parfumerie Flacon Label */}
-          <FlaconLabel name={nameToDisplay} customMonogram={customMonogram} />
+          {/* If custom monogram is provided, display bespoke gold engraving badge */}
+          {customMonogram && (
+            <div className="absolute top-[48%] left-1/2 -translate-x-1/2 bg-black/85 border border-[#C5A059] px-3 py-1 rounded text-[9px] text-[#F3D079] font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
+              ENGRAVED: {customMonogram}
+            </div>
+          )}
+
+          {!isMasterAsset && (
+            <FlaconLabel name={nameToDisplay} customMonogram={customMonogram} />
+          )}
         </div>
       </div>
     );
@@ -161,12 +169,19 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
           {/* Fragrance Bottle Image */}
           <img
             src={fragrance.image}
-            alt={`FUME ${nameToDisplay}`}
+            alt={`FUME FRAGRANCES – ${nameToDisplay}`}
             className={`w-full h-full object-contain md:object-right select-none ${imageClassName}`}
           />
 
-          {/* Integrated Haute Parfumerie Flacon Label */}
-          <FlaconLabel name={nameToDisplay} customMonogram={customMonogram} />
+          {customMonogram && (
+            <div className="absolute top-[48%] left-1/2 md:left-[60%] -translate-x-1/2 bg-black/85 border border-[#C5A059] px-3 py-1 rounded text-[9px] text-[#F3D079] font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
+              ENGRAVED: {customMonogram}
+            </div>
+          )}
+
+          {!isMasterAsset && (
+            <FlaconLabel name={nameToDisplay} customMonogram={customMonogram} />
+          )}
         </div>
       </div>
     );
@@ -177,11 +192,13 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
       <div className={`relative aspect-square w-full flex items-center justify-center [container-type:inline-size] ${className}`}>
         <img
           src={fragrance.image}
-          alt={`FUME ${nameToDisplay}`}
+          alt={`FUME FRAGRANCES – ${nameToDisplay}`}
           className={`w-full h-full object-contain select-none ${imageClassName}`}
           loading="lazy"
         />
-        <FlaconLabel name={nameToDisplay} customMonogram={customMonogram} compact />
+        {!isMasterAsset && (
+          <FlaconLabel name={nameToDisplay} customMonogram={customMonogram} compact />
+        )}
       </div>
     );
   }
@@ -225,13 +242,20 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
       <div className="relative w-full aspect-square flex items-center justify-center [container-type:inline-size] transition-transform duration-700 ease-out group-hover:scale-105 z-10">
         <img
           src={fragrance.image}
-          alt={`FUME ${nameToDisplay}`}
+          alt={`FUME FRAGRANCES – ${nameToDisplay}`}
           className={`w-full h-full object-contain object-center select-none ${imageClassName}`}
           loading="lazy"
         />
 
-        {/* Integrated Haute Parfumerie Flacon Label overlapping the white strip */}
-        <FlaconLabel name={nameToDisplay} customMonogram={customMonogram} />
+        {customMonogram && (
+          <div className="absolute top-[48%] left-1/2 -translate-x-1/2 bg-black/85 border border-[#C5A059] px-2 py-0.5 rounded text-[8px] text-[#F3D079] font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
+            ENGRAVED: {customMonogram}
+          </div>
+        )}
+
+        {!isMasterAsset && (
+          <FlaconLabel name={nameToDisplay} customMonogram={customMonogram} />
+        )}
       </div>
 
       {/* Quick Add Overlay on Hover */}

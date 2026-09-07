@@ -5,6 +5,7 @@ import { Fragrance, ThemeMode, Film } from '../types';
 import { FlaconBottle } from './FlaconBottle';
 import { FilmPlayer } from './FilmPlayer';
 import { getPrimaryFilmForProduct } from '../data/films';
+import { DISCOVERY_SET, getFragranceTitle } from '../data/fragrances';
 import { resetScrollLock } from '../utils/scrollLock';
 import { getPrice50, getPrice100 } from '../utils/pricing';
 
@@ -256,11 +257,11 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                 </div>
 
                 <h2
-                  className={`font-serif text-3xl md:text-4xl uppercase tracking-[0.16em] ${
+                  className={`font-serif text-2xl sm:text-3xl md:text-4xl uppercase tracking-[0.14em] ${
                     isLight ? 'text-[#1A1816]' : 'text-white'
                   }`}
                 >
-                  {fragrance.name}
+                  {getFragranceTitle(fragrance)}
                 </h2>
                 <p className="text-xs uppercase tracking-[0.25em] text-[#C5A059] font-sans">
                   {fragrance.subtitle}
@@ -322,74 +323,132 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                 </div>
               </div>
 
-              {/* Volume Selector */}
-              <div className="space-y-2 pt-2">
-                <span
-                  className={`text-[9px] uppercase tracking-[0.25em] font-sans block ${
-                    isLight ? 'text-[#8C8377]' : 'text-[#8c8985]'
-                  }`}
-                >
-                  FLACON VOLUME
-                </span>
-                <div className="grid grid-cols-2 gap-3">
-                  <button
-                    onClick={() => setSelectedSize('50ml')}
-                    className={`py-2.5 px-4 text-xs font-sans uppercase tracking-widest border transition-all cursor-pointer ${
-                      selectedSize === '50ml'
-                        ? isLight
-                          ? 'border-[#1A1816] bg-[#1A1816] text-white font-medium'
-                          : 'border-[#C5A059] bg-[#C5A059] text-black font-medium'
-                        : isLight
-                        ? 'border-[#E0D5C3] text-[#7D766E] hover:border-[#C5A059]'
-                        : 'border-[#262626] text-[#8c8985] hover:border-white hover:text-white'
-                    }`}
-                  >
-                    50 ML (Rs {price50.toLocaleString()})
-                  </button>
-                  <button
-                    onClick={() => setSelectedSize('100ml')}
-                    className={`py-2.5 px-4 text-xs font-sans uppercase tracking-widest border transition-all cursor-pointer ${
-                      selectedSize === '100ml'
-                        ? isLight
-                          ? 'border-[#1A1816] bg-[#1A1816] text-white font-medium'
-                          : 'border-[#C5A059] bg-[#C5A059] text-black font-medium'
-                        : isLight
-                        ? 'border-[#E0D5C3] text-[#7D766E] hover:border-[#C5A059]'
-                        : 'border-[#262626] text-[#8c8985] hover:border-white hover:text-white'
-                    }`}
-                  >
-                    100 ML (Rs {price100.toLocaleString()})
-                  </button>
-                </div>
-              </div>
-
-              {/* Bespoke Monogram Engraving Preview Option */}
-              <div className="space-y-1.5 pt-1">
-                <div className="flex items-center justify-between">
+              {/* Volume Selector / Coffret Contents */}
+              {fragrance.id === 'discovery-set' ? (
+                <div className="space-y-2 pt-2">
                   <span
                     className={`text-[9px] uppercase tracking-[0.25em] font-sans block ${
                       isLight ? 'text-[#8C8377]' : 'text-[#8c8985]'
                     }`}
                   >
-                    BESPOKE GOLD ENGRAVING (OPTIONAL)
+                    COFFRET CONTENTS
                   </span>
-                  <span className="text-[8px] uppercase tracking-[0.2em] text-[#C5A059] font-medium">
-                    COMPLIMENTARY
-                  </span>
+                  <div
+                    className={`py-3 px-4 text-xs font-sans uppercase tracking-widest border rounded-xs flex items-center justify-between ${
+                      isLight
+                        ? 'border-[#C5A059] bg-[#F7F2E7] text-[#1A1816]'
+                        : 'border-[#C5A059]/60 bg-[#161412] text-[#EAE2D5]'
+                    }`}
+                  >
+                    <span className="font-medium">5 × 5 ML LUXURY TESTERS</span>
+                    <span className="text-[#C5A059] font-semibold">Rs 1,200</span>
+                  </div>
                 </div>
-                <input
-                  type="text"
-                  maxLength={4}
-                  value={monogram}
-                  onChange={(e) => setMonogram(e.target.value.toUpperCase())}
-                  placeholder="ENTER INITIALS (E.G. M.M.)"
-                  className={`w-full px-3 py-2 text-xs uppercase tracking-widest border focus:outline-none transition-colors rounded-xs ${
+              ) : (
+                <div className="space-y-2 pt-2">
+                  <span
+                    className={`text-[9px] uppercase tracking-[0.25em] font-sans block ${
+                      isLight ? 'text-[#8C8377]' : 'text-[#8c8985]'
+                    }`}
+                  >
+                    FLACON VOLUME
+                  </span>
+                  <div className="grid grid-cols-2 gap-3">
+                    <button
+                      onClick={() => setSelectedSize('50ml')}
+                      className={`py-2.5 px-4 text-xs font-sans uppercase tracking-widest border transition-all cursor-pointer ${
+                        selectedSize === '50ml'
+                          ? isLight
+                            ? 'border-[#1A1816] bg-[#1A1816] text-white font-medium'
+                            : 'border-[#C5A059] bg-[#C5A059] text-black font-medium'
+                          : isLight
+                          ? 'border-[#E0D5C3] text-[#7D766E] hover:border-[#C5A059]'
+                          : 'border-[#262626] text-[#8c8985] hover:border-white hover:text-white'
+                      }`}
+                    >
+                      50 ML (Rs {price50.toLocaleString()})
+                    </button>
+                    <button
+                      onClick={() => setSelectedSize('100ml')}
+                      className={`py-2.5 px-4 text-xs font-sans uppercase tracking-widest border transition-all cursor-pointer ${
+                        selectedSize === '100ml'
+                          ? isLight
+                            ? 'border-[#1A1816] bg-[#1A1816] text-white font-medium'
+                            : 'border-[#C5A059] bg-[#C5A059] text-black font-medium'
+                          : isLight
+                          ? 'border-[#E0D5C3] text-[#7D766E] hover:border-[#C5A059]'
+                          : 'border-[#262626] text-[#8c8985] hover:border-white hover:text-white'
+                      }`}
+                    >
+                      100 ML (Rs {price100.toLocaleString()})
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {/* Discovery Set Recommendation Upsell */}
+              {fragrance.id !== 'discovery-set' && (
+                <div
+                  className={`p-3.5 rounded-xs border transition-colors flex items-center justify-between gap-3 ${
                     isLight
-                      ? 'bg-white border-[#E0D5C3] text-[#1A1816] focus:border-[#C5A059]'
-                      : 'bg-[#141414] border-[#2A2A2A] text-white focus:border-[#C5A059]'
+                      ? 'bg-[#F4EFE6] border-[#E5DAC8]'
+                      : 'bg-[#111111] border-[#222222]'
                   }`}
-                />
-              </div>
+                >
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-1.5 text-[9px] uppercase tracking-[0.25em] text-[#C5A059] font-medium">
+                      <span>✦ CURIOUS BEFORE YOU COMMIT?</span>
+                    </div>
+                    <p
+                      className={`text-xs font-sans tracking-wide leading-snug pt-0.5 ${
+                        isLight ? 'text-[#5C5449]' : 'text-[#A39E95]'
+                      }`}
+                    >
+                      Try our <strong className="font-medium text-[inherit]">Discovery Set</strong> (5 × 5ml testers — Rs. 1,200).
+                    </p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onAddToCart(DISCOVERY_SET, '50ml', 1200);
+                      onClose();
+                    }}
+                    className="shrink-0 px-3 py-1.5 bg-[#C5A059] text-black hover:bg-white transition-colors text-[9px] uppercase tracking-[0.2em] font-sans font-semibold rounded-xs cursor-pointer shadow-sm"
+                  >
+                    ADD SET
+                  </button>
+                </div>
+              )}
+
+              {/* Bespoke Monogram Engraving Preview Option */}
+              {fragrance.id !== 'discovery-set' && (
+                <div className="space-y-1.5 pt-1">
+                  <div className="flex items-center justify-between">
+                    <span
+                      className={`text-[9px] uppercase tracking-[0.25em] font-sans block ${
+                        isLight ? 'text-[#8C8377]' : 'text-[#8c8985]'
+                      }`}
+                    >
+                      BESPOKE GOLD ENGRAVING (OPTIONAL)
+                    </span>
+                    <span className="text-[8px] uppercase tracking-[0.2em] text-[#C5A059] font-medium">
+                      COMPLIMENTARY
+                    </span>
+                  </div>
+                  <input
+                    type="text"
+                    maxLength={4}
+                    value={monogram}
+                    onChange={(e) => setMonogram(e.target.value.toUpperCase())}
+                    placeholder="ENTER INITIALS (E.G. M.M.)"
+                    className={`w-full px-3 py-2 text-xs uppercase tracking-widest border focus:outline-none transition-colors rounded-xs ${
+                      isLight
+                        ? 'bg-white border-[#E0D5C3] text-[#1A1816] focus:border-[#C5A059]'
+                        : 'bg-[#141414] border-[#2A2A2A] text-white focus:border-[#C5A059]'
+                    }`}
+                  />
+                </div>
+              )}
             </div>
 
             {/* Price & Add to Bag CTA */}
@@ -441,7 +500,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
             <div className="pt-2 text-center border-t border-[#E8DFC9]/40">
               <a
                 href={`https://wa.me/923132970468?text=${encodeURIComponent(
-                  `Hello FUME Concierge, I would like to inquire / order ${fragrance.name} (${selectedSize} - Rs ${currentPrice.toLocaleString()})${monogram ? ` with bespoke monogram "${monogram}"` : ''}.`
+                  `Hello FUME Concierge, I would like to inquire / order ${getFragranceTitle(fragrance)} (${fragrance.id === 'discovery-set' ? '5x5ml Testers' : selectedSize} - Rs ${currentPrice.toLocaleString()})${monogram ? ` with bespoke monogram "${monogram}"` : ''}.`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"

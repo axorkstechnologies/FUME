@@ -37,52 +37,26 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
   const [progress, setProgress] = useState(0);
   const [hasInteracted, setHasInteracted] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isStreamActive, setIsStreamActive] = useState(false);
 
   const isLight = themeMode === 'light';
 
-  // IntersectionObserver for in-view autoPlay
+  // Play video once mounted when stream is activated
   useEffect(() => {
-    if (!autoPlayInView) return;
-
-    const el = containerRef.current;
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const video = videoRef.current;
-          if (!video) return;
-
-          if (entry.isIntersecting && entry.intersectionRatio >= 0.4) {
-            video.muted = isMuted;
-            video
-              .play()
-              .then(() => setIsPlaying(true))
-              .catch(() => {
-                // Auto-play was prevented by browser policy, keep paused or try muted
-                video.muted = true;
-                setIsMuted(true);
-                video.play().then(() => setIsPlaying(true)).catch(() => {});
-              });
-          } else {
-            video.pause();
-            setIsPlaying(false);
-          }
-        });
-      },
-      { threshold: [0.1, 0.4, 0.8] }
-    );
-
-    observer.observe(el);
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [autoPlayInView, isMuted]);
+    if (isStreamActive && videoRef.current) {
+      videoRef.current.muted = isMuted;
+      videoRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
+    }
+  }, [isStreamActive, isMuted]);
 
   const togglePlay = useCallback(
     (e?: React.MouseEvent) => {
       e?.stopPropagation();
+      if (!isStreamActive) {
+        setIsStreamActive(true);
+        setHasInteracted(true);
+        return;
+      }
       const video = videoRef.current;
       if (!video) return;
 
@@ -94,7 +68,7 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
         setIsPlaying(false);
       }
     },
-    []
+    [isStreamActive]
   );
 
   const toggleMute = useCallback((e?: React.MouseEvent) => {
@@ -116,6 +90,10 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
 
   const handleMouseEnter = () => {
     if (!playOnHover) return;
+    if (!isStreamActive) {
+      setIsStreamActive(true);
+      return;
+    }
     const video = videoRef.current;
     if (!video || isPlaying) return;
     video.muted = isMuted;
@@ -151,19 +129,28 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
       }}
       className={`group relative overflow-hidden select-none cursor-pointer bg-[#0A0A0A] ${aspectClass} ${className}`}
     >
-      {/* Video Element */}
-      <video
-        ref={videoRef}
-        src={film.src}
-        poster={film.poster}
-        loop={film.loop}
-        muted={isMuted}
-        playsInline
-        preload="metadata"
-        onTimeUpdate={handleTimeUpdate}
-        onLoadedData={() => setIsLoaded(true)}
-        className="w-full h-full object-cover object-center pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-      />
+      {/* High-Quality WebP Poster by default, Video only when explicitly active */}
+      {isStreamActive ? (
+        <video
+          ref={videoRef}
+          src={film.src}
+          poster={film.poster}
+          loop={film.loop}
+          muted={isMuted}
+          playsInline
+          autoPlay
+          onTimeUpdate={handleTimeUpdate}
+          onLoadedData={() => setIsLoaded(true)}
+          className="w-full h-full object-cover object-center pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+        />
+      ) : (
+        <img
+          src={film.poster}
+          alt={film.title}
+          loading="lazy"
+          className="w-full h-full object-cover object-center pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+        />
+      )}
 
       {/* Ambient Vignette Gradients */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/35 pointer-events-none" />

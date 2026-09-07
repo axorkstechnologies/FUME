@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Fragrance, ThemeMode } from '../types';
+import { getFragranceTitle } from '../data/fragrances';
 import { FlaconBottle } from './FlaconBottle';
 
 interface FeaturedCollectionProps {
@@ -81,7 +82,7 @@ export const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
                     isLight ? 'text-[#1A1816]' : 'text-[#f5f4f0]'
                   }`}
                 >
-                  {fragrance.name}
+                  {getFragranceTitle(fragrance)}
                 </h3>
                 <p
                   className={`text-[11px] font-sans uppercase tracking-[0.2em] ${

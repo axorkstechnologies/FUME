@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { X, Volume2, VolumeX, ChevronLeft, ChevronRight, Play, Pause, ShoppingBag } from 'lucide-react';
 import { Film, Fragrance, ThemeMode } from '../types';
+import { getFragranceTitle } from '../data/fragrances';
 import { resetScrollLock } from '../utils/scrollLock';
 import { formatPrice } from '../utils/pricing';
 
@@ -287,7 +288,7 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
                   FEATURED FLACON
                 </span>
                 <span className="font-serif text-sm uppercase tracking-[0.15em] text-white font-medium">
-                  {matchingFragrance.name}
+                  {getFragranceTitle(matchingFragrance)}
                 </span>
                 <span className="text-[10px] font-sans text-[#FAF8F5]/80 block">
                   {formatPrice(matchingFragrance.price)}

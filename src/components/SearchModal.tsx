@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { X, Search as SearchIcon, ArrowRight } from 'lucide-react';
 import { Fragrance, ThemeMode } from '../types';
+import { getFragranceTitle } from '../data/fragrances';
 import { FlaconBottle } from './FlaconBottle';
 
 interface SearchModalProps {
@@ -148,7 +149,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                         isLight ? 'text-[#1A1816]' : 'text-white'
                       }`}
                     >
-                      {fragrance.name}
+                      {getFragranceTitle(fragrance)}
                     </h4>
                     <p
                       className={`text-[10px] uppercase tracking-wider ${

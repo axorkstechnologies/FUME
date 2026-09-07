@@ -1,6 +1,7 @@
 import React from 'react';
 import { X, Minus, Plus, ShoppingBag, ArrowRight } from 'lucide-react';
 import { CartItem, ThemeMode } from '../types';
+import { getFragranceTitle } from '../data/fragrances';
 import { FlaconBottle } from './FlaconBottle';
 
 interface CartDrawerProps {
@@ -127,10 +128,14 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                             isLight ? 'text-[#1A1816]' : 'text-white'
                           }`}
                         >
-                          {item.fragrance.name}
+                          {getFragranceTitle(item.fragrance)}
                         </h4>
                         <p className="text-[10px] uppercase tracking-wider text-[#C5A059]">
-                          {item.size === '100ml' ? '100 ML / 3.4 FL OZ' : '50 ML / 1.7 FL OZ'}
+                          {item.fragrance.id === 'discovery-set'
+                            ? '5 × 5 ML / 0.85 FL OZ'
+                            : item.size === '100ml'
+                            ? '100 ML / 3.4 FL OZ'
+                            : '50 ML / 1.7 FL OZ'}
                         </p>
                       </div>
                       <span
@@ -210,13 +215,13 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   const cartDetails = cartItems
                     .map(
                       (i) =>
-                        `• ${i.fragrance.name} (${i.size}, qty: ${i.quantity}) - Rs ${(
+                        `• ${getFragranceTitle(i.fragrance)} (${i.fragrance.id === 'discovery-set' ? '5x5ml Testers' : i.size}, qty: ${i.quantity}) - Rs ${(
                           i.price * i.quantity
                         ).toLocaleString()}`
                     )
                     .join('\n');
                   const msg = encodeURIComponent(
-                    `Hello FUME Concierge, I would like to place an order:\n\n${cartDetails}\n\nTotal: Rs ${subtotal.toLocaleString()}`
+                    `Hello FUME Concierge, I would like to place an order with FUME FRAGRANCES:\n\n${cartDetails}\n\nTotal: Rs ${subtotal.toLocaleString()}`
                   );
                   window.open(`https://wa.me/923132970468?text=${msg}`, '_blank');
                   onClose();

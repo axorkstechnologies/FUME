@@ -1,19 +1,47 @@
 import { Fragrance } from '../types';
 
-export const HERO_BOTTLE_IMAGE = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCxXxWImTqr1i_N0I1psvLOYzubclKLmb6kusnTPg6gC80RzutCB55zkNG4PUkRm_F6dSv2yq2hsRpmoYLdHRBzz00WEfPfsKew_hlXbS0JgpRx_O9aAUhmBkXDAJSXhCoKV1b-NpKx4SxwfK0aenMywa_a49g_eo7nRJvk9wdpwlodZnWj7b2Iwz1CswQVsA7HuNnt8aELdbJqB8-shXAvqPyoKlsqvE49JdRJLngGgHiSjx3o4AzB7ZQmM98slw22NuY';
+export const HERO_BOTTLE_IMAGE = '/bottles/desert.webp';
 
 export const CAMPAIGN_IMAGE = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDxq_p5i_6wgwHu8b_rmIVmM9qiza0tqWbzle---pXEfs4ZCt49x7b3nhbkjCzI3W2wxCZfJzEa2HuP0DhQSwkA5L7V1P4pg0FfVAoBkJViJZ-qWP4jPEsAQsFeoDlzmLlZgxzu00FTo-KJWSTaIhIRhffF0a9Lt_RDkaicz42sKCLgHpm9GITB1es4dxabW66Wg--_Fw0fUnGgCgrHW2xGV85vPUDF6nQOYUpmgxsVBuaZjnT6CL8Cw-IOjhjOWE8aSdc';
 
 export const EDITORIAL_IMAGE = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNFe-KW8iMmbUDuGVAK_vAb5yHBaCiVHHpayIB1mMWplfe6rqKvXkbm3JmCExhjPRgDSQJ4Do1a3xJNyGM0r6ChAHfv7DJirhrna0cmGmcq762ll1vSrqI6MAt-nj1m03hieGVHYdLGr_9A1iEQGW_Scx5bLNCcvTAdk9FhMEoEhw51lBg-IWoTf8ei-kBOFK-SjkLU7LmzaStnk9R8aNpn8dOIKFzvo3_vTxrWhWo2-CUWn7oD_FEvlI5EGmQA33w8D8';
 
-// Reusable bottle images (same physical flacon, different label overlay)
-const IMG_A = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCxXxWImTqr1i_N0I1psvLOYzubclKLmb6kusnTPg6gC80RzutCB55zkNG4PUkRm_F6dSv2yq2hsRpmoYLdHRBzz00WEfPfsKew_hlXbS0JgpRx_O9aAUhmBkXDAJSXhCoKV1b-NpKx4SxwfK0aenMywa_a49g_eo7nRJvk9wdpwlodZnWj7b2Iwz1CswQVsA7HuNnt8aELdbJqB8-shXAvqPyoKlsqvE49JdRJLngGgHiSjx3o4AzB7ZQmM98slw22NuY';
-const IMG_B = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDJT1SJfk0LiPbFegEur8y3SLyeJyo3c5d9VYrC0nrdy-eS3eMuReBOxfv-m6ywNknlBHYHNJkdNMBnBdjWzJk5NgRsbGRTOZA7RdMnqNDIXcMGHR4sG1XNmUyghc0UN33PBzBu-iiPkpddp49VjRL6heXaU0m96oP_2cr33eLhb3xw0eHHmQ3EOMz5Xwrf3pLXSeiDhXVWDvfra_IqiY3brCNLXXaYpRnfhbtqGjD2fHUFWGHBygfd4P92hgxMUAPm69s';
-const IMG_C = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCH_okEah4EyWfcI9iZ4X1AVsVTE2owPHgrGmDAJVTelrbs32-ol220fl_fduL_BLIvYz87bDWH3ILUJIefFWnk8_fBjvRt5V1Xr5gXAf_UuYxd4qLZb-xjLFmVar0PgV8MDtA-LImWJl1blJPpJkG2ZEiPu_i8AZmkpL3BA-3vuRkrNmfWXUd_LuuSSFSXL3QUfaX_X0aFy9Vhh_Vufx3_X4kcEB2lNDtg6IUdAeQ3cim8PCS1aitxNIpxocbqxBAurTc';
-const IMG_D = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDxq_p5i_6wgwHu8b_rmIVmM9qiza0tqWbzle---pXEfs4ZCt49x7b3nhbkjCzI3W2wxCZfJzEa2HuP0DhQSwkA5L7V1P4pg0FfVAoBkJViJZ-qWP4jPEsAQsFeoDlzmLlZgxzu00FTo-KJWSTaIhIRhffF0a9Lt_RDkaicz42sKCLgHpm9GITB1es4dxabW66Wg--_Fw0fUnGgCgrHW2xGV85vPUDF6nQOYUpmgxsVBuaZjnT6CL8Cw-IOjhjOWE8aSdc';
-const IMG_E = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNFe-KW8iMmbUDuGVAK_vAb5yHBaCiVHHpayIB1mMWplfe6rqKvXkbm3JmCExhjPRgDSQJ4Do1a3xJNyGM0r6ChAHfv7DJirhrna0cmGmcq762ll1vSrqI6MAt-nj1m03hieGVHYdLGr_9A1iEQGW_Scx5bLNCcvTAdk9FhMEoEhw51lBg-IWoTf8ei-kBOFK-SjkLU7LmzaStnk9R8aNpn8dOIKFzvo3_vTxrWhWo2-CUWn7oD_FEvlI5EGmQA33w8D8';
+
+export const getFragranceTitle = (fragrance: Fragrance): string => {
+  if (fragrance.title) return fragrance.title;
+  if (fragrance.id === 'discovery-set') return 'FUME FRAGRANCES Discovery Set';
+  return `FUME FRAGRANCES – ${fragrance.name}`;
+};
+
+export const DISCOVERY_SET: Fragrance = {
+  id: 'discovery-set',
+  name: 'DISCOVERY SET',
+  title: 'FUME FRAGRANCES Discovery Set',
+  subtitle: '5 × 5ML CURATED TESTERS',
+  concentration: 'Eau de Parfum',
+  volume: '5 × 5 ML / 0.85 FL OZ',
+  price: 1200,
+  genderCategory: 'UNISEX',
+  olfactoryFamily: 'FRESH',
+  gender: 'unisex',
+  families: ['fresh', 'woody', 'oriental'],
+  discovery: true,
+  notesLine: '5 × 5ml testers curated for your taste. Discover your signature scent.',
+  image: '/bottles/discovery-set.webp',
+  topNotes: 'Bergamot, Night Jasmine, Saffron',
+  heartNotes: 'Smoky Birch, Tuberose, Crisp Lavender',
+  baseNotes: 'Tuscan Leather, Precious Woods, Ambergris',
+  description: '5 × 5ml testers curated for your taste. Discover your signature scent across our floral, fresh, oriental, and woody creations in heavy miniature glass flacons.',
+  origin: 'Hand-Crafted in Pakistan • Since 2024',
+  inStock: true,
+  pastelBg: '#121212',
+  pastelAccent: '#C5A059',
+  pastelGlow: 'rgba(197, 160, 89, 0.45)',
+  cardTone: 'Discovery Coffret'
+};
 
 export const FRAGRANCES: Fragrance[] = [
+  DISCOVERY_SET,
   // ── Discovery row (first 5, order: BLOOM · MY WAY · BOMB · ETERNITY · CREED) ──
   {
     id: 'bloom',
@@ -28,7 +56,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['oriental'],
     discovery: true,
     notesLine: 'Tuberose, orange blossom, warm jasmine',
-    image: IMG_A,
+    image: '/bottles/bloom.webp',
     topNotes: 'Italian Bergamot, Pink Pepper',
     heartNotes: 'Night-Blooming Jasmine, Grasse Tuberose',
     baseNotes: 'Smoked Oakmoss, White Amber, Cashmeran',
@@ -53,7 +81,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['fresh', 'oriental'],
     discovery: true,
     notesLine: 'White flowers, bergamot, soft musk',
-    image: IMG_B,
+    image: '/bottles/my-way.webp',
     topNotes: 'Calabrian Bergamot, Egyptian Orange Blossom',
     heartNotes: 'Indian Tuberose, Velvet Jasmine',
     baseNotes: 'Virginian Cedarwood, Bourbon Vanilla, White Musk',
@@ -78,7 +106,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['oriental'],
     discovery: true,
     notesLine: 'Vanilla bomb, praline, night jasmine',
-    image: IMG_C,
+    image: '/bottles/bomb.webp',
     topNotes: 'Black Pepper, Persian Saffron, Thyme',
     heartNotes: 'Birch Tar, Midnight Violet, Frankincense',
     baseNotes: 'Tuscan Leather, Black Suede, Amber Wood',
@@ -103,7 +131,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['fresh'],
     discovery: true,
     notesLine: 'Crisp freesia, sage, clean musk',
-    image: IMG_D,
+    image: '/bottles/eternity.webp',
     topNotes: 'Frost Aldehydes, White Angelica Root',
     heartNotes: 'Florentine Orris Butter, White Peony',
     baseNotes: 'Mineral Amber, Cashmeran, Clean Cedar',
@@ -128,7 +156,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['woody', 'fresh'],
     discovery: true,
     notesLine: 'Pineapple leaf, birch, ambergris',
-    image: IMG_E,
+    image: '/bottles/creed.webp',
     topNotes: 'Crisp Bergamot, Blackcurrant, Pink Apple',
     heartNotes: 'Smoky Birch, Patchouli, Moroccan Jasmine',
     baseNotes: 'French Oakmoss, Ambergris, Bourbon Vanilla',
@@ -155,7 +183,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['woody', 'oriental'],
     discovery: false,
     notesLine: 'Tuscan leather, Florentine iris, and smoked oakmoss',
-    image: IMG_C,
+    image: '/bottles/tuscan-amber.webp',
     topNotes: 'Tuscan Bergamot, Pink Pepper',
     heartNotes: 'Florentine Iris, Suede',
     baseNotes: 'Smoked Oakmoss, Amber, Leather',
@@ -180,7 +208,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['woody', 'fresh'],
     discovery: false,
     notesLine: 'Florentine iris, cool vetiver, pale woods',
-    image: IMG_D,
+    image: '/bottles/opal-iris.webp',
     topNotes: 'Frost Aldehydes, White Angelica Root',
     heartNotes: 'Florentine Orris Butter, Cool Vetiver',
     baseNotes: 'Pale Woods, Cashmeran, Clean Musk',
@@ -205,7 +233,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['fresh', 'woody'],
     discovery: false,
     notesLine: 'Bergamot, pepper, sunbaked ambrox',
-    image: IMG_A,
+    image: '/bottles/sauvage.webp',
     topNotes: 'Calabrian Bergamot, Sichuan Pepper',
     heartNotes: 'Lavender, Star Anise, Nutmeg',
     baseNotes: 'Raw Ambroxan, Papua Vanilla, Cedarwood',
@@ -230,7 +258,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['woody', 'oriental'],
     discovery: false,
     notesLine: 'Ginger, vetiver, toasted woods',
-    image: IMG_B,
+    image: '/bottles/wanted.webp',
     topNotes: 'Guatemalan Cardamom, Blood Mandarin',
     heartNotes: 'Incense, Charred Toffee, Juniper',
     baseNotes: 'Roasted Tonka Bean, Vetiver, Amberwood',
@@ -255,7 +283,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['woody'],
     discovery: false,
     notesLine: 'Juniper, suede, cedar',
-    image: IMG_C,
+    image: '/bottles/beckham.webp',
     topNotes: 'Grapefruit, Crushed Cardamom, Nutmeg',
     heartNotes: 'Cured Virginian Tobacco, Dark Patchouli',
     baseNotes: 'Supple Dark Suede, Sandalwood, Dry Amber',
@@ -280,7 +308,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['oriental'],
     discovery: false,
     notesLine: 'Red rose, saffron, smoky incense',
-    image: IMG_B,
+    image: '/bottles/rouge.webp',
     topNotes: 'Persian Saffron, Pink Pepper',
     heartNotes: 'Damascena Red Rose, Oud',
     baseNotes: 'Smoky Incense, Amber, Benzoin',
@@ -305,7 +333,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['fresh'],
     discovery: false,
     notesLine: 'Sea air, citrus peel, mineral musk',
-    image: IMG_A,
+    image: '/bottles/aqua.webp',
     topNotes: 'Lemon Zest, Citrus Peel, Sea Salt',
     heartNotes: 'Marine Accord, Rosemary',
     baseNotes: 'Mineral Musk, Driftwood, White Cedar',
@@ -330,7 +358,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['fresh'],
     discovery: false,
     notesLine: 'Yuzu, lotus, transparent woods',
-    image: IMG_D,
+    image: '/bottles/issey.webp',
     topNotes: 'Japanese Yuzu, Bergamot',
     heartNotes: 'Lotus Flower, Lily of the Valley',
     baseNotes: 'Transparent Woods, White Musk, Blonde Cedar',
@@ -355,7 +383,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['woody', 'fresh'],
     discovery: false,
     notesLine: 'Green apple, violet leaf, dry cedar',
-    image: IMG_E,
+    image: '/bottles/ams.webp',
     topNotes: 'Green Apple, Violet Leaf',
     heartNotes: 'Geranium, Cinnamon Bark',
     baseNotes: 'Dry Cedar, Amberwood, Musk',
@@ -380,7 +408,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['woody'],
     discovery: false,
     notesLine: 'Leather, smoke, crushed herbs',
-    image: IMG_C,
+    image: '/bottles/khabib.webp',
     topNotes: 'Crushed Herbs, Black Pepper',
     heartNotes: 'Raw Leather, Labdanum',
     baseNotes: 'Smoke, Vetiver, Dark Amber',
@@ -405,7 +433,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['fresh', 'woody'],
     discovery: false,
     notesLine: 'Grapefruit, incense, dry cedar',
-    image: IMG_A,
+    image: '/bottles/bleu.webp',
     topNotes: 'Grapefruit, Lemon, Mint',
     heartNotes: 'Incense, Ginger, Nutmeg',
     baseNotes: 'Dry Cedar, Sandalwood, Patchouli',
@@ -455,7 +483,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['oriental'],
     discovery: false,
     notesLine: 'Oud, rose, sun-warmed amber',
-    image: IMG_B,
+    image: '/bottles/arab.webp',
     topNotes: 'Saffron, Cardamom',
     heartNotes: 'Damascena Rose, Cambodian Oud',
     baseNotes: 'Sun-Warmed Amber, Benzoin, Musk',
@@ -480,7 +508,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['oriental', 'woody'],
     discovery: false,
     notesLine: 'Hot sand, frankincense, dry cedar',
-    image: IMG_E,
+    image: '/bottles/desert.webp',
     topNotes: 'Hot Sand Accord, Pink Pepper',
     heartNotes: 'Sacred Frankincense, Myrrh',
     baseNotes: 'Dry Cedar, Amber, Guaiac Wood',
@@ -505,7 +533,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['oriental'],
     discovery: false,
     notesLine: 'Honeyed leather, cinnamon, tonka',
-    image: IMG_B,
+    image: '/bottles/million.webp',
     topNotes: 'Blood Mandarin, Cinnamon',
     heartNotes: 'Rose Absolute, Clary Sage',
     baseNotes: 'Honeyed Leather, Tonka Bean, Amber',
@@ -555,7 +583,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['woody', 'fresh'],
     discovery: false,
     notesLine: 'Lavender, pineapple, oakmoss',
-    image: IMG_A,
+    image: '/bottles/legend.webp',
     topNotes: 'Pineapple, Italian Bergamot',
     heartNotes: 'Lavender, Violet Leaf',
     baseNotes: 'Oakmoss, Tonka, Cedarwood',
@@ -580,7 +608,7 @@ export const FRAGRANCES: Fragrance[] = [
     families: ['oriental', 'fresh'],
     discovery: false,
     notesLine: 'Peony, vanilla orchid, soft woods',
-    image: IMG_B,
+    image: '/bottles/v-wmn.webp',
     topNotes: 'Peony, Bergamot, Pink Pepper',
     heartNotes: 'Vanilla Orchid, Jasmine Sambac',
     baseNotes: 'Soft Woods, White Musk, Cashmeran',

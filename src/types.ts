@@ -4,6 +4,7 @@ export type OlfactoryFamily = 'ALL' | 'FRESH' | 'WOODY' | 'ORIENTAL';
 export interface Fragrance {
   id: string;
   name: string;
+  title?: string; // e.g. 'FUME FRAGRANCES – ARAB' or 'FUME FRAGRANCES Discovery Set'
   subtitle: string;
   concentration: string; // 'Eau de Parfum'
   volume: string; // '50 ML / 1.7 FL OZ'

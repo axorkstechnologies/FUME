@@ -176,27 +176,18 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
         </div>
 
-        {/* Center: FUME Wordmark & SINCE 2024 */}
+        {/* Center: FUME FRAGRANCES Official Master Logo */}
         <div className="brand flex items-center justify-center">
           <button
             onClick={() => handleLinkClick('home')}
-            className="cursor-pointer group flex flex-col items-center"
-            aria-label="FUME Homepage"
+            className="cursor-pointer group flex flex-col items-center justify-center py-1 select-none"
+            aria-label="FUME FRAGRANCES Homepage"
           >
-            <span
-              className={`font-serif text-2xl md:text-3xl lg:text-[32px] tracking-[0.38em] uppercase font-normal transition-all duration-300 group-hover:opacity-85 select-none ${
-                isDarkTop
-                  ? 'text-[#FAF8F5]'
-                  : isLight
-                  ? 'text-[#1A1816]'
-                  : 'text-[#f5f4f0]'
-              }`}
-            >
-              FUME
-            </span>
-            <span className="text-[8px] md:text-[9px] uppercase tracking-[0.45em] text-[#C5A059] font-sans -mt-0.5 font-medium">
-              SINCE 2024
-            </span>
+            <img
+              src={isDarkTop || !isLight ? '/logo/logo-white.png' : '/logo/logo-black.png'}
+              alt="FUME FRAGRANCES"
+              className="h-8 sm:h-9 md:h-11 w-auto object-contain transition-opacity duration-300 group-hover:opacity-85 select-none"
+            />
           </button>
         </div>
 

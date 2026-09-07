@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Fragrance, ThemeMode } from '../types';
+import { getFragranceTitle } from '../data/fragrances';
 import { FlaconBottle } from './FlaconBottle';
 
 interface FragranceDiscoveryProps {
@@ -145,7 +146,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                       isLight ? 'text-[#1A1816]' : 'text-[#f5f4f0]'
                     }`}
                   >
-                    {fragrance.name}
+                    {getFragranceTitle(fragrance)}
                   </h3>
                   <p
                     className={`text-[10px] font-sans uppercase tracking-[0.2em] ${
