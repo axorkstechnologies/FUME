@@ -2,9 +2,9 @@ import { Fragrance } from '../types';
 
 export const HERO_BOTTLE_IMAGE = '/bottles/desert.webp';
 
-export const CAMPAIGN_IMAGE = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDxq_p5i_6wgwHu8b_rmIVmM9qiza0tqWbzle---pXEfs4ZCt49x7b3nhbkjCzI3W2wxCZfJzEa2HuP0DhQSwkA5L7V1P4pg0FfVAoBkJViJZ-qWP4jPEsAQsFeoDlzmLlZgxzu00FTo-KJWSTaIhIRhffF0a9Lt_RDkaicz42sKCLgHpm9GITB1es4dxabW66Wg--_Fw0fUnGgCgrHW2xGV85vPUDF6nQOYUpmgxsVBuaZjnT6CL8Cw-IOjhjOWE8aSdc';
+export const CAMPAIGN_IMAGE = '/bottles/campaign-reopening.webp';
 
-export const EDITORIAL_IMAGE = 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNFe-KW8iMmbUDuGVAK_vAb5yHBaCiVHHpayIB1mMWplfe6rqKvXkbm3JmCExhjPRgDSQJ4Do1a3xJNyGM0r6ChAHfv7DJirhrna0cmGmcq762ll1vSrqI6MAt-nj1m03hieGVHYdLGr_9A1iEQGW_Scx5bLNCcvTAdk9FhMEoEhw51lBg-IWoTf8ei-kBOFK-SjkLU7LmzaStnk9R8aNpn8dOIKFzvo3_vTxrWhWo2-CUWn7oD_FEvlI5EGmQA33w8D8';
+export const EDITORIAL_IMAGE = '/bottles/discovery-set.webp';
 
 
 export const getFragranceTitle = (fragrance: Fragrance): string => {
