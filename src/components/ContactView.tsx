@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { ThemeMode } from '../types';
-import { Mail, Phone, MapPin, Clock, Check, Send, Sparkles, MessageCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Check, Send, MessageCircle } from 'lucide-react';
 
 interface ContactViewProps {
   onNavigateToCare: () => void;
@@ -115,7 +115,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
               </p>
               <div className="flex items-center gap-2 text-xs font-sans text-[#8c8985] pt-1">
                 <Clock className="w-4 h-4 text-[#C5A059]" />
-                <span>Tuesday – Saturday: 11h00 – 19h30</span>
+                <span>Tuesday to Saturday: 11h00 to 19h30</span>
               </div>
             </div>
 
@@ -209,8 +209,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
             >
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <Sparkles className="w-4 h-4 text-[#C5A059]" />
-                  <span className="text-[10px] uppercase tracking-[0.35em] text-[#C5A059] font-sans font-medium">
+                  <span className="text-[10px] uppercase tracking-[0.35em] text-[#C49A88] font-sans font-medium">
                     DIRECT INQUIRY DOSSIER
                   </span>
                 </div>

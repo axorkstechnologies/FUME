@@ -1,17 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-  --color-ivory: #FAF8F5;
-  --color-ivory-warm: #F5F1E9;
-  --color-ivory-soft: #FDFCFA;
-  --color-gold: #C5A059;
-  --color-gold-light: #E5C985;
-  --color-gold-dark: #9A7B39;
-  --color-gold-muted: #D4BA7A;
+  --color-pearl: #F9F6F0;
+  --color-oyster: #E3DDD3;
+  --color-dusty-rose: #C49A88;
+  --color-sand: #D6C7B2;
+  --color-shadow: #1A1816;
+
+  /* Strict mapping to the five official brand colors */
+  --color-ivory: #F9F6F0;
+  --color-ivory-warm: #E3DDD3;
+  --color-ivory-soft: #F9F6F0;
+  --color-gold: #C49A88;
+  --color-gold-light: #D6C7B2;
+  --color-gold-dark: #C49A88;
+  --color-gold-muted: #D6C7B2;
   
   --font-serif: "Bodoni Moda", "Cinzel", Georgia, serif;
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 }
+
 
 @keyframes floatOrb1 {
   0%, 100% {
@@ -46,15 +54,6 @@
   }
 }
 
-@keyframes shimmerGold {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
 @keyframes marquee {
   0% {
     transform: translateX(0%);
@@ -64,35 +63,11 @@
   }
 }
 
-.animate-float-1 {
-  animation: floatOrb1 18s ease-in-out infinite;
-}
-
-.animate-float-2 {
-  animation: floatOrb2 22s ease-in-out infinite;
-}
-
-.animate-float-3 {
-  animation: floatOrb3 15s ease-in-out infinite;
-}
-
 .animate-marquee {
   display: flex;
   width: max-content;
   animation: marquee 28s linear infinite;
 }
-
-.shimmer-gold {
-  background: linear-gradient(
-    90deg,
-    rgba(197, 160, 89, 0) 0%,
-    rgba(229, 201, 133, 0.4) 50%,
-    rgba(197, 160, 89, 0) 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmerGold 3s infinite;
-}
-
 /* Native scroll only */
 html {
   scroll-behavior: auto;

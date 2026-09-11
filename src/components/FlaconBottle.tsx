@@ -74,7 +74,7 @@ const FlaconLabel: React.FC<FlaconLabelProps> = ({ name, customMonogram, compact
             className="uppercase tracking-[0.2em] text-[#C5A059]/80 font-sans block leading-none mt-0.5"
             style={{ fontSize: compact ? 'clamp(2.8px, 1.1cqi, 4.5px)' : 'clamp(3.2px, 1.3cqi, 5.5px)' }}
           >
-            — FRAGRANCES —
+            FRAGRANCES
           </span>
         </div>
 
@@ -102,7 +102,7 @@ const FlaconLabel: React.FC<FlaconLabelProps> = ({ name, customMonogram, compact
             style={{ fontSize: compact ? 'clamp(3.2px, 1.4cqi, 5.5px)' : 'clamp(3.8px, 1.6cqi, 6.5px)' }}
           >
             <span>50 ML</span>
-            <span className="text-[#C5A059] text-[0.8em]">✦</span>
+            <span className="text-[#C49A88] text-[0.8em]">·</span>
             <span>1.7 FL OZ</span>
           </div>
 

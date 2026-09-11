@@ -4,7 +4,7 @@ export type OlfactoryFamily = 'ALL' | 'FRESH' | 'WOODY' | 'ORIENTAL';
 export interface Fragrance {
   id: string;
   name: string;
-  title?: string; // e.g. 'FUME FRAGRANCES – ARAB' or 'FUME FRAGRANCES Discovery Set'
+  title?: string; // e.g. 'FUME FRAGRANCES: ARAB' or 'FUME FRAGRANCES Discovery Set'
   subtitle: string;
   concentration: string; // 'Eau de Parfum'
   volume: string; // '50 ML / 1.7 FL OZ'
@@ -12,7 +12,7 @@ export interface Fragrance {
   genderCategory: 'FOR HIM' | 'FOR HER' | 'UNISEX';
   olfactoryFamily: 'FRESH' | 'WOODY' | 'ORIENTAL';
   gender: 'him' | 'her' | 'unisex';
-  families: string[]; // e.g. ['fresh', 'woody'] — canonical multi-family for filtering
+  families: string[]; // e.g. ['fresh', 'woody'], canonical multi-family for filtering
   discovery: boolean; // true for the 5 hero discovery scents
   notesLine: string; // one-liner notes description from catalog
   image: string;

@@ -106,7 +106,6 @@ export const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
                   >
                     Rs {fragrance.price.toLocaleString()}
                   </span>
-                  <span className="text-[10px] text-[#C5A059] font-serif">✦</span>
                 </div>
               </div>
             </motion.div>

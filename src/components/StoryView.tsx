@@ -1,8 +1,8 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'motion/react';
 import { EDITORIAL_IMAGE, CAMPAIGN_IMAGE, FRAGRANCES } from '../data/fragrances';
 import { ThemeMode } from '../types';
-import { Sparkles, Shield, Compass, ArrowRight, Heart, Award, MessageCircle } from 'lucide-react';
+import { Droplets, Shield, Compass, ArrowRight, Heart, Award, MessageCircle } from 'lucide-react';
 import { FlaconBottle } from './FlaconBottle';
 
 interface StoryViewProps {
@@ -97,7 +97,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
                 I didn’t start Fume simply because I wanted to start a business. I started it because I believed in something deeper.
               </p>
               <p>
-                Growing up with an obsession for scents, I witnessed a frustrating divide in Pakistan’s fragrance market: on one side were imported designer bottles priced at Rs 35,000 to Rs 60,000 — often out of reach and plagued by grey-market replicas. On the other side were fleeting synthetic sprays that vanished within thirty minutes of stepping out into our warm climate.
+                Growing up with an obsession for scents, I witnessed a frustrating divide in Pakistan’s fragrance market: on one side were imported designer bottles priced at Rs 35,000 to Rs 60,000, often out of reach and plagued by grey-market replicas. On the other side were fleeting synthetic sprays that vanished within thirty minutes of stepping out into our warm climate.
               </p>
               <p>
                 I believed that fragrance is never just an accessory. It is an intimate expression of dignity, memory, and presence. Everyone deserves to wear a scent that stays with them throughout the day, uplifting their spirit without demanding an exorbitant financial sacrifice.
@@ -209,10 +209,10 @@ export const StoryView: React.FC<StoryViewProps> = ({
                   isLight ? 'text-[#5C5449]' : 'text-[#a9a7a1]'
                 }`}
               >
-                Our mission is to make authentic, master-crafted fragrances accessible to everyone in Pakistan. We deliver genuine Eau de Parfum concentrations with long-lasting sillage, transparent pricing, and uncompromising presentation — without the 10x international retail markups.
+                Our mission is to make authentic, master-crafted fragrances accessible to everyone in Pakistan. We deliver genuine Eau de Parfum concentrations with long-lasting sillage, transparent pricing, and uncompromising presentation, without the 10x international retail markups.
               </p>
-              <div className="pt-2 text-[10px] uppercase tracking-[0.25em] text-[#C5A059] font-sans font-medium">
-                ✦ HONEST FORMULATION • PAKISTAN-FIRST ACCESSIBILITY
+              <div className="pt-2 text-[10px] uppercase tracking-[0.25em] text-[#C49A88] font-sans font-medium">
+                HONEST FORMULATION · PAKISTAN-FIRST ACCESSIBILITY
               </div>
             </div>
 
@@ -245,7 +245,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
                 Our vision is to establish FUME as Pakistan’s leading and most trusted artisanal fragrance house. We are building a homegrown brand that stands proudly alongside heritage European parfumeries, proving that world-class sillage, bottle architecture, and olfactory poetry can be created right here.
               </p>
               <div className="pt-2 text-[10px] uppercase tracking-[0.25em] text-[#C5A059] font-sans font-medium">
-                ✦ TIMELESS SILLAGE • HOMEGROWN EXCELLENCE
+                TIMELESS SILLAGE • HOMEGROWN EXCELLENCE
               </div>
             </div>
           </div>
@@ -275,10 +275,10 @@ export const StoryView: React.FC<StoryViewProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                icon: Sparkles,
+                icon: Droplets,
                 tag: 'CONCENTRATION',
                 title: 'TRUE 14HR ALL-DAY SILLAGE',
-                text: 'Every flacon is blended at an uncompromised 22%–28% pure perfume oil concentration, tested rigorously to endure Pakistan’s heat and busy lifestyles.'
+                text: 'Every flacon is blended at an uncompromised 22 to 28% pure perfume oil concentration, tested rigorously to endure Pakistan’s heat and busy lifestyles.'
               },
               {
                 icon: Shield,
@@ -289,7 +289,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
               {
                 icon: Award,
                 tag: 'ACCESSIBILITY',
-                title: 'FAIR PKR PRICING (RS 1,899–2,499)',
+                title: 'FAIR PKR PRICING (RS 1,899 TO 2,499)',
                 text: 'We bypass foreign brand royalties and retailer markups, bringing heavy flint glass flacons to Pakistani collectors at fair, transparent prices.'
               },
               {
@@ -349,7 +349,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
                 <span className="text-[10px] uppercase tracking-[0.35em] text-[#C5A059] font-sans font-medium block">
                   AN INVITATION FROM OUR FOUNDER
                 </span>
-                <span className="text-xs text-[#C5A059]">✦</span>
+                
               </div>
 
               <h2
@@ -424,3 +424,4 @@ export const StoryView: React.FC<StoryViewProps> = ({
 };
 
 export default StoryView;
+

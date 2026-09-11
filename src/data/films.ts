@@ -14,7 +14,7 @@ export const FILMS: Film[] = [
     productName: 'DESERT',
     loop: true,
     autoPlayMuted: true,
-    blurb: '“First spray on the wrist — the amber and smoky sandalwood projection is unbelievable. The packaging is 10/10.”',
+    blurb: '“First spray on the wrist, the amber and smoky sandalwood projection is unbelievable. The packaging is 10/10.”',
     author: 'Hamza K.',
     authorRole: 'Verified Buyer'
   },

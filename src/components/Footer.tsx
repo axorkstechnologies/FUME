@@ -276,7 +276,7 @@ export const Footer: React.FC<FooterProps> = ({
           }`}
         >
           <span>
-            © 2024–{new Date().getFullYear()} FUME FRAGRANCES (SMC-PRIVATE) LIMITED. ALL RIGHTS RESERVED.
+            © 2024 {new Date().getFullYear()} FUME FRAGRANCES (SMC-PRIVATE) LIMITED. ALL RIGHTS RESERVED.
           </span>
           <div className="flex gap-6">
             <span>GRASSE • PARIS • LONDON</span>

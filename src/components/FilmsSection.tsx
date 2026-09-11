@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Film, Fragrance, ThemeMode, FilmKind } from '../types';
 import { FilmPlayer } from './FilmPlayer';
-import { Play, Sparkles, ChevronRight } from 'lucide-react';
+import { Play, ChevronRight } from 'lucide-react';
 
 interface FilmsSectionProps {
   films: Film[];
@@ -54,7 +54,7 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
               <span className="text-[10px] uppercase tracking-[0.35em] text-[#C5A059] font-sans font-medium">
                 AUTHENTIC EXPERIENCES • SINCE 2024
               </span>
-              <span className="text-xs text-[#C5A059]">✦</span>
+
             </div>
 
             <h2

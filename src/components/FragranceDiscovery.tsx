@@ -103,7 +103,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
 
           {/* Active Category Description */}
           <div className="text-center pt-3 text-xs text-[#C5A059] font-sans italic tracking-wider">
-            ✦ {CATEGORIES.find((c) => c.label === activeCategory)?.description} ✦
+            {CATEGORIES.find((c) => c.label === activeCategory)?.description}
           </div>
         </div>
 

@@ -63,7 +63,7 @@ export const BrandStatement: React.FC<BrandStatementProps> = ({ themeMode }) => 
                 isLight ? 'text-[#7D766E]' : 'text-[#8c8985]'
               }`}
             >
-              12–16 Hour Persistence
+              12 to 16 Hour Persistence
             </span>
           </div>
 

@@ -10,7 +10,7 @@ export const EDITORIAL_IMAGE = '/bottles/discovery-set.webp';
 export const getFragranceTitle = (fragrance: Fragrance): string => {
   if (fragrance.title) return fragrance.title;
   if (fragrance.id === 'discovery-set') return 'FUME FRAGRANCES Discovery Set';
-  return `FUME FRAGRANCES – ${fragrance.name}`;
+  return `FUME FRAGRANCES : ${fragrance.name}`;
 };
 
 export const DISCOVERY_SET: Fragrance = {
@@ -34,9 +34,9 @@ export const DISCOVERY_SET: Fragrance = {
   description: '5 × 5ml testers curated for your taste. Discover your signature scent across our floral, fresh, oriental, and woody creations in heavy miniature glass flacons.',
   origin: 'Hand-Crafted in Pakistan • Since 2024',
   inStock: true,
-  pastelBg: '#121212',
-  pastelAccent: '#C5A059',
-  pastelGlow: 'rgba(197, 160, 89, 0.45)',
+  pastelBg: '#F9F6F0',
+  pastelAccent: '#C49A88',
+  pastelGlow: 'rgba(196, 154, 136, 0.25)',
   cardTone: 'Discovery Coffret'
 };
 
@@ -63,9 +63,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'An ethereal nocturnal floral anchored in mineral clarity. Crisp night jasmine suspended over petrified oakmoss and subtle atmospheric smoke.',
     origin: 'Grasse, France • Since 2024',
     inStock: true,
-    pastelBg: '#FAF2ED',
-    pastelAccent: '#C5927B',
-    pastelGlow: 'rgba(242, 219, 210, 0.65)',
+    pastelBg: '#E3DDD3',
+    pastelAccent: '#D6C7B2',
+    pastelGlow: 'rgba(214, 199, 178, 0.3)',
     cardTone: 'Blush Quartz'
   },
   {
@@ -88,9 +88,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'A luminous invitation to self-discovery. Radiant white floral heart embraced by warm champagne amber and dark Virginia cedarwood.',
     origin: 'Grasse & Virginia • Since 2024',
     inStock: true,
-    pastelBg: '#FAF5EB',
-    pastelAccent: '#C5A059',
-    pastelGlow: 'rgba(247, 237, 218, 0.65)',
+    pastelBg: '#F9F6F0',
+    pastelAccent: '#C49A88',
+    pastelGlow: 'rgba(196, 154, 136, 0.25)',
     cardTone: 'Champagne Blossom'
   },
   {
@@ -113,9 +113,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'Commanding density and regal projection. Scorched birch tar and saffron intertwine with supple Italian leather for an unyielding trail.',
     origin: 'Florence & Grasse • Since 2024',
     inStock: true,
-    pastelBg: '#F6F0E6',
-    pastelAccent: '#B88B4A',
-    pastelGlow: 'rgba(235, 217, 191, 0.65)',
+    pastelBg: '#E3DDD3',
+    pastelAccent: '#D6C7B2',
+    pastelGlow: 'rgba(214, 199, 178, 0.3)',
     cardTone: 'Tuscan Amber'
   },
   {
@@ -138,9 +138,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'Pristine, crystalline, and eternal. Cool powdered iris meets clean skin musks in razor-sharp equilibrium, leaving a magnetic presence.',
     origin: 'Florence • Since 2024',
     inStock: true,
-    pastelBg: '#F0F4F7',
-    pastelAccent: '#8FA7B8',
-    pastelGlow: 'rgba(220, 233, 242, 0.65)',
+    pastelBg: '#F9F6F0',
+    pastelAccent: '#C49A88',
+    pastelGlow: 'rgba(196, 154, 136, 0.25)',
     cardTone: 'Opal Iris'
   },
   {
@@ -163,9 +163,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'The archetype of confident poise. Rich smoky woods energized by bright bergamot and dry oceanic ambergris that lingers from dawn till dusk.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#F2F5F0',
-    pastelAccent: '#94A38B',
-    pastelGlow: 'rgba(223, 235, 220, 0.65)',
+    pastelBg: '#E3DDD3',
+    pastelAccent: '#D6C7B2',
+    pastelGlow: 'rgba(214, 199, 178, 0.3)',
     cardTone: 'Imperial Sage'
   },
 
@@ -190,9 +190,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'A storied Tuscan amber enveloped in weathered leather and powdered iris. Deep, refined, and unmistakably artisanal.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#F6F0E6',
-    pastelAccent: '#B88B4A',
-    pastelGlow: 'rgba(235, 217, 191, 0.65)',
+    pastelBg: '#F9F6F0',
+    pastelAccent: '#C49A88',
+    pastelGlow: 'rgba(196, 154, 136, 0.25)',
     cardTone: 'Tuscan Amber'
   },
   {
@@ -215,9 +215,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'Opalescent iris in crystalline suspension. Cool vetiver and pale woods form a luminous, skin-close whisper of quiet luxury.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#F0F4F7',
-    pastelAccent: '#8FA7B8',
-    pastelGlow: 'rgba(220, 233, 242, 0.65)',
+    pastelBg: '#E3DDD3',
+    pastelAccent: '#D6C7B2',
+    pastelGlow: 'rgba(214, 199, 178, 0.3)',
     cardTone: 'Opal Iris'
   },
   {
@@ -240,9 +240,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'An instinctual rush of radiant freshness colliding with noble woods. Sensual, modern, and boldly magnetic in its projection.',
     origin: 'Calabria & Grasse • Since 2024',
     inStock: true,
-    pastelBg: '#EFF4F8',
-    pastelAccent: '#7B9FB5',
-    pastelGlow: 'rgba(215, 231, 240, 0.65)',
+    pastelBg: '#F9F6F0',
+    pastelAccent: '#C49A88',
+    pastelGlow: 'rgba(196, 154, 136, 0.25)',
     cardTone: 'Riviera Azure'
   },
   {
@@ -265,9 +265,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'Intoxicating warmth and nocturnal charisma. Rich golden spices harmonize with smoky tonka and resins that melt into the skin.',
     origin: 'Grasse & Guatemala • Since 2024',
     inStock: true,
-    pastelBg: '#FAF3EA',
-    pastelAccent: '#C99B52',
-    pastelGlow: 'rgba(247, 228, 201, 0.65)',
+    pastelBg: '#E3DDD3',
+    pastelAccent: '#D6C7B2',
+    pastelGlow: 'rgba(214, 199, 178, 0.3)',
     cardTone: 'Honeyed Tonka'
   },
   {
@@ -290,9 +290,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'Understated masculine elegance. Notes of cured tobacco leaves and tailored suede balanced with warm sandalwood for effortless distinction.',
     origin: 'London & Grasse • Since 2024',
     inStock: true,
-    pastelBg: '#F5F2ED',
-    pastelAccent: '#A88B6E',
-    pastelGlow: 'rgba(236, 226, 215, 0.65)',
+    pastelBg: '#F9F6F0',
+    pastelAccent: '#C49A88',
+    pastelGlow: 'rgba(196, 154, 136, 0.25)',
     cardTone: 'Tobacco Suede'
   },
   {
@@ -315,9 +315,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'A smouldering rose steeped in sacred incense. Saffron ignites the opening while smoky resins anchor a long, hypnotic trail.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#FAF0F0',
-    pastelAccent: '#C27B7B',
-    pastelGlow: 'rgba(242, 215, 215, 0.65)',
+    pastelBg: '#E3DDD3',
+    pastelAccent: '#D6C7B2',
+    pastelGlow: 'rgba(214, 199, 178, 0.3)',
     cardTone: 'Crimson Velvet'
   },
   {
@@ -340,9 +340,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'The scent of a Mediterranean morning. Transparent sea air and sun-warmed citrus settle into mineral musk and bleached driftwood.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#EDF5F8',
-    pastelAccent: '#7BAEC5',
-    pastelGlow: 'rgba(210, 235, 245, 0.65)',
+    pastelBg: '#F9F6F0',
+    pastelAccent: '#C49A88',
+    pastelGlow: 'rgba(196, 154, 136, 0.25)',
     cardTone: 'Coastal Mist'
   },
   {
@@ -365,9 +365,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'A meditation in luminosity. Sheer yuzu and aquatic lotus dissolve into transparent woods for an airy, near-invisible elegance.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#F2F6F4',
-    pastelAccent: '#8BB5A3',
-    pastelGlow: 'rgba(220, 240, 230, 0.65)',
+    pastelBg: '#E3DDD3',
+    pastelAccent: '#D6C7B2',
+    pastelGlow: 'rgba(214, 199, 178, 0.3)',
     cardTone: 'Zen Water'
   },
   {
@@ -390,9 +390,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'Crisp green architecture meeting warm amber foundations. A modern masculine contour drawn with botanical precision.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#F0F5EE',
-    pastelAccent: '#8BA88B',
-    pastelGlow: 'rgba(220, 235, 218, 0.65)',
+    pastelBg: '#F9F6F0',
+    pastelAccent: '#C49A88',
+    pastelGlow: 'rgba(196, 154, 136, 0.25)',
     cardTone: 'Green Accord'
   },
   {
@@ -415,9 +415,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'Unyielding strength distilled into scent. Raw leather and crushed mountain herbs over a base of fire-cured amber and vetiver.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#F4F1EC',
-    pastelAccent: '#A08B6E',
-    pastelGlow: 'rgba(230, 220, 208, 0.65)',
+    pastelBg: '#E3DDD3',
+    pastelAccent: '#D6C7B2',
+    pastelGlow: 'rgba(214, 199, 178, 0.3)',
     cardTone: 'Iron Leather'
   },
   {
@@ -440,15 +440,15 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'A decisive stroke of aromatic freshness and smoky depth. Grapefruit opens with absolute clarity before settling into sacred incense and wood.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#EEF2F8',
-    pastelAccent: '#7B8FB5',
-    pastelGlow: 'rgba(215, 225, 242, 0.65)',
+    pastelBg: '#F9F6F0',
+    pastelAccent: '#C49A88',
+    pastelGlow: 'rgba(196, 154, 136, 0.25)',
     cardTone: 'Midnight Blue'
   },
   {
     id: 'limm',
     name: "L'IMM",
-    title: "FUME FRAGRANCES – L'IMM",
+    title: "FUME FRAGRANCES : L'IMM",
     subtitle: 'AMBER WOODS & MINERAL AIR',
     concentration: 'Eau de Parfum',
     volume: '50 ML / 1.7 FL OZ',
@@ -466,9 +466,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'An immaterial veil of mineral air threaded through amber woods. Impossibly light yet persistent, a scent that exists just beyond reach.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#F0F3F6',
-    pastelAccent: '#8A9EB0',
-    pastelGlow: 'rgba(218, 228, 238, 0.65)',
+    pastelBg: '#E3DDD3',
+    pastelAccent: '#D6C7B2',
+    pastelGlow: 'rgba(214, 199, 178, 0.3)',
     cardTone: 'Mineral Air'
   },
   {
@@ -491,9 +491,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'An opulent oud tapestry woven with rose and radiant amber. Sun-warmed spices and sacred resins evoke ancient desert grandeur.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#FAF2E8',
-    pastelAccent: '#C5A059',
-    pastelGlow: 'rgba(245, 225, 200, 0.65)',
+    pastelBg: '#F9F6F0',
+    pastelAccent: '#C49A88',
+    pastelGlow: 'rgba(196, 154, 136, 0.25)',
     cardTone: 'Desert Gold'
   },
   {
@@ -516,9 +516,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'The desert at high noon captured in glass. Scorched sand and sacred frankincense give way to dry cedar and smouldering amber.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#F8F2EA',
-    pastelAccent: '#BFA06E',
-    pastelGlow: 'rgba(240, 225, 205, 0.65)',
+    pastelBg: '#E3DDD3',
+    pastelAccent: '#D6C7B2',
+    pastelGlow: 'rgba(214, 199, 178, 0.3)',
     cardTone: 'Sand Dune'
   },
   {
@@ -541,15 +541,15 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'Liquid gold for the audacious. Honeyed leather and molten cinnamon fuse with roasted tonka for a rich, long-lasting trail.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#FAF3E6',
-    pastelAccent: '#D4A84A',
-    pastelGlow: 'rgba(248, 228, 190, 0.65)',
+    pastelBg: '#F9F6F0',
+    pastelAccent: '#C49A88',
+    pastelGlow: 'rgba(196, 154, 136, 0.25)',
     cardTone: 'Liquid Gold'
   },
   {
     id: 'owood',
     name: "O'WOOD",
-    title: "FUME FRAGRANCES – O'WOOD",
+    title: "FUME FRAGRANCES : O'WOOD",
     subtitle: 'OAKMOSS & SMOKED WOODS',
     concentration: 'Eau de Parfum',
     volume: '50 ML / 1.7 FL OZ',
@@ -567,9 +567,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'Deep forest solitude. Ancient oakmoss and smoked heartwoods converge with earthy vetiver for a primordial, grounding scent.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#F0F3EE',
-    pastelAccent: '#7B9470',
-    pastelGlow: 'rgba(215, 230, 210, 0.65)',
+    pastelBg: '#E3DDD3',
+    pastelAccent: '#D6C7B2',
+    pastelGlow: 'rgba(214, 199, 178, 0.3)',
     cardTone: 'Forest Moss'
   },
   {
@@ -592,9 +592,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'A legendary accord of aromatic lavender lifted by tropical pineapple. Dry oakmoss and tonka create an enduring, masculine signature.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#F2F0F5',
-    pastelAccent: '#9488A8',
-    pastelGlow: 'rgba(225, 220, 238, 0.65)',
+    pastelBg: '#F9F6F0',
+    pastelAccent: '#C49A88',
+    pastelGlow: 'rgba(196, 154, 136, 0.25)',
     cardTone: 'Aromatic Legend'
   },
   {
@@ -617,9 +617,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'Femininity distilled to its essence. Lush peony and vanilla orchid float over whisper-soft woods and creamy cashmeran.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#FAF0F5',
-    pastelAccent: '#C27BA8',
-    pastelGlow: 'rgba(242, 215, 235, 0.65)',
+    pastelBg: '#E3DDD3',
+    pastelAccent: '#D6C7B2',
+    pastelGlow: 'rgba(214, 199, 178, 0.3)',
     cardTone: 'Velvet Peony'
   }
 ];

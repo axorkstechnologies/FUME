@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ThemeMode } from '../types';
-import { ChevronDown, ShieldCheck, Truck, RefreshCw, Sparkles, HelpCircle, ArrowRight } from 'lucide-react';
+import { ChevronDown, ShieldCheck, Truck, RefreshCw, HelpCircle, ArrowRight } from 'lucide-react';
 
 interface CareViewProps {
   onNavigateToContact: () => void;
@@ -37,7 +37,7 @@ export const CareView: React.FC<CareViewProps> = ({
       category: 'SHIPPING & DISPATCH',
       question: 'WHAT ARE YOUR SHIPPING TIMELINES AND GLOBAL DESTINATIONS?',
       answer:
-        'All orders are fulfilled through carbon-neutral air couriers directly from our central depot in France. Orders placed prior to 14h00 CET are dispatched the same business day. Delivery across the European Union and the United Kingdom takes 1–3 business days. Delivery to North America, Asia-Pacific, and the Middle East takes 2–4 business days via DHL Express Haute Couture service with temperature-regulated transit.',
+        'All orders are fulfilled through carbon-neutral air couriers directly from our central depot in France. Orders placed prior to 14h00 CET are dispatched the same business day. Delivery across the European Union and the United Kingdom takes 1 to 3 business days. Delivery to North America, Asia-Pacific, and the Middle East takes 2 to 4 business days via DHL Express Haute Couture service with temperature-regulated transit.',
       highlight: 'Complimentary worldwide express shipping on all orders.'
     },
     {
@@ -356,3 +356,4 @@ export const CareView: React.FC<CareViewProps> = ({
     </div>
   );
 };
+

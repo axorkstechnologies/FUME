@@ -19,7 +19,6 @@ import { CollectionsView } from './components/CollectionsView';
 import { CartDrawer } from './components/CartDrawer';
 import { FlaconDetailModal } from './components/FlaconDetailModal';
 import { SearchModal } from './components/SearchModal';
-import { AccountModal } from './components/AccountModal';
 import { StoryModal } from './components/StoryModal';
 import { ContactModal } from './components/ContactModal';
 import { StoryView } from './components/StoryView';
@@ -33,28 +32,8 @@ export function App() {
   const [selectedFragrance, setSelectedFragrance] = useState<Fragrance | null>(null);
   const [activeReelFilm, setActiveReelFilm] = useState<Film | null>(null);
 
-  // Theme Mode: Default to 'light' (Luminous Ivory & Gold with pastel tones), with instant Nocturne Dark toggle
-  const [themeMode, setThemeMode] = useState<ThemeMode>(() => {
-    try {
-      const saved = localStorage.getItem('fume_theme');
-      if (saved === 'dark' || saved === 'light') return saved;
-    } catch {
-      // Ignore
-    }
-    return 'light';
-  });
-
-  const toggleTheme = () => {
-    setThemeMode((prev) => {
-      const next = prev === 'light' ? 'dark' : 'light';
-      try {
-        localStorage.setItem('fume_theme', next);
-      } catch {
-        // Ignore
-      }
-      return next;
-    });
-  };
+  // Single brand atmosphere locked strictly to the 5-color palette (Pearl, Oyster, Dusty Rose, Sand, Shadow)
+  const themeMode: ThemeMode = 'light';
 
   // Cart State with Local Persistence
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
@@ -96,7 +75,7 @@ export function App() {
   // Modals & Drawers
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [isAccountOpen, setIsAccountOpen] = useState(false);
+
   const [isStoryOpen, setIsStoryOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
 
@@ -165,27 +144,21 @@ export function App() {
     }
   };
 
-  const isLight = themeMode === 'light';
+
 
   return (
     <div
-      className={`min-h-screen relative flex flex-col font-sans transition-colors duration-500 selection:bg-[#C5A059] selection:text-black ${
-        isLight ? 'bg-[#FAF8F5] text-[#1A1816]' : 'bg-[#0a0a0a] text-[#f5f4f0]'
-      }`}
+      className="min-h-screen relative flex flex-col font-sans selection:bg-[#C49A88] selection:text-white bg-[#F9F6F0] text-[#1A1816]"
     >
       {/* Dynamic Animated Ambient Colors & Moving Particles Canvas */}
       <AmbientCanvas themeMode={themeMode} />
 
-      {/* 1. Header / Navigation with Theme Toggle and Since 2024 */}
       <Header
         currentView={currentView}
         onNavigate={handleNavigate}
         cartCount={totalCartCount}
         onOpenCart={() => setIsCartOpen(true)}
         onOpenSearch={() => setIsSearchOpen(true)}
-        onOpenAccount={() => setIsAccountOpen(true)}
-        themeMode={themeMode}
-        onToggleTheme={toggleTheme}
       />
 
       {/* Main Content Area */}
@@ -347,12 +320,7 @@ export function App() {
         themeMode={themeMode}
       />
 
-      {/* Account Modal */}
-      <AccountModal
-        isOpen={isAccountOpen}
-        onClose={() => setIsAccountOpen(false)}
-        themeMode={themeMode}
-      />
+
 
       {/* Story Modal */}
       <StoryModal

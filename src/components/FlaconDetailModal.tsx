@@ -243,10 +243,9 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
             <div className="space-y-6">
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-[#C5A059] font-sans font-medium">
-                    {fragrance.genderCategory} • {fragrance.olfactoryFamily}
+                  <span className="text-[10px] uppercase tracking-[0.3em] text-[#C49A88] font-sans font-medium">
+                    {fragrance.genderCategory} · {fragrance.olfactoryFamily}
                   </span>
-                  <span className="text-xs text-[#C5A059]">✦</span>
                   <span
                     className={`text-[9px] uppercase tracking-[0.2em] font-sans ${
                       isLight ? 'text-[#8C8377]' : 'text-[#8c8985]'
@@ -272,7 +271,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                     onClick={() => setMediaTab('film')}
                     className="inline-flex items-center gap-1.5 text-[9px] uppercase tracking-[0.25em] text-[#C5A059] hover:underline font-sans font-medium transition-colors cursor-pointer pt-1"
                   >
-                    <span>✦ Watch Experience on Film ({matchingFilm.kicker}) →</span>
+                    <span>Watch Experience on Film ({matchingFilm.kicker})</span>
                   </button>
                 )}
               </div>
@@ -396,15 +395,15 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                   }`}
                 >
                   <div className="min-w-0">
-                    <div className="flex items-center gap-1.5 text-[9px] uppercase tracking-[0.25em] text-[#C5A059] font-medium">
-                      <span>✦ CURIOUS BEFORE YOU COMMIT?</span>
+                    <div className="flex items-center gap-1.5 text-[9px] uppercase tracking-[0.25em] text-[#C49A88] font-medium">
+                      <span>CURIOUS BEFORE YOU COMMIT?</span>
                     </div>
                     <p
                       className={`text-xs font-sans tracking-wide leading-snug pt-0.5 ${
                         isLight ? 'text-[#5C5449]' : 'text-[#A39E95]'
                       }`}
                     >
-                      Try our <strong className="font-medium text-[inherit]">Discovery Set</strong> (5 × 5ml testers — Rs. 1,200).
+                      Try our <strong className="font-medium text-[inherit]">Discovery Set</strong> (5 × 5ml testers, Rs. 1,200).
                     </p>
                   </div>
                   <button
@@ -508,7 +507,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                   isLight ? 'text-[#7D766E] hover:text-[#C5A059]' : 'text-[#8c8985] hover:text-[#C5A059]'
                 }`}
               >
-                <span>✦ Order or Inquire via WhatsApp (+92 313 297 0468) →</span>
+                <span>Order or Inquire via WhatsApp (+92 313 297 0468)</span>
               </a>
             </div>
           </div>

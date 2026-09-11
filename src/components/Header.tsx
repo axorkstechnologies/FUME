@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Search, User, ShoppingBag, Menu, X, Sun, Moon } from 'lucide-react';
-import { ScreenView, ThemeMode } from '../types';
+import { Search, ShoppingBag, Menu, X } from 'lucide-react';
+import { ScreenView } from '../types';
 
 interface HeaderProps {
   currentView: ScreenView;
@@ -8,9 +8,6 @@ interface HeaderProps {
   cartCount: number;
   onOpenCart: () => void;
   onOpenSearch: () => void;
-  onOpenAccount: () => void;
-  themeMode: ThemeMode;
-  onToggleTheme: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -18,10 +15,7 @@ export const Header: React.FC<HeaderProps> = ({
   onNavigate,
   cartCount,
   onOpenCart,
-  onOpenSearch,
-  onOpenAccount,
-  themeMode,
-  onToggleTheme
+  onOpenSearch
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -191,70 +185,21 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         </div>
 
-        {/* Right Navigation: Theme Toggle, Search, Account, Shopping Bag */}
+        {/* Right Navigation: Search & Shopping Bag */}
         <div className="nav-right flex items-center justify-end gap-3 sm:gap-4 md:gap-5 min-w-0">
-          {/* Theme Palette Toggle */}
-          <button
-            onClick={onToggleTheme}
-            className={`p-1.5 rounded-full transition-all cursor-pointer flex items-center gap-1.5 group ${
-              isDarkTop
-                ? 'text-[#A39E95] hover:text-[#C5A059] hover:bg-white/10'
-                : isLight
-                ? 'text-[#7D766E] hover:text-[#C5A059] hover:bg-[#F2ECE1]'
-                : 'text-[#8c8985] hover:text-[#C5A059] hover:bg-[#1A1A1A]'
-            }`}
-            title={`Switch to ${isLight ? 'Nocturne Dark' : 'Luminous Ivory & Gold'}`}
-            aria-label="Toggle color atmosphere"
-          >
-            {isLight ? (
-              <>
-                <Moon className="w-4 h-4 text-[#C5A059] group-hover:text-white" />
-                <span
-                  className={`hidden xl:inline text-[10px] uppercase tracking-[0.2em] font-sans font-medium ${
-                    isDarkTop ? 'text-[#C5A059]' : 'text-[#7D766E]'
-                  } group-hover:text-[#C5A059]`}
-                >
-                  Dark
-                </span>
-              </>
-            ) : (
-              <>
-                <Sun className="w-4 h-4 text-[#C5A059] group-hover:text-white" />
-                <span className="hidden xl:inline text-[10px] uppercase tracking-[0.2em] font-sans font-medium text-[#D4BA7A]">
-                  Ivory & Gold
-                </span>
-              </>
-            )}
-          </button>
-
           {/* Search Button */}
           <button
             onClick={onOpenSearch}
             className={`p-1.5 transition-colors cursor-pointer ${
               isDarkTop
-                ? 'text-[#A39E95] hover:text-[#C5A059]'
+                ? 'text-[#D6C7B2] hover:text-[#C49A88]'
                 : isLight
-                ? 'text-[#7D766E] hover:text-[#C5A059]'
-                : 'text-[#8c8985] hover:text-[#C5A059]'
+                ? 'text-[#1A1816] hover:text-[#C49A88]'
+                : 'text-[#E3DDD3] hover:text-[#C49A88]'
             }`}
             aria-label="Open search"
           >
             <Search className="w-4 h-4 md:w-5 md:h-5" />
-          </button>
-
-          {/* Account / Membership Access */}
-          <button
-            onClick={onOpenAccount}
-            className={`p-1.5 transition-colors cursor-pointer hidden sm:flex items-center gap-2 ${
-              isDarkTop
-                ? 'text-[#A39E95] hover:text-[#C5A059]'
-                : isLight
-                ? 'text-[#7D766E] hover:text-[#C5A059]'
-                : 'text-[#8c8985] hover:text-[#C5A059]'
-            }`}
-            aria-label="Open patron account"
-          >
-            <User className="w-4 h-4 md:w-5 md:h-5" />
           </button>
 
           {/* Cart Trigger */}
@@ -262,23 +207,21 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={onOpenCart}
             className={`flex items-center gap-2 transition-colors cursor-pointer group ${
               isDarkTop
-                ? 'text-[#FAF8F5] hover:text-[#C5A059]'
+                ? 'text-[#F9F6F0] hover:text-[#C49A88]'
                 : isLight
-                ? 'text-[#1A1816] hover:text-[#C5A059]'
-                : 'text-white hover:text-[#C5A059]'
+                ? 'text-[#1A1816] hover:text-[#C49A88]'
+                : 'text-white hover:text-[#C49A88]'
             }`}
             aria-label={`Open shopping bag with ${cartCount} items`}
           >
             <div className="relative">
-              <ShoppingBag className="w-4 h-4 md:w-5 md:h-5 text-[#C5A059]" />
+              <ShoppingBag className="w-4 h-4 md:w-5 md:h-5 text-[#C49A88]" />
               {cartCount > 0 && (
                 <span
                   className={`absolute -top-1.5 -right-2 text-[9px] font-sans font-medium w-3.5 h-3.5 flex items-center justify-center rounded-full ${
                     isDarkTop
-                      ? 'bg-[#C5A059] text-black'
-                      : isLight
-                      ? 'bg-[#1A1816] text-[#FAF8F5]'
-                      : 'bg-[#C5A059] text-black'
+                      ? 'bg-[#C49A88] text-[#1A1816]'
+                      : 'bg-[#1A1816] text-[#F9F6F0]'
                   }`}
                 >
                   {cartCount}
@@ -297,15 +240,15 @@ export const Header: React.FC<HeaderProps> = ({
         <div
           className={`md:hidden px-8 py-10 space-y-8 animate-in fade-in duration-200 backdrop-blur-xl border-b ${
             isLight
-              ? 'bg-[#FAF8F5]/98 border-[#E6DDD0] text-[#1A1816]'
-              : 'bg-[#0a0a0a]/98 border-[#222222] text-[#f5f4f0]'
+              ? 'bg-[#F9F6F0]/98 border-[#E3DDD3] text-[#1A1816]'
+              : 'bg-[#1A1816]/98 border-[#E3DDD3]/20 text-[#F9F6F0]'
           }`}
         >
           <div className="space-y-1">
-            <span className="text-[10px] uppercase tracking-[0.35em] text-[#C5A059] font-sans font-medium block">
+            <span className="text-[10px] uppercase tracking-[0.35em] text-[#C49A88] font-sans font-medium block">
               PAGES & DOSSIERS • SINCE 2024
             </span>
-            <div className="w-8 h-[1px] bg-[#C5A059]" />
+            <div className="w-8 h-[1px] bg-[#C49A88]" />
           </div>
 
           <nav className="flex flex-col space-y-5 text-sm uppercase tracking-[0.25em] font-sans">
@@ -315,60 +258,41 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => handleLinkClick(item.view)}
                 className={`text-left py-2 transition-colors cursor-pointer flex items-center justify-between ${
                   currentView === item.view
-                    ? 'text-[#C5A059] font-medium'
+                    ? 'text-[#C49A88] font-medium'
                     : isLight
-                    ? 'text-[#5C5449] hover:text-[#1A1816]'
-                    : 'text-[#8c8985] hover:text-white'
+                    ? 'text-[#1A1816]/80 hover:text-[#1A1816]'
+                    : 'text-[#E3DDD3]/80 hover:text-white'
                 }`}
               >
                 <span>{item.label}</span>
-                {currentView === item.view && (
-                  <span className="text-xs text-[#C5A059]">✦</span>
-                )}
               </button>
             ))}
 
-            <div className="pt-3 border-t border-[#E6DDD0]/50 space-y-3">
-              <button
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  onOpenAccount();
-                }}
-                className="text-left py-2 text-[#7D766E] hover:text-[#C5A059] transition-colors flex items-center gap-3"
-              >
-                <User className="w-4 h-4 text-[#C5A059]" />
-                <span>Patron Account</span>
-              </button>
+            <div className="pt-3 border-t border-[#E3DDD3]/50 space-y-3">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenSearch();
                 }}
-                className="text-left py-2 text-[#7D766E] hover:text-[#C5A059] transition-colors flex items-center gap-3"
+                className="text-left py-2 text-[#1A1816]/70 hover:text-[#C49A88] transition-colors flex items-center gap-3"
               >
-                <Search className="w-4 h-4 text-[#C5A059]" />
+                <Search className="w-4 h-4 text-[#C49A88]" />
                 <span>Archive Search</span>
-              </button>
-              <button
-                onClick={onToggleTheme}
-                className="text-left py-2 text-[#C5A059] flex items-center gap-3"
-              >
-                {isLight ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
-                <span>{isLight ? 'Switch to Nocturne Dark' : 'Switch to Ivory & Gold'}</span>
               </button>
             </div>
           </nav>
 
           <div
             className={`pt-6 border-t flex items-center justify-between text-[10px] uppercase tracking-[0.25em] ${
-              isLight ? 'border-[#E6DDD0] text-[#8C8377]' : 'border-[#222222] text-[#8c8985]'
+              isLight ? 'border-[#E3DDD3] text-[#1A1816]/60' : 'border-[#E3DDD3]/20 text-[#E3DDD3]/60'
             }`}
           >
-            <span>SCENT, REFINED.</span>
-            <span className="text-[#C5A059] font-medium">SINCE 2024</span>
+            <span>Your Scent. Your Story.</span>
+            <span className="text-[#C49A88] font-medium">SINCE 2024</span>
           </div>
         </div>
       )}
+
     </header>
   );
 };
