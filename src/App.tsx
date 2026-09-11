@@ -6,6 +6,7 @@ import { AmbientCanvas } from './components/AmbientCanvas';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { BrandMarquee } from './components/BrandMarquee';
+import { ReelStrip } from './components/ReelStrip';
 import { FeaturedCollection } from './components/FeaturedCollection';
 import { EditorialBrand } from './components/EditorialBrand';
 import { FragranceDiscovery } from './components/FragranceDiscovery';
@@ -175,7 +176,13 @@ export function App() {
             {/* ANIMATED LUXURY MARQUEE TICKER */}
             <BrandMarquee themeMode={themeMode} />
 
-            {/* 2. FEATURED PERFUMES (THE COLLECTION) with Pastel Soft Colors & Gold Accents */}
+            {/* SEEN ON FILM — horizontal autoplay portrait reel strip */}
+            <ReelStrip
+              films={FILMS}
+              onOpenReel={(film) => setActiveReelFilm(film)}
+            />
+
+            {/* 2. FEATURED PERFUMES (THE COLLECTION) with Pastel Soft Colors */}
             <FeaturedCollection
               fragrances={FRAGRANCES}
               onSelectFragrance={(f) => setSelectedFragrance(f)}
