@@ -19,7 +19,7 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const isLight = themeMode === 'light';
+  const isLight = true;
 
   useEffect(() => {
     const handleScroll = () => {
