@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { ShieldCheck, Star } from 'lucide-react';
 
 interface Testimonial {
@@ -57,19 +57,19 @@ const TESTIMONIALS: Testimonial[] = [
 
 export const TestimonialsSection: React.FC = () => {
   return (
-    <section aria-labelledby="testimonials-heading" className="w-full py-16 sm:py-20 bg-[#F9F6F0] border-t border-[#E3DDD3]">
+    <section aria-labelledby="testimonials-heading" className="w-full py-16 sm:py-20 bg-[#0B0A09] border-t border-white/[0.06]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 space-y-12">
         {/* Header */}
         <div className="text-center space-y-3 max-w-2xl mx-auto">
           <div className="flex items-center justify-center gap-2">
-            <span className="text-[10px] uppercase tracking-[0.35em] text-[#C49A88] font-sans font-medium">
+            <span className="text-[10px] uppercase tracking-[0.35em] text-[#D4AF37] font-sans font-medium">
               Verified Client Stories
             </span>
           </div>
-          <h2 id="testimonials-heading" className="font-serif text-3xl sm:text-4xl uppercase tracking-[0.14em] text-[#1A1816] font-normal">
+          <h2 id="testimonials-heading" className="font-serif text-3xl sm:text-4xl uppercase tracking-[0.14em] text-[#F5F2EB] font-normal">
             Voices of Sillage
           </h2>
-          <p className="text-xs sm:text-sm font-sans text-[#7D766E] leading-relaxed">
+          <p className="text-xs sm:text-sm font-sans text-[#9E9589] leading-relaxed">
             Real experiences from fragrance collectors across Karachi, Lahore, Islamabad, and nationwide.
           </p>
         </div>
@@ -79,62 +79,63 @@ export const TestimonialsSection: React.FC = () => {
           {TESTIMONIALS.map((t) => (
             <div
               key={t.id}
-              className="p-6 sm:p-7 bg-white border border-[#E3DDD3] rounded-xs space-y-4 flex flex-col justify-between shadow-[0_4px_20px_rgba(26,24,22,0.03)] hover:border-[#C49A88] transition-colors"
+              className="p-6 sm:p-7 bg-[#141210]/80 backdrop-blur-sm border border-white/[0.06] rounded-xs space-y-4 flex flex-col justify-between hover:border-[#D4AF37]/40 transition-colors shadow-[0_4px_24px_rgba(0,0,0,0.3)]"
             >
               <div className="space-y-3">
                 {/* Rating & Verified Badge */}
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center text-[#C49A88]">
+                  <div className="flex items-center text-[#D4AF37]">
                     {[...Array(t.rating)].map((_, i) => (
                       <Star key={i} className="w-3.5 h-3.5 fill-current" />
                     ))}
                   </div>
                   {t.verified && (
-                    <span className="inline-flex items-center gap-1 text-[9px] uppercase tracking-wider text-[#7D766E] font-sans">
-                      <ShieldCheck className="w-3 h-3 text-[#C49A88]" />
+                    <span className="inline-flex items-center gap-1 text-[9px] uppercase tracking-wider text-[#9E9589] font-sans">
+                      <ShieldCheck className="w-3 h-3 text-[#D4AF37]" />
                       Verified
                     </span>
                   )}
                 </div>
 
                 {/* Scent Worn */}
-                <span className="text-[10px] uppercase tracking-[0.2em] text-[#C49A88] font-sans font-medium block">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-[#D4AF37] font-sans font-medium block">
                   {t.scent}
                 </span>
 
                 {/* Comment */}
-                <p className="text-xs sm:text-sm font-sans font-light leading-relaxed text-[#5C5449] italic">
+                <p className="text-xs sm:text-sm font-sans font-light leading-relaxed text-[#B8B0A4] italic">
                   &ldquo;{t.comment}&rdquo;
                 </p>
               </div>
 
               {/* Author Info */}
-              <div className="pt-4 border-t border-[#E3DDD3] flex items-center justify-between text-[10px] uppercase tracking-wider font-sans">
-                <span className="font-medium text-[#1A1816]">{t.name}</span>
-                <span className="text-[#8C8377]">{t.location}</span>
+              <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between text-[10px] uppercase tracking-wider font-sans">
+                <span className="font-medium text-[#F5F2EB]">{t.name}</span>
+                <span className="text-[#9E9589]">{t.location}</span>
               </div>
             </div>
           ))}
         </div>
 
         {/* Aggregate Trust Bar */}
-        <div className="p-6 bg-white border border-[#E3DDD3] rounded-xs flex flex-wrap items-center justify-around gap-6 text-center">
+        <div className="p-6 bg-[#141210]/60 border border-white/[0.06] rounded-xs flex flex-wrap items-center justify-around gap-6 text-center">
           <div className="space-y-0.5">
-            <span className="font-serif text-2xl text-[#1A1816] font-medium block">4.9 / 5.0</span>
-            <span className="text-[9px] uppercase tracking-[0.25em] text-[#7D766E] font-sans block">Aggregate Buyer Rating</span>
+            <span className="font-serif text-2xl text-[#D4AF37] font-medium block">4.9 / 5.0</span>
+            <span className="text-[9px] uppercase tracking-[0.25em] text-[#9E9589] font-sans block">Aggregate Buyer Rating</span>
           </div>
-          <div className="w-[1px] h-8 bg-[#E3DDD3] hidden sm:block" />
+          <div className="w-[1px] h-8 bg-white/[0.08] hidden sm:block" />
           <div className="space-y-0.5">
-            <span className="font-serif text-2xl text-[#1A1816] font-medium block">14+ Hours</span>
-            <span className="text-[9px] uppercase tracking-[0.25em] text-[#7D766E] font-sans block">Verified Skin Persistence</span>
+            <span className="font-serif text-2xl text-[#D4AF37] font-medium block">14+ Hours</span>
+            <span className="text-[9px] uppercase tracking-[0.25em] text-[#9E9589] font-sans block">Verified Skin Persistence</span>
           </div>
-          <div className="w-[1px] h-8 bg-[#E3DDD3] hidden sm:block" />
+          <div className="w-[1px] h-8 bg-white/[0.08] hidden sm:block" />
           <div className="space-y-0.5">
-            <span className="font-serif text-2xl text-[#1A1816] font-medium block">100% Free</span>
-            <span className="text-[9px] uppercase tracking-[0.25em] text-[#7D766E] font-sans block">2ml Risk-Free Tester With Every Flacon</span>
+            <span className="font-serif text-2xl text-[#D4AF37] font-medium block">100% Free</span>
+            <span className="text-[9px] uppercase tracking-[0.25em] text-[#9E9589] font-sans block">2ml Risk-Free Tester With Every Flacon</span>
           </div>
         </div>
       </div>
     </section>
   );
 };
+

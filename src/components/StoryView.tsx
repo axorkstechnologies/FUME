@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
 import { EDITORIAL_IMAGE, CAMPAIGN_IMAGE, FRAGRANCES } from '../data/fragrances';
 import { ThemeMode } from '../types';
@@ -20,9 +20,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
 
   return (
     <article
-      className={`relative w-full min-h-screen pt-28 sm:pt-32 pb-32 px-5 sm:px-8 md:px-12 lg:px-16 transition-colors duration-500 ${
-        isLight ? 'bg-[#FAF8F5] text-[#1A1816]' : 'bg-[#0a0a0a] text-[#f5f4f0]'
-      }`}
+      className="relative w-full min-h-screen pt-28 sm:pt-32 pb-32 px-5 sm:px-8 md:px-12 lg:px-16 bg-[#0B0A09] text-[#F5F2EB]"
     >
       <div className="max-w-[1600px] mx-auto space-y-20 md:space-y-28">
         {/* Section 1: Hero / Opening Statement (AEO/GEO Structured Header) */}

@@ -88,13 +88,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
       </div>
 
-      {/* Soft bottom fade blending seamlessly from the dark hero into the page flow */}
+      {/* Soft bottom fade blending seamlessly from the dark hero into the obsidian page flow */}
       <div
-        className={`absolute bottom-0 left-0 w-full h-44 bg-gradient-to-t pointer-events-none z-10 ${
-          isLight
-            ? 'from-[#F9F6F0] via-[#F9F6F0]/60 to-transparent'
-            : 'from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent'
-        }`}
+        className="absolute bottom-0 left-0 w-full h-44 bg-gradient-to-t from-[#0B0A09] via-[#0B0A09]/80 to-transparent pointer-events-none z-10"
       />
 
       {/* Editorial Content Overlay */}
@@ -109,8 +105,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <span className="text-[10px] md:text-xs uppercase tracking-[0.4em] font-sans block text-[#D6C7B2]">
             YOUR SCENT. YOUR STORY.
           </span>
-          <span className="w-1.5 h-1.5 rounded-full bg-[#C49A88]" />
-          <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-[#C49A88] font-sans font-medium">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#D4AF37]" />
+          <span className="text-[10px] md:text-xs uppercase tracking-[0.3em] text-[#D4AF37] font-sans font-medium">
             SINCE 2024
           </span>
         </motion.div>
@@ -125,7 +121,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <div className="space-y-3">
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal uppercase tracking-[0.14em] leading-[1.08] text-[#F9F6F0]">
               SCENT, <br />
-              <span className="italic font-light text-[#C49A88]">REFINED.</span>
+              <span className="italic font-light text-[#D4AF37]">REFINED.</span>
             </h1>
             <p className="text-sm md:text-base font-sans font-light tracking-wide max-w-md leading-relaxed text-[#D6C7B2]">
               Artisanal Eau de Parfum hand-crafted for all-day persistence. Formulated with pure botanical distillates and bottled in architectural flint glass.
@@ -138,10 +134,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={onShopPerfumes}
-              className="w-full sm:w-auto px-10 py-4.5 transition-all text-xs uppercase tracking-[0.28em] font-sans font-medium cursor-pointer shadow-xl relative overflow-hidden group bg-[#F9F6F0] text-[#1A1816] hover:bg-[#C49A88] hover:text-white rounded-xs"
+              className="w-full sm:w-auto px-10 py-4.5 transition-all text-xs uppercase tracking-[0.28em] font-sans font-semibold cursor-pointer shadow-xl relative overflow-hidden group bg-[#D4AF37] text-black hover:bg-[#E5C158] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] rounded-xs"
             >
               <span className="relative z-10">SHOP THE COLLECTION</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
             </motion.button>
 
             {onOpenQuiz ? (
@@ -149,7 +145,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={onOpenQuiz}
-                className="w-full sm:w-auto px-8 py-4.5 transition-all text-xs uppercase tracking-[0.28em] font-sans font-medium cursor-pointer border border-[#C49A88] text-[#F9F6F0] hover:bg-[#C49A88]/20 rounded-xs"
+                className="w-full sm:w-auto px-8 py-4.5 transition-all text-xs uppercase tracking-[0.28em] font-sans font-medium cursor-pointer border border-white/20 text-[#F9F6F0] hover:border-[#D4AF37] hover:bg-white/[0.04] rounded-xs"
               >
                 FIND YOUR SCENT
               </motion.button>
@@ -158,7 +154,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={onExploreFume}
-                className="w-full sm:w-auto px-8 py-4.5 transition-all text-xs uppercase tracking-[0.28em] font-sans font-medium cursor-pointer border border-[#C49A88]/70 text-[#F9F6F0] hover:border-[#C49A88] hover:bg-[#C49A88]/15 rounded-xs"
+                className="w-full sm:w-auto px-8 py-4.5 transition-all text-xs uppercase tracking-[0.28em] font-sans font-medium cursor-pointer border border-white/20 text-[#F9F6F0] hover:border-[#D4AF37] hover:bg-white/[0.04] rounded-xs"
               >
                 EXPLORE FUME
               </motion.button>
@@ -168,7 +164,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Minimalist Flacon Scent Switcher */}
           <div className="pt-2">
             <div className="flex items-center gap-2 justify-center md:justify-start mb-2">
-              <span className="text-[9px] uppercase tracking-[0.3em] text-[#C49A88] font-sans font-medium">
+              <span className="text-[9px] uppercase tracking-[0.3em] text-[#D4AF37] font-sans font-medium">
                 FLACON ON DISPLAY:
               </span>
             </div>
@@ -181,8 +177,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                     onClick={() => setActiveFragrance(frag)}
                     className={`px-3 py-1 text-[9px] uppercase tracking-[0.2em] font-sans transition-all cursor-pointer rounded-xs border ${
                       isCurrent
-                        ? 'bg-[#C49A88] text-white border-[#C49A88] font-medium shadow-[0_0_12px_rgba(196,154,136,0.3)]'
-                        : 'bg-black/40 text-[#D6C7B2] border-[#262420] hover:border-[#C49A88] hover:text-white'
+                        ? 'bg-[#D4AF37] text-black border-[#D4AF37] font-semibold shadow-[0_0_12px_rgba(212,175,55,0.4)]'
+                        : 'bg-black/50 text-[#D6C7B2] border-white/10 hover:border-[#D4AF37] hover:text-white'
                     }`}
                   >
                     {frag.name}

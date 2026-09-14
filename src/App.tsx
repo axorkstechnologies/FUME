@@ -10,7 +10,6 @@ import { ReelStrip } from './components/ReelStrip';
 import { FeaturedCollection } from './components/FeaturedCollection';
 import { EditorialBrand } from './components/EditorialBrand';
 import { FragranceDiscovery } from './components/FragranceDiscovery';
-import { FilmsSection } from './components/FilmsSection';
 import { ReelViewerModal } from './components/ReelViewerModal';
 import { CampaignBanner } from './components/CampaignBanner';
 import { TestimonialsSection } from './components/TestimonialsSection';
@@ -35,8 +34,8 @@ export function App() {
   const [selectedFragrance, setSelectedFragrance] = useState<Fragrance | null>(null);
   const [activeReelFilm, setActiveReelFilm] = useState<Film | null>(null);
 
-  // Single brand atmosphere locked strictly to the 5-color palette (Pearl, Oyster, Dusty Rose, Sand, Shadow)
-  const themeMode: ThemeMode = 'light';
+  // Dark Luxury theme system
+  const themeMode: ThemeMode = 'dark';
 
   // Cart State with Local Persistence
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
@@ -178,7 +177,7 @@ export function App() {
 
   return (
     <div
-      className="min-h-screen relative flex flex-col font-sans selection:bg-[#C49A88] selection:text-white bg-[#F9F6F0] text-[#1A1816]"
+      className="min-h-screen relative flex flex-col font-sans selection:bg-[#D4AF37] selection:text-black bg-[#0B0A09] text-[#F5F2EB]"
     >
       {/* Dynamic Animated Ambient Colors & Moving Particles Canvas */}
       <AmbientCanvas themeMode={themeMode} />
@@ -206,13 +205,7 @@ export function App() {
             {/* ANIMATED LUXURY MARQUEE TICKER */}
             <BrandMarquee themeMode={themeMode} />
 
-            {/* SEEN ON FILM — horizontal autoplay portrait reel strip */}
-            <ReelStrip
-              films={FILMS}
-              onOpenReel={(film) => setActiveReelFilm(film)}
-            />
-
-            {/* 2. FEATURED PERFUMES (THE COLLECTION) with Pastel Soft Colors */}
+            {/* 2. FEATURED PERFUMES (THE COLLECTION) — Dark Glass Cards */}
             <FeaturedCollection
               fragrances={FRAGRANCES}
               onSelectFragrance={(f) => setSelectedFragrance(f)}
@@ -235,39 +228,33 @@ export function App() {
               themeMode={themeMode}
             />
 
-            {/* 5. FUME ON FILM / REAL STORIES */}
-            <FilmsSection
-              films={FILMS}
-              fragrances={FRAGRANCES}
-              onSelectFragrance={(f) => setSelectedFragrance(f)}
-              onOpenReel={(film) => setActiveReelFilm(film)}
-              onViewAllPerfumes={() => handleNavigate('perfumes')}
-              themeMode={themeMode}
-            />
-
-            {/* 6. FULL-WIDTH PRODUCT / CAMPAIGN IMAGE */}
+            {/* 5. FULL-WIDTH PRODUCT / CAMPAIGN IMAGE */}
             <CampaignBanner
               onShopNow={() => handleNavigate('perfumes')}
             />
 
-            {/* VERIFIED CLIENT TESTIMONIALS */}
+            {/* 6. SEEN ON FILM — horizontal autoplay portrait reel strip */}
+            <ReelStrip
+              films={FILMS}
+              onOpenReel={(film) => setActiveReelFilm(film)}
+            />
+
+            {/* 7. VERIFIED CLIENT TESTIMONIALS */}
             <TestimonialsSection />
 
-            {/* 7. BRAND STATEMENT with Since 2024 */}
+            {/* 8. BRAND STATEMENT with Since 2024 */}
             <BrandStatement themeMode={themeMode} />
           </>
         )}
 
+        {/* 'films' view redirected to home — FilmsSection removed for performance */}
         {currentView === 'films' && (
-          <div className="pt-20 md:pt-28">
-            <FilmsSection
-              films={FILMS}
-              fragrances={FRAGRANCES}
-              onSelectFragrance={(f) => setSelectedFragrance(f)}
-              onOpenReel={(film) => setActiveReelFilm(film)}
-              onViewAllPerfumes={() => handleNavigate('perfumes')}
-              themeMode={themeMode}
-            />
+          <div className="pt-20 md:pt-28 bg-[#0B0A09] min-h-screen flex items-center justify-center">
+            <div className="text-center space-y-6">
+              <p className="text-[10px] uppercase tracking-[0.4em] text-[#D4AF37] font-sans">Real Stories</p>
+              <p className="font-serif text-2xl uppercase tracking-[0.14em] text-[#F5F2EB]">Seen on Film</p>
+              <ReelStrip films={FILMS} onOpenReel={(film) => setActiveReelFilm(film)} />
+            </div>
           </div>
         )}
 

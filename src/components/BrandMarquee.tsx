@@ -18,12 +18,12 @@ export const BrandMarquee: React.FC<BrandMarqueeProps> = () => {
   ];
 
   return (
-    <div className="relative w-full overflow-hidden py-4 border-y border-[#E3DDD3] bg-[#F9F6F0]/70 text-[#1A1816] select-none z-10">
+    <div className="relative w-full overflow-hidden py-4 border-y border-white/[0.06] bg-[#0F0D0B]/90 text-[#D6C7B2] select-none z-10">
       <div className="animate-marquee flex items-center space-x-12 whitespace-nowrap text-[10px] sm:text-[11px] uppercase tracking-[0.35em] font-sans font-medium">
         {[...items, ...items].map((text, idx) => (
           <div key={idx} className="flex items-center space-x-12">
             <span>{text}</span>
-            <span className="text-[#C49A88] text-xs">·</span>
+            <span className="text-[#D4AF37] text-xs">·</span>
           </div>
         ))}
       </div>

@@ -114,11 +114,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
         aria-modal="true"
         aria-label={`FUME ${fragrance.name} Details`}
         onClick={(e) => e.stopPropagation()}
-        className={`relative shadow-2xl border overflow-hidden grid grid-cols-1 md:grid-cols-2 grid-rows-[minmax(180px,36%)_1fr] md:grid-rows-1 ${
-          isLight
-            ? 'bg-[#FAF8F5] text-[#1A1816] border-[#E8DFC9]'
-            : 'bg-[#0a0a0a] text-[#f5f4f0] border-[#222222]'
-        }`}
+        className="relative shadow-2xl border overflow-hidden grid grid-cols-1 md:grid-cols-2 grid-rows-[minmax(180px,36%)_1fr] md:grid-rows-1 bg-[#0E0D0C]/98 backdrop-blur-2xl text-[#F5F2EB] border-white/[0.08]"
         style={{
           width: 'min(1120px, calc(100vw - 32px))',
           height: 'min(860px, calc(100dvh - 32px))',
@@ -132,11 +128,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
           type="button"
           aria-label="Close"
           onClick={onClose}
-          className={`pdp-close absolute z-50 w-[44px] h-[44px] min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center transition-all cursor-pointer border ${
-            isLight
-              ? 'border-[#C5A059]/40 bg-white/95 text-[#1A1816] hover:bg-[#FAF8F5] hover:text-[#C5A059] shadow-sm'
-              : 'border-[#C5A059]/40 bg-[#141414]/95 text-[#EAE2D5] hover:bg-[#1f1d1b] hover:text-[#C5A059] shadow-sm'
-          }`}
+          className="pdp-close absolute z-50 w-[44px] h-[44px] min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center transition-all cursor-pointer border border-white/20 bg-black/70 text-[#F5F2EB] hover:border-[#D4AF37] hover:text-[#D4AF37] shadow-lg"
           style={{
             position: 'absolute',
             top: '12px',
@@ -228,11 +220,10 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
           )}
         </div>
 
-        {/* Right: Olfactory Details & Actions Pane (min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding-top: 56px) */}
+        {/* Right: Olfactory Details & Actions Pane (min-height: 0; overflow-y: auto; overscroll-behavior: contain; paddingTop: 56px) */}
         <div
-          className="relative p-6 sm:p-8 md:p-10 flex flex-col justify-between space-y-8 h-full"
+          className="relative p-6 sm:p-8 md:p-10 flex flex-col justify-between space-y-8 h-full bg-[#0E0D0C] text-[#F5F2EB]"
           style={{
-            backgroundColor: isLight ? '#FAF8F5' : '#0a0a0a',
             minHeight: 0,
             overflowY: 'auto',
             overscrollBehavior: 'contain',
@@ -243,39 +234,35 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
             <div className="space-y-6">
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-[#C49A88] font-sans font-medium">
+                  <span className="text-[10px] uppercase tracking-[0.3em] text-[#D4AF37] font-sans font-medium">
                     {fragrance.genderCategory} · {fragrance.olfactoryFamily}
                   </span>
                   <span
-                    className={`text-[9px] uppercase tracking-[0.2em] font-sans ${
-                      isLight ? 'text-[#8C8377]' : 'text-[#8c8985]'
-                    }`}
+                    className="text-[9px] uppercase tracking-[0.2em] font-sans text-[#9E9589]"
                   >
                     SINCE 2024
                   </span>
                 </div>
 
                 <h2
-                  className={`font-serif text-2xl sm:text-3xl md:text-4xl uppercase tracking-[0.14em] ${
-                    isLight ? 'text-[#1A1816]' : 'text-white'
-                  }`}
+                  className="font-serif text-2xl sm:text-3xl md:text-4xl uppercase tracking-[0.14em] text-[#F5F2EB]"
                 >
                   {getFragranceTitle(fragrance)}
                 </h2>
                 <div className="flex items-center gap-2 pt-0.5">
-                  <span className="text-xs text-[#C49A88] font-sans tracking-tight">★★★★★</span>
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-sans text-[#7D766E]">
+                  <span className="text-xs text-[#D4AF37] font-sans tracking-tight">★★★★★</span>
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-sans text-[#9E9589]">
                     4.9 (140+ Verified Reviews)
                   </span>
                 </div>
-                <p className="text-xs uppercase tracking-[0.25em] text-[#C49A88] font-sans">
+                <p className="text-xs uppercase tracking-[0.25em] text-[#D4AF37] font-sans">
                   {fragrance.subtitle}
                 </p>
                 {matchingFilm && (
                   <button
                     type="button"
                     onClick={() => setMediaTab('film')}
-                    className="inline-flex items-center gap-1.5 text-[9px] uppercase tracking-[0.25em] text-[#C49A88] hover:underline font-sans font-medium transition-colors cursor-pointer pt-1"
+                    className="inline-flex items-center gap-1.5 text-[9px] uppercase tracking-[0.25em] text-[#D4AF37] hover:underline font-sans font-medium transition-colors cursor-pointer pt-1"
                   >
                     <span>Watch Experience on Film ({matchingFilm.kicker})</span>
                   </button>
@@ -283,45 +270,41 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
               </div>
 
               <p
-                className={`text-xs sm:text-sm font-sans font-light leading-relaxed ${
-                  isLight ? 'text-[#5C5449]' : 'text-[#a9a7a1]'
-                }`}
+                className="text-xs sm:text-sm font-sans font-light leading-relaxed text-[#B8B0A4]"
               >
                 {fragrance.description}
               </p>
 
               {/* Olfactory Pyramid */}
               <div
-                className={`space-y-3 pt-4 border-t ${
-                  isLight ? 'border-[#E8DFC9]' : 'border-[#1a1a1a]'
-                }`}
+                className="space-y-3 pt-4 border-t border-white/[0.08]"
               >
                 <div className="space-y-1">
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-[#C5A059] font-sans font-medium block">
+                  <span className="text-[9px] uppercase tracking-[0.25em] text-[#D4AF37] font-sans font-medium block">
                     TOP NOTES
                   </span>
                   <span
-                    className={`text-xs font-sans ${isLight ? 'text-[#1A1816]' : 'text-[#e5e3dc]'}`}
+                    className="text-xs font-sans text-[#F5F2EB]"
                   >
                     {fragrance.topNotes}
                   </span>
                 </div>
                 <div className="space-y-1">
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-[#C5A059] font-sans font-medium block">
+                  <span className="text-[9px] uppercase tracking-[0.25em] text-[#D4AF37] font-sans font-medium block">
                     HEART NOTES
                   </span>
                   <span
-                    className={`text-xs font-sans ${isLight ? 'text-[#1A1816]' : 'text-[#e5e3dc]'}`}
+                    className="text-xs font-sans text-[#F5F2EB]"
                   >
                     {fragrance.heartNotes}
                   </span>
                 </div>
                 <div className="space-y-1">
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-[#C5A059] font-sans font-medium block">
+                  <span className="text-[9px] uppercase tracking-[0.25em] text-[#D4AF37] font-sans font-medium block">
                     BASE NOTES
                   </span>
                   <span
-                    className={`text-xs font-sans ${isLight ? 'text-[#1A1816]' : 'text-[#e5e3dc]'}`}
+                    className="text-xs font-sans text-[#F5F2EB]"
                   >
                     {fragrance.baseNotes}
                   </span>
@@ -458,22 +441,16 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
 
             {/* Price & Add to Bag CTA */}
             <div
-              className={`pt-6 border-t flex items-center justify-between gap-4 ${
-                isLight ? 'border-[#E3DDD3]' : 'border-[#1a1a1a]'
-              }`}
+              className="pt-6 border-t border-white/[0.08] flex items-center justify-between gap-4"
             >
               <div>
                 <span
-                  className={`text-[9px] uppercase tracking-[0.25em] font-sans block ${
-                    isLight ? 'text-[#7D766E]' : 'text-[#8c8985]'
-                  }`}
+                  className="text-[9px] uppercase tracking-[0.25em] font-sans block text-[#9E9589]"
                 >
                   PRICE
                 </span>
                 <span
-                  className={`font-serif text-2xl font-medium ${
-                    isLight ? 'text-[#1A1816]' : 'text-white'
-                  }`}
+                  className="font-serif text-2xl font-medium text-[#D4AF37]"
                 >
                   Rs {currentPrice.toLocaleString()}
                 </span>
@@ -482,12 +459,10 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
               <button
                 onClick={handleAdd}
                 disabled={added}
-                className={`px-8 py-4 transition-all text-xs uppercase tracking-[0.25em] font-sans font-medium flex items-center gap-2 cursor-pointer rounded-xs ${
+                className={`px-8 py-4 transition-all text-xs uppercase tracking-[0.25em] font-sans font-semibold flex items-center gap-2 cursor-pointer rounded-xs ${
                   added
-                    ? 'bg-[#C49A88] text-white'
-                    : isLight
-                    ? 'bg-[#1A1816] text-white hover:bg-[#C49A88]'
-                    : 'bg-white text-black hover:bg-[#C49A88] hover:text-white'
+                    ? 'bg-[#D4AF37]/50 text-black'
+                    : 'bg-[#D4AF37] text-black hover:bg-[#E5C158] hover:shadow-[0_0_25px_rgba(212,175,55,0.4)]'
                 }`}
               >
                 {added ? (
@@ -502,71 +477,69 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
             </div>
 
             {/* Direct WhatsApp Concierge Order / Query */}
-            <div className="pt-2 text-center border-t border-[#E3DDD3]">
+            <div className="pt-2 text-center border-t border-white/[0.08]">
               <a
                 href={`https://wa.me/923132970468?text=${encodeURIComponent(
                   `Hello FUME Concierge, I would like to inquire / order ${getFragranceTitle(fragrance)} (${fragrance.id === 'discovery-set' ? '5x5ml Testers' : selectedSize} - Rs ${currentPrice.toLocaleString()})${monogram ? ` with bespoke monogram "${monogram}"` : ''}.`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.22em] font-sans transition-colors py-1 ${
-                  isLight ? 'text-[#7D766E] hover:text-[#C49A88]' : 'text-[#8c8985] hover:text-[#C49A88]'
-                }`}
+                className="inline-flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.22em] font-sans transition-colors py-1 text-[#9E9589] hover:text-[#D4AF37]"
               >
                 <span>Order or Inquire via WhatsApp (+92 313 297 0468)</span>
               </a>
             </div>
 
             {/* Trust Signals: COD, Free 2ml Sample Vial, 14hr Longevity */}
-            <div className="pt-3 border-t border-[#E3DDD3] grid grid-cols-2 gap-2 text-left">
-              <div className="p-2 bg-[#F9F6F0] border border-[#E3DDD3] rounded-xs space-y-0.5">
-                <span className="text-[9px] uppercase tracking-[0.2em] font-sans font-medium text-[#1A1816] block">
+            <div className="pt-3 border-t border-white/[0.08] grid grid-cols-2 gap-2 text-left">
+              <div className="p-2.5 bg-[#141210] border border-white/[0.06] rounded-xs space-y-0.5">
+                <span className="text-[9px] uppercase tracking-[0.2em] font-sans font-medium text-[#D4AF37] block">
                   CASH ON DELIVERY
                 </span>
-                <span className="text-[9px] font-sans text-[#7D766E] block leading-tight">
+                <span className="text-[9px] font-sans text-[#9E9589] block leading-tight">
                   Nationwide across Pakistan. Pay at your doorstep.
                 </span>
               </div>
-              <div className="p-2 bg-[#F9F6F0] border border-[#E3DDD3] rounded-xs space-y-0.5">
-                <span className="text-[9px] uppercase tracking-[0.2em] font-sans font-medium text-[#1A1816] block">
+              <div className="p-2.5 bg-[#141210] border border-white/[0.06] rounded-xs space-y-0.5">
+                <span className="text-[9px] uppercase tracking-[0.2em] font-sans font-medium text-[#D4AF37] block">
                   2ML TEST VIAL INCLUDED
                 </span>
-                <span className="text-[9px] font-sans text-[#7D766E] block leading-tight">
+                <span className="text-[9px] font-sans text-[#9E9589] block leading-tight">
                   Wear test sample first. Keep unopened box for full refund.
                 </span>
               </div>
-              <div className="p-2 bg-[#F9F6F0] border border-[#E3DDD3] rounded-xs space-y-0.5">
-                <span className="text-[9px] uppercase tracking-[0.2em] font-sans font-medium text-[#1A1816] block">
+              <div className="p-2.5 bg-[#141210] border border-white/[0.06] rounded-xs space-y-0.5">
+                <span className="text-[9px] uppercase tracking-[0.2em] font-sans font-medium text-[#D4AF37] block">
                   14+ HRS PERSISTENCE
                 </span>
-                <span className="text-[9px] font-sans text-[#7D766E] block leading-tight">
+                <span className="text-[9px] font-sans text-[#9E9589] block leading-tight">
                   High perfume oil concentration tested in warm weather.
                 </span>
               </div>
-              <div className="p-2 bg-[#F9F6F0] border border-[#E3DDD3] rounded-xs space-y-0.5">
-                <span className="text-[9px] uppercase tracking-[0.2em] font-sans font-medium text-[#1A1816] block">
+              <div className="p-2.5 bg-[#141210] border border-white/[0.06] rounded-xs space-y-0.5">
+                <span className="text-[9px] uppercase tracking-[0.2em] font-sans font-medium text-[#D4AF37] block">
                   HAND-CRAFTED PURITY
                 </span>
-                <span className="text-[9px] font-sans text-[#7D766E] block leading-tight">
+                <span className="text-[9px] font-sans text-[#9E9589] block leading-tight">
                   Grasse distillates bottled in architectural flint glass.
                 </span>
               </div>
             </div>
 
             {/* Mobile Sticky Add to Bag Bar */}
-            <div className="md:hidden sticky -bottom-6 -mx-6 px-6 py-3 bg-[#F9F6F0]/95 backdrop-blur-md border-t border-[#E3DDD3] flex items-center justify-between z-30 shadow-lg mt-4">
+            <div className="md:hidden sticky -bottom-6 -mx-6 px-6 py-3 bg-[#0E0D0C]/95 backdrop-blur-md border-t border-white/[0.08] flex items-center justify-between z-30 shadow-2xl mt-4">
               <div>
-                <span className="text-[9px] uppercase tracking-wider text-[#7D766E] block font-sans">
+                <span className="text-[9px] uppercase tracking-wider text-[#9E9589] block font-sans">
                   {selectedSize}
                 </span>
-                <span className="font-serif text-lg font-medium text-[#1A1816]">
+                <span className="font-serif text-lg font-medium text-[#D4AF37]">
                   Rs {currentPrice.toLocaleString()}
                 </span>
               </div>
               <button
                 onClick={handleAdd}
                 disabled={added}
-                className="px-6 py-2.5 bg-[#1A1816] text-white text-[10px] uppercase tracking-[0.2em] font-sans font-medium rounded-xs cursor-pointer active:scale-95 transition-transform"
+                className="px-6 py-2.5 bg-[#D4AF37] text-black text-[10px] uppercase tracking-[0.2em] font-sans font-semibold rounded-xs cursor-pointer active:scale-95 transition-transform"
               >
                 {added ? 'ADDED' : 'ADD TO BAG'}
               </button>

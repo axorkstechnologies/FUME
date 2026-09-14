@@ -47,30 +47,24 @@ export const CollectionsView: React.FC<CollectionsViewProps> = ({
 
   return (
     <div
-      className={`relative w-full min-h-screen pt-32 pb-32 px-6 md:px-12 lg:px-16 transition-colors duration-500 ${
-        isLight ? 'bg-[#FAF8F5]' : 'bg-[#0a0a0a]'
-      }`}
+      className="relative w-full min-h-screen pt-32 pb-32 px-6 md:px-12 lg:px-16 bg-[#0B0A09] text-[#F5F2EB]"
     >
       <div className="max-w-[1700px] mx-auto space-y-24">
         {/* Editorial Heading */}
         <div className="text-center space-y-4 max-w-2xl mx-auto">
           <div className="flex items-center justify-center gap-2">
-            <span className="text-[10px] uppercase tracking-[0.4em] text-[#C5A059] font-sans font-medium block">
+            <span className="text-[10px] uppercase tracking-[0.4em] text-[#D4AF37] font-sans font-medium block">
               SINCE 2024 • CURATED ANTHOLOGIES
             </span>
           </div>
 
           <h1
-            className={`font-serif text-4xl sm:text-5xl md:text-6xl font-normal uppercase tracking-[0.16em] ${
-              isLight ? 'text-[#1A1816]' : 'text-[#f5f4f0]'
-            }`}
+            className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal uppercase tracking-[0.16em] text-[#F5F2EB]"
           >
             COLLECTIONS
           </h1>
           <p
-            className={`text-xs sm:text-sm font-sans font-light tracking-widest max-w-md mx-auto ${
-              isLight ? 'text-[#7D766E]' : 'text-[#8c8985]'
-            }`}
+            className="text-xs sm:text-sm font-sans font-light tracking-widest max-w-md mx-auto text-[#9E9589]"
           >
             Thematic expressions uniting fragrance, architecture, and enduring emotion.
           </p>
@@ -86,31 +80,27 @@ export const CollectionsView: React.FC<CollectionsViewProps> = ({
               }`}
             >
               <div className={`lg:col-span-7 ${idx % 2 === 1 ? 'lg:order-2' : 'lg:order-1'}`}>
-                <div className="aspect-[16/10] bg-[#111111] overflow-hidden relative group rounded-sm border border-[#C5A059]/30 shadow-xl">
+                <div className="aspect-[16/10] bg-[#111111] overflow-hidden relative group rounded-sm border border-white/[0.08] shadow-2xl">
                   <img
                     src={col.image}
                     alt={col.title}
                     className="w-full h-full object-cover object-center filter brightness-90 contrast-105 transition-transform duration-1000 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-black/25" />
+                  <div className="absolute inset-0 bg-black/35" />
                 </div>
               </div>
 
               <div className={`lg:col-span-5 space-y-6 ${idx % 2 === 1 ? 'lg:order-1' : 'lg:order-2'}`}>
-                <span className="text-[10px] uppercase tracking-[0.3em] text-[#C5A059] font-sans block font-medium">
+                <span className="text-[10px] uppercase tracking-[0.3em] text-[#D4AF37] font-sans block font-medium">
                   {col.tagline}
                 </span>
                 <h2
-                  className={`font-serif text-3xl sm:text-4xl uppercase tracking-[0.16em] ${
-                    isLight ? 'text-[#1A1816]' : 'text-white'
-                  }`}
+                  className="font-serif text-3xl sm:text-4xl uppercase tracking-[0.16em] text-[#F5F2EB]"
                 >
                   {col.title}
                 </h2>
                 <p
-                  className={`text-xs sm:text-sm font-sans font-light leading-relaxed ${
-                    isLight ? 'text-[#5C5449]' : 'text-[#a9a7a1]'
-                  }`}
+                  className="text-xs sm:text-sm font-sans font-light leading-relaxed text-[#B8B0A4]"
                 >
                   {col.description}
                 </p>
@@ -118,9 +108,7 @@ export const CollectionsView: React.FC<CollectionsViewProps> = ({
                 {/* Included Flacons Pills */}
                 <div className="pt-2 space-y-2">
                   <span
-                    className={`text-[9px] uppercase tracking-[0.25em] block ${
-                      isLight ? 'text-[#8C8377]' : 'text-[#666666]'
-                    }`}
+                    className="text-[9px] uppercase tracking-[0.25em] block text-[#9E9589]"
                   >
                     INCLUDED FLACONS:
                   </span>
@@ -132,11 +120,7 @@ export const CollectionsView: React.FC<CollectionsViewProps> = ({
                         <button
                           key={id}
                           onClick={() => onSelectFragrance(frag)}
-                          className={`px-3.5 py-1.5 text-[10px] uppercase tracking-wider transition-colors cursor-pointer rounded-xs border ${
-                            isLight
-                              ? 'bg-white border-[#E0D5C3] text-[#1A1816] hover:border-[#C5A059]'
-                              : 'bg-black/50 border-[#333333] text-white hover:border-[#C5A059]'
-                          }`}
+                          className="px-3.5 py-1.5 text-[10px] uppercase tracking-wider transition-colors cursor-pointer rounded-xs border bg-white/[0.04] border-white/[0.08] text-[#F5F2EB] hover:border-[#D4AF37] hover:text-[#D4AF37]"
                         >
                           {frag.name}
                         </button>
@@ -148,11 +132,7 @@ export const CollectionsView: React.FC<CollectionsViewProps> = ({
                 <div className="pt-4">
                   <button
                     onClick={onShopPerfumes}
-                    className={`px-8 py-3.5 text-[10px] uppercase tracking-[0.25em] font-sans font-medium transition-colors cursor-pointer ${
-                      isLight
-                        ? 'bg-[#1A1816] text-[#FAF8F5] hover:bg-[#C5A059] hover:text-white'
-                        : 'bg-white text-black hover:bg-[#C5A059] hover:text-black'
-                    }`}
+                    className="px-8 py-3.5 text-[10px] uppercase tracking-[0.25em] font-sans font-semibold transition-all cursor-pointer bg-[#D4AF37] text-black hover:bg-[#E5C158] hover:shadow-[0_0_25px_rgba(212,175,55,0.4)]"
                   >
                     EXPLORE ALL PERFUMES
                   </button>

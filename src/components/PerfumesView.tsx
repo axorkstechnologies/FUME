@@ -45,30 +45,24 @@ export const PerfumesView: React.FC<PerfumesViewProps> = ({
 
   return (
     <div
-      className={`relative w-full min-h-screen pt-32 pb-32 px-6 md:px-12 lg:px-16 transition-colors duration-500 ${
-        isLight ? 'bg-[#FAF8F5]' : 'bg-[#0a0a0a]'
-      }`}
+      className="relative w-full min-h-screen pt-32 pb-32 px-6 md:px-12 lg:px-16 bg-[#0B0A09] text-[#F5F2EB]"
     >
       <div className="max-w-[1700px] mx-auto space-y-16">
         {/* Editorial Heading */}
         <div className="text-center space-y-4 max-w-2xl mx-auto">
           <div className="flex items-center justify-center gap-2">
-            <span className="text-[10px] uppercase tracking-[0.4em] text-[#C5A059] font-sans font-medium block">
+            <span className="text-[10px] uppercase tracking-[0.4em] text-[#D4AF37] font-sans font-medium block">
               EST. 2024 • PRIMARY PRODUCT DISCOVERY
             </span>
           </div>
 
           <h1
-            className={`font-serif text-4xl sm:text-5xl md:text-6xl font-normal uppercase tracking-[0.16em] ${
-              isLight ? 'text-[#1A1816]' : 'text-[#f5f4f0]'
-            }`}
+            className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal uppercase tracking-[0.16em] text-[#F5F2EB]"
           >
             PERFUMES
           </h1>
           <p
-            className={`text-xs sm:text-sm font-sans font-light tracking-widest max-w-md mx-auto ${
-              isLight ? 'text-[#7D766E]' : 'text-[#8c8985]'
-            }`}
+            className="text-xs sm:text-sm font-sans font-light tracking-widest max-w-md mx-auto text-[#9E9589]"
           >
             Explore all signature FUME flacons, formulated in Grasse since 2024 for exceptional longevity.
           </p>
@@ -76,9 +70,7 @@ export const PerfumesView: React.FC<PerfumesViewProps> = ({
 
         {/* Discovery Filter & Sort Bar */}
         <div
-          className={`flex flex-col md:flex-row items-center justify-between gap-6 border-y py-4 ${
-            isLight ? 'border-[#E8DFC9]' : 'border-[#1a1a1a]'
-          }`}
+          className="flex flex-col md:flex-row items-center justify-between gap-6 border-y border-white/[0.08] py-4"
         >
           {/* Filter Tags */}
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 sm:gap-3">
@@ -86,14 +78,10 @@ export const PerfumesView: React.FC<PerfumesViewProps> = ({
               <button
                 key={tag}
                 onClick={() => setSelectedTag(tag)}
-                className={`px-4 py-2 text-[10px] uppercase tracking-[0.22em] font-sans transition-colors cursor-pointer rounded-xs border ${
+                className={`px-4 py-2 text-[10px] uppercase tracking-[0.22em] font-sans transition-all cursor-pointer rounded-xs border ${
                   selectedTag === tag
-                    ? isLight
-                      ? 'bg-[#1A1816] text-[#FAF8F5] border-[#1A1816] font-medium'
-                      : 'bg-[#C5A059] text-black border-[#C5A059] font-medium'
-                    : isLight
-                    ? 'bg-transparent text-[#7D766E] border-transparent hover:border-[#C5A059] hover:text-[#1A1816]'
-                    : 'bg-transparent text-[#8c8985] border-transparent hover:border-[#555555] hover:text-white'
+                    ? 'bg-[#D4AF37] text-black border-[#D4AF37] font-semibold shadow-[0_0_15px_rgba(212,175,55,0.3)]'
+                    : 'bg-white/[0.04] text-[#9E9589] border-white/[0.08] hover:border-[#D4AF37] hover:text-[#F5F2EB]'
                 }`}
               >
                 {tag}
@@ -103,34 +91,28 @@ export const PerfumesView: React.FC<PerfumesViewProps> = ({
 
           {/* Sort Dropdown */}
           <div
-            className={`flex items-center gap-3 text-xs font-sans uppercase tracking-widest ${
-              isLight ? 'text-[#7D766E]' : 'text-[#8c8985]'
-            }`}
+            className="flex items-center gap-3 text-xs font-sans uppercase tracking-widest text-[#9E9589]"
           >
             <span className="text-[10px]">Sort:</span>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
-              className={`bg-transparent border text-[10px] uppercase tracking-wider px-3 py-1.5 focus:outline-none cursor-pointer rounded-xs ${
-                isLight
-                  ? 'border-[#E0D5C3] text-[#1A1816]'
-                  : 'border-[#222222] text-white'
-              }`}
+              className="bg-[#141210] border border-white/20 text-[#F5F2EB] text-[10px] uppercase tracking-wider px-3 py-1.5 focus:outline-none cursor-pointer rounded-xs"
             >
-              <option value="featured" className={isLight ? 'bg-white' : 'bg-[#111111]'}>
+              <option value="featured" className="bg-[#111111] text-[#F5F2EB]">
                 Curated Order
               </option>
-              <option value="price-asc" className={isLight ? 'bg-white' : 'bg-[#111111]'}>
+              <option value="price-asc" className="bg-[#111111] text-[#F5F2EB]">
                 Price: Low to High
               </option>
-              <option value="price-desc" className={isLight ? 'bg-white' : 'bg-[#111111]'}>
+              <option value="price-desc" className="bg-[#111111] text-[#F5F2EB]">
                 Price: High to Low
               </option>
             </select>
           </div>
         </div>
 
-        {/* Products Grid with Pastel Accents */}
+        {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-x-8 gap-y-14 md:gap-y-18">
           {filteredFragrances.map((fragrance, index) => (
             <motion.div
@@ -146,7 +128,7 @@ export const PerfumesView: React.FC<PerfumesViewProps> = ({
               <FlaconBottle
                 fragrance={fragrance}
                 variant="card"
-                themeMode={themeMode}
+                themeMode="dark"
                 showQuickAdd={true}
                 onQuickAdd={() => onAddToCart(fragrance)}
                 className="mb-5"
@@ -155,35 +137,26 @@ export const PerfumesView: React.FC<PerfumesViewProps> = ({
               {/* Minimal Product Meta */}
               <div className="space-y-1 text-center">
                 <h3
-                  className={`font-serif text-lg md:text-xl font-normal uppercase tracking-[0.18em] transition-colors group-hover:text-[#C5A059] ${
-                    isLight ? 'text-[#1A1816]' : 'text-[#f5f4f0]'
-                  }`}
+                  className="font-serif text-lg md:text-xl font-normal uppercase tracking-[0.18em] transition-colors text-[#F5F2EB] group-hover:text-[#D4AF37]"
                 >
                   {getFragranceTitle(fragrance)}
                 </h3>
                 <p
-                  className={`text-[11px] font-sans uppercase tracking-[0.2em] ${
-                    isLight ? 'text-[#8C8377]' : 'text-[#8c8985]'
-                  }`}
+                  className="text-[11px] font-sans uppercase tracking-[0.2em] text-[#9E9589]"
                 >
                   {fragrance.concentration}
                 </p>
                 <p
-                  className={`text-[10px] font-sans tracking-[0.25em] ${
-                    isLight ? 'text-[#A0988C]' : 'text-[#666666]'
-                  }`}
+                  className="text-[10px] font-sans tracking-[0.25em] text-[#7A7068]"
                 >
                   {fragrance.volume}
                 </p>
                 <div className="pt-1 flex items-center justify-center gap-1.5">
                   <span
-                    className={`text-xs font-sans font-medium tracking-wider ${
-                      isLight ? 'text-[#1A1816]' : 'text-[#d4d2cc]'
-                    }`}
+                    className="text-xs font-sans font-medium tracking-wider text-[#D4AF37]"
                   >
                     Rs {fragrance.price.toLocaleString()}
                   </span>
-
                 </div>
               </div>
             </motion.div>

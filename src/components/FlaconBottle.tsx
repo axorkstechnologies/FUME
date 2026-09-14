@@ -206,52 +206,42 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
     );
   }
 
-  // Standard Product Card Flacon
+  // Standard Product Card Flacon — Dark Luxury Glassmorphism
   return (
     <div
-      className={`relative aspect-[3/4] w-full overflow-hidden transition-all duration-500 rounded-sm border flex items-center justify-center ${
-        isLight
-          ? 'border-[#E3DDD3] group-hover:border-[#C49A88]'
-          : 'border-[#1E1E1E] group-hover:border-[#C49A88]/80'
-      } ${className}`}
-      style={{
-        backgroundColor: isLight ? fragrance.pastelBg : '#111111'
-      }}
+      className={`relative aspect-[3/4] w-full overflow-hidden transition-all duration-500 rounded-lg border flex items-center justify-center bg-gradient-to-b from-[#181512]/90 via-[#13110F]/95 to-[#0A0908] backdrop-blur-xl border-white/[0.08] hover:border-[#D4AF37]/50 shadow-[0_12px_36px_rgba(0,0,0,0.65)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_30px_rgba(212,175,55,0.15)] group ${className}`}
     >
-      {/* Subtle Pastel Ambient Halo behind the bottle */}
+      {/* Subtle Warm Amber Ambient Halo behind the bottle */}
       <div
-        className="absolute inset-0 opacity-40 group-hover:opacity-70 transition-opacity duration-700 blur-[30px] pointer-events-none"
+        className="absolute inset-0 opacity-50 group-hover:opacity-85 transition-opacity duration-700 blur-[32px] pointer-events-none"
         style={{
-          background: `radial-gradient(circle, ${fragrance.pastelGlow} 0%, transparent 70%)`
+          background: 'radial-gradient(circle at center, rgba(212, 175, 55, 0.18) 0%, rgba(180, 110, 50, 0.08) 45%, transparent 72%)'
         }}
       />
+
+      {/* Subtle Diagonal Shimmer / Light-Sweep on Hover */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
 
       {/* Fragrance Tone Tag */}
       {fragrance.cardTone && (
         <div className="absolute top-3 left-3 z-20 pointer-events-none">
-          <span
-            className={`text-[9px] uppercase tracking-[0.2em] px-2 py-0.5 font-sans font-medium rounded-xs border backdrop-blur-xs ${
-              isLight
-                ? 'bg-white/80 border-[#E3DDD3] text-[#7D766E]'
-                : 'bg-black/60 border-[#333333] text-[#A8A196]'
-            }`}
-          >
+          <span className="text-[9px] uppercase tracking-[0.2em] px-2.5 py-0.5 font-sans font-medium rounded-full border border-white/10 bg-black/60 text-[#E8C97E] backdrop-blur-md shadow-sm">
             {fragrance.cardTone}
           </span>
         </div>
       )}
 
-      {/* Geometrically locked 1:1 Bottle & Label Frame */}
-      <div className="relative w-full aspect-square flex items-center justify-center [container-type:inline-size] transition-transform duration-700 ease-out group-hover:scale-105 z-10">
+      {/* Expansive Bottle Display Frame */}
+      <div className="relative w-full h-full p-2.5 sm:p-3.5 flex items-center justify-center [container-type:inline-size] transition-transform duration-700 ease-out group-hover:scale-[1.04] z-10">
         <img
           src={fragrance.image}
           alt={altText}
-          className={`w-full h-full object-contain object-center select-none ${imageClassName}`}
+          className={`w-full h-full object-contain object-center select-none drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)] ${imageClassName}`}
           loading="lazy"
         />
 
         {customMonogram && (
-          <div className="absolute top-[48%] left-1/2 -translate-x-1/2 bg-black/85 border border-[#C49A88] px-2 py-0.5 rounded text-[8px] text-[#D6C7B2] font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
+          <div className="absolute top-[48%] left-1/2 -translate-x-1/2 bg-black/90 border border-[#D4AF37] px-2 py-0.5 rounded text-[8px] text-[#E8C97E] font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
             ENGRAVED: {customMonogram}
           </div>
         )}
@@ -263,13 +253,13 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
 
       {/* Quick Add Overlay on Hover */}
       {showQuickAdd && (
-        <div className="absolute inset-0 bg-black/35 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-5 z-30 pointer-events-none group-hover:pointer-events-auto">
+        <div className="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-5 z-30 pointer-events-none group-hover:pointer-events-auto backdrop-blur-xs">
           <button
             onClick={(e) => {
               e.stopPropagation();
               if (onQuickAdd) onQuickAdd();
             }}
-            className="w-full py-3 bg-white text-[#1A1816] hover:bg-[#C5A059] hover:text-white transition-colors text-[10px] uppercase tracking-[0.24em] font-sans font-medium cursor-pointer shadow-md"
+            className="w-full py-3 bg-[#D4AF37] text-black hover:bg-white transition-colors text-[10px] uppercase tracking-[0.24em] font-sans font-semibold cursor-pointer shadow-lg rounded-xs"
           >
             ADD TO BAG
           </button>

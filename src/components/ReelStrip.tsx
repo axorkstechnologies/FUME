@@ -181,22 +181,22 @@ export const ReelStrip: React.FC<ReelStripProps> = ({ films, onOpenReel }) => {
   return (
     <section
       aria-labelledby="reel-strip-heading"
-      className="w-full overflow-hidden bg-[#F9F6F0] py-10 sm:py-14"
+      className="w-full overflow-hidden bg-[#0D0C0A] border-t border-white/[0.06] py-10 sm:py-14"
     >
       {/* Section header */}
       <div className="px-5 sm:px-8 lg:px-16 mb-6 sm:mb-8 flex items-end justify-between gap-4">
         <div className="space-y-1">
-          <p className="text-[10px] uppercase tracking-[0.38em] text-[#C49A88] font-sans font-medium">
+          <p className="text-[10px] uppercase tracking-[0.38em] text-[#D4AF37] font-sans font-medium">
             Real Stories
           </p>
           <h2
             id="reel-strip-heading"
-            className="font-serif text-2xl sm:text-3xl uppercase tracking-[0.12em] text-[#1A1816] font-normal"
+            className="font-serif text-2xl sm:text-3xl uppercase tracking-[0.12em] text-[#F5F2EB] font-normal"
           >
             Seen on Film
           </h2>
         </div>
-        <p className="hidden sm:block text-xs font-sans text-[#7D766E] tracking-wide max-w-[260px] text-right leading-relaxed">
+        <p className="hidden sm:block text-xs font-sans text-[#9E9589] tracking-wide max-w-[260px] text-right leading-relaxed">
           Authentic client reviews and unboxing stories from across Pakistan.
         </p>
       </div>
@@ -229,7 +229,7 @@ export const ReelStrip: React.FC<ReelStripProps> = ({ films, onOpenReel }) => {
           <span
             key={i}
             className={`block rounded-full transition-all duration-300 ${
-              i === 0 ? 'w-4 h-1 bg-[#C49A88]' : 'w-1 h-1 bg-[#D6C7B2]'
+              i === 0 ? 'w-4 h-1 bg-[#D4AF37]' : 'w-1 h-1 bg-white/20'
             }`}
           />
         ))}

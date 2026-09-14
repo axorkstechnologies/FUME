@@ -89,9 +89,7 @@ export const CareView: React.FC<CareViewProps> = ({
 
   return (
     <div
-      className={`relative w-full min-h-screen pt-32 pb-32 px-6 md:px-12 lg:px-16 transition-colors duration-500 ${
-        isLight ? 'bg-[#FAF8F5] text-[#1A1816]' : 'bg-[#0a0a0a] text-[#f5f4f0]'
-      }`}
+      className="relative w-full min-h-screen pt-32 pb-32 px-6 md:px-12 lg:px-16 bg-[#0B0A09] text-[#F5F2EB]"
     >
       <div className="max-w-[1400px] mx-auto space-y-20">
         {/* Page Header with Breadcrumb */}
