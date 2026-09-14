@@ -27,6 +27,27 @@ export const CareView: React.FC<CareViewProps> = ({
 
   const faqs: FaqItem[] = [
     {
+      category: 'PERFORMANCE & LONGEVITY',
+      question: 'HOW LONG DOES FUME PERFUME LAST ON SKIN AND TEXTILES?',
+      answer:
+        'FUME Eau de Parfum creations are formulated with an uncompromised 22% to 28% pure perfume oil concentration. In real-world wear tests across Pakistan, our scents consistently deliver 12 to 16+ hours of active skin persistence and up to 24 hours on garments, remaining distinct and elegant even in warm summer climates.',
+      highlight: '12 to 16+ hours verified skin persistence in warm climates.'
+    },
+    {
+      category: 'AUTHENTICITY & ORIGIN',
+      question: 'WHERE IS FUME FORMULATED AND MANUFACTURED?',
+      answer:
+        'FUME combines European haute parfumerie standards with Pakistani artisanal precision. We source our botanical distillates, resinous absolutes, and floral essences from Grasse, France. Compounding, 45-day cool cellar maceration, and hand-pouring in heavy architectural flint glass flacons take place in our laboratory in Pakistan.',
+      highlight: 'Formulated with Grasse distillates, hand-poured in Pakistan.'
+    },
+    {
+      category: 'SHIPPING & DISPATCH',
+      question: 'IS CASH ON DELIVERY (COD) AVAILABLE ACROSS PAKISTAN?',
+      answer:
+        'Yes. We provide nationwide Cash on Delivery (COD) to all cities across Pakistan, including Karachi, Lahore, Islamabad, Rawalpindi, Peshawar, Multan, and Faisalabad. Orders placed before 15h00 PKT are dispatched the same day via premier tracked air and road couriers, reaching major cities within 2 to 3 business days.',
+      highlight: 'Nationwide Cash on Delivery with delivery in 2 to 3 business days.'
+    },
+    {
       category: 'DISCOVERY GUARANTEE',
       question: 'HOW DOES THE COMPLIMENTARY 2ML DISCOVERY VIAL WORK?',
       answer:
@@ -34,43 +55,29 @@ export const CareView: React.FC<CareViewProps> = ({
       highlight: 'Test risk-free before opening the master presentation flacon.'
     },
     {
-      category: 'SHIPPING & DISPATCH',
-      question: 'WHAT ARE YOUR SHIPPING TIMELINES AND GLOBAL DESTINATIONS?',
+      category: 'SCENT RECOMMENDATION',
+      question: 'WHICH FUME PERFUME IS BEST FOR DAILY WEAR OR SPECIAL OCCASIONS?',
       answer:
-        'All orders are fulfilled through carbon-neutral air couriers directly from our central depot in France. Orders placed prior to 14h00 CET are dispatched the same business day. Delivery across the European Union and the United Kingdom takes 1 to 3 business days. Delivery to North America, Asia-Pacific, and the Middle East takes 2 to 4 business days via DHL Express Haute Couture service with temperature-regulated transit.',
-      highlight: 'Complimentary worldwide express shipping on all orders.'
+        'For fresh daily wear and professional environments, BLOOM (night jasmine and tuberose), AQUA (marine citrus), and MY WAY (champagne orange blossom) are clean, luminous choices. For evenings, formal gatherings, and cooler evenings, DESERT (smoky amber and sandalwood), ARAB (noble oud and saffron), and BOMB (Tuscan leather) provide unforgettable projection.',
+      highlight: 'Curated recommendations for work, warm days, and festive evenings.'
     },
     {
       category: 'RETURNS & EXCHANGES',
       question: 'WHAT IS THE FUME RETURN AND EXCHANGE PROTOCOL?',
       answer:
-        'We offer a 30-day return window from the day your delivery is signed for. To be eligible for a refund or exchange, the master 50ml or 100ml flacon must remain sealed in its original cellophane wrap and outer embossed carton with tamper seals intact. You are welcome to keep the 2ml discovery vial regardless. Simply contact our concierge to generate an insured prepaid courier collection label.',
+        'We offer a 30-day return window from the day your delivery is signed for. To be eligible for a refund or exchange, the master 50ml or 100ml flacon must remain sealed in its original cellophane wrap and outer embossed carton with tamper seals intact. You are welcome to keep the 2ml discovery vial regardless. Simply contact our concierge on WhatsApp to arrange doorstep courier pickup.',
       highlight: '30 days, zero return fees, courier doorstep pickup.'
     },
     {
-      category: 'BOTTLE CARE',
-      question: 'HOW SHOULD I STORE MY FLACON TO MAINTAIN ITS 14-HOUR LONGEVITY?',
+      category: 'PURITY & SAFETY',
+      question: 'ARE FUME PERFUMES CRUELTY-FREE AND SAFE FOR SENSITIVE SKIN?',
       answer:
-        'Our formulas contain elevated percentages of pure botanical absolutes and noble resins. To preserve their delicate olfactory pyramid, store your flacon in a dry, temperate space (between 15°C and 22°C / 59°F and 72°F) away from direct sunlight and bathroom humidity. Always reseat the heavy obsidian cap firmly to prevent evaporation of the volatile top notes.',
-      highlight: 'Keep away from UV radiation and rapid temperature fluctuations.'
-    },
-    {
-      category: 'AUTHENTICITY',
-      question: 'HOW DO I VERIFY THE AUTHENTICITY AND BATCH NUMBER OF MY BOTTLE?',
-      answer:
-        'Every authentic FUME flacon is laser-etched with a unique 6-digit alphanumeric archival batch code along the base edge of the glass. This exact code corresponds to the hot-stamped certificate of authenticity enclosed in your velvet presentation coffret. You can input this code with our Concierge to view the exact harvest date, maceration cellar, and master perfumer inspection log.',
-      highlight: 'Individual laser-etched batch codes on every flacon.'
-    },
-    {
-      category: 'BESPOKE & ENGRAVING',
-      question: 'CAN I COMMISSION BESPOKE FLACON ENGRAVING OR MONOGRAMS?',
-      answer:
-        'Yes. We offer diamond-drag hand calligraphy engraving on the back facet of our 50ml and 100ml flacons. You may request up to three initials or a milestone date (e.g. "EST. 2024"). Bespoke engraved bottles are finalized in our Paris workshop and dispatched within 48 hours.',
-      highlight: 'Complimentary custom engraving available upon request.'
+        'FUME is 100% cruelty-free and certified IFRA-compliant. We never test on animals. Our formulations utilize cosmetic-grade organic sugarcane alcohol and pure botanical absolutes, strictly omitting harsh phthalates, synthetic propellants, or toxic fillers.',
+      highlight: '100% cruelty-free, IFRA-compliant, and hypoallergenic standards.'
     }
   ];
 
-  const categories = ['ALL', 'DISCOVERY GUARANTEE', 'SHIPPING & DISPATCH', 'RETURNS & EXCHANGES', 'BOTTLE CARE', 'AUTHENTICITY'];
+  const categories = ['ALL', 'PERFORMANCE & LONGEVITY', 'SHIPPING & DISPATCH', 'DISCOVERY GUARANTEE', 'SCENT RECOMMENDATION', 'AUTHENTICITY & ORIGIN'];
 
   const filteredFaqs = activeCategory === 'ALL'
     ? faqs
@@ -325,7 +332,7 @@ export const CareView: React.FC<CareViewProps> = ({
               href="https://wa.me/923132970468?text=Hello%20FUME%20Concierge"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#C5A059] hover:underline"
+              className="text-[#C49A88] hover:underline"
             >
               WhatsApp (+92 313 297 0468)
             </a>
@@ -334,7 +341,7 @@ export const CareView: React.FC<CareViewProps> = ({
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <button
               onClick={onNavigateToContact}
-              className="px-8 py-3.5 bg-[#1A1816] text-[#FAF8F5] hover:bg-[#C5A059] hover:text-black transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer"
+              className="px-8 py-3.5 bg-[#1A1816] text-[#F9F6F0] hover:bg-[#C49A88] hover:text-white transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer rounded-xs"
             >
               CONTACT CONCIERGE
             </button>
@@ -342,17 +349,32 @@ export const CareView: React.FC<CareViewProps> = ({
               href="https://wa.me/923132970468?text=Hello%20FUME%20Concierge"
               target="_blank"
               rel="noopener noreferrer"
-              className={`px-8 py-3.5 border transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer ${
-                isLight
-                  ? 'border-[#C5A059] text-[#1A1816] hover:bg-white'
-                  : 'border-[#C5A059] text-white hover:bg-white/5'
-              }`}
+              className="px-8 py-3.5 border border-[#C49A88] text-[#1A1816] hover:bg-white transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer rounded-xs"
             >
               CHAT ON WHATSAPP
             </a>
           </div>
         </div>
       </div>
+
+      {/* Structured Data: FAQPage JSON-LD for Search & AI Engines */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map(f => ({
+              '@type': 'Question',
+              name: f.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: f.answer
+              }
+            }))
+          })
+        }}
+      />
     </div>
   );
 };

@@ -134,6 +134,9 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
   const isLight = themeMode === 'light';
   const nameToDisplay = customName || fragrance.name;
   const isMasterAsset = fragrance.image.startsWith('/bottles/');
+  const family = fragrance.olfactoryFamily || 'Luxury';
+  const targetAudience = fragrance.genderCategory === 'FOR HER' ? 'women' : fragrance.genderCategory === 'FOR HIM' ? 'men' : 'unisex';
+  const altText = `FUME ${nameToDisplay} Eau de Parfum bottle : ${family} fragrance for ${targetAudience}`;
 
   if (variant === 'hero') {
     return (
@@ -142,14 +145,14 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
           {/* Flacon Image */}
           <img
             src={fragrance.image}
-            alt={`FUME FRAGRANCES – ${nameToDisplay} Luxury Flacon`}
+            alt={altText}
             className={`w-full h-full object-contain object-center select-none drop-shadow-[0_30px_70px_rgba(0,0,0,0.85)] ${imageClassName}`}
             loading="eager"
           />
 
           {/* If custom monogram is provided, display bespoke gold engraving badge */}
           {customMonogram && (
-            <div className="absolute top-[48%] left-1/2 -translate-x-1/2 bg-black/85 border border-[#C5A059] px-3 py-1 rounded text-[9px] text-[#F3D079] font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
+            <div className="absolute top-[48%] left-1/2 -translate-x-1/2 bg-black/85 border border-[#C49A88] px-3 py-1 rounded text-[9px] text-[#D6C7B2] font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
               ENGRAVED: {customMonogram}
             </div>
           )}
@@ -169,12 +172,12 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
           {/* Fragrance Bottle Image */}
           <img
             src={fragrance.image}
-            alt={`FUME FRAGRANCES – ${nameToDisplay}`}
+            alt={altText}
             className={`w-full h-full object-contain md:object-right select-none ${imageClassName}`}
           />
 
           {customMonogram && (
-            <div className="absolute top-[48%] left-1/2 md:left-[60%] -translate-x-1/2 bg-black/85 border border-[#C5A059] px-3 py-1 rounded text-[9px] text-[#F3D079] font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
+            <div className="absolute top-[48%] left-1/2 md:left-[60%] -translate-x-1/2 bg-black/85 border border-[#C49A88] px-3 py-1 rounded text-[9px] text-[#D6C7B2] font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
               ENGRAVED: {customMonogram}
             </div>
           )}
@@ -192,7 +195,7 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
       <div className={`relative aspect-square w-full flex items-center justify-center [container-type:inline-size] ${className}`}>
         <img
           src={fragrance.image}
-          alt={`FUME FRAGRANCES – ${nameToDisplay}`}
+          alt={altText}
           className={`w-full h-full object-contain select-none ${imageClassName}`}
           loading="lazy"
         />
@@ -208,8 +211,8 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
     <div
       className={`relative aspect-[3/4] w-full overflow-hidden transition-all duration-500 rounded-sm border flex items-center justify-center ${
         isLight
-          ? 'border-[#EAE2D5] group-hover:border-[#C5A059]'
-          : 'border-[#1E1E1E] group-hover:border-[#C5A059]/80'
+          ? 'border-[#E3DDD3] group-hover:border-[#C49A88]'
+          : 'border-[#1E1E1E] group-hover:border-[#C49A88]/80'
       } ${className}`}
       style={{
         backgroundColor: isLight ? fragrance.pastelBg : '#111111'
@@ -229,7 +232,7 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
           <span
             className={`text-[9px] uppercase tracking-[0.2em] px-2 py-0.5 font-sans font-medium rounded-xs border backdrop-blur-xs ${
               isLight
-                ? 'bg-white/80 border-[#EAE2D5] text-[#7D766E]'
+                ? 'bg-white/80 border-[#E3DDD3] text-[#7D766E]'
                 : 'bg-black/60 border-[#333333] text-[#A8A196]'
             }`}
           >
@@ -242,13 +245,13 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
       <div className="relative w-full aspect-square flex items-center justify-center [container-type:inline-size] transition-transform duration-700 ease-out group-hover:scale-105 z-10">
         <img
           src={fragrance.image}
-          alt={`FUME FRAGRANCES – ${nameToDisplay}`}
+          alt={altText}
           className={`w-full h-full object-contain object-center select-none ${imageClassName}`}
           loading="lazy"
         />
 
         {customMonogram && (
-          <div className="absolute top-[48%] left-1/2 -translate-x-1/2 bg-black/85 border border-[#C5A059] px-2 py-0.5 rounded text-[8px] text-[#F3D079] font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
+          <div className="absolute top-[48%] left-1/2 -translate-x-1/2 bg-black/85 border border-[#C49A88] px-2 py-0.5 rounded text-[8px] text-[#D6C7B2] font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
             ENGRAVED: {customMonogram}
           </div>
         )}

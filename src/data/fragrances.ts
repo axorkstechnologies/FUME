@@ -2,7 +2,7 @@ import { Fragrance } from '../types';
 
 export const HERO_BOTTLE_IMAGE = '/bottles/desert.webp';
 
-export const CAMPAIGN_IMAGE = '/bottles/campaign-reopening.webp';
+export const CAMPAIGN_IMAGE = '/bottles/campaign-brand.webp';
 
 export const EDITORIAL_IMAGE = '/bottles/discovery-set.webp';
 

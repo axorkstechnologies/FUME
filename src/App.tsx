@@ -13,6 +13,7 @@ import { FragranceDiscovery } from './components/FragranceDiscovery';
 import { FilmsSection } from './components/FilmsSection';
 import { ReelViewerModal } from './components/ReelViewerModal';
 import { CampaignBanner } from './components/CampaignBanner';
+import { TestimonialsSection } from './components/TestimonialsSection';
 import { BrandStatement } from './components/BrandStatement';
 import { Footer } from './components/Footer';
 import { PerfumesView } from './components/PerfumesView';
@@ -20,6 +21,7 @@ import { CollectionsView } from './components/CollectionsView';
 import { CartDrawer } from './components/CartDrawer';
 import { FlaconDetailModal } from './components/FlaconDetailModal';
 import { SearchModal } from './components/SearchModal';
+import { ScentQuizModal } from './components/ScentQuizModal';
 import { StoryModal } from './components/StoryModal';
 import { ContactModal } from './components/ContactModal';
 import { StoryView } from './components/StoryView';
@@ -76,9 +78,36 @@ export function App() {
   // Modals & Drawers
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-
+  const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [isStoryOpen, setIsStoryOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
+
+  // Dynamic SEO / AEO / GEO Metadata per view
+  useEffect(() => {
+    const titles: Record<ScreenView, string> = {
+      home: 'FUME FRAGRANCES | Your Scent. Your Story. Luxury Eau de Parfum',
+      perfumes: 'All Perfumes | FUME FRAGRANCES : 14+ Hour Haute Parfumerie in Pakistan',
+      collections: 'Haute Collections | FUME FRAGRANCES : Curated Scent Families',
+      story: 'Our Story & Founder Creed | FUME FRAGRANCES Pakistan',
+      contact: 'Concierge & Bespoke Service | FUME FRAGRANCES',
+      care: 'Client Care, Shipping & FAQs | FUME FRAGRANCES',
+      films: 'FUME on Film | Authentic Customer Experiences & Unboxing'
+    };
+    const descriptions: Record<ScreenView, string> = {
+      home: 'FUME FRAGRANCES: Authentic luxury Eau de Parfum hand-crafted in Pakistan. Formulated with Grasse distillates, 14+ hour persistence, and nationwide Cash on Delivery.',
+      perfumes: 'Explore all 24 luxury Eau de Parfum creations by FUME. Hand-formulated in Grasse and bottled in architectural flint glass with free 2ml discovery vials.',
+      collections: 'Discover curated fragrance collections across Fresh, Floral, Oriental, and Woody olfactory families. Tested for Pakistan warm climates.',
+      story: 'The story behind FUME FRAGRANCES: making authentic, master-crafted fragrances accessible across Pakistan without international retail markups.',
+      contact: 'Connect with the FUME Concierge for bespoke flacon engraving, scent consultations, and WhatsApp orders across Pakistan.',
+      care: 'Client Care & FAQs: Shipping timelines, nationwide Cash on Delivery, 30-day returns, and our complimentary 2ml discovery vial guarantee.',
+      films: 'Watch authentic unboxing and review films from fragrance lovers across Pakistan wearing FUME Eau de Parfum.'
+    };
+    document.title = titles[currentView] || titles.home;
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', descriptions[currentView] || descriptions.home);
+    }
+  }, [currentView]);
 
   // Clean scroll lock reset and native scroll to top on view change
   useEffect(() => {
@@ -170,6 +199,7 @@ export function App() {
             <HeroSection
               onShopPerfumes={() => handleNavigate('perfumes')}
               onExploreFume={scrollToEssence}
+              onOpenQuiz={() => setIsQuizOpen(true)}
               themeMode={themeMode}
             />
 
@@ -219,6 +249,9 @@ export function App() {
             <CampaignBanner
               onShopNow={() => handleNavigate('perfumes')}
             />
+
+            {/* VERIFIED CLIENT TESTIMONIALS */}
+            <TestimonialsSection />
 
             {/* 7. BRAND STATEMENT with Since 2024 */}
             <BrandStatement themeMode={themeMode} />
@@ -328,6 +361,14 @@ export function App() {
       />
 
 
+
+      {/* Scent Finder Quiz Modal */}
+      <ScentQuizModal
+        isOpen={isQuizOpen}
+        onClose={() => setIsQuizOpen(false)}
+        onSelectFragrance={(f) => setSelectedFragrance(f)}
+        onAddToCart={(f) => handleAddToCart(f)}
+      />
 
       {/* Story Modal */}
       <StoryModal
