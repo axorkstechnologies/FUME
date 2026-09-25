@@ -76,7 +76,7 @@ const ReelCard: React.FC<ReelCardProps> = ({ film, index, onOpenReel }) => {
     <article
       ref={containerRef}
       aria-label={`${film.title} — ${film.kicker}`}
-      className="reel-card group relative flex-none w-[52vw] sm:w-[38vw] md:w-[30vw] lg:w-[18vw] xl:w-[16vw] 2xl:w-[15vw]"
+      className="reel-card group relative flex-none w-[75vw] sm:w-[40vw] md:w-[30vw] lg:w-[18vw] xl:w-[16vw]"
       style={{ aspectRatio: '9/16' }}
     >
       {/* Tappable / clickable overlay — opens full reel viewer */}
@@ -86,7 +86,7 @@ const ReelCard: React.FC<ReelCardProps> = ({ film, index, onOpenReel }) => {
         aria-label={`Watch ${film.title}`}
         onClick={handleClick}
         onKeyDown={handleKeyDown}
-        className="absolute inset-0 z-10 cursor-pointer rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C49A88]"
+        className="absolute inset-0 z-10 cursor-pointer rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dusty-rose"
       />
 
       {/* Video container */}
@@ -125,13 +125,13 @@ const ReelCard: React.FC<ReelCardProps> = ({ film, index, onOpenReel }) => {
           aria-hidden="true"
         >
           {/* Gradient fade */}
-          <div className="h-28 bg-gradient-to-t from-[#1A1816]/80 via-[#1A1816]/30 to-transparent rounded-b-2xl" />
+          <div className="h-28 bg-gradient-to-t from-shadow/80 via-shadow/30 to-transparent rounded-b-2xl" />
           {/* Text */}
           <div className="absolute bottom-0 inset-x-0 px-3 pb-3 space-y-0.5">
-            <p className="text-[9px] uppercase tracking-[0.28em] text-[#C49A88] font-sans font-medium leading-none">
+            <p className="text-[9px] uppercase tracking-[0.28em] text-dusty-rose drop-shadow-md font-sans font-medium leading-none">
               {film.kicker}
             </p>
-            <p className="text-[11px] uppercase tracking-[0.14em] text-white font-sans font-medium leading-tight line-clamp-2">
+            <p className="text-[11px] uppercase tracking-[0.14em] text-white font-sans font-medium drop-shadow-md leading-tight line-clamp-2">
               {film.productName}
             </p>
           </div>
@@ -181,22 +181,22 @@ export const ReelStrip: React.FC<ReelStripProps> = ({ films, onOpenReel }) => {
   return (
     <section
       aria-labelledby="reel-strip-heading"
-      className="w-full overflow-hidden bg-[#0D0C0A] border-t border-white/[0.06] py-10 sm:py-14"
+      className="w-full overflow-hidden bg-pearl border-t border-shadow/[0.06] py-10 sm:py-14"
     >
       {/* Section header */}
       <div className="px-5 sm:px-8 lg:px-16 mb-6 sm:mb-8 flex items-end justify-between gap-4">
         <div className="space-y-1">
-          <p className="text-[10px] uppercase tracking-[0.38em] text-[#D4AF37] font-sans font-medium">
+          <p className="text-[10px] uppercase tracking-[0.38em] text-dusty-rose font-sans font-medium">
             Real Stories
           </p>
           <h2
             id="reel-strip-heading"
-            className="font-serif text-2xl sm:text-3xl uppercase tracking-[0.12em] text-[#F5F2EB] font-normal"
+            className="font-serif text-2xl sm:text-3xl uppercase tracking-[0.12em] text-shadow font-normal"
           >
             Seen on Film
           </h2>
         </div>
-        <p className="hidden sm:block text-xs font-sans text-[#9E9589] tracking-wide max-w-[260px] text-right leading-relaxed">
+        <p className="hidden sm:block text-xs font-sans text-shadow/60 tracking-wide max-w-[260px] text-right leading-relaxed">
           Authentic client reviews and unboxing stories from across Pakistan.
         </p>
       </div>
@@ -208,7 +208,7 @@ export const ReelStrip: React.FC<ReelStripProps> = ({ films, onOpenReel }) => {
         aria-label="FUME fragrance films — scroll horizontally to browse"
         tabIndex={0}
         onKeyDown={handleKeyDown}
-        className="flex gap-3 sm:gap-4 lg:gap-5 overflow-x-auto px-5 sm:px-8 lg:px-16 pb-4 scroll-smooth snap-x snap-mandatory
+        className="flex gap-4 sm:gap-6 lg:gap-8 overflow-x-auto px-6 sm:px-10 lg:px-16 pb-6 scroll-smooth snap-x snap-mandatory
                    [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
                    focus-visible:outline-none"
         style={{ WebkitOverflowScrolling: 'touch' } as React.CSSProperties}
@@ -229,7 +229,7 @@ export const ReelStrip: React.FC<ReelStripProps> = ({ films, onOpenReel }) => {
           <span
             key={i}
             className={`block rounded-full transition-all duration-300 ${
-              i === 0 ? 'w-4 h-1 bg-[#D4AF37]' : 'w-1 h-1 bg-white/20'
+              i === 0 ? 'w-4 h-1 bg-dusty-rose' : 'w-1 h-1 bg-shadow/20'
             }`}
           />
         ))}

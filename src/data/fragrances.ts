@@ -34,9 +34,9 @@ export const DISCOVERY_SET: Fragrance = {
   description: '5 × 5ml testers curated for your taste. Discover your signature scent across our floral, fresh, oriental, and woody creations in heavy miniature glass flacons.',
   origin: 'Hand-Crafted in Pakistan • Since 2024',
   inStock: true,
-  pastelBg: '#F9F6F0',
-  pastelAccent: '#C49A88',
-  pastelGlow: 'rgba(196, 154, 136, 0.25)',
+  pastelBg: '#F8F4F0',
+  pastelAccent: '#C9A9A6',
+  pastelGlow: 'rgba(201, 169, 166, 0.25)',
   cardTone: 'Discovery Coffret'
 };
 
@@ -88,9 +88,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'A luminous invitation to self-discovery. Radiant white floral heart embraced by warm champagne amber and dark Virginia cedarwood.',
     origin: 'Grasse & Virginia • Since 2024',
     inStock: true,
-    pastelBg: '#F9F6F0',
-    pastelAccent: '#C49A88',
-    pastelGlow: 'rgba(196, 154, 136, 0.25)',
+    pastelBg: '#F8F4F0',
+    pastelAccent: '#C9A9A6',
+    pastelGlow: 'rgba(201, 169, 166, 0.25)',
     cardTone: 'Champagne Blossom'
   },
   {
@@ -138,9 +138,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'Pristine, crystalline, and eternal. Cool powdered iris meets clean skin musks in razor-sharp equilibrium, leaving a magnetic presence.',
     origin: 'Florence • Since 2024',
     inStock: true,
-    pastelBg: '#F9F6F0',
-    pastelAccent: '#C49A88',
-    pastelGlow: 'rgba(196, 154, 136, 0.25)',
+    pastelBg: '#F8F4F0',
+    pastelAccent: '#C9A9A6',
+    pastelGlow: 'rgba(201, 169, 166, 0.25)',
     cardTone: 'Opal Iris'
   },
   {
@@ -190,9 +190,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'A storied Tuscan amber enveloped in weathered leather and powdered iris. Deep, refined, and unmistakably artisanal.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#F9F6F0',
-    pastelAccent: '#C49A88',
-    pastelGlow: 'rgba(196, 154, 136, 0.25)',
+    pastelBg: '#F8F4F0',
+    pastelAccent: '#C9A9A6',
+    pastelGlow: 'rgba(201, 169, 166, 0.25)',
     cardTone: 'Tuscan Amber'
   },
   {
@@ -240,9 +240,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'An instinctual rush of radiant freshness colliding with noble woods. Sensual, modern, and boldly magnetic in its projection.',
     origin: 'Calabria & Grasse • Since 2024',
     inStock: true,
-    pastelBg: '#F9F6F0',
-    pastelAccent: '#C49A88',
-    pastelGlow: 'rgba(196, 154, 136, 0.25)',
+    pastelBg: '#F8F4F0',
+    pastelAccent: '#C9A9A6',
+    pastelGlow: 'rgba(201, 169, 166, 0.25)',
     cardTone: 'Riviera Azure'
   },
   {
@@ -290,9 +290,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'Understated masculine elegance. Notes of cured tobacco leaves and tailored suede balanced with warm sandalwood for effortless distinction.',
     origin: 'London & Grasse • Since 2024',
     inStock: true,
-    pastelBg: '#F9F6F0',
-    pastelAccent: '#C49A88',
-    pastelGlow: 'rgba(196, 154, 136, 0.25)',
+    pastelBg: '#F8F4F0',
+    pastelAccent: '#C9A9A6',
+    pastelGlow: 'rgba(201, 169, 166, 0.25)',
     cardTone: 'Tobacco Suede'
   },
   {
@@ -340,9 +340,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'The scent of a Mediterranean morning. Transparent sea air and sun-warmed citrus settle into mineral musk and bleached driftwood.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#F9F6F0',
-    pastelAccent: '#C49A88',
-    pastelGlow: 'rgba(196, 154, 136, 0.25)',
+    pastelBg: '#F8F4F0',
+    pastelAccent: '#C9A9A6',
+    pastelGlow: 'rgba(201, 169, 166, 0.25)',
     cardTone: 'Coastal Mist'
   },
   {
@@ -390,9 +390,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'Crisp green architecture meeting warm amber foundations. A modern masculine contour drawn with botanical precision.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#F9F6F0',
-    pastelAccent: '#C49A88',
-    pastelGlow: 'rgba(196, 154, 136, 0.25)',
+    pastelBg: '#F8F4F0',
+    pastelAccent: '#C9A9A6',
+    pastelGlow: 'rgba(201, 169, 166, 0.25)',
     cardTone: 'Green Accord'
   },
   {
@@ -440,9 +440,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'A decisive stroke of aromatic freshness and smoky depth. Grapefruit opens with absolute clarity before settling into sacred incense and wood.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#F9F6F0',
-    pastelAccent: '#C49A88',
-    pastelGlow: 'rgba(196, 154, 136, 0.25)',
+    pastelBg: '#F8F4F0',
+    pastelAccent: '#C9A9A6',
+    pastelGlow: 'rgba(201, 169, 166, 0.25)',
     cardTone: 'Midnight Blue'
   },
   {
@@ -491,9 +491,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'An opulent oud tapestry woven with rose and radiant amber. Sun-warmed spices and sacred resins evoke ancient desert grandeur.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#F9F6F0',
-    pastelAccent: '#C49A88',
-    pastelGlow: 'rgba(196, 154, 136, 0.25)',
+    pastelBg: '#F8F4F0',
+    pastelAccent: '#C9A9A6',
+    pastelGlow: 'rgba(201, 169, 166, 0.25)',
     cardTone: 'Desert Gold'
   },
   {
@@ -541,9 +541,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'Liquid gold for the audacious. Honeyed leather and molten cinnamon fuse with roasted tonka for a rich, long-lasting trail.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#F9F6F0',
-    pastelAccent: '#C49A88',
-    pastelGlow: 'rgba(196, 154, 136, 0.25)',
+    pastelBg: '#F8F4F0',
+    pastelAccent: '#C9A9A6',
+    pastelGlow: 'rgba(201, 169, 166, 0.25)',
     cardTone: 'Liquid Gold'
   },
   {
@@ -592,9 +592,9 @@ export const FRAGRANCES: Fragrance[] = [
     description: 'A legendary accord of aromatic lavender lifted by tropical pineapple. Dry oakmoss and tonka create an enduring, masculine signature.',
     origin: 'Grasse & Paris • Since 2024',
     inStock: true,
-    pastelBg: '#F9F6F0',
-    pastelAccent: '#C49A88',
-    pastelGlow: 'rgba(196, 154, 136, 0.25)',
+    pastelBg: '#F8F4F0',
+    pastelAccent: '#C9A9A6',
+    pastelGlow: 'rgba(201, 169, 166, 0.25)',
     cardTone: 'Aromatic Legend'
   },
   {

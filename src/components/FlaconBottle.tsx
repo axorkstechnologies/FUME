@@ -40,24 +40,24 @@ const FlaconLabel: React.FC<FlaconLabelProps> = ({ name, customMonogram, compact
       }}
       aria-hidden="true"
     >
-      <div className="relative w-full h-full p-[4%] rounded-[1.5px] border border-[#C5A059]/80 bg-gradient-to-b from-[#1A1817] via-[#0E0D0C] to-[#060605] shadow-[0_4px_14px_rgba(0,0,0,0.85),0_1.5px_4px_rgba(0,0,0,0.9),inset_0_1px_0_rgba(255,255,255,0.16),inset_0_-1px_0_rgba(0,0,0,0.7)] overflow-hidden flex flex-col justify-between items-center">
+      <div className="relative w-full h-full p-[4%] rounded-[1.5px] border border-dusty-rose/80 bg-gradient-to-b from-pearl via-oyster to-pearl shadow-[0_4px_14px_rgba(44,37,34,0.85),0_1.5px_4px_rgba(44,37,34,0.9),inset_0_1px_0_rgba(255,255,255,0.16),inset_0_-1px_0_rgba(44,37,34,0.7)] overflow-hidden flex flex-col justify-between items-center">
         {/* Subtle cylindrical bottle reflection and lighting gradient across the plaque */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              'linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(255,255,255,0.03) 22%, rgba(255,255,255,0.07) 48%, rgba(0,0,0,0.2) 100%)',
+              'linear-gradient(90deg, rgba(44,37,34,0.3) 0%, rgba(255,255,255,0.03) 22%, rgba(255,255,255,0.07) 48%, rgba(44,37,34,0.2) 100%)',
           }}
         />
 
         {/* Fine secondary gold inner hairline border */}
-        <div className="absolute inset-[2px] border border-[#D4AF37]/35 rounded-[0.5px] pointer-events-none" />
+        <div className="absolute inset-[2px] border border-dusty-rose/35 rounded-[0.5px] pointer-events-none" />
 
         {/* Micro filigree corner ticks for authentic haute parfumerie craftsmanship */}
-        <div className="absolute top-1 left-1 w-1 h-1 border-t border-l border-[#C5A059]/50 pointer-events-none" />
-        <div className="absolute top-1 right-1 w-1 h-1 border-t border-r border-[#C5A059]/50 pointer-events-none" />
-        <div className="absolute bottom-1 left-1 w-1 h-1 border-b border-l border-[#C5A059]/50 pointer-events-none" />
-        <div className="absolute bottom-1 right-1 w-1 h-1 border-b border-r border-[#C5A059]/50 pointer-events-none" />
+        <div className="absolute top-1 left-1 w-1 h-1 border-t border-l border-dusty-rose/50 pointer-events-none" />
+        <div className="absolute top-1 right-1 w-1 h-1 border-t border-r border-dusty-rose/50 pointer-events-none" />
+        <div className="absolute bottom-1 left-1 w-1 h-1 border-b border-l border-dusty-rose/50 pointer-events-none" />
+        <div className="absolute bottom-1 right-1 w-1 h-1 border-b border-r border-dusty-rose/50 pointer-events-none" />
 
         {/* Diagonal specular glare sheen on the glass */}
         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-transparent pointer-events-none" />
@@ -65,13 +65,13 @@ const FlaconLabel: React.FC<FlaconLabelProps> = ({ name, customMonogram, compact
         {/* Top Brand Mark (Gold Hot-Stamp) */}
         <div className="relative z-1 w-full pt-[2%]">
           <span
-            className="uppercase tracking-[0.32em] text-[#C5A059] font-serif font-semibold block leading-none drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]"
+            className="uppercase tracking-[0.32em] text-dusty-rose font-serif font-semibold block leading-none drop-shadow-[0_1px_2px_rgba(44,37,34,0.8)]"
             style={{ fontSize: compact ? 'clamp(4.5px, 2cqi, 7.5px)' : 'clamp(5.2px, 2.4cqi, 9.5px)' }}
           >
             FUME
           </span>
           <span
-            className="uppercase tracking-[0.2em] text-[#C5A059]/80 font-sans block leading-none mt-0.5"
+            className="uppercase tracking-[0.2em] text-dusty-rose/80 font-sans block leading-none mt-0.5"
             style={{ fontSize: compact ? 'clamp(2.8px, 1.1cqi, 4.5px)' : 'clamp(3.2px, 1.3cqi, 5.5px)' }}
           >
             FRAGRANCES
@@ -81,13 +81,13 @@ const FlaconLabel: React.FC<FlaconLabelProps> = ({ name, customMonogram, compact
         {/* Center Perfume Name (Luminous White) & Concentration (Gold) */}
         <div className="relative z-1 w-full px-0.5">
           <h3
-            className="font-serif uppercase font-semibold text-white leading-tight tracking-[0.09em] truncate drop-shadow-[0_1px_3px_rgba(0,0,0,0.95)]"
+            className="font-serif uppercase font-semibold text-shadow leading-tight tracking-[0.09em] truncate drop-shadow-[0_1px_3px_rgba(44,37,34,0.95)]"
             style={{ fontSize: compact ? 'clamp(6.5px, 3.4cqi, 12px)' : 'clamp(7.5px, 3.9cqi, 15.5px)' }}
           >
             {name}
           </h3>
           <span
-            className="uppercase tracking-[0.24em] text-[#D4AF37]/90 font-sans font-normal block leading-none mt-[2.5%]"
+            className="uppercase tracking-[0.24em] text-dusty-rose/90 font-sans font-normal block leading-none mt-[2.5%]"
             style={{ fontSize: compact ? 'clamp(3.6px, 1.6cqi, 6px)' : 'clamp(4.2px, 1.9cqi, 7.5px)' }}
           >
             EAU DE PARFUM
@@ -96,19 +96,19 @@ const FlaconLabel: React.FC<FlaconLabelProps> = ({ name, customMonogram, compact
 
         {/* Divider & Provenance / Monogram (Crisp White & Warm Gold) */}
         <div className="relative z-1 w-full pb-[2%] flex flex-col items-center">
-          <div className="w-[45%] h-[0.5px] bg-[#C5A059]/70 mb-[3%]" />
+          <div className="w-[45%] h-[0.5px] bg-dusty-rose/70 mb-[3%]" />
           <div
-            className="flex items-center justify-center gap-0.5 uppercase tracking-[0.16em] text-[#EDE8E1] font-sans leading-none mb-[2%]"
+            className="flex items-center justify-center gap-0.5 uppercase tracking-[0.16em] text-shadow/80 font-sans leading-none mb-[2%]"
             style={{ fontSize: compact ? 'clamp(3.2px, 1.4cqi, 5.5px)' : 'clamp(3.8px, 1.6cqi, 6.5px)' }}
           >
             <span>50 ML</span>
-            <span className="text-[#C49A88] text-[0.8em]">·</span>
+            <span className="text-dusty-rose text-[0.8em]">·</span>
             <span>1.7 FL OZ</span>
           </div>
 
           {customMonogram ? (
             <span
-              className="uppercase tracking-[0.14em] text-[#F3D079] font-serif font-semibold block leading-none truncate px-0.5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]"
+              className="uppercase tracking-[0.14em] text-dusty-rose font-serif font-semibold block leading-none truncate px-0.5 drop-shadow-[0_1px_2px_rgba(44,37,34,0.9)]"
               style={{ fontSize: compact ? 'clamp(3.5px, 1.5cqi, 6px)' : 'clamp(4px, 1.7cqi, 7px)' }}
             >
               ENGRAVED: {customMonogram}
@@ -146,13 +146,13 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
           <img
             src={fragrance.image}
             alt={altText}
-            className={`w-full h-full object-contain object-center select-none drop-shadow-[0_30px_70px_rgba(0,0,0,0.85)] ${imageClassName}`}
+            className={`w-full h-full object-contain object-center select-none drop-shadow-[0_30px_70px_rgba(44,37,34,0.85)] ${imageClassName}`}
             loading="eager"
           />
 
           {/* If custom monogram is provided, display bespoke gold engraving badge */}
           {customMonogram && (
-            <div className="absolute top-[48%] left-1/2 -translate-x-1/2 bg-black/85 border border-[#C49A88] px-3 py-1 rounded text-[9px] text-[#D6C7B2] font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
+            <div className="absolute top-[48%] left-1/2 -translate-x-1/2 bg-pearl/85 border border-dusty-rose px-3 py-1 rounded text-[9px] text-shadow/80 font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
               ENGRAVED: {customMonogram}
             </div>
           )}
@@ -177,7 +177,7 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
           />
 
           {customMonogram && (
-            <div className="absolute top-[48%] left-1/2 md:left-[60%] -translate-x-1/2 bg-black/85 border border-[#C49A88] px-3 py-1 rounded text-[9px] text-[#D6C7B2] font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
+            <div className="absolute top-[48%] left-1/2 md:left-[60%] -translate-x-1/2 bg-pearl/85 border border-dusty-rose px-3 py-1 rounded text-[9px] text-shadow/80 font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
               ENGRAVED: {customMonogram}
             </div>
           )}
@@ -206,26 +206,26 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
     );
   }
 
-  // Standard Product Card Flacon — Dark Luxury Glassmorphism
+  // Standard Product Card Flacon
   return (
     <div
-      className={`relative aspect-[3/4] w-full overflow-hidden transition-all duration-500 rounded-lg border flex items-center justify-center bg-gradient-to-b from-[#181512]/90 via-[#13110F]/95 to-[#0A0908] backdrop-blur-xl border-white/[0.08] hover:border-[#D4AF37]/50 shadow-[0_12px_36px_rgba(0,0,0,0.65)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_30px_rgba(212,175,55,0.15)] group ${className}`}
+      className={`relative aspect-[3/4] w-full overflow-hidden transition-all duration-500 rounded-lg border flex items-center justify-center bg-gradient-to-b from-pearl via-oyster to-pearl backdrop-blur-xl border-shadow/[0.08] hover:border-dusty-rose/50 shadow-[0_8px_24px_rgba(44,37,34,0.06)] hover:shadow-[0_12px_36px_rgba(44,37,34,0.12),0_0_20px_rgba(201,169,166,0.1)] group ${className}`}
     >
-      {/* Subtle Warm Amber Ambient Halo behind the bottle */}
+      {/* Subtle Warm Light Ambient Halo behind the bottle */}
       <div
         className="absolute inset-0 opacity-50 group-hover:opacity-85 transition-opacity duration-700 blur-[32px] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle at center, rgba(212, 175, 55, 0.18) 0%, rgba(180, 110, 50, 0.08) 45%, transparent 72%)'
+          background: 'radial-gradient(circle at center, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 45%, transparent 72%)'
         }}
       />
 
       {/* Subtle Diagonal Shimmer / Light-Sweep on Hover */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.2] to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
 
       {/* Fragrance Tone Tag */}
       {fragrance.cardTone && (
         <div className="absolute top-3 left-3 z-20 pointer-events-none">
-          <span className="text-[9px] uppercase tracking-[0.2em] px-2.5 py-0.5 font-sans font-medium rounded-full border border-white/10 bg-black/60 text-[#E8C97E] backdrop-blur-md shadow-sm">
+          <span className="text-[9px] uppercase tracking-[0.2em] px-2.5 py-0.5 font-sans font-medium rounded-full border border-shadow/10 bg-pearl/60 text-shadow/80 backdrop-blur-md shadow-sm">
             {fragrance.cardTone}
           </span>
         </div>
@@ -236,12 +236,12 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
         <img
           src={fragrance.image}
           alt={altText}
-          className={`w-full h-full object-contain object-center select-none drop-shadow-[0_15px_30px_rgba(0,0,0,0.9)] ${imageClassName}`}
+          className={`w-full h-full object-contain object-center select-none drop-shadow-[0_15px_30px_rgba(44,37,34,0.1)] ${imageClassName}`}
           loading="lazy"
         />
 
         {customMonogram && (
-          <div className="absolute top-[48%] left-1/2 -translate-x-1/2 bg-black/90 border border-[#D4AF37] px-2 py-0.5 rounded text-[8px] text-[#E8C97E] font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
+          <div className="absolute top-[48%] left-1/2 -translate-x-1/2 bg-pearl/90 border border-dusty-rose px-2 py-0.5 rounded text-[8px] text-shadow/80 font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
             ENGRAVED: {customMonogram}
           </div>
         )}
@@ -253,13 +253,13 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
 
       {/* Quick Add Overlay on Hover */}
       {showQuickAdd && (
-        <div className="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-5 z-30 pointer-events-none group-hover:pointer-events-auto backdrop-blur-xs">
+        <div className="absolute inset-0 bg-pearl/45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-5 z-30 pointer-events-none group-hover:pointer-events-auto backdrop-blur-xs">
           <button
             onClick={(e) => {
               e.stopPropagation();
               if (onQuickAdd) onQuickAdd();
             }}
-            className="w-full py-3 bg-[#D4AF37] text-black hover:bg-white transition-colors text-[10px] uppercase tracking-[0.24em] font-sans font-semibold cursor-pointer shadow-lg rounded-xs"
+            className="w-full py-3 bg-dusty-rose text-pearl hover:bg-pearl transition-colors text-[10px] uppercase tracking-[0.24em] font-sans font-semibold cursor-pointer shadow-lg rounded-xs"
           >
             ADD TO BAG
           </button>

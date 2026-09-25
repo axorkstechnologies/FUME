@@ -57,19 +57,19 @@ const TESTIMONIALS: Testimonial[] = [
 
 export const TestimonialsSection: React.FC = () => {
   return (
-    <section aria-labelledby="testimonials-heading" className="w-full py-16 sm:py-20 bg-[#0B0A09] border-t border-white/[0.06]">
+    <section aria-labelledby="testimonials-heading" className="w-full py-16 sm:py-20 bg-pearl border-t border-shadow/[0.06]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 space-y-12">
         {/* Header */}
         <div className="text-center space-y-3 max-w-2xl mx-auto">
           <div className="flex items-center justify-center gap-2">
-            <span className="text-[10px] uppercase tracking-[0.35em] text-[#D4AF37] font-sans font-medium">
+            <span className="text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-sans font-medium">
               Verified Client Stories
             </span>
           </div>
-          <h2 id="testimonials-heading" className="font-serif text-3xl sm:text-4xl uppercase tracking-[0.14em] text-[#F5F2EB] font-normal">
+          <h2 id="testimonials-heading" className="font-serif text-3xl sm:text-4xl uppercase tracking-[0.14em] text-shadow font-normal">
             Voices of Sillage
           </h2>
-          <p className="text-xs sm:text-sm font-sans text-[#9E9589] leading-relaxed">
+          <p className="text-xs sm:text-sm font-sans text-shadow/60 leading-relaxed">
             Real experiences from fragrance collectors across Karachi, Lahore, Islamabad, and nationwide.
           </p>
         </div>
@@ -79,59 +79,59 @@ export const TestimonialsSection: React.FC = () => {
           {TESTIMONIALS.map((t) => (
             <div
               key={t.id}
-              className="p-6 sm:p-7 bg-[#141210]/80 backdrop-blur-sm border border-white/[0.06] rounded-xs space-y-4 flex flex-col justify-between hover:border-[#D4AF37]/40 transition-colors shadow-[0_4px_24px_rgba(0,0,0,0.3)]"
+              className="p-6 sm:p-7 bg-shadow/5/80 backdrop-blur-sm border border-shadow/[0.06] rounded-xs space-y-4 flex flex-col justify-between hover:border-dusty-rose/40 transition-colors shadow-[0_4px_24px_rgba(44,37,34,0.3)]"
             >
               <div className="space-y-3">
                 {/* Rating & Verified Badge */}
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center text-[#D4AF37]">
+                  <div className="flex items-center text-dusty-rose">
                     {[...Array(t.rating)].map((_, i) => (
                       <Star key={i} className="w-3.5 h-3.5 fill-current" />
                     ))}
                   </div>
                   {t.verified && (
-                    <span className="inline-flex items-center gap-1 text-[9px] uppercase tracking-wider text-[#9E9589] font-sans">
-                      <ShieldCheck className="w-3 h-3 text-[#D4AF37]" />
+                    <span className="inline-flex items-center gap-1 text-[9px] uppercase tracking-wider text-shadow/60 font-sans">
+                      <ShieldCheck className="w-3 h-3 text-dusty-rose" />
                       Verified
                     </span>
                   )}
                 </div>
 
                 {/* Scent Worn */}
-                <span className="text-[10px] uppercase tracking-[0.2em] text-[#D4AF37] font-sans font-medium block">
+                <span className="text-[10px] uppercase tracking-[0.2em] text-dusty-rose font-sans font-medium block">
                   {t.scent}
                 </span>
 
                 {/* Comment */}
-                <p className="text-xs sm:text-sm font-sans font-light leading-relaxed text-[#B8B0A4] italic">
+                <p className="text-xs sm:text-sm font-sans font-light leading-relaxed text-shadow/60 italic">
                   &ldquo;{t.comment}&rdquo;
                 </p>
               </div>
 
               {/* Author Info */}
-              <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between text-[10px] uppercase tracking-wider font-sans">
-                <span className="font-medium text-[#F5F2EB]">{t.name}</span>
-                <span className="text-[#9E9589]">{t.location}</span>
+              <div className="pt-4 border-t border-shadow/[0.08] flex items-center justify-between text-[10px] uppercase tracking-wider font-sans">
+                <span className="font-medium text-shadow">{t.name}</span>
+                <span className="text-shadow/60">{t.location}</span>
               </div>
             </div>
           ))}
         </div>
 
         {/* Aggregate Trust Bar */}
-        <div className="p-6 bg-[#141210]/60 border border-white/[0.06] rounded-xs flex flex-wrap items-center justify-around gap-6 text-center">
+        <div className="p-6 bg-shadow/5/60 border border-shadow/[0.06] rounded-xs flex flex-wrap items-center justify-around gap-6 text-center">
           <div className="space-y-0.5">
-            <span className="font-serif text-2xl text-[#D4AF37] font-medium block">4.9 / 5.0</span>
-            <span className="text-[9px] uppercase tracking-[0.25em] text-[#9E9589] font-sans block">Aggregate Buyer Rating</span>
+            <span className="font-serif text-2xl text-dusty-rose font-medium block">4.9 / 5.0</span>
+            <span className="text-[9px] uppercase tracking-[0.25em] text-shadow/60 font-sans block">Aggregate Buyer Rating</span>
           </div>
-          <div className="w-[1px] h-8 bg-white/[0.08] hidden sm:block" />
+          <div className="w-[1px] h-8 bg-pearl/[0.08] hidden sm:block" />
           <div className="space-y-0.5">
-            <span className="font-serif text-2xl text-[#D4AF37] font-medium block">14+ Hours</span>
-            <span className="text-[9px] uppercase tracking-[0.25em] text-[#9E9589] font-sans block">Verified Skin Persistence</span>
+            <span className="font-serif text-2xl text-dusty-rose font-medium block">14+ Hours</span>
+            <span className="text-[9px] uppercase tracking-[0.25em] text-shadow/60 font-sans block">Verified Skin Persistence</span>
           </div>
-          <div className="w-[1px] h-8 bg-white/[0.08] hidden sm:block" />
+          <div className="w-[1px] h-8 bg-pearl/[0.08] hidden sm:block" />
           <div className="space-y-0.5">
-            <span className="font-serif text-2xl text-[#D4AF37] font-medium block">100% Free</span>
-            <span className="text-[9px] uppercase tracking-[0.25em] text-[#9E9589] font-sans block">2ml Risk-Free Tester With Every Flacon</span>
+            <span className="font-serif text-2xl text-dusty-rose font-medium block">100% Free</span>
+            <span className="text-[9px] uppercase tracking-[0.25em] text-shadow/60 font-sans block">2ml Risk-Free Tester With Every Flacon</span>
           </div>
         </div>
       </div>

@@ -29,47 +29,47 @@ export const Footer: React.FC<FooterProps> = ({
 
   return (
     <footer
-      className="relative w-full font-sans border-t border-white/[0.08] bg-[#070605] text-[#9E9589]"
+      className="relative w-full font-sans border-t border-shadow/[0.08] bg-pearl text-shadow/60"
     >
       <div className="max-w-[1700px] mx-auto px-6 md:px-12 lg:px-16 pt-20 pb-12 space-y-16">
         {/* Top Tier: FUME Wordmark & Minimal Newsletter */}
         <div
-          className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start pb-16 border-b border-white/[0.08]"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start pb-16 border-b border-shadow/[0.08]"
         >
           <div className="lg:col-span-5 space-y-2">
             <div className="flex items-center gap-3">
               <img
-                src="/logo/logo-white.png"
+                src="/logo/logo-black.png"
                 alt="FUME FRAGRANCES"
                 className="h-8 md:h-10 w-auto object-contain select-none"
               />
-              <span className="text-[9px] uppercase tracking-[0.3em] text-[#D4AF37] font-sans font-medium px-2 py-0.5 border border-[#D4AF37]/40 rounded-xs">
+              <span className="text-[9px] uppercase tracking-[0.3em] text-dusty-rose font-sans font-medium px-2 py-0.5 border border-dusty-rose/40 rounded-xs">
                 EST. 2024
               </span>
             </div>
-            <p className="text-xs uppercase tracking-[0.25em] text-[#D4AF37]">
+            <p className="text-xs uppercase tracking-[0.25em] text-dusty-rose">
               FUME FRAGRANCES (SMC-PRIVATE) LIMITED
             </p>
           </div>
 
           <div className="lg:col-span-7 lg:pl-10 space-y-4">
             <span
-              className="text-[10px] uppercase tracking-[0.3em] block text-[#F5F2EB]"
+              className="text-[10px] uppercase tracking-[0.3em] block text-shadow"
             >
               NEWSLETTER
             </span>
-            <p className="text-xs font-light max-w-md text-[#9E9589]">
+            <p className="text-xs font-light max-w-md text-shadow/60">
               Receive private allocations, seasonal flacon releases, and invitations to private salon appointments.
             </p>
 
             {subscribed ? (
-              <div className="text-xs text-[#D4AF37] uppercase tracking-widest pt-2">
+              <div className="text-xs text-dusty-rose uppercase tracking-widest pt-2">
                 THANK YOU FOR SUBSCRIBING. YOUR DOSSIER HAS BEEN NOTED.
               </div>
             ) : (
               <form
                 onSubmit={handleSubscribe}
-                className="flex max-w-md border-b border-white/20 pb-1"
+                className="flex max-w-md border-b border-shadow/20 pb-1"
               >
                 <input
                   type="email"
@@ -77,11 +77,11 @@ export const Footer: React.FC<FooterProps> = ({
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="ENTER YOUR EMAIL..."
-                  className="bg-transparent text-xs placeholder:text-[#666666] focus:outline-none flex-1 uppercase tracking-wider py-2 text-[#F5F2EB]"
+                  className="bg-transparent text-xs placeholder:text-shadow/40 focus:outline-none flex-1 uppercase tracking-wider py-2 text-shadow"
                 />
                 <button
                   type="submit"
-                  className="text-[10px] uppercase tracking-[0.25em] transition-colors cursor-pointer px-3 text-[#F5F2EB] hover:text-[#D4AF37]"
+                  className="text-[10px] uppercase tracking-[0.25em] transition-colors cursor-pointer px-3 text-shadow hover:text-dusty-rose"
                 >
                   JOIN
                 </button>
@@ -95,7 +95,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* SHOP */}
           <div className="space-y-4">
             <span
-              className="text-[10px] uppercase tracking-[0.28em] block font-medium text-[#F5F2EB]"
+              className="text-[10px] uppercase tracking-[0.28em] block font-medium text-shadow"
             >
               SHOP
             </span>
@@ -103,7 +103,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => onNavigate('perfumes')}
-                  className="hover:text-[#D4AF37] transition-colors cursor-pointer"
+                  className="hover:text-dusty-rose transition-colors cursor-pointer"
                 >
                   Perfumes
                 </button>
@@ -111,7 +111,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => onNavigate('collections')}
-                  className="hover:text-[#D4AF37] transition-colors cursor-pointer"
+                  className="hover:text-dusty-rose transition-colors cursor-pointer"
                 >
                   Collections
                 </button>
@@ -119,7 +119,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => onNavigate('perfumes')}
-                  className="hover:text-[#D4AF37] transition-colors cursor-pointer"
+                  className="hover:text-dusty-rose transition-colors cursor-pointer"
                 >
                   Best Sellers
                 </button>
@@ -130,7 +130,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* ABOUT */}
           <div className="space-y-4">
             <span
-              className="text-[10px] uppercase tracking-[0.28em] block font-medium text-[#F5F2EB]"
+              className="text-[10px] uppercase tracking-[0.28em] block font-medium text-shadow"
             >
               ABOUT
             </span>
@@ -138,7 +138,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => onNavigate('story')}
-                  className="hover:text-[#D4AF37] transition-colors cursor-pointer"
+                  className="hover:text-dusty-rose transition-colors cursor-pointer"
                 >
                   Our Story
                 </button>
@@ -146,7 +146,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => onNavigate('films')}
-                  className="hover:text-[#D4AF37] transition-colors cursor-pointer"
+                  className="hover:text-dusty-rose transition-colors cursor-pointer"
                 >
                   Films & Stories
                 </button>
@@ -154,7 +154,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => onNavigate('contact')}
-                  className="hover:text-[#D4AF37] transition-colors cursor-pointer"
+                  className="hover:text-dusty-rose transition-colors cursor-pointer"
                 >
                   Contact & Concierge
                 </button>
@@ -165,7 +165,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* HELP */}
           <div className="space-y-4">
             <span
-              className="text-[10px] uppercase tracking-[0.28em] block font-medium text-[#F5F2EB]"
+              className="text-[10px] uppercase tracking-[0.28em] block font-medium text-shadow"
             >
               CLIENT CARE
             </span>
@@ -173,7 +173,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => onNavigate('care')}
-                  className="hover:text-[#D4AF37] transition-colors cursor-pointer"
+                  className="hover:text-dusty-rose transition-colors cursor-pointer"
                 >
                   Shipping & Delivery
                 </button>
@@ -181,7 +181,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => onNavigate('care')}
-                  className="hover:text-[#D4AF37] transition-colors cursor-pointer"
+                  className="hover:text-dusty-rose transition-colors cursor-pointer"
                 >
                   Returns & Discovery Guarantee
                 </button>
@@ -189,15 +189,15 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => onNavigate('care')}
-                  className="hover:text-[#D4AF37] transition-colors cursor-pointer"
+                  className="hover:text-dusty-rose transition-colors cursor-pointer"
                 >
                   Bottle Care & FAQs
                 </button>
               </li>
-              <li className="pt-1 border-t border-white/[0.08]">
+              <li className="pt-1 border-t border-shadow/[0.08]">
                 <a
                   href="mailto:jiaaryan20@gmail.com"
-                  className="hover:text-[#D4AF37] transition-colors lowercase block text-[#D6C7B2]"
+                  className="hover:text-dusty-rose transition-colors lowercase block text-shadow/80"
                 >
                   jiaaryan20@gmail.com
                 </a>
@@ -207,7 +207,7 @@ export const Footer: React.FC<FooterProps> = ({
                   href="https://wa.me/923132970468"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#D4AF37] transition-colors block text-[#D6C7B2]"
+                  className="hover:text-dusty-rose transition-colors block text-shadow/80"
                 >
                   WhatsApp: +92 313 297 0468
                 </a>
@@ -218,7 +218,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* SOCIAL */}
           <div className="space-y-4">
             <span
-              className="text-[10px] uppercase tracking-[0.28em] block font-medium text-[#F5F2EB]"
+              className="text-[10px] uppercase tracking-[0.28em] block font-medium text-shadow"
             >
               SOCIAL
             </span>
@@ -228,7 +228,7 @@ export const Footer: React.FC<FooterProps> = ({
                   href="https://instagram.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#D4AF37] transition-colors"
+                  className="hover:text-dusty-rose transition-colors"
                 >
                   Instagram
                 </a>
@@ -238,7 +238,7 @@ export const Footer: React.FC<FooterProps> = ({
                   href="https://tiktok.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#D4AF37] transition-colors"
+                  className="hover:text-dusty-rose transition-colors"
                 >
                   TikTok
                 </a>
@@ -249,7 +249,7 @@ export const Footer: React.FC<FooterProps> = ({
 
         {/* Bottom Tier: Copyright & Understated Marks */}
         <div
-          className="pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-[0.25em] text-[#666666]"
+          className="pt-8 border-t border-shadow/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-[0.25em] text-shadow/40"
         >
           <span>
             © 2024 {new Date().getFullYear()} FUME FRAGRANCES (SMC-PRIVATE) LIMITED. ALL RIGHTS RESERVED.

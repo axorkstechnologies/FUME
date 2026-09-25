@@ -35,7 +35,7 @@ export function App() {
   const [activeReelFilm, setActiveReelFilm] = useState<Film | null>(null);
 
   // Dark Luxury theme system
-  const themeMode: ThemeMode = 'dark';
+  const themeMode: ThemeMode = 'light';
 
   // Cart State with Local Persistence
   const [cartItems, setCartItems] = useState<CartItem[]>(() => {
@@ -177,7 +177,7 @@ export function App() {
 
   return (
     <div
-      className="min-h-screen relative flex flex-col font-sans selection:bg-[#D4AF37] selection:text-black bg-[#0B0A09] text-[#F5F2EB]"
+      className="min-h-screen relative flex flex-col font-sans selection:bg-dusty-rose selection:text-shadow bg-pearl text-shadow"
     >
       {/* Dynamic Animated Ambient Colors & Moving Particles Canvas */}
       <AmbientCanvas themeMode={themeMode} />
@@ -249,10 +249,10 @@ export function App() {
 
         {/* 'films' view redirected to home — FilmsSection removed for performance */}
         {currentView === 'films' && (
-          <div className="pt-20 md:pt-28 bg-[#0B0A09] min-h-screen flex items-center justify-center">
+          <div className="pt-20 md:pt-28 bg-pearl min-h-screen flex items-center justify-center">
             <div className="text-center space-y-6">
-              <p className="text-[10px] uppercase tracking-[0.4em] text-[#D4AF37] font-sans">Real Stories</p>
-              <p className="font-serif text-2xl uppercase tracking-[0.14em] text-[#F5F2EB]">Seen on Film</p>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-dusty-rose font-sans">Real Stories</p>
+              <p className="font-serif text-2xl uppercase tracking-[0.14em] text-shadow">Seen on Film</p>
               <ReelStrip films={FILMS} onOpenReel={(film) => setActiveReelFilm(film)} />
             </div>
           </div>

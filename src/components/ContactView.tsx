@@ -43,22 +43,22 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
 
   return (
     <div
-      className="relative w-full min-h-screen pt-32 pb-32 px-6 md:px-12 lg:px-16 bg-[#0B0A09] text-[#F5F2EB]"
+      className="relative w-full min-h-screen pt-32 pb-32 px-6 md:px-12 lg:px-16 bg-pearl text-shadow"
     >
       <div className="max-w-[1500px] mx-auto space-y-20">
         {/* Header with Breadcrumb */}
         <div className="text-center space-y-5 max-w-3xl mx-auto">
-          <div className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.4em] text-[#C5A059] font-sans font-medium">
+          <div className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.4em] text-dusty-rose font-sans font-medium">
             <span>HOME</span>
             <span>/</span>
             <span>CLIENT CONCIERGE</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] ml-1" />
+            <span className="w-1.5 h-1.5 rounded-full bg-dusty-rose ml-1" />
             <span>SINCE 2024</span>
           </div>
 
           <h1
             className={`font-serif text-4xl sm:text-5xl md:text-6xl font-normal uppercase tracking-[0.16em] ${
-              isLight ? 'text-[#1A1816]' : 'text-white'
+              'text-shadow'
             }`}
           >
             ATELIER CONCIERGE
@@ -66,7 +66,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
 
           <p
             className={`text-sm sm:text-base font-sans font-light tracking-wide leading-relaxed ${
-              isLight ? 'text-[#6B6357]' : 'text-[#a9a7a1]'
+              'text-shadow/60'
             }`}
           >
             Private olfactory styling, bespoke monogramming, order dossiers, and atelier visit appointments in Paris and Grasse.
@@ -78,12 +78,12 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
           {/* Left Column: Ateliers & Direct Privileges */}
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-3">
-              <span className="text-[10px] uppercase tracking-[0.35em] text-[#C5A059] font-sans font-medium block">
+              <span className="text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-sans font-medium block">
                 SANCTUARIES & HUBS • SINCE 2024
               </span>
               <h2
                 className={`font-serif text-2xl sm:text-3xl uppercase tracking-wider ${
-                  isLight ? 'text-[#1A1816]' : 'text-white'
+                  'text-shadow'
                 }`}
               >
                 OUR ATELIERS
@@ -93,26 +93,26 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
             {/* Paris Flagship */}
             <div
               className={`p-6 border rounded-xs space-y-3 transition-colors ${
-                isLight ? 'border-[#E6DDD0] bg-white' : 'border-[#222222] bg-[#111111]'
+                'border-sand bg-white'
               }`}
             >
               <div className="flex items-center justify-between">
-                <h4 className="font-serif text-lg uppercase tracking-wider text-[#C5A059]">
+                <h4 className="font-serif text-lg uppercase tracking-wider text-dusty-rose">
                   PARIS SANCTUARY
                 </h4>
-                <span className="text-[9px] uppercase tracking-widest px-2 py-0.5 border border-[#C5A059]/40 text-[#C5A059]">
+                <span className="text-[9px] uppercase tracking-widest px-2 py-0.5 border border-dusty-rose/40 text-dusty-rose">
                   FLAGSHIP
                 </span>
               </div>
               <p
                 className={`text-xs font-sans leading-relaxed ${
-                  isLight ? 'text-[#5C5449]' : 'text-[#a9a7a1]'
+                  'text-shadow/60'
                 }`}
               >
                 14 Rue de Castiglione, 75001 Paris, France
               </p>
-              <div className="flex items-center gap-2 text-xs font-sans text-[#8c8985] pt-1">
-                <Clock className="w-4 h-4 text-[#C5A059]" />
+              <div className="flex items-center gap-2 text-xs font-sans text-shadow/60 pt-1">
+                <Clock className="w-4 h-4 text-dusty-rose" />
                 <span>Tuesday to Saturday: 11h00 to 19h30</span>
               </div>
             </div>
@@ -120,26 +120,26 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
             {/* Grasse Laboratory */}
             <div
               className={`p-6 border rounded-xs space-y-3 transition-colors ${
-                isLight ? 'border-[#E6DDD0] bg-white' : 'border-[#222222] bg-[#111111]'
+                'border-sand bg-white'
               }`}
             >
               <div className="flex items-center justify-between">
-                <h4 className="font-serif text-lg uppercase tracking-wider text-[#C5A059]">
+                <h4 className="font-serif text-lg uppercase tracking-wider text-dusty-rose">
                   GRASSE LABORATORY
                 </h4>
-                <span className="text-[9px] uppercase tracking-widest px-2 py-0.5 border border-[#C5A059]/40 text-[#C5A059]">
+                <span className="text-[9px] uppercase tracking-widest px-2 py-0.5 border border-dusty-rose/40 text-dusty-rose">
                   CREATION LAB
                 </span>
               </div>
               <p
                 className={`text-xs font-sans leading-relaxed ${
-                  isLight ? 'text-[#5C5449]' : 'text-[#a9a7a1]'
+                  'text-shadow/60'
                 }`}
               >
                 8 Boulevard Fragonard, 06130 Grasse, France
               </p>
-              <div className="flex items-center gap-2 text-xs font-sans text-[#8c8985] pt-1">
-                <Clock className="w-4 h-4 text-[#C5A059]" />
+              <div className="flex items-center gap-2 text-xs font-sans text-shadow/60 pt-1">
+                <Clock className="w-4 h-4 text-dusty-rose" />
                 <span>Private appointments only • Est. 2024</span>
               </div>
             </div>
@@ -147,48 +147,46 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
             {/* Direct Channels */}
             <div
               className={`p-6 border rounded-xs space-y-4 ${
-                isLight
-                  ? 'border-[#E6DDD0] bg-[#F5F1E8]/70'
-                  : 'border-[#222222] bg-[#0d0d0d]'
+                'border-sand bg-pearl/70'
               }`}
             >
-              <h4 className="font-serif text-sm uppercase tracking-widest text-[#C5A059]">
+              <h4 className="font-serif text-sm uppercase tracking-widest text-dusty-rose">
                 DIRECT CHANNELS
               </h4>
               <div className="space-y-3 text-xs font-sans">
                 <a
                   href="mailto:jiaaryan20@gmail.com"
-                  className="flex items-center gap-3 hover:text-[#C5A059] transition-colors"
+                  className="flex items-center gap-3 hover:text-dusty-rose transition-colors"
                 >
-                  <Mail className="w-4 h-4 text-[#C5A059] shrink-0" />
+                  <Mail className="w-4 h-4 text-dusty-rose shrink-0" />
                   <span>jiaaryan20@gmail.com</span>
                 </a>
                 <a
                   href="tel:+923132970468"
-                  className="flex items-center gap-3 hover:text-[#C5A059] transition-colors"
+                  className="flex items-center gap-3 hover:text-dusty-rose transition-colors"
                 >
-                  <Phone className="w-4 h-4 text-[#C5A059] shrink-0" />
+                  <Phone className="w-4 h-4 text-dusty-rose shrink-0" />
                   <span>+92 313 297 0468</span>
                 </a>
                 <a
                   href="https://wa.me/923132970468"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 hover:text-[#C5A059] transition-colors"
+                  className="flex items-center gap-3 hover:text-dusty-rose transition-colors"
                 >
-                  <MessageCircle className="w-4 h-4 text-[#C5A059] shrink-0" />
+                  <MessageCircle className="w-4 h-4 text-dusty-rose shrink-0" />
                   <span>WhatsApp: +92 313 297 0468</span>
                 </a>
-                <div className="flex items-center gap-3 text-[#7D766E]">
-                  <MapPin className="w-4 h-4 text-[#C5A059] shrink-0" />
+                <div className="flex items-center gap-3 text-shadow/60">
+                  <MapPin className="w-4 h-4 text-dusty-rose shrink-0" />
                   <span>Worldwide White-Glove Carbon-Neutral Dispatch</span>
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-[#E6DDD0]/60">
+              <div className="pt-3 border-t border-sand/60">
                 <button
                   onClick={onNavigateToCare}
-                  className="text-[10px] uppercase tracking-widest text-[#C5A059] hover:underline cursor-pointer"
+                  className="text-[10px] uppercase tracking-widest text-dusty-rose hover:underline cursor-pointer"
                 >
                   View Shipping & Return Directives →
                 </button>
@@ -200,27 +198,25 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
           <div className="lg:col-span-7">
             <div
               className={`border p-8 sm:p-12 rounded-xs shadow-xl space-y-8 ${
-                isLight
-                  ? 'border-[#E6DDD0] bg-white'
-                  : 'border-[#222222] bg-[#0d0d0d]'
+                'border-sand bg-white'
               }`}
             >
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] uppercase tracking-[0.35em] text-[#C49A88] font-sans font-medium">
+                  <span className="text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-sans font-medium">
                     DIRECT INQUIRY DOSSIER
                   </span>
                 </div>
                 <h3
                   className={`font-serif text-2xl sm:text-3xl font-normal uppercase tracking-wide ${
-                    isLight ? 'text-[#1A1816]' : 'text-white'
+                    'text-shadow'
                   }`}
                 >
                   TRANSMIT AN INQUIRY
                 </h3>
                 <p
                   className={`text-xs font-sans font-light ${
-                    isLight ? 'text-[#6B6357]' : 'text-[#8c8985]'
+                    'text-shadow/60'
                   }`}
                 >
                   An olfactory advisor will analyze your requirements and reply within 12 hours.
@@ -229,27 +225,27 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
 
               {submitted ? (
                 <div className="py-16 text-center space-y-5">
-                  <div className="w-16 h-16 rounded-full border border-[#C5A059] flex items-center justify-center mx-auto text-[#C5A059]">
+                  <div className="w-16 h-16 rounded-full border border-dusty-rose flex items-center justify-center mx-auto text-dusty-rose">
                     <Check className="w-8 h-8" />
                   </div>
                   <h4
                     className={`font-serif text-2xl uppercase tracking-wider ${
-                      isLight ? 'text-[#1A1816]' : 'text-white'
+                      'text-shadow'
                     }`}
                   >
                     DOSSIER RECORDED & DISPATCHED
                   </h4>
                   <p
                     className={`text-xs sm:text-sm font-sans max-w-md mx-auto font-light leading-relaxed ${
-                      isLight ? 'text-[#6B6357]' : 'text-[#a9a7a1]'
+                      'text-shadow/60'
                     }`}
                   >
                     Thank you, {formData.name || 'Patron'}. Your inquiry regarding{' '}
-                    <span className="text-[#C5A059] font-medium">&quot;{formData.inquiryType}&quot;</span> has been transmitted to our senior olfactory concierge in Grasse.
+                    <span className="text-dusty-rose font-medium">&quot;{formData.inquiryType}&quot;</span> has been transmitted to our senior olfactory concierge in Grasse.
                   </p>
                   <button
                     onClick={handleReset}
-                    className="mt-6 px-8 py-3.5 bg-[#1A1816] text-[#FAF8F5] hover:bg-[#C5A059] hover:text-black transition-colors uppercase tracking-[0.25em] text-[10px] font-sans font-medium cursor-pointer"
+                    className="mt-6 px-8 py-3.5 bg-oyster text-pearl hover:bg-dusty-rose hover:text-pearl transition-colors uppercase tracking-[0.25em] text-[10px] font-sans font-medium cursor-pointer"
                   >
                     TRANSMIT ANOTHER REQUEST
                   </button>
@@ -260,7 +256,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                     <div className="space-y-1.5">
                       <label
                         className={`uppercase tracking-wider text-[10px] block font-medium ${
-                          isLight ? 'text-[#5C5449]' : 'text-[#8c8985]'
+                          'text-shadow/60'
                         }`}
                       >
                         Full Name *
@@ -272,9 +268,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="Madame / Monsieur de Valois"
                         className={`w-full border px-4 py-3 focus:outline-none rounded-xs ${
-                          isLight
-                            ? 'border-[#E0D5C3] bg-[#FAF8F5] text-[#1A1816] focus:border-[#C5A059]'
-                            : 'border-[#222222] bg-[#141414] text-white focus:border-[#C5A059]'
+                          'border-sand bg-pearl text-shadow focus:border-dusty-rose'
                         }`}
                       />
                     </div>
@@ -282,7 +276,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                     <div className="space-y-1.5">
                       <label
                         className={`uppercase tracking-wider text-[10px] block font-medium ${
-                          isLight ? 'text-[#5C5449]' : 'text-[#8c8985]'
+                          'text-shadow/60'
                         }`}
                       >
                         Email Address *
@@ -294,9 +288,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="patron@domain.com"
                         className={`w-full border px-4 py-3 focus:outline-none rounded-xs ${
-                          isLight
-                            ? 'border-[#E0D5C3] bg-[#FAF8F5] text-[#1A1816] focus:border-[#C5A059]'
-                            : 'border-[#222222] bg-[#141414] text-white focus:border-[#C5A059]'
+                          'border-sand bg-pearl text-shadow focus:border-dusty-rose'
                         }`}
                       />
                     </div>
@@ -306,7 +298,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                     <div className="space-y-1.5">
                       <label
                         className={`uppercase tracking-wider text-[10px] block font-medium ${
-                          isLight ? 'text-[#5C5449]' : 'text-[#8c8985]'
+                          'text-shadow/60'
                         }`}
                       >
                         Direct Phone / WhatsApp
@@ -317,9 +309,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="+1 (555) 000-0000"
                         className={`w-full border px-4 py-3 focus:outline-none rounded-xs ${
-                          isLight
-                            ? 'border-[#E0D5C3] bg-[#FAF8F5] text-[#1A1816] focus:border-[#C5A059]'
-                            : 'border-[#222222] bg-[#141414] text-white focus:border-[#C5A059]'
+                          'border-sand bg-pearl text-shadow focus:border-dusty-rose'
                         }`}
                       />
                     </div>
@@ -327,7 +317,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                     <div className="space-y-1.5">
                       <label
                         className={`uppercase tracking-wider text-[10px] block font-medium ${
-                          isLight ? 'text-[#5C5449]' : 'text-[#8c8985]'
+                          'text-shadow/60'
                         }`}
                       >
                         Inquiry Category
@@ -338,9 +328,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                           setFormData({ ...formData, inquiryType: e.target.value })
                         }
                         className={`w-full border px-4 py-3 focus:outline-none rounded-xs cursor-pointer ${
-                          isLight
-                            ? 'border-[#E0D5C3] bg-[#FAF8F5] text-[#1A1816] focus:border-[#C5A059]'
-                            : 'border-[#222222] bg-[#141414] text-white focus:border-[#C5A059]'
+                          'border-sand bg-pearl text-shadow focus:border-dusty-rose'
                         }`}
                       >
                         <option value="Bespoke Flacon Commission">Bespoke Flacon Commission</option>
@@ -356,7 +344,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                   <div className="space-y-1.5">
                     <label
                       className={`uppercase tracking-wider text-[10px] block font-medium ${
-                        isLight ? 'text-[#5C5449]' : 'text-[#8c8985]'
+                        'text-shadow/60'
                       }`}
                     >
                       Message Dossier *
@@ -368,9 +356,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Please specify notes preferences, recipient details, flacon engraving requirements, or preferred consultation dates..."
                       className={`w-full border px-4 py-3 focus:outline-none rounded-xs resize-none ${
-                        isLight
-                          ? 'border-[#E0D5C3] bg-[#FAF8F5] text-[#1A1816] focus:border-[#C5A059]'
-                          : 'border-[#222222] bg-[#141414] text-white focus:border-[#C5A059]'
+                        'border-sand bg-pearl text-shadow focus:border-dusty-rose'
                       }`}
                     />
                   </div>
@@ -379,9 +365,7 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                     <button
                       type="submit"
                       className={`w-full py-4 transition-all uppercase tracking-[0.28em] font-medium text-[11px] cursor-pointer flex items-center justify-center gap-2 ${
-                        isLight
-                          ? 'bg-[#1A1816] text-[#FAF8F5] hover:bg-[#C5A059] hover:text-black'
-                          : 'bg-white text-black hover:bg-[#C5A059] hover:text-black'
+                        'bg-oyster text-pearl hover:bg-dusty-rose hover:text-pearl'
                       }`}
                     >
                       <span>TRANSMIT DOSSIER TO CONCIERGE</span>
@@ -395,12 +379,10 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`w-full py-3.5 border transition-all uppercase tracking-[0.28em] font-medium text-[11px] cursor-pointer flex items-center justify-center gap-2 ${
-                        isLight
-                          ? 'border-[#C5A059] text-[#1A1816] hover:bg-[#C5A059]/10'
-                          : 'border-[#C5A059] text-[#EAE2D5] hover:bg-[#C5A059]/10'
+                        'border-dusty-rose text-shadow hover:bg-dusty-rose/10'
                       }`}
                     >
-                      <MessageCircle className="w-3.5 h-3.5 text-[#C5A059]" />
+                      <MessageCircle className="w-3.5 h-3.5 text-dusty-rose" />
                       <span>DIRECT INQUIRY VIA WHATSAPP (+92 313 297 0468)</span>
                     </a>
                   </div>

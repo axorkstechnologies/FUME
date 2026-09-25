@@ -149,19 +149,19 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[1100] flex items-center justify-center p-2 sm:p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-[1100] flex items-center justify-center p-2 sm:p-4 bg-pearl/85 backdrop-blur-md animate-in fade-in duration-200"
       onClick={onClose}
     >
       {/* Top Bar: Close button & Reel count */}
       <div className="absolute top-4 right-4 sm:top-6 sm:right-6 z-50 flex items-center gap-3 pointer-events-auto">
-        <span className="text-[10px] uppercase tracking-[0.25em] font-sans text-white/70 bg-black/50 px-3 py-1.5 rounded-full border border-white/10 hidden sm:inline-block">
+        <span className="text-[10px] uppercase tracking-[0.25em] font-sans text-shadow/70 bg-pearl/50 px-3 py-1.5 rounded-full border border-shadow/10 hidden sm:inline-block">
           REEL {currentIndex + 1} OF {films.length}
         </span>
         <button
           type="button"
           aria-label="Close Reel Viewer"
           onClick={onClose}
-          className="w-11 h-11 rounded-full bg-black/60 hover:bg-black/90 text-white hover:text-[#C5A059] flex items-center justify-center border border-white/20 transition-all cursor-pointer shadow-2xl"
+          className="w-11 h-11 rounded-full bg-pearl/60 hover:bg-pearl/90 text-shadow hover:text-dusty-rose flex items-center justify-center border border-shadow/20 transition-all cursor-pointer shadow-2xl"
         >
           <X className="w-5 h-5" strokeWidth={1.5} />
         </button>
@@ -175,7 +175,7 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
           handlePrev();
         }}
         aria-label="Previous film"
-        className="hidden md:flex absolute left-6 lg:left-12 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full bg-black/50 hover:bg-black text-white hover:text-[#C5A059] items-center justify-center border border-white/15 transition-all cursor-pointer"
+        className="hidden md:flex absolute left-6 lg:left-12 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full bg-pearl/50 hover:bg-pearl text-shadow hover:text-dusty-rose items-center justify-center border border-shadow/15 transition-all cursor-pointer"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
@@ -188,7 +188,7 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
           handleNext();
         }}
         aria-label="Next film"
-        className="hidden md:flex absolute right-6 lg:right-12 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full bg-black/50 hover:bg-black text-white hover:text-[#C5A059] items-center justify-center border border-white/15 transition-all cursor-pointer"
+        className="hidden md:flex absolute right-6 lg:right-12 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full bg-pearl/50 hover:bg-pearl text-shadow hover:text-dusty-rose items-center justify-center border border-shadow/15 transition-all cursor-pointer"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
@@ -198,7 +198,7 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
         onClick={(e) => e.stopPropagation()}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
-        className="relative w-full max-w-[440px] h-[92dvh] max-h-[860px] aspect-[9/16] bg-black rounded-xs overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.95)] border border-white/15 flex flex-col justify-between select-none"
+        className="relative w-full max-w-[440px] h-[92dvh] max-h-[860px] aspect-[9/16] bg-pearl rounded-xs overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.95)] border border-shadow/15 flex flex-col justify-between select-none"
       >
         {/* Active Video Element */}
         <video
@@ -216,15 +216,15 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
         />
 
         {/* Ambient Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-black/50 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-pearl/90 via-transparent to-pearl/50 pointer-events-none" />
 
         {/* Top Header Controls within Reel */}
         <div className="relative z-20 p-4 flex items-center justify-between pointer-events-auto">
           <div className="flex items-center gap-2">
-            <span className="text-[9px] uppercase tracking-[0.3em] font-sans font-medium text-[#C5A059] bg-black/60 px-2.5 py-1 rounded-xs border border-[#C5A059]/40 backdrop-blur-md">
+            <span className="text-[9px] uppercase tracking-[0.3em] font-sans font-medium text-dusty-rose bg-pearl/60 px-2.5 py-1 rounded-xs border border-dusty-rose/40 backdrop-blur-md">
               {activeFilm.kicker}
             </span>
-            <span className="text-[9px] tracking-widest font-sans text-white/80 bg-black/40 px-2 py-1 rounded-xs border border-white/10">
+            <span className="text-[9px] tracking-widest font-sans text-shadow/80 bg-pearl/40 px-2 py-1 rounded-xs border border-shadow/10">
               {activeFilm.duration}
             </span>
           </div>
@@ -235,12 +235,12 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
               type="button"
               onClick={toggleMute}
               aria-label={isMuted ? 'Unmute' : 'Mute'}
-              className="w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white hover:text-[#C5A059] flex items-center justify-center border border-white/15 transition-all cursor-pointer backdrop-blur-md"
+              className="w-9 h-9 rounded-full bg-pearl/60 hover:bg-pearl/90 text-shadow hover:text-dusty-rose flex items-center justify-center border border-shadow/15 transition-all cursor-pointer backdrop-blur-md"
             >
               {isMuted ? (
-                <VolumeX className="w-4 h-4 text-[#C5A059]" />
+                <VolumeX className="w-4 h-4 text-dusty-rose" />
               ) : (
-                <Volume2 className="w-4 h-4 text-white animate-pulse" />
+                <Volume2 className="w-4 h-4 text-shadow animate-pulse" />
               )}
             </button>
           </div>
@@ -253,7 +253,7 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
             !isPlaying ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}
         >
-          <div className="w-16 h-16 rounded-full bg-black/75 backdrop-blur-md border border-[#C5A059]/70 flex items-center justify-center text-[#C5A059] shadow-2xl">
+          <div className="w-16 h-16 rounded-full bg-pearl/75 backdrop-blur-md border border-dusty-rose/70 flex items-center justify-center text-dusty-rose shadow-2xl">
             <Play className="w-7 h-7 fill-current ml-1" />
           </div>
         </div>
@@ -263,34 +263,34 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
           {/* Author info */}
           {activeFilm.author && (
             <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
-              <span className="text-[10px] uppercase tracking-[0.25em] font-sans text-[#C5A059] font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-dusty-rose" />
+              <span className="text-[10px] uppercase tracking-[0.25em] font-sans text-dusty-rose font-medium">
                 {activeFilm.author} • {activeFilm.authorRole}
               </span>
             </div>
           )}
 
           {/* Title */}
-          <h3 className="font-serif text-lg sm:text-xl uppercase tracking-[0.14em] text-white">
+          <h3 className="font-serif text-lg sm:text-xl uppercase tracking-[0.14em] text-shadow">
             {activeFilm.title}
           </h3>
 
           {/* Blurb */}
-          <p className="text-xs text-[#FAF8F5]/90 font-sans font-light leading-relaxed drop-shadow-md">
+          <p className="text-xs text-pearl/90 font-sans font-light leading-relaxed drop-shadow-md">
             {activeFilm.blurb}
           </p>
 
           {/* Product Quick-View CTA */}
           {matchingFragrance && (
-            <div className="pt-2 border-t border-white/15 flex items-center justify-between gap-3 bg-black/50 backdrop-blur-md p-3 rounded-xs border">
+            <div className="pt-2 border-t border-shadow/15 flex items-center justify-between gap-3 bg-pearl/50 backdrop-blur-md p-3 rounded-xs border">
               <div>
-                <span className="text-[8px] uppercase tracking-[0.25em] text-[#C5A059] block font-sans">
+                <span className="text-[8px] uppercase tracking-[0.25em] text-dusty-rose block font-sans">
                   FEATURED FLACON
                 </span>
-                <span className="font-serif text-sm uppercase tracking-[0.15em] text-white font-medium">
+                <span className="font-serif text-sm uppercase tracking-[0.15em] text-shadow font-medium">
                   {getFragranceTitle(matchingFragrance)}
                 </span>
-                <span className="text-[10px] font-sans text-[#FAF8F5]/80 block">
+                <span className="text-[10px] font-sans text-pearl/80 block">
                   {formatPrice(matchingFragrance.price)}
                 </span>
               </div>
@@ -301,7 +301,7 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
                   onSelectFragrance(matchingFragrance);
                   onClose();
                 }}
-                className="px-4 py-2 bg-[#C5A059] hover:bg-[#D4BA7A] text-black text-[10px] uppercase tracking-[0.22em] font-sans font-medium transition-colors cursor-pointer flex items-center gap-1.5 rounded-xs"
+                className="px-4 py-2 bg-dusty-rose hover:bg-pearl text-pearl text-[10px] uppercase tracking-[0.22em] font-sans font-medium transition-colors cursor-pointer flex items-center gap-1.5 rounded-xs"
               >
                 <span>VIEW FLACON</span>
                 <ShoppingBag className="w-3 h-3" />
@@ -313,7 +313,7 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
         {/* Bottom Hairline Timeline Scrubber */}
         <div className="relative z-30 h-1 bg-white/20">
           <div
-            className="h-full bg-[#C5A059] transition-all duration-100 ease-linear"
+            className="h-full bg-dusty-rose transition-all duration-100 ease-linear"
             style={{ width: `${progress}%` }}
           />
         </div>

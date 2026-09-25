@@ -127,7 +127,7 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
           togglePlay();
         }
       }}
-      className={`group relative overflow-hidden select-none cursor-pointer bg-[#0A0A0A] ${aspectClass} ${className}`}
+      className={`group relative overflow-hidden select-none cursor-pointer bg-pearl ${aspectClass} ${className}`}
     >
       {/* High-Quality WebP Poster by default, Video only when explicitly active */}
       {isStreamActive ? (
@@ -153,18 +153,18 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
       )}
 
       {/* Ambient Vignette Gradients */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-black/35 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-t from-pearl/85 via-pearl/20 to-pearl/35 pointer-events-none" />
 
       {/* Subtle Hairline Luxury Gold Border on Hover */}
-      <div className="absolute inset-0 border border-transparent group-hover:border-[#C5A059]/40 transition-colors duration-500 pointer-events-none" />
+      <div className="absolute inset-0 border border-transparent group-hover:border-dusty-rose/40 transition-colors duration-500 pointer-events-none" />
 
       {/* Top Header Bar: Kicker, Duration & Sound Control */}
       <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-20 pointer-events-auto">
         <div className="flex items-center gap-2">
-          <span className="text-[9px] uppercase tracking-[0.25em] font-sans font-medium text-[#C5A059] bg-black/60 backdrop-blur-md px-2.5 py-1 rounded-xs border border-[#C5A059]/30">
+          <span className="text-[9px] uppercase tracking-[0.25em] font-sans font-medium text-dusty-rose bg-pearl/60 backdrop-blur-md px-2.5 py-1 rounded-xs border border-dusty-rose/30">
             {film.kicker}
           </span>
-          <span className="text-[9px] tracking-widest font-sans text-[#FAF8F5]/80 bg-black/40 backdrop-blur-xs px-2 py-1 rounded-xs border border-white/10 hidden sm:inline-block">
+          <span className="text-[9px] tracking-widest font-sans text-pearl/80 bg-pearl/40 backdrop-blur-xs px-2 py-1 rounded-xs border border-shadow/10 hidden sm:inline-block">
             {film.duration}
           </span>
         </div>
@@ -175,12 +175,12 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
             type="button"
             onClick={toggleMute}
             aria-label={isMuted ? 'Unmute video audio' : 'Mute video audio'}
-            className="w-8 h-8 rounded-full bg-black/60 hover:bg-black/90 backdrop-blur-md flex items-center justify-center text-white hover:text-[#C5A059] transition-all border border-white/15 hover:border-[#C5A059]/60 cursor-pointer shadow-lg"
+            className="w-8 h-8 rounded-full bg-pearl/60 hover:bg-pearl/90 backdrop-blur-md flex items-center justify-center text-shadow hover:text-dusty-rose transition-all border border-shadow/15 hover:border-dusty-rose/60 cursor-pointer shadow-lg"
           >
             {isMuted ? (
-              <VolumeX className="w-3.5 h-3.5 text-[#C5A059]" />
+              <VolumeX className="w-3.5 h-3.5 text-dusty-rose" />
             ) : (
-              <Volume2 className="w-3.5 h-3.5 text-white animate-pulse" />
+              <Volume2 className="w-3.5 h-3.5 text-shadow animate-pulse" />
             )}
           </button>
         )}
@@ -192,7 +192,7 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
           !isPlaying ? 'opacity-100' : 'opacity-0 group-hover:opacity-60'
         }`}
       >
-        <div className="w-12 h-12 rounded-full bg-black/65 backdrop-blur-md border border-[#C5A059]/50 flex items-center justify-center text-[#C5A059] shadow-2xl transition-transform duration-300 group-hover:scale-110">
+        <div className="w-12 h-12 rounded-full bg-pearl/65 backdrop-blur-md border border-dusty-rose/50 flex items-center justify-center text-dusty-rose shadow-2xl transition-transform duration-300 group-hover:scale-110">
           {isPlaying ? (
             <Pause className="w-5 h-5 fill-current" />
           ) : (
@@ -205,18 +205,18 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
       {showOverlayInfo && (
         <div className="absolute bottom-0 inset-x-0 p-3.5 sm:p-4 z-20 flex flex-col justify-end space-y-2 pointer-events-auto">
           {/* Quote / Blurb */}
-          <p className="text-[11px] sm:text-xs text-[#FAF8F5] font-sans font-light leading-snug line-clamp-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+          <p className="text-[11px] sm:text-xs text-pearl font-sans font-light leading-snug line-clamp-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
             {film.blurb}
           </p>
 
           {/* Title & Product / Expand actions */}
-          <div className="flex items-center justify-between pt-1 gap-2 border-t border-white/15">
+          <div className="flex items-center justify-between pt-1 gap-2 border-t border-shadow/15">
             <div className="min-w-0 flex-1">
-              <h4 className="font-serif text-xs uppercase tracking-[0.16em] text-white truncate drop-shadow-md">
+              <h4 className="font-serif text-xs uppercase tracking-[0.16em] text-shadow truncate drop-shadow-md">
                 {film.title}
               </h4>
               {film.author && (
-                <span className="text-[9px] uppercase tracking-[0.2em] font-sans text-[#C5A059] block">
+                <span className="text-[9px] uppercase tracking-[0.2em] font-sans text-dusty-rose block">
                   {film.author} • {film.authorRole || 'Reviewer'}
                 </span>
               )}
@@ -232,7 +232,7 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
                       onProductClick(film.productId);
                     }
                   }}
-                  className="px-2.5 py-1 text-[9px] uppercase tracking-[0.2em] font-sans text-white bg-[#C5A059]/25 hover:bg-[#C5A059] hover:text-black border border-[#C5A059]/60 rounded-xs transition-all cursor-pointer font-medium"
+                  className="px-2.5 py-1 text-[9px] uppercase tracking-[0.2em] font-sans text-shadow bg-dusty-rose/25 hover:bg-dusty-rose hover:text-pearl border border-dusty-rose/60 rounded-xs transition-all cursor-pointer font-medium"
                 >
                   SHOP {film.productName || 'SCENT'}
                 </button>
@@ -246,7 +246,7 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
                     onOpenReel(film);
                   }}
                   aria-label="Expand reel"
-                  className="p-1.5 rounded-full bg-black/50 hover:bg-black text-white hover:text-[#C5A059] transition-colors border border-white/10"
+                  className="p-1.5 rounded-full bg-pearl/50 hover:bg-pearl text-shadow hover:text-dusty-rose transition-colors border border-shadow/10"
                 >
                   <Maximize2 className="w-3 h-3" />
                 </button>
@@ -259,7 +259,7 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
       {/* Progress Bar Timeline at bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/20 z-30">
         <div
-          className="h-full bg-[#C5A059] transition-all duration-100 ease-linear"
+          className="h-full bg-dusty-rose transition-all duration-100 ease-linear"
           style={{ width: `${progress}%` }}
         />
       </div>

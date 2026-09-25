@@ -22,22 +22,22 @@ export const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
   return (
     <section
       id="collection-section"
-      className="relative w-full py-24 md:py-36 px-6 md:px-12 lg:px-16 bg-[#0B0A09]"
+      className="relative w-full py-24 md:py-36 px-6 md:px-12 lg:px-16 bg-pearl"
     >
       <div className="max-w-[1700px] mx-auto space-y-16 md:space-y-24">
         {/* Editorial Section Header */}
         <div className="text-center space-y-4 max-w-2xl mx-auto">
           <div className="flex items-center justify-center gap-2">
-            <span className="text-[10px] uppercase tracking-[0.35em] text-[#D4AF37] font-sans font-medium">
+            <span className="text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-sans font-medium">
               EST. 2024 • PERMANENT ARCHIVE
             </span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal uppercase tracking-[0.18em] text-[#F5F2EB]">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal uppercase tracking-[0.18em] text-shadow">
             THE COLLECTION
           </h2>
 
-          <p className="text-xs sm:text-sm font-sans font-light tracking-wider text-[#9E9589]">
+          <p className="text-xs sm:text-sm font-sans font-light tracking-wider text-shadow/60">
             A curated selection of FUME fragrances, formulated in Grasse since 2024.
           </p>
         </div>
@@ -67,17 +67,17 @@ export const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
 
               {/* Minimal Product Meta */}
               <div className="space-y-1 text-center">
-                <h3 className="font-serif text-lg md:text-xl font-normal uppercase tracking-[0.18em] transition-colors text-[#F5F2EB] group-hover:text-[#D4AF37]">
+                <h3 className="font-serif text-lg md:text-xl font-normal uppercase tracking-[0.18em] transition-colors text-shadow group-hover:text-dusty-rose">
                   {getFragranceTitle(fragrance)}
                 </h3>
-                <p className="text-[11px] font-sans uppercase tracking-[0.2em] text-[#9E9589]">
+                <p className="text-[11px] font-sans uppercase tracking-[0.2em] text-shadow/60">
                   {fragrance.concentration}
                 </p>
-                <p className="text-[10px] font-sans tracking-[0.25em] text-[#7A7068]">
+                <p className="text-[10px] font-sans tracking-[0.25em] text-shadow/60">
                   {fragrance.volume}
                 </p>
                 <div className="pt-1 flex items-center justify-center gap-1.5">
-                  <span className="text-xs font-sans font-medium tracking-wider text-[#D4AF37]">
+                  <span className="text-xs font-sans font-medium tracking-wider text-dusty-rose">
                     Rs {fragrance.price.toLocaleString()}
                   </span>
                 </div>

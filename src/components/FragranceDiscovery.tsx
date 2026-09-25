@@ -19,12 +19,12 @@ const CATEGORIES: {
   description: string;
   pastelPill: string;
 }[] = [
-  { label: 'FOR HIM', description: 'Commanding woods, mineral ambergris, and crisp bergamot', pastelPill: '#EFF4F8' },
-  { label: 'FOR HER', description: 'Nocturnal jasmine, luminous tuberose, and velvet vanilla', pastelPill: '#FAF2ED' },
-  { label: 'UNISEX', description: 'Tuscan leather, Florentine iris, and smoked oakmoss', pastelPill: '#F6F0E6' },
-  { label: 'FRESH', description: 'Calabrian citrus, frost aldehydes, and oceanic accords', pastelPill: '#F0F4F7' },
-  { label: 'WOODY', description: 'Smoky birch, aged cedarwood, and cured Virginian tobacco', pastelPill: '#F2F5F0' },
-  { label: 'ORIENTAL', description: 'Charred tonka bean, sacred frankincense, and warm resins', pastelPill: '#FAF3EA' }
+  { label: 'FOR HIM', description: 'Commanding woods, mineral ambergris, and crisp bergamot', pastelPill: '#E8E2DC' },
+  { label: 'FOR HER', description: 'Nocturnal jasmine, luminous tuberose, and velvet vanilla', pastelPill: '#E8E2DC' },
+  { label: 'UNISEX', description: 'Tuscan leather, Florentine iris, and smoked oakmoss', pastelPill: '#E8E2DC' },
+  { label: 'FRESH', description: 'Calabrian citrus, frost aldehydes, and oceanic accords', pastelPill: '#E8E2DC' },
+  { label: 'WOODY', description: 'Smoky birch, aged cedarwood, and cured Virginian tobacco', pastelPill: '#E8E2DC' },
+  { label: 'ORIENTAL', description: 'Charred tonka bean, sacred frankincense, and warm resins', pastelPill: '#E8E2DC' }
 ];
 
 export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
@@ -47,18 +47,18 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
 
   return (
     <section
-      className="relative w-full py-24 md:py-36 px-6 md:px-12 lg:px-20 border-t border-white/[0.06] bg-[#0B0A09]"
+      className="relative w-full py-24 md:py-36 px-6 md:px-12 lg:px-20 border-t border-shadow/[0.06] bg-pearl"
     >
       <div className="max-w-[1700px] mx-auto space-y-16 md:space-y-20">
         {/* Section Header */}
         <div className="text-center space-y-4 max-w-xl mx-auto">
-          <span className="text-[10px] uppercase tracking-[0.35em] text-[#D4AF37] font-sans font-medium block">
+          <span className="text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-sans font-medium block">
             OLFACTORY CURATION • SINCE 2024
           </span>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal uppercase tracking-[0.16em] text-[#F5F2EB]">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal uppercase tracking-[0.16em] text-shadow">
             FIND YOUR SIGNATURE
           </h2>
-          <p className="text-xs sm:text-sm font-sans font-light tracking-wide text-[#9E9589]">
+          <p className="text-xs sm:text-sm font-sans font-light tracking-wide text-shadow/60">
             Select a profile to uncover your personal aura.
           </p>
         </div>
@@ -74,8 +74,8 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                   onClick={() => setActiveCategory(cat.label)}
                   className={`px-6 py-3 text-[11px] uppercase tracking-[0.24em] font-sans transition-all duration-300 cursor-pointer rounded-xs border ${
                     isSelected
-                      ? 'bg-[#D4AF37] text-black border-[#D4AF37] font-medium shadow-[0_0_20px_rgba(212,175,55,0.35)]'
-                      : 'bg-white/[0.04] text-[#9E9589] border-white/[0.08] hover:border-[#D4AF37]/60 hover:text-[#F5F2EB]'
+                      ? 'bg-dusty-rose text-pearl border-dusty-rose font-medium shadow-[0_0_20px_rgba(201,169,166,0.35)]'
+                      : 'bg-pearl/[0.04] text-shadow/60 border-shadow/[0.08] hover:border-dusty-rose/60 hover:text-shadow'
                   }`}
                 >
                   {cat.label}
@@ -85,7 +85,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
           </div>
 
           {/* Active Category Description */}
-          <div className="text-center pt-3 text-xs text-[#D4AF37] font-sans italic tracking-wider">
+          <div className="text-center pt-3 text-xs text-dusty-rose font-sans italic tracking-wider">
             {CATEGORIES.find((c) => c.label === activeCategory)?.description}
           </div>
         </div>
@@ -104,7 +104,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
-                className="group flex flex-col cursor-pointer p-5 transition-all duration-300 rounded-sm border bg-[#141210]/80 border-white/[0.06] hover:border-[#D4AF37]/50 hover:shadow-[0_8px_32px_rgba(212,175,55,0.12)]"
+                className="group flex flex-col cursor-pointer p-5 transition-all duration-300 rounded-sm border bg-shadow/5/80 border-shadow/[0.06] hover:border-dusty-rose/50 hover:shadow-[0_8px_32px_rgba(201,169,166,0.12)]"
                 onClick={() => onSelectFragrance(fragrance)}
               >
                 <FlaconBottle
@@ -117,13 +117,13 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                 />
 
                 <div className="space-y-1 text-center">
-                  <h3 className="font-serif text-lg font-normal uppercase tracking-[0.16em] text-[#F5F2EB] group-hover:text-[#D4AF37] transition-colors">
+                  <h3 className="font-serif text-lg font-normal uppercase tracking-[0.16em] text-shadow group-hover:text-dusty-rose transition-colors">
                     {getFragranceTitle(fragrance)}
                   </h3>
-                  <p className="text-[10px] font-sans uppercase tracking-[0.2em] text-[#9E9589]">
+                  <p className="text-[10px] font-sans uppercase tracking-[0.2em] text-shadow/60">
                     {fragrance.concentration} • {fragrance.volume}
                   </p>
-                  <p className="text-[11px] font-sans font-medium pt-1 text-[#D4AF37]">
+                  <p className="text-[11px] font-sans font-medium pt-1 text-dusty-rose">
                     Rs {fragrance.price.toLocaleString()}
                   </p>
                 </div>
@@ -136,7 +136,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
         <div className="text-center pt-8">
           <button
             onClick={onViewAllPerfumes}
-            className="text-[11px] uppercase tracking-[0.28em] transition-colors cursor-pointer border-b border-[#D4AF37] pb-1 font-sans text-[#9E9589] hover:text-[#F5F2EB]"
+            className="text-[11px] uppercase tracking-[0.28em] transition-colors cursor-pointer border-b border-dusty-rose pb-1 font-sans text-shadow/60 hover:text-shadow"
           >
             EXPLORE COMPLETE COLLECTION →
           </button>

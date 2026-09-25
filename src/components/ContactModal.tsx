@@ -30,19 +30,17 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4 md:p-8 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 bg-pearl/80 backdrop-blur-md flex items-center justify-center p-4 md:p-8 animate-in fade-in duration-200">
       <div
         className={`relative w-full max-w-xl border p-8 md:p-12 shadow-2xl space-y-6 ${
-          isLight
-            ? 'bg-[#FAF8F5] border-[#E8DFC9] text-[#1A1816]'
-            : 'bg-[#0c0c0c] border-[#222222] text-[#f5f4f0]'
+          'bg-pearl border-shadow/10 text-shadow'
         }`}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
           className={`absolute top-6 right-6 p-2 cursor-pointer transition-colors ${
-            isLight ? 'text-[#7D766E] hover:text-[#1A1816]' : 'text-[#8c8985] hover:text-white'
+            'text-shadow/60 hover:text-shadow'
           }`}
           aria-label="Close modal"
         >
@@ -50,19 +48,19 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
         </button>
 
         <div className="text-center space-y-2">
-          <span className="text-[10px] uppercase tracking-[0.35em] text-[#C5A059] block font-sans font-medium">
+          <span className="text-[10px] uppercase tracking-[0.35em] text-dusty-rose block font-sans font-medium">
             CLIENT SERVICES & CONCIERGE • SINCE 2024
           </span>
           <h3
             className={`font-serif text-2xl md:text-3xl font-normal uppercase tracking-[0.16em] ${
-              isLight ? 'text-[#1A1816]' : 'text-white'
+              'text-shadow'
             }`}
           >
             CONCIERGE INQUIRY
           </h3>
           <p
             className={`text-xs font-light ${
-              isLight ? 'text-[#7D766E]' : 'text-[#8c8985]'
+              'text-shadow/60'
             }`}
           >
             Shipping assistance, bespoke flacons, and private appointments.
@@ -71,11 +69,11 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
 
         {sent ? (
           <div className="py-12 text-center space-y-3">
-            <Check className="w-8 h-8 text-[#C5A059] mx-auto" />
-            <p className="font-serif text-lg uppercase tracking-wider text-[#C5A059]">
+            <Check className="w-8 h-8 text-dusty-rose mx-auto" />
+            <p className="font-serif text-lg uppercase tracking-wider text-dusty-rose">
               MESSAGE DISPATCHED
             </p>
-            <p className={`text-xs ${isLight ? 'text-[#7D766E]' : 'text-[#8c8985]'}`}>
+            <p className={`text-xs ${'text-shadow/60'}`}>
               A FUME olfactory advisor will respond to your dossier within 24 hours.
             </p>
           </div>
@@ -84,7 +82,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
             <div className="space-y-1">
               <label
                 className={`uppercase tracking-wider text-[10px] ${
-                  isLight ? 'text-[#7D766E]' : 'text-[#8c8985]'
+                  'text-shadow/60'
                 }`}
               >
                 Full Name
@@ -96,9 +94,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Madame / Monsieur"
                 className={`w-full border px-3 py-2.5 focus:outline-none rounded-xs ${
-                  isLight
-                    ? 'border-[#E0D5C3] bg-white text-[#1A1816]'
-                    : 'border-[#222222] bg-[#111111] text-white'
+                  'border-sand bg-white text-shadow'
                 }`}
               />
             </div>
@@ -106,7 +102,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
             <div className="space-y-1">
               <label
                 className={`uppercase tracking-wider text-[10px] ${
-                  isLight ? 'text-[#7D766E]' : 'text-[#8c8985]'
+                  'text-shadow/60'
                 }`}
               >
                 Email Address
@@ -118,9 +114,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="patron@domain.com"
                 className={`w-full border px-3 py-2.5 focus:outline-none rounded-xs ${
-                  isLight
-                    ? 'border-[#E0D5C3] bg-white text-[#1A1816]'
-                    : 'border-[#222222] bg-[#111111] text-white'
+                  'border-sand bg-white text-shadow'
                 }`}
               />
             </div>
@@ -128,7 +122,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
             <div className="space-y-1">
               <label
                 className={`uppercase tracking-wider text-[10px] ${
-                  isLight ? 'text-[#7D766E]' : 'text-[#8c8985]'
+                  'text-shadow/60'
                 }`}
               >
                 Inquiry Details
@@ -140,9 +134,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Please describe your inquiry..."
                 className={`w-full border px-3 py-2.5 focus:outline-none rounded-xs resize-none ${
-                  isLight
-                    ? 'border-[#E0D5C3] bg-white text-[#1A1816]'
-                    : 'border-[#222222] bg-[#111111] text-white'
+                  'border-sand bg-white text-shadow'
                 }`}
               />
             </div>
@@ -151,9 +143,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
               <button
                 type="submit"
                 className={`w-full py-3.5 transition-colors uppercase tracking-[0.24em] font-medium text-[11px] cursor-pointer ${
-                  isLight
-                    ? 'bg-[#1A1816] text-[#FAF8F5] hover:bg-[#C5A059]'
-                    : 'bg-white text-black hover:bg-[#C5A059] hover:text-black'
+                  'bg-oyster text-pearl hover:bg-dusty-rose'
                 }`}
               >
                 TRANSMIT DOSSIER VIA EMAIL
@@ -166,9 +156,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`w-full py-3 border transition-colors uppercase tracking-[0.22em] font-medium text-[11px] cursor-pointer text-center block ${
-                  isLight
-                    ? 'border-[#C5A059] text-[#1A1816] hover:bg-[#C5A059]/10'
-                    : 'border-[#C5A059] text-[#EAE2D5] hover:bg-[#C5A059]/10'
+                  'border-dusty-rose text-shadow hover:bg-dusty-rose/10'
                 }`}
               >
                 DIRECT INQUIRY ON WHATSAPP (+92 313 297 0468)

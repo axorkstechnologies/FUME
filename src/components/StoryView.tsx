@@ -20,24 +20,24 @@ export const StoryView: React.FC<StoryViewProps> = ({
 
   return (
     <article
-      className="relative w-full min-h-screen pt-28 sm:pt-32 pb-32 px-5 sm:px-8 md:px-12 lg:px-16 bg-[#0B0A09] text-[#F5F2EB]"
+      className="relative w-full min-h-screen pt-28 sm:pt-32 pb-32 px-5 sm:px-8 md:px-12 lg:px-16 bg-pearl text-shadow"
     >
       <div className="max-w-[1600px] mx-auto space-y-20 md:space-y-28">
         {/* Section 1: Hero / Opening Statement (AEO/GEO Structured Header) */}
         <header className="text-center space-y-5 max-w-4xl mx-auto">
-          <nav aria-label="Breadcrumb" className="flex items-center justify-center flex-wrap gap-2 text-[10px] uppercase tracking-[0.35em] text-[#C5A059] font-sans font-medium">
+          <nav aria-label="Breadcrumb" className="flex items-center justify-center flex-wrap gap-2 text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-sans font-medium">
             <span>HOME</span>
             <span>/</span>
             <span>OUR STORY</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] mx-1" />
+            <span className="w-1.5 h-1.5 rounded-full bg-dusty-rose mx-1" />
             <span>EST. 2024</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] mx-1" />
+            <span className="w-1.5 h-1.5 rounded-full bg-dusty-rose mx-1" />
             <span>PAKISTAN</span>
           </nav>
 
           <h1
             className={`font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-normal uppercase tracking-[0.14em] leading-tight ${
-              isLight ? 'text-[#1A1816]' : 'text-white'
+              'text-shadow'
             }`}
           >
             THE STORY OF FUME FRAGRANCES
@@ -46,7 +46,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
           {/* Core Entity & Direct Answer Summary for Search & AI Engines */}
           <p
             className={`text-sm sm:text-base md:text-lg font-sans font-light tracking-wide leading-relaxed max-w-3xl mx-auto ${
-              isLight ? 'text-[#5C5449]' : 'text-[#c2beb6]'
+              'text-shadow/60'
             }`}
           >
             FUME FRAGRANCES (officially registered as FUME FRAGRANCES (SMC-PRIVATE) LIMITED) is an independent Pakistani luxury fragrance house founded in 2024 by a 24-year-old mother and artisan. Created to eliminate the divide between hyper-inflated imported perfumes and short-lived dilutions, FUME FRAGRANCES makes authentic, long-lasting Eau de Parfum accessible to fragrance lovers across Pakistan.
@@ -56,25 +56,25 @@ export const StoryView: React.FC<StoryViewProps> = ({
         {/* Section 2: The Story Behind Fume (Narrative & First-Person Voice) */}
         <section aria-labelledby="story-behind-fume" className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-7 relative">
-            <div className="aspect-[16/10] overflow-hidden rounded-xs border border-[#C5A059]/40 relative group shadow-2xl">
+            <div className="aspect-[16/10] overflow-hidden rounded-xs border border-dusty-rose/40 relative group shadow-2xl">
               <img
                 src={EDITORIAL_IMAGE}
                 alt="FUME Fragrance Atelier Formulation in Pakistan"
                 className="w-full h-full object-cover object-center filter grayscale-[10%] group-hover:scale-105 transition-transform duration-1000"
                 loading="eager"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-[10px] uppercase tracking-[0.28em] text-[#FAF8F5] font-sans">
+              <div className="absolute inset-0 bg-gradient-to-t from-pearl/75 via-pearl/20 to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-[10px] uppercase tracking-[0.28em] text-pearl font-sans">
                 <span>HAND-CRAFTED IN PAKISTAN</span>
-                <span className="text-[#C5A059]">AUTHENTIC BATCH #2024</span>
+                <span className="text-dusty-rose">AUTHENTIC BATCH #F8F4F0</span>
               </div>
             </div>
           </div>
 
           <div className="lg:col-span-5 space-y-6 lg:pl-4">
             <div className="flex items-center gap-2">
-              <span className="w-8 h-[1px] bg-[#C5A059]" />
-              <span className="text-[10px] uppercase tracking-[0.35em] text-[#C5A059] font-sans font-medium">
+              <span className="w-8 h-[1px] bg-dusty-rose" />
+              <span className="text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-sans font-medium">
                 CHAPTER I • THE GENESIS
               </span>
             </div>
@@ -82,14 +82,14 @@ export const StoryView: React.FC<StoryViewProps> = ({
             <h2
               id="story-behind-fume"
               className={`font-serif text-2xl sm:text-3xl md:text-4xl font-normal uppercase tracking-[0.14em] leading-snug ${
-                isLight ? 'text-[#1A1816]' : 'text-white'
+                'text-shadow'
               }`}
             >
               BORN FROM BELIEF, NOT JUST BUSINESS
             </h2>
 
             <div className={`space-y-4 text-xs sm:text-sm font-sans font-light leading-relaxed ${
-              isLight ? 'text-[#5C5449]' : 'text-[#a9a7a1]'
+              'text-shadow/60'
             }`}>
               <p>
                 I didn’t start Fume simply because I wanted to start a business. I started it because I believed in something deeper.
@@ -105,16 +105,14 @@ export const StoryView: React.FC<StoryViewProps> = ({
             {/* Founder's Statement Callout Box */}
             <div
               className={`p-6 border rounded-xs space-y-3 shadow-sm ${
-                isLight
-                  ? 'border-[#E6DDD0] bg-[#F5F1E8]/70 text-[#1A1816]'
-                  : 'border-[#222222] bg-[#111111]/85 text-[#f5f4f0]'
+                'border-sand bg-pearl/70 text-shadow'
               }`}
             >
-              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-[#C5A059] font-medium font-sans">
-                <Heart className="w-3.5 h-3.5 text-[#C5A059]" />
+              <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-dusty-rose font-medium font-sans">
+                <Heart className="w-3.5 h-3.5 text-dusty-rose" />
                 <span>FOUNDER'S CREED • FOUNDED AT 24</span>
               </div>
-              <blockquote className="font-serif italic text-sm sm:text-base leading-relaxed text-[#D4AF37]">
+              <blockquote className="font-serif italic text-sm sm:text-base leading-relaxed text-dusty-rose">
                 &ldquo;True luxury is not defined by a foreign label or an unattainable price. It is defined by how long the scent lingers on your skin, how deeply it moves you, and how honestly it was made.&rdquo;
               </blockquote>
             </div>
@@ -123,17 +121,17 @@ export const StoryView: React.FC<StoryViewProps> = ({
 
         {/* Section 3: Founder Journey (24-Year-Old Founder + Motherhood Signal) */}
         <section aria-labelledby="founder-journey" className={`p-8 sm:p-12 lg:p-16 rounded-xs border relative overflow-hidden ${
-          isLight ? 'bg-[#F7F3EB] border-[#E8DFC9]' : 'bg-[#0E0E0E] border-[#1F1F1F]'
+          'bg-pearl border-shadow/10'
         }`}>
           <div className="max-w-4xl mx-auto space-y-8 text-center sm:text-left">
             <div className="space-y-3">
-              <span className="text-[10px] uppercase tracking-[0.35em] text-[#C5A059] font-sans font-medium block">
+              <span className="text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-sans font-medium block">
                 CHAPTER II • THE FOUNDER'S JOURNEY
               </span>
               <h2
                 id="founder-journey"
                 className={`font-serif text-2xl sm:text-3xl md:text-4xl font-normal uppercase tracking-[0.14em] ${
-                  isLight ? 'text-[#1A1816]' : 'text-white'
+                  'text-shadow'
                 }`}
               >
                 MOTHERHOOD, GRIT &amp; BUILDING FUME AT 24
@@ -141,7 +139,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
             </div>
 
             <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 text-xs sm:text-sm font-sans font-light leading-relaxed ${
-              isLight ? 'text-[#5C5449]' : 'text-[#a9a7a1]'
+              'text-shadow/60'
             }`}>
               <div className="space-y-4">
                 <p>
@@ -167,13 +165,13 @@ export const StoryView: React.FC<StoryViewProps> = ({
         {/* Section 4 & 5: Our Mission & Our Vision (AEO/GEO Highlight Grid) */}
         <section aria-labelledby="mission-vision" className="space-y-10">
           <div className="text-center space-y-3 max-w-2xl mx-auto">
-            <span className="text-[10px] uppercase tracking-[0.4em] text-[#C5A059] font-sans font-medium block">
+            <span className="text-[10px] uppercase tracking-[0.4em] text-dusty-rose font-sans font-medium block">
               PURPOSE &amp; DIRECTION • SINCE 2024
             </span>
             <h2
               id="mission-vision"
               className={`font-serif text-3xl sm:text-4xl font-normal uppercase tracking-[0.14em] ${
-                isLight ? 'text-[#1A1816]' : 'text-white'
+                'text-shadow'
               }`}
             >
               MISSION &amp; VISION
@@ -183,66 +181,62 @@ export const StoryView: React.FC<StoryViewProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Our Mission Card */}
             <div
-              className={`p-8 sm:p-10 border rounded-xs space-y-5 transition-all duration-300 hover:border-[#C5A059] ${
-                isLight
-                  ? 'border-[#E6DDD0] bg-white shadow-sm'
-                  : 'border-[#1f1f1f] bg-[#0c0c0c]'
+              className={`p-8 sm:p-10 border rounded-xs space-y-5 transition-all duration-300 hover:border-dusty-rose ${
+                'border-sand bg-white shadow-sm'
               }`}
             >
               <div className="flex items-center justify-between">
-                <span className="text-[10px] uppercase tracking-[0.3em] text-[#C5A059] font-sans font-semibold">
+                <span className="text-[10px] uppercase tracking-[0.3em] text-dusty-rose font-sans font-semibold">
                   OUR MISSION
                 </span>
-                <Award className="w-5 h-5 text-[#C5A059]" />
+                <Award className="w-5 h-5 text-dusty-rose" />
               </div>
               <h3
                 className={`font-serif text-xl sm:text-2xl uppercase tracking-[0.12em] ${
-                  isLight ? 'text-[#1A1816]' : 'text-white'
+                  'text-shadow'
                 }`}
               >
                 MAKING AUTHENTIC LUXURY ACCESSIBLE TO EVERYONE
               </h3>
               <p
                 className={`text-xs sm:text-sm font-sans font-light leading-relaxed ${
-                  isLight ? 'text-[#5C5449]' : 'text-[#a9a7a1]'
+                  'text-shadow/60'
                 }`}
               >
                 Our mission is to make authentic, master-crafted fragrances accessible to everyone in Pakistan. We deliver genuine Eau de Parfum concentrations with long-lasting sillage, transparent pricing, and uncompromising presentation, without the 10x international retail markups.
               </p>
-              <div className="pt-2 text-[10px] uppercase tracking-[0.25em] text-[#C49A88] font-sans font-medium">
+              <div className="pt-2 text-[10px] uppercase tracking-[0.25em] text-dusty-rose font-sans font-medium">
                 HONEST FORMULATION · PAKISTAN-FIRST ACCESSIBILITY
               </div>
             </div>
 
             {/* Our Vision Card */}
             <div
-              className={`p-8 sm:p-10 border rounded-xs space-y-5 transition-all duration-300 hover:border-[#C5A059] ${
-                isLight
-                  ? 'border-[#E6DDD0] bg-white shadow-sm'
-                  : 'border-[#1f1f1f] bg-[#0c0c0c]'
+              className={`p-8 sm:p-10 border rounded-xs space-y-5 transition-all duration-300 hover:border-dusty-rose ${
+                'border-sand bg-white shadow-sm'
               }`}
             >
               <div className="flex items-center justify-between">
-                <span className="text-[10px] uppercase tracking-[0.3em] text-[#C5A059] font-sans font-semibold">
+                <span className="text-[10px] uppercase tracking-[0.3em] text-dusty-rose font-sans font-semibold">
                   OUR VISION
                 </span>
-                <Compass className="w-5 h-5 text-[#C5A059]" />
+                <Compass className="w-5 h-5 text-dusty-rose" />
               </div>
               <h3
                 className={`font-serif text-xl sm:text-2xl uppercase tracking-[0.12em] ${
-                  isLight ? 'text-[#1A1816]' : 'text-white'
+                  'text-shadow'
                 }`}
               >
                 ESTABLISHING PAKISTAN’S PREMIER SCENT MAISON
               </h3>
               <p
                 className={`text-xs sm:text-sm font-sans font-light leading-relaxed ${
-                  isLight ? 'text-[#5C5449]' : 'text-[#a9a7a1]'
+                  'text-shadow/60'
                 }`}
               >
                 Our vision is to establish FUME as Pakistan’s leading and most trusted artisanal fragrance house. We are building a homegrown brand that stands proudly alongside heritage European parfumeries, proving that world-class sillage, bottle architecture, and olfactory poetry can be created right here.
               </p>
-              <div className="pt-2 text-[10px] uppercase tracking-[0.25em] text-[#C5A059] font-sans font-medium">
+              <div className="pt-2 text-[10px] uppercase tracking-[0.25em] text-dusty-rose font-sans font-medium">
                 TIMELESS SILLAGE • HOMEGROWN EXCELLENCE
               </div>
             </div>
@@ -252,19 +246,19 @@ export const StoryView: React.FC<StoryViewProps> = ({
         {/* Section 6: Why Fume Exists (The Four Core Differentiators) */}
         <section aria-labelledby="why-fume-exists" className="space-y-12">
           <div className="text-center space-y-3 max-w-2xl mx-auto">
-            <span className="text-[10px] uppercase tracking-[0.4em] text-[#C5A059] font-sans font-medium block">
+            <span className="text-[10px] uppercase tracking-[0.4em] text-dusty-rose font-sans font-medium block">
               OUR PILLARS • WHAT MAKES FUME DIFFERENT
             </span>
             <h2
               id="why-fume-exists"
               className={`font-serif text-3xl sm:text-4xl font-normal uppercase tracking-[0.14em] ${
-                isLight ? 'text-[#1A1816]' : 'text-white'
+                'text-shadow'
               }`}
             >
               WHY FUME EXISTS
             </h2>
             <p className={`text-xs sm:text-sm font-sans font-light tracking-wide ${
-              isLight ? 'text-[#7D766E]' : 'text-[#8c8985]'
+              'text-shadow/60'
             }`}>
               Four non-negotiable standards that distinguish every FUME flacon.
             </p>
@@ -302,21 +296,19 @@ export const StoryView: React.FC<StoryViewProps> = ({
                 <div
                   key={idx}
                   className={`p-7 border rounded-xs space-y-4 transition-all duration-300 hover:-translate-y-1 ${
-                    isLight
-                      ? 'border-[#E6DDD0] bg-white hover:border-[#C5A059] shadow-sm'
-                      : 'border-[#1f1f1f] bg-[#0c0c0c] hover:border-[#C5A059]'
+                    'border-sand bg-white hover:border-dusty-rose shadow-sm'
                   }`}
                 >
-                  <div className="w-10 h-10 rounded-full border border-[#C5A059]/40 flex items-center justify-center text-[#C5A059]">
+                  <div className="w-10 h-10 rounded-full border border-dusty-rose/40 flex items-center justify-center text-dusty-rose">
                     <Icon className="w-5 h-5" />
                   </div>
                   <div className="space-y-1">
-                    <span className="text-[9px] uppercase tracking-widest text-[#C5A059] font-sans font-medium">
+                    <span className="text-[9px] uppercase tracking-widest text-dusty-rose font-sans font-medium">
                       {pillar.tag}
                     </span>
                     <h3
                       className={`font-serif text-base uppercase tracking-wider ${
-                        isLight ? 'text-[#1A1816]' : 'text-white'
+                        'text-shadow'
                       }`}
                     >
                       {pillar.title}
@@ -324,7 +316,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
                   </div>
                   <p
                     className={`text-xs font-sans font-light leading-relaxed ${
-                      isLight ? 'text-[#6B6357]' : 'text-[#8c8985]'
+                      'text-shadow/60'
                     }`}
                   >
                     {pillar.text}
@@ -337,14 +329,12 @@ export const StoryView: React.FC<StoryViewProps> = ({
 
         {/* Section 7: Closing Statement Inviting Connection */}
         <section aria-labelledby="closing-invitation" className={`border p-8 sm:p-14 lg:p-16 rounded-xs relative overflow-hidden ${
-          isLight
-            ? 'border-[#E6DDD0] bg-[#F5F1E8]/70'
-            : 'border-[#222222] bg-[#0f0f0f]'
+          'border-sand bg-pearl/70'
         }`}>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center gap-2">
-                <span className="text-[10px] uppercase tracking-[0.35em] text-[#C5A059] font-sans font-medium block">
+                <span className="text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-sans font-medium block">
                   AN INVITATION FROM OUR FOUNDER
                 </span>
                 
@@ -353,14 +343,14 @@ export const StoryView: React.FC<StoryViewProps> = ({
               <h2
                 id="closing-invitation"
                 className={`font-serif text-3xl sm:text-4xl font-normal uppercase tracking-[0.14em] leading-snug ${
-                  isLight ? 'text-[#1A1816]' : 'text-white'
+                  'text-shadow'
                 }`}
               >
                 FIND YOUR INDELIBLE SIGNATURE
               </h2>
 
               <div className={`space-y-4 text-xs sm:text-sm font-sans font-light leading-relaxed ${
-                isLight ? 'text-[#5C5449]' : 'text-[#a9a7a1]'
+                'text-shadow/60'
               }`}>
                 <p>
                   Fragrance is the most intimate form of memory. When you spray FUME, you are wearing countless hours of maternal persistence, artisanal formulation, and our steadfast belief that high luxury belongs to you.
@@ -374,7 +364,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
                 <button
                   type="button"
                   onClick={onShopPerfumes}
-                  className="px-8 py-3.5 bg-[#1A1816] text-[#FAF8F5] hover:bg-[#C5A059] hover:text-black transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer"
+                  className="px-8 py-3.5 bg-oyster text-pearl hover:bg-dusty-rose hover:text-pearl transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer"
                 >
                   EXPLORE THE COLLECTION
                 </button>
@@ -383,12 +373,10 @@ export const StoryView: React.FC<StoryViewProps> = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`px-8 py-3.5 border transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer inline-flex items-center gap-2 ${
-                    isLight
-                      ? 'border-[#C5A059] text-[#1A1816] hover:bg-[#FAF8F5]'
-                      : 'border-[#C5A059] text-[#f5f4f0] hover:bg-white/5'
+                    'border-dusty-rose text-shadow hover:bg-pearl'
                   }`}
                 >
-                  <MessageCircle className="w-3.5 h-3.5 text-[#C5A059]" />
+                  <MessageCircle className="w-3.5 h-3.5 text-dusty-rose" />
                   <span>WHATSAPP THE FOUNDER (+92 313 297 0468)</span>
                 </a>
               </div>
@@ -401,15 +389,15 @@ export const StoryView: React.FC<StoryViewProps> = ({
                 themeMode={themeMode}
                 className="aspect-[4/5] rounded-xs shadow-xl"
               />
-              <div className="aspect-[4/5] rounded-xs overflow-hidden border border-[#C5A059]/30 relative shadow-xl">
+              <div className="aspect-[4/5] rounded-xs overflow-hidden border border-dusty-rose/30 relative shadow-xl">
                 <img
                   src={CAMPAIGN_IMAGE}
                   alt="FUME Luxury Flacon Presentation in Pakistan"
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
-                <span className="absolute bottom-3 left-3 text-[9px] uppercase tracking-[0.25em] text-white font-sans font-medium">
+                <div className="absolute inset-0 bg-gradient-to-t from-pearl/60 to-transparent pointer-events-none" />
+                <span className="absolute bottom-3 left-3 text-[9px] uppercase tracking-[0.25em] text-shadow font-sans font-medium">
                   SINCE 2024 • PAKISTAN
                 </span>
               </div>

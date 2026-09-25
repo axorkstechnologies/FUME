@@ -89,22 +89,22 @@ export const CareView: React.FC<CareViewProps> = ({
 
   return (
     <div
-      className="relative w-full min-h-screen pt-32 pb-32 px-6 md:px-12 lg:px-16 bg-[#0B0A09] text-[#F5F2EB]"
+      className="relative w-full min-h-screen pt-32 pb-32 px-6 md:px-12 lg:px-16 bg-pearl text-shadow"
     >
       <div className="max-w-[1400px] mx-auto space-y-20">
         {/* Page Header with Breadcrumb */}
         <div className="text-center space-y-5 max-w-3xl mx-auto">
-          <div className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.4em] text-[#C5A059] font-sans font-medium">
+          <div className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.4em] text-dusty-rose font-sans font-medium">
             <span>HOME</span>
             <span>/</span>
             <span>CUSTOMER CARE</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059] ml-1" />
+            <span className="w-1.5 h-1.5 rounded-full bg-dusty-rose ml-1" />
             <span>DIRECTIVES</span>
           </div>
 
           <h1
             className={`font-serif text-4xl sm:text-5xl md:text-6xl font-normal uppercase tracking-[0.16em] ${
-              isLight ? 'text-[#1A1816]' : 'text-white'
+              'text-shadow'
             }`}
           >
             CLIENT CARE & FAQS
@@ -112,7 +112,7 @@ export const CareView: React.FC<CareViewProps> = ({
 
           <p
             className={`text-sm sm:text-base font-sans font-light tracking-wide leading-relaxed ${
-              isLight ? 'text-[#6B6357]' : 'text-[#a9a7a1]'
+              'text-shadow/60'
             }`}
           >
             Detailed protocols on the 2ml Discovery Guarantee, global carbon-neutral shipping, flacon conservation, and authenticity verification.
@@ -123,20 +123,20 @@ export const CareView: React.FC<CareViewProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div
             className={`p-8 border rounded-xs space-y-3 ${
-              isLight ? 'border-[#E6DDD0] bg-white' : 'border-[#222222] bg-[#0f0f0f]'
+              'border-sand bg-white'
             }`}
           >
-            <ShieldCheck className="w-8 h-8 text-[#C5A059]" />
+            <ShieldCheck className="w-8 h-8 text-dusty-rose" />
             <h3
               className={`font-serif text-lg uppercase tracking-wider ${
-                isLight ? 'text-[#1A1816]' : 'text-white'
+                'text-shadow'
               }`}
             >
               THE DISCOVERY GUARANTEE
             </h3>
             <p
               className={`text-xs font-sans font-light leading-relaxed ${
-                isLight ? 'text-[#6B6357]' : 'text-[#8c8985]'
+                'text-shadow/60'
               }`}
             >
               Every bottle includes a companion 2ml sample. Test before unwrapping the sealed flacon. Return free if unsuited.
@@ -145,20 +145,20 @@ export const CareView: React.FC<CareViewProps> = ({
 
           <div
             className={`p-8 border rounded-xs space-y-3 ${
-              isLight ? 'border-[#E6DDD0] bg-white' : 'border-[#222222] bg-[#0f0f0f]'
+              'border-sand bg-white'
             }`}
           >
-            <Truck className="w-8 h-8 text-[#C5A059]" />
+            <Truck className="w-8 h-8 text-dusty-rose" />
             <h3
               className={`font-serif text-lg uppercase tracking-wider ${
-                isLight ? 'text-[#1A1816]' : 'text-white'
+                'text-shadow'
               }`}
             >
               WHITE-GLOVE DISPATCH
             </h3>
             <p
               className={`text-xs font-sans font-light leading-relaxed ${
-                isLight ? 'text-[#6B6357]' : 'text-[#8c8985]'
+                'text-shadow/60'
               }`}
             >
               Complimentary temperature-controlled international courier delivery with real-time GPS tracking.
@@ -167,20 +167,20 @@ export const CareView: React.FC<CareViewProps> = ({
 
           <div
             className={`p-8 border rounded-xs space-y-3 ${
-              isLight ? 'border-[#E6DDD0] bg-white' : 'border-[#222222] bg-[#0f0f0f]'
+              'border-sand bg-white'
             }`}
           >
-            <RefreshCw className="w-8 h-8 text-[#C5A059]" />
+            <RefreshCw className="w-8 h-8 text-dusty-rose" />
             <h3
               className={`font-serif text-lg uppercase tracking-wider ${
-                isLight ? 'text-[#1A1816]' : 'text-white'
+                'text-shadow'
               }`}
             >
               ARCHIVAL REFILLS
             </h3>
             <p
               className={`text-xs font-sans font-light leading-relaxed ${
-                isLight ? 'text-[#6B6357]' : 'text-[#8c8985]'
+                'text-shadow/60'
               }`}
             >
               Bring your empty flint glass flacon to any FUME atelier for a circular botanical refill at 25% privilege.
@@ -199,12 +199,8 @@ export const CareView: React.FC<CareViewProps> = ({
               }}
               className={`px-4 py-2 text-[10px] uppercase tracking-widest font-sans rounded-xs transition-colors cursor-pointer border ${
                 activeCategory === cat
-                  ? isLight
-                    ? 'bg-[#1A1816] text-[#FAF8F5] border-[#1A1816]'
-                    : 'bg-white text-black border-white'
-                  : isLight
-                  ? 'bg-white border-[#E6DDD0] text-[#7D766E] hover:border-[#C5A059] hover:text-[#1A1816]'
-                  : 'bg-[#121212] border-[#222222] text-[#8c8985] hover:border-[#444444] hover:text-white'
+                  ? 'bg-oyster text-pearl border-shadow/10'
+                  : 'bg-white border-sand text-shadow/60 hover:border-dusty-rose hover:text-shadow'
               }`}
             >
               {cat}
@@ -220,13 +216,9 @@ export const CareView: React.FC<CareViewProps> = ({
               <div
                 key={idx}
                 className={`border rounded-xs transition-all overflow-hidden ${
-                  isLight
-                    ? isOpen
-                      ? 'border-[#C5A059] bg-white shadow-sm'
-                      : 'border-[#E6DDD0] bg-white/70 hover:border-[#C5A059]/60'
-                    : isOpen
-                    ? 'border-[#C5A059] bg-[#111111]'
-                    : 'border-[#1f1f1f] bg-[#0c0c0c] hover:border-[#333333]'
+                  isOpen
+                    ? 'border-dusty-rose bg-white shadow-sm'
+                    : 'border-sand bg-white/70 hover:border-dusty-rose/60'
                 }`}
               >
                 <button
@@ -234,19 +226,19 @@ export const CareView: React.FC<CareViewProps> = ({
                   className="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer"
                 >
                   <div className="space-y-1">
-                    <span className="text-[9px] uppercase tracking-widest text-[#C5A059] font-sans font-medium block">
+                    <span className="text-[9px] uppercase tracking-widest text-dusty-rose font-sans font-medium block">
                       {faq.category}
                     </span>
                     <h4
                       className={`font-serif text-base sm:text-lg uppercase tracking-wider ${
-                        isLight ? 'text-[#1A1816]' : 'text-white'
+                        'text-shadow'
                       }`}
                     >
                       {faq.question}
                     </h4>
                   </div>
                   <ChevronDown
-                    className={`w-5 h-5 text-[#C5A059] shrink-0 transition-transform duration-300 ${
+                    className={`w-5 h-5 text-dusty-rose shrink-0 transition-transform duration-300 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
@@ -262,14 +254,12 @@ export const CareView: React.FC<CareViewProps> = ({
                     >
                       <div
                         className={`px-6 pb-6 pt-2 border-t space-y-3 text-xs sm:text-sm font-sans font-light leading-relaxed ${
-                          isLight
-                            ? 'border-[#FAF5EE] text-[#5C5449]'
-                            : 'border-[#1a1a1a] text-[#a9a7a1]'
+                          'border-shadow/10 text-shadow/60'
                         }`}
                       >
                         <p>{faq.answer}</p>
                         {faq.highlight && (
-                          <div className="p-3 border-l-2 border-[#C5A059] bg-[#C5A059]/10 text-[#C5A059] text-[11px] font-medium font-sans">
+                          <div className="p-3 border-l-2 border-dusty-rose bg-dusty-rose/10 text-dusty-rose text-[11px] font-medium font-sans">
                             {faq.highlight}
                           </div>
                         )}
@@ -285,19 +275,17 @@ export const CareView: React.FC<CareViewProps> = ({
         {/* Bottom Contact Concierge Box */}
         <div
           className={`border p-8 sm:p-12 text-center rounded-xs space-y-5 max-w-3xl mx-auto ${
-            isLight
-              ? 'border-[#E6DDD0] bg-[#F5F1E8]/70'
-              : 'border-[#222222] bg-[#0e0e0e]'
+            'border-sand bg-pearl/70'
           }`}
         >
-          <div className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.35em] text-[#C5A059] font-sans font-medium">
-            <HelpCircle className="w-4 h-4 text-[#C5A059]" />
+          <div className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-sans font-medium">
+            <HelpCircle className="w-4 h-4 text-dusty-rose" />
             <span>UNRESOLVED INQUIRIES</span>
           </div>
 
           <h3
             className={`font-serif text-2xl sm:text-3xl uppercase tracking-wider ${
-              isLight ? 'text-[#1A1816]' : 'text-white'
+              'text-shadow'
             }`}
           >
             REQUIRE BESPOKE ASSISTANCE?
@@ -305,7 +293,7 @@ export const CareView: React.FC<CareViewProps> = ({
 
           <p
             className={`text-xs sm:text-sm font-sans font-light max-w-lg mx-auto leading-relaxed ${
-              isLight ? 'text-[#6B6357]' : 'text-[#8c8985]'
+              'text-shadow/60'
             }`}
           >
             Our dedicated client concierge is available daily for private orders, customized bridal flacons, and batch lookups.
@@ -314,23 +302,23 @@ export const CareView: React.FC<CareViewProps> = ({
           <div className="flex flex-wrap items-center justify-center gap-6 pt-1 text-xs font-sans">
             <a
               href="mailto:jiaaryan20@gmail.com"
-              className="text-[#C5A059] hover:underline"
+              className="text-dusty-rose hover:underline"
             >
               jiaaryan20@gmail.com
             </a>
-            <span className="text-[#8c8985]">•</span>
+            <span className="text-shadow/60">•</span>
             <a
               href="tel:+923132970468"
-              className="text-[#C5A059] hover:underline"
+              className="text-dusty-rose hover:underline"
             >
               +92 313 297 0468
             </a>
-            <span className="text-[#8c8985]">•</span>
+            <span className="text-shadow/60">•</span>
             <a
               href="https://wa.me/923132970468?text=Hello%20FUME%20Concierge"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#C49A88] hover:underline"
+              className="text-dusty-rose hover:underline"
             >
               WhatsApp (+92 313 297 0468)
             </a>
@@ -339,7 +327,7 @@ export const CareView: React.FC<CareViewProps> = ({
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <button
               onClick={onNavigateToContact}
-              className="px-8 py-3.5 bg-[#1A1816] text-[#F9F6F0] hover:bg-[#C49A88] hover:text-white transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer rounded-xs"
+              className="px-8 py-3.5 bg-oyster text-pearl hover:bg-dusty-rose hover:text-shadow transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer rounded-xs"
             >
               CONTACT CONCIERGE
             </button>
@@ -347,7 +335,7 @@ export const CareView: React.FC<CareViewProps> = ({
               href="https://wa.me/923132970468?text=Hello%20FUME%20Concierge"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3.5 border border-[#C49A88] text-[#1A1816] hover:bg-white transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer rounded-xs"
+              className="px-8 py-3.5 border border-dusty-rose text-shadow hover:bg-white transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer rounded-xs"
             >
               CHAT ON WHATSAPP
             </a>

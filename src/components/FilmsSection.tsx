@@ -41,9 +41,7 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
     <section
       id="films-section"
       className={`relative w-full py-24 md:py-32 px-5 sm:px-8 md:px-12 lg:px-16 transition-colors duration-500 border-t ${
-        isLight
-          ? 'bg-[#FAF8F5] text-[#1A1816] border-[#E8DFC9]'
-          : 'bg-[#080808] text-[#f5f4f0] border-[#1a1a1a]'
+        'bg-pearl text-shadow border-sand'
       }`}
     >
       <div className="max-w-[1700px] mx-auto space-y-12 md:space-y-16">
@@ -51,7 +49,7 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-3 max-w-2xl">
             <div className="flex items-center gap-2">
-              <span className="text-[10px] uppercase tracking-[0.35em] text-[#C5A059] font-sans font-medium">
+              <span className="text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-sans font-medium">
                 AUTHENTIC EXPERIENCES • SINCE 2024
               </span>
 
@@ -59,7 +57,7 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
 
             <h2
               className={`font-serif text-3xl sm:text-4xl md:text-5xl font-normal uppercase tracking-[0.16em] ${
-                isLight ? 'text-[#1A1816]' : 'text-white'
+                'text-shadow'
               }`}
             >
               FUME ON FILM
@@ -67,7 +65,7 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
 
             <p
               className={`text-xs sm:text-sm font-sans font-light tracking-wider leading-relaxed ${
-                isLight ? 'text-[#7D766E]' : 'text-[#8c8985]'
+                'text-shadow/60'
               }`}
             >
               Real customer unboxings, all-day sillage impressions, and product beauty films straight from our community.
@@ -89,12 +87,8 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
                   onClick={() => setSelectedFilter(tab.id as any)}
                   className={`px-4 py-2 text-[10px] uppercase tracking-[0.2em] font-sans font-medium transition-all rounded-full cursor-pointer whitespace-nowrap border ${
                     active
-                      ? isLight
-                        ? 'bg-[#1A1816] text-white border-[#1A1816] shadow-sm'
-                        : 'bg-[#C5A059] text-black border-[#C5A059] shadow-sm'
-                      : isLight
-                      ? 'bg-transparent text-[#7D766E] border-[#E0D5C3] hover:border-[#C5A059] hover:text-[#1A1816]'
-                      : 'bg-transparent text-[#8c8985] border-[#222222] hover:border-[#C5A059] hover:text-white'
+                      ? 'bg-oyster text-shadow border-shadow/10 shadow-sm'
+                      : 'bg-transparent text-shadow/60 border-sand hover:border-dusty-rose hover:text-shadow'
                   }`}
                 >
                   {tab.label}
@@ -110,13 +104,11 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
             <div
               key={film.id}
               className={`group flex flex-col rounded-xs overflow-hidden border transition-all duration-500 hover:shadow-2xl ${
-                isLight
-                  ? 'bg-[#FFFFFF] border-[#E8DFC9] hover:border-[#C5A059]'
-                  : 'bg-[#0E0E0E] border-[#1F1F1F] hover:border-[#C5A059]/60'
+                'bg-pearl border-sand hover:border-dusty-rose'
               }`}
             >
               {/* 9:16 Video Container */}
-              <div className="relative w-full aspect-[9/16] overflow-hidden bg-black">
+              <div className="relative w-full aspect-[9/16] overflow-hidden bg-pearl">
                 <FilmPlayer
                   film={film}
                   aspectRatio="9/16"
@@ -135,16 +127,16 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
               {/* Bottom Quick Context strip */}
               <div
                 className={`p-3.5 flex items-center justify-between border-t transition-colors ${
-                  isLight ? 'bg-[#FAF8F5] border-[#EFE8DC]' : 'bg-[#0A0A0A] border-[#1A1A1A]'
+                  'bg-pearl border-shadow/10'
                 }`}
               >
                 <div className="min-w-0 pr-2">
-                  <span className="text-[9px] uppercase tracking-[0.25em] text-[#C5A059] font-sans font-medium block truncate">
+                  <span className="text-[9px] uppercase tracking-[0.25em] text-dusty-rose font-sans font-medium block truncate">
                     {film.kicker}
                   </span>
                   <span
                     className={`font-serif text-xs uppercase tracking-[0.1em] truncate block ${
-                      isLight ? 'text-[#1A1816]' : 'text-[#EAE2D5]'
+                      'text-shadow'
                     }`}
                   >
                     {film.productName || film.title}
@@ -155,7 +147,7 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
                   type="button"
                   onClick={() => onOpenReel(film)}
                   className={`text-[9px] uppercase tracking-[0.2em] font-sans font-medium transition-colors flex items-center gap-1 shrink-0 ${
-                    isLight ? 'text-[#7D766E] hover:text-[#C5A059]' : 'text-[#8c8985] hover:text-[#C5A059]'
+                    'text-shadow/60 hover:text-dusty-rose'
                   }`}
                 >
                   <span>WATCH FULL</span>
@@ -169,25 +161,23 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
         {/* Bottom Banner */}
         <div
           className={`p-6 sm:p-8 rounded-xs border flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left ${
-            isLight
-              ? 'bg-[#F5F0E6] border-[#E2D8C6]'
-              : 'bg-[#121212] border-[#222222]'
+            'bg-pearl border-sand'
           }`}
         >
           <div className="space-y-1">
-            <span className="text-[9px] uppercase tracking-[0.3em] font-sans font-medium text-[#C5A059] block">
+            <span className="text-[9px] uppercase tracking-[0.3em] font-sans font-medium text-dusty-rose block">
               COMMUNITY CURATION
             </span>
             <h4
               className={`font-serif text-xl sm:text-2xl uppercase tracking-[0.14em] ${
-                isLight ? 'text-[#1A1816]' : 'text-white'
+                'text-shadow'
               }`}
             >
               SHARE YOUR FUME MOMENT
             </h4>
             <p
               className={`text-xs font-sans font-light tracking-wider max-w-xl ${
-                isLight ? 'text-[#7D766E]' : 'text-[#8c8985]'
+                'text-shadow/60'
               }`}
             >
               Tag us @fume.official with your unboxing or all-day wear test to be featured in the official Maison archive.
@@ -198,9 +188,7 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
             <button
               onClick={onViewAllPerfumes}
               className={`px-6 py-3.5 text-xs uppercase tracking-[0.25em] font-sans font-medium transition-all cursor-pointer whitespace-nowrap shrink-0 border ${
-                isLight
-                  ? 'bg-[#1A1816] text-white border-[#1A1816] hover:bg-[#C5A059] hover:border-[#C5A059]'
-                  : 'bg-[#C5A059] text-black border-[#C5A059] hover:bg-white hover:border-white'
+                'bg-oyster text-shadow border-shadow/10 hover:bg-dusty-rose hover:border-dusty-rose'
               }`}
             >
               EXPLORE ALL 23 FLACONS

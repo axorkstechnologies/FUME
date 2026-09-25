@@ -67,16 +67,16 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
       {/* Backdrop */}
       <div
         onClick={onClose}
-        className="absolute inset-0 bg-[#1A1816]/75 backdrop-blur-md transition-opacity duration-300"
+        className="absolute inset-0 bg-oyster/75 backdrop-blur-md transition-opacity duration-300"
       />
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-xl bg-[#F9F6F0] border border-[#E3DDD3] rounded-sm shadow-2xl p-6 sm:p-10 text-[#1A1816] z-10 max-h-[92vh] overflow-y-auto">
+      <div className="relative w-full max-w-xl bg-pearl border border-sand rounded-sm shadow-2xl p-6 sm:p-10 text-shadow z-10 max-h-[92vh] overflow-y-auto">
         {/* Close Button */}
         <button
           onClick={onClose}
           aria-label="Close scent finder"
-          className="absolute top-4 right-4 p-2 text-[#7D766E] hover:text-[#1A1816] transition-colors rounded-full"
+          className="absolute top-4 right-4 p-2 text-shadow/60 hover:text-shadow transition-colors rounded-full"
         >
           <X className="w-5 h-5" />
         </button>
@@ -84,13 +84,13 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
         {/* Step Progress Indicator */}
         {step <= 3 && (
           <div className="space-y-2 mb-8">
-            <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.25em] text-[#C49A88] font-sans font-medium">
+            <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.25em] text-dusty-rose font-sans font-medium">
               <span>Scent Matcher</span>
               <span>Step {step} of 3</span>
             </div>
-            <div className="w-full h-1 bg-[#E3DDD3] rounded-full overflow-hidden">
+            <div className="w-full h-1 bg-pearl rounded-full overflow-hidden">
               <div
-                className="h-full bg-[#C49A88] transition-all duration-500 rounded-full"
+                className="h-full bg-dusty-rose transition-all duration-500 rounded-full"
                 style={{ width: `${(step / 3) * 100}%` }}
               />
             </div>
@@ -101,10 +101,10 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
         {step === 1 && (
           <div className="space-y-6 text-center animate-in fade-in duration-300">
             <div className="space-y-2">
-              <h2 id="quiz-modal-title" className="font-serif text-2xl sm:text-3xl uppercase tracking-wider text-[#1A1816]">
+              <h2 id="quiz-modal-title" className="font-serif text-2xl sm:text-3xl uppercase tracking-wider text-shadow">
                 Who Are You Choosing Scent For?
               </h2>
-              <p className="text-xs sm:text-sm font-sans text-[#7D766E] max-w-md mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm font-sans text-shadow/60 max-w-md mx-auto leading-relaxed">
                 Select the recipient profile so our nose can curate the most harmonious scent notes.
               </p>
             </div>
@@ -118,12 +118,12 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
                 <button
                   key={opt.val}
                   onClick={() => handleAnswer('gender', opt.val)}
-                  className="p-5 border border-[#E3DDD3] bg-white hover:border-[#C49A88] hover:bg-[#F9F6F0] transition-all text-left rounded-xs cursor-pointer group"
+                  className="p-5 border border-sand bg-pearl hover:border-dusty-rose hover:bg-pearl transition-all text-left rounded-xs cursor-pointer group"
                 >
-                  <span className="font-serif text-base uppercase tracking-wider text-[#1A1816] group-hover:text-[#C49A88] block transition-colors">
+                  <span className="font-serif text-base uppercase tracking-wider text-shadow group-hover:text-dusty-rose block transition-colors">
                     {opt.label}
                   </span>
-                  <span className="text-[10px] font-sans text-[#7D766E] block mt-1 leading-snug">
+                  <span className="text-[10px] font-sans text-shadow/60 block mt-1 leading-snug">
                     {opt.sub}
                   </span>
                 </button>
@@ -136,10 +136,10 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
         {step === 2 && (
           <div className="space-y-6 text-center animate-in fade-in duration-300">
             <div className="space-y-2">
-              <h2 className="font-serif text-2xl sm:text-3xl uppercase tracking-wider text-[#1A1816]">
+              <h2 className="font-serif text-2xl sm:text-3xl uppercase tracking-wider text-shadow">
                 What Is Your Primary Occasion?
               </h2>
-              <p className="text-xs sm:text-sm font-sans text-[#7D766E] max-w-md mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm font-sans text-shadow/60 max-w-md mx-auto leading-relaxed">
                 Different environments call for specific diffusion rates and sillage envelopes.
               </p>
             </div>
@@ -154,12 +154,12 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
                 <button
                   key={opt.val}
                   onClick={() => handleAnswer('occasion', opt.val)}
-                  className="p-5 border border-[#E3DDD3] bg-white hover:border-[#C49A88] hover:bg-[#F9F6F0] transition-all text-left rounded-xs cursor-pointer group"
+                  className="p-5 border border-sand bg-pearl hover:border-dusty-rose hover:bg-pearl transition-all text-left rounded-xs cursor-pointer group"
                 >
-                  <span className="font-serif text-sm uppercase tracking-wider text-[#1A1816] group-hover:text-[#C49A88] block transition-colors">
+                  <span className="font-serif text-sm uppercase tracking-wider text-shadow group-hover:text-dusty-rose block transition-colors">
                     {opt.label}
                   </span>
-                  <span className="text-[10px] font-sans text-[#7D766E] block mt-1 leading-snug">
+                  <span className="text-[10px] font-sans text-shadow/60 block mt-1 leading-snug">
                     {opt.desc}
                   </span>
                 </button>
@@ -172,10 +172,10 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
         {step === 3 && (
           <div className="space-y-6 text-center animate-in fade-in duration-300">
             <div className="space-y-2">
-              <h2 className="font-serif text-2xl sm:text-3xl uppercase tracking-wider text-[#1A1816]">
+              <h2 className="font-serif text-2xl sm:text-3xl uppercase tracking-wider text-shadow">
                 Which Olfactory Family Captivates You?
               </h2>
-              <p className="text-xs sm:text-sm font-sans text-[#7D766E] max-w-md mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm font-sans text-shadow/60 max-w-md mx-auto leading-relaxed">
                 Choose the fragrance backbone that resonates with your personal energy.
               </p>
             </div>
@@ -190,12 +190,12 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
                 <button
                   key={i}
                   onClick={() => handleAnswer('family', opt.val)}
-                  className="p-5 border border-[#E3DDD3] bg-white hover:border-[#C49A88] hover:bg-[#F9F6F0] transition-all text-left rounded-xs cursor-pointer group"
+                  className="p-5 border border-sand bg-pearl hover:border-dusty-rose hover:bg-pearl transition-all text-left rounded-xs cursor-pointer group"
                 >
-                  <span className="font-serif text-sm uppercase tracking-wider text-[#1A1816] group-hover:text-[#C49A88] block transition-colors">
+                  <span className="font-serif text-sm uppercase tracking-wider text-shadow group-hover:text-dusty-rose block transition-colors">
                     {opt.label}
                   </span>
-                  <span className="text-[10px] font-sans text-[#7D766E] block mt-1 leading-snug">
+                  <span className="text-[10px] font-sans text-shadow/60 block mt-1 leading-snug">
                     {opt.desc}
                   </span>
                 </button>
@@ -208,13 +208,13 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
         {step === 4 && recommendation && (
           <div className="space-y-6 text-center animate-in fade-in zoom-in-95 duration-400">
             <div className="space-y-1">
-              <span className="text-[10px] uppercase tracking-[0.3em] text-[#C49A88] font-sans font-medium block">
+              <span className="text-[10px] uppercase tracking-[0.3em] text-dusty-rose font-sans font-medium block">
                 98% Profile Alignment • Signature Recommendation
               </span>
-              <h2 className="font-serif text-2xl sm:text-3xl uppercase tracking-wider text-[#1A1816]">
+              <h2 className="font-serif text-2xl sm:text-3xl uppercase tracking-wider text-shadow">
                 {recommendation.name}
               </h2>
-              <p className="text-xs uppercase tracking-[0.2em] text-[#7D766E] font-sans">
+              <p className="text-xs uppercase tracking-[0.2em] text-shadow/60 font-sans">
                 {recommendation.subtitle}
               </p>
             </div>
@@ -228,13 +228,13 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
               />
             </div>
 
-            <p className="text-xs sm:text-sm font-sans text-[#5C5449] max-w-md mx-auto leading-relaxed">
+            <p className="text-xs sm:text-sm font-sans text-shadow/60 max-w-md mx-auto leading-relaxed">
               {recommendation.description}
             </p>
 
             {/* Pricing & Guarantees */}
-            <div className="flex items-center justify-center gap-4 text-xs font-sans text-[#7D766E] pt-1">
-              <span className="font-serif text-lg font-medium text-[#1A1816]">
+            <div className="flex items-center justify-center gap-4 text-xs font-sans text-shadow/60 pt-1">
+              <span className="font-serif text-lg font-medium text-shadow">
                 Rs {recommendation.price.toLocaleString()}
               </span>
               <span>•</span>
@@ -250,7 +250,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
                   onAddToCart(recommendation);
                   onClose();
                 }}
-                className="w-full sm:w-auto px-8 py-3.5 bg-[#1A1816] text-white text-xs uppercase tracking-[0.2em] font-sans font-medium hover:bg-[#C49A88] transition-colors rounded-xs cursor-pointer shadow-md"
+                className="w-full sm:w-auto px-8 py-3.5 bg-oyster text-shadow text-xs uppercase tracking-[0.2em] font-sans font-medium hover:bg-dusty-rose transition-colors rounded-xs cursor-pointer shadow-md"
               >
                 Add Flacon to Bag
               </button>
@@ -260,7 +260,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
                   onSelectFragrance(recommendation);
                   onClose();
                 }}
-                className="w-full sm:w-auto px-8 py-3.5 border border-[#1A1816] text-[#1A1816] text-xs uppercase tracking-[0.2em] font-sans font-medium hover:bg-[#E3DDD3] transition-colors rounded-xs cursor-pointer"
+                className="w-full sm:w-auto px-8 py-3.5 border border-shadow/10 text-shadow text-xs uppercase tracking-[0.2em] font-sans font-medium hover:bg-pearl transition-colors rounded-xs cursor-pointer"
               >
                 View Full Dossier
               </button>
@@ -270,7 +270,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
             <div className="pt-3">
               <button
                 onClick={handleReset}
-                className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] text-[#7D766E] hover:text-[#1A1816] transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] text-shadow/60 hover:text-shadow transition-colors cursor-pointer"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>Retake Scent Matcher</span>
