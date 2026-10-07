@@ -179,7 +179,11 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                 </a>
                 <div className="flex items-center gap-3 text-shadow/60">
                   <MapPin className="w-4 h-4 text-dusty-rose shrink-0" />
-                  <span>32/A Society Office, PECHS Block 2, Kashmir Road, Karachi</span>
+                  <div className="leading-tight">
+                    <span className="block text-shadow font-medium">GRASSE LABORATORY</span>
+                    <span className="block">8 Boulevard Fragonard, 06130 Grasse, France</span>
+                    <span className="block text-dusty-rose text-[10px]">Private appointments only • Est. 2024</span>
+                  </div>
                 </div>
               </div>
 

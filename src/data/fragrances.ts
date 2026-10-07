@@ -2,9 +2,9 @@ import { Fragrance } from '../types';
 
 export const HERO_BOTTLE_IMAGE = '/bottles/desert.webp';
 
-export const CAMPAIGN_IMAGE = '/bottles/campaign-brand.webp';
+export const CAMPAIGN_IMAGE = '/campaigns/desert-girl.jpg';
 
-export const EDITORIAL_IMAGE = '/bottles/discovery-set.webp';
+export const EDITORIAL_IMAGE = '/campaigns/arab-girl-bg.jpg';
 
 
 export const getFragranceTitle = (fragrance: Fragrance): string => {

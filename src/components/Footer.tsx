@@ -155,16 +155,17 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </div>
 
-          {/* STUDIO & CONTACT */}
+          {/* CREATION LAB & CONTACT */}
           <div className="space-y-4">
             <span className="text-[10px] uppercase tracking-[0.28em] block font-medium text-shadow">
-              STUDIO
+              CREATION LAB
             </span>
             <ul className="space-y-2.5 text-[11px] tracking-wider">
               <li className="uppercase text-shadow/50 leading-relaxed">
-                32/A Society Office,<br />
-                PECHS Block 2,<br />
-                Kashmir Road, Karachi
+                GRASSE LABORATORY<br />
+                8 Boulevard Fragonard,<br />
+                06130 Grasse, France<br />
+                <span className="text-[9px] text-dusty-rose">Private appointments only</span>
               </li>
               <li className="pt-1 border-t border-shadow/[0.06]">
                 <a href="mailto:jiaaryan20@gmail.com" className="hover:text-dusty-rose transition-colors lowercase text-shadow/60">
@@ -212,7 +213,7 @@ export const Footer: React.FC<FooterProps> = ({
             © 2024–{new Date().getFullYear()} FUME FRAGRANCES (SMC-PRIVATE) LIMITED. ALL RIGHTS RESERVED.
           </span>
           <div className="flex gap-6">
-            <span>KARACHI • PAKISTAN</span>
+            <span>GRASSE • KARACHI</span>
             <span>PRIVACY & LEGAL</span>
           </div>
         </div>

@@ -56,11 +56,11 @@ export const StoryView: React.FC<StoryViewProps> = ({
         {/* Section 2: The Story Behind Fume (Narrative & First-Person Voice) */}
         <section aria-labelledby="story-behind-fume" className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-7 relative">
-            <div className="aspect-[16/10] overflow-hidden rounded-xs border border-dusty-rose/40 relative group shadow-2xl">
+            <div className="w-full overflow-hidden rounded-lg border border-dusty-rose/40 relative group shadow-[0_20px_60px_rgba(44,37,34,0.08)] bg-oyster">
               <img
                 src={EDITORIAL_IMAGE}
-                alt="FUME Fragrance Atelier Formulation in Pakistan"
-                className="w-full h-full object-cover object-center filter grayscale-[10%] group-hover:scale-105 transition-transform duration-1000"
+                alt="FUME Fragrance Atelier Formulation in Grasse and Pakistan"
+                className="w-full h-auto object-contain filter group-hover:scale-105 transition-transform duration-1000"
                 loading="eager"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-pearl/75 via-pearl/20 to-transparent" />
@@ -196,17 +196,17 @@ export const StoryView: React.FC<StoryViewProps> = ({
                   'text-shadow'
                 }`}
               >
-                MAKING AUTHENTIC LUXURY ACCESSIBLE TO EVERYONE
+                BRIDGING GRASSE HERITAGE WITH ACCESSIBLE LUXURY
               </h3>
               <p
                 className={`text-xs sm:text-sm font-sans font-light leading-relaxed ${
                   'text-shadow/60'
                 }`}
               >
-                Our mission is to make authentic, master-crafted fragrances accessible to everyone in Pakistan. We deliver genuine Eau de Parfum concentrations with long-lasting sillage, transparent pricing, and uncompromising presentation, without the 10x international retail markups.
+                Our mission is to make authentic, master-crafted fragrances accessible. By formulating our scents at our creation lab in Grasse, France (8 Boulevard Fragonard) and bringing them directly to Pakistan, we deliver genuine Eau de Parfum concentrations with long-lasting sillage, avoiding the 10x international retail markups.
               </p>
               <div className="pt-2 text-[10px] uppercase tracking-[0.25em] text-dusty-rose font-sans font-medium">
-                HONEST FORMULATION · PAKISTAN-FIRST ACCESSIBILITY
+                GRASSE FORMULATION · PAKISTAN-FIRST ACCESSIBILITY
               </div>
             </div>
 

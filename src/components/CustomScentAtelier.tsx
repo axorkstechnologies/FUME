@@ -58,9 +58,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({ onOpenCo
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-sm md:text-base font-sans font-light tracking-wide text-shadow/60 max-w-xl mx-auto leading-relaxed"
         >
-          Work with our master perfumer to compose an entirely personal fragrance — 
-          select your preferred notes, describe the emotion you wish to capture, 
-          or let our atelier guide you through a curated olfactory journey.
+          Work with our master perfumers to compose an entirely personal fragrance. Formulated at our Creation Lab in Grasse, France, and bottled exclusively for you in a bespoke engraved flacon.
         </motion.p>
 
         {/* Feature Pills */}

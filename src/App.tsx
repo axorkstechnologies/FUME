@@ -11,7 +11,7 @@ import { FeaturedCollection } from './components/FeaturedCollection';
 import { EditorialBrand } from './components/EditorialBrand';
 import { FragranceDiscovery } from './components/FragranceDiscovery';
 import { ReelViewerModal } from './components/ReelViewerModal';
-import { CampaignBanner } from './components/CampaignBanner';
+import { CampaignLookbook } from './components/CampaignLookbook';
 import { TestimonialsSection } from './components/TestimonialsSection';
 import { BrandStatement } from './components/BrandStatement';
 import { Footer } from './components/Footer';
@@ -30,6 +30,7 @@ import { ContactView } from './components/ContactView';
 import { CareView } from './components/CareView';
 import { resetScrollLock } from './utils/scrollLock';
 import { getPrice50, getPrice100 } from './utils/pricing';
+import { SEOSchema } from './components/SEOSchema';
 
 export function App() {
   const [currentView, setCurrentView] = useState<ScreenView>('home');
@@ -181,6 +182,9 @@ export function App() {
     <div
       className="min-h-screen relative flex flex-col font-sans selection:bg-dusty-rose selection:text-shadow bg-pearl text-shadow"
     >
+      {/* Dynamic SEO JSON-LD injection */}
+      <SEOSchema />
+      
       {/* Dynamic Animated Ambient Colors & Moving Particles Canvas */}
       <AmbientCanvas themeMode={themeMode} />
 
@@ -230,10 +234,8 @@ export function App() {
               themeMode={themeMode}
             />
 
-            {/* 5. FULL-WIDTH PRODUCT / CAMPAIGN IMAGE */}
-            <CampaignBanner
-              onShopNow={() => handleNavigate('perfumes')}
-            />
+            {/* 5. HIGH-END CAMPAIGN LOOKBOOK (Uncropped Images) */}
+            <CampaignLookbook />
 
             {/* 5.5 CUSTOM SCENT ATELIER */}
             <CustomScentAtelier onOpenContact={() => setIsContactOpen(true)} />
