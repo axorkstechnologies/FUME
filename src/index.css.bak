@@ -1,0 +1,229 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pearl: #FAF8F5;
+  --color-oyster: #EFECE6;
+  --color-dusty-rose: #9E7D6A;
+  --color-sand: #C8B29E;
+  --color-shadow: #121110;
+  
+  --font-serif: "Bodoni Moda", Georgia, serif;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* === REFINED ARTISANAL BASELINE === */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
+  background-color: var(--color-pearl);
+  color: var(--color-shadow);
+}
+
+/* Stronger body text baseline */
+p, span, a, li, label, option, input, textarea, select {
+  font-weight: 400;
+}
+
+/* Elevate all serif headings */
+h1, h2, h3, h4, h5, h6 {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  text-rendering: geometricPrecision;
+}
+
+/* Premium focus ring */
+*:focus-visible {
+  outline: 2px solid var(--color-dusty-rose);
+  outline-offset: 2px;
+}
+
+/* Premium button base */
+button {
+  font-family: var(--font-sans);
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.4s ease;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-dusty-rose);
+  color: var(--color-pearl);
+}
+
+/* Refined Architectural Glassmorphism Utilities */
+.glass-panel {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 12px 40px -8px rgba(44, 37, 34, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.glass-card {
+  background: linear-gradient(180deg, rgba(248, 244, 240, 0.8) 0%, rgba(232, 226, 220, 0.9) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 14px 40px -10px rgba(44, 37, 34, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(201, 169, 166, 0.6);
+  box-shadow: 0 20px 50px -10px rgba(44, 37, 34, 0.1), 0 0 30px rgba(201, 169, 166, 0.15), inset 0 1px 0 rgba(201, 169, 166, 0.2);
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px rgba(201, 169, 166, 0.3);
+}
+
+
+@keyframes floatOrb1 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(40px, -60px) scale(1.12);
+  }
+  66% {
+    transform: translate(-35px, 45px) scale(0.92);
+  }
+}
+
+@keyframes floatOrb2 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(-50px, 50px) scale(0.95);
+  }
+  66% {
+    transform: translate(45px, -35px) scale(1.15);
+  }
+}
+
+@keyframes floatOrb3 {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(30px, 40px) scale(1.08);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+/* Native scroll only */
+html {
+  scroll-behavior: auto;
+}
+
+/* Mobile Header (< 768px): Clean 3-column layout matching approved mobile UI */
+.site-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 16px;
+  position: relative;
+}
+
+.brand {
+  position: static;
+  transform: none;
+  justify-self: center;
+}
+
+/* Tablet & Desktop Header (>= 768px): Permanent Center Logo & Safe Zone Isolation */
+@media (min-width: 768px) {
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    column-gap: 0;
+  }
+
+  /* The "FUME" logo is permanently and perfectly centered in the viewport */
+  .brand {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    pointer-events: auto;
+    margin: 0;
+  }
+
+  /* Left navigation boundary: stops >= 45px before the center logo */
+  .nav-left {
+    max-width: calc(50% - 110px);
+    flex: 0 1 auto;
+    min-width: 0;
+    z-index: 20;
+  }
+
+  /* Right navigation boundary: stops >= 45px after the center logo */
+  .nav-right {
+    max-width: calc(50% - 110px);
+    flex: 0 1 auto;
+    min-width: 0;
+    z-index: 20;
+  }
+
+  /* Fluid, harmonious gap for navigation links so CLIENT CARE never touches FUME */
+  .nav-left nav {
+    gap: clamp(6px, 1.1vw, 22px);
+    max-width: 100%;
+  }
+
+  /* Proportional letter-spacing and font-size across laptop and desktop screens */
+  .nav-left nav button {
+    font-size: clamp(9.5px, 0.75vw, 11px);
+    letter-spacing: clamp(0.06em, 0.08vw, 0.15em);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+/* Fine-tune logo tracking on laptop & tablet (768px - 1280px) to maximize elegance & clearance */
+@media (min-width: 768px) and (max-width: 1280px) {
+  .brand button span:first-child {
+    font-size: clamp(24px, 2.3vw, 28px);
+    letter-spacing: 0.32em;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-pearl);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-oyster);
+  border-radius: 3px;
+  border: 1px solid rgba(201, 169, 166, 0.15); /* dusty rose */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-dusty-rose);
+}

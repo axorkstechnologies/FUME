@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+const fs = require('fs');
+
+const code = `import React, { useState } from 'react';
 import { Mail, MessageCircle, MapPin, ArrowRight } from 'lucide-react';
 import { ThemeMode } from '../types';
 
@@ -197,3 +199,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
     </div>
   );
 };
+`;
+
+fs.writeFileSync('src/components/ContactView.tsx', code);
+console.log('Done replacing ContactView.tsx');

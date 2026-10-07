@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+const fs = require('fs');
+
+const code = `import React, { useState, useEffect } from 'react';
 import { Search, ShoppingBag, Menu, X } from 'lucide-react';
 import { ScreenView } from '../types';
 
@@ -53,7 +55,7 @@ export const Header: React.FC<HeaderProps> = ({
   const logoSrc = isDarkTop ? '/logo/logo-white.png' : '/logo/logo-black.png';
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${headerClasses}`}>
+    <header className={\`fixed top-0 left-0 w-full z-50 transition-all duration-500 \${headerClasses}\`}>
       <div className="site-header w-full max-w-[1700px] mx-auto px-5 sm:px-8 md:px-12 h-20 md:h-24">
         
         {/* Left Navigation */}
@@ -61,7 +63,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="flex md:hidden items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2 transition-colors cursor-pointer ${textColorClass}/80 hover:${textColorClass}`}
+              className={\`p-2 transition-colors cursor-pointer \${textColorClass}/80 hover:\${textColorClass}\`}
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -74,11 +76,11 @@ export const Header: React.FC<HeaderProps> = ({
                 <button
                   key={item.view}
                   onClick={() => handleLinkClick(item.view)}
-                  className={`text-[10px] xl:text-[10.5px] uppercase tracking-[0.2em] font-sans transition-all duration-300 cursor-pointer relative py-1.5 whitespace-nowrap shrink-0 ${
+                  className={\`text-[10px] xl:text-[10.5px] uppercase tracking-[0.2em] font-sans transition-all duration-300 cursor-pointer relative py-1.5 whitespace-nowrap shrink-0 \${
                     isActive
-                      ? `${textColorClass} font-semibold after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-current`
-                      : `${textColorClass}/70 hover:${textColorClass}`
-                  }`}
+                      ? \`\${textColorClass} font-semibold after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-current\`
+                      : \`\${textColorClass}/70 hover:\${textColorClass}\`
+                  }\`}
                 >
                   {item.label}
                 </button>
@@ -105,14 +107,14 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="nav-right flex items-center justify-end gap-5 md:gap-6 min-w-0">
           <button
             onClick={onOpenSearch}
-            className={`p-2 transition-colors cursor-pointer ${textColorClass}/80 hover:${textColorClass}`}
+            className={\`p-2 transition-colors cursor-pointer \${textColorClass}/80 hover:\${textColorClass}\`}
           >
             <Search className="w-4 h-4 md:w-[18px] md:h-[18px]" />
           </button>
 
           <button
             onClick={onOpenCart}
-            className={`flex items-center gap-2 transition-colors cursor-pointer group ${textColorClass}/80 hover:${textColorClass}`}
+            className={\`flex items-center gap-2 transition-colors cursor-pointer group \${textColorClass}/80 hover:\${textColorClass}\`}
           >
             <div className="relative">
               <ShoppingBag className="w-4 h-4 md:w-[18px] md:h-[18px] transition-transform duration-300 group-hover:scale-105" />
@@ -123,7 +125,7 @@ export const Header: React.FC<HeaderProps> = ({
               )}
             </div>
             <span className="hidden sm:inline text-[10px] uppercase tracking-[0.2em] font-sans">
-              BAG {cartCount > 0 ? `(${cartCount})` : ''}
+              BAG {cartCount > 0 ? \`(\${cartCount})\` : ''}
             </span>
           </button>
         </div>
@@ -137,9 +139,9 @@ export const Header: React.FC<HeaderProps> = ({
               <button
                 key={item.view}
                 onClick={() => handleLinkClick(item.view)}
-                className={`text-left py-2 text-xs uppercase tracking-[0.25em] font-sans transition-colors cursor-pointer ${
+                className={\`text-left py-2 text-xs uppercase tracking-[0.25em] font-sans transition-colors cursor-pointer \${
                   currentView === item.view ? 'text-shadow font-semibold' : 'text-shadow/60'
-                }`}
+                }\`}
               >
                 {item.label}
               </button>
@@ -159,3 +161,7 @@ export const Header: React.FC<HeaderProps> = ({
     </header>
   );
 };
+`;
+
+fs.writeFileSync('src/components/Header.tsx', code);
+console.log('Done replacing Header.tsx');

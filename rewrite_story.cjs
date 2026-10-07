@@ -1,4 +1,6 @@
-import React from 'react';
+const fs = require('fs');
+
+const code = `import React from 'react';
 import { EDITORIAL_IMAGE } from '../data/fragrances';
 import { ThemeMode } from '../types';
 import { Compass, Award, MessageCircle, ArrowRight } from 'lucide-react';
@@ -149,3 +151,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
     </article>
   );
 };
+`;
+
+fs.writeFileSync('src/components/StoryView.tsx', code);
+console.log('Done replacing StoryView.tsx');

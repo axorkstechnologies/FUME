@@ -1,4 +1,6 @@
-import React from 'react';
+const fs = require('fs');
+
+const code = `import React from 'react';
 import { X, Minus, Plus, ShoppingBag, ArrowRight } from 'lucide-react';
 import { CartItem, ThemeMode } from '../types';
 import { getFragranceTitle } from '../data/fragrances';
@@ -23,22 +25,22 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
   return (
     <div
-      className={`fixed inset-0 z-[100] transition-all duration-500 ${
+      className={\`fixed inset-0 z-[100] transition-all duration-500 \${
         isOpen ? 'visible' : 'invisible'
-      }`}
+      }\`}
       aria-hidden={!isOpen}
     >
       <div
-        className={`absolute inset-0 bg-shadow/40 backdrop-blur-sm transition-opacity duration-500 ${
+        className={\`absolute inset-0 bg-shadow/40 backdrop-blur-sm transition-opacity duration-500 \${
           isOpen ? 'opacity-100' : 'opacity-0'
-        }`}
+        }\`}
         onClick={onClose}
       />
 
       <div
-        className={`absolute top-0 right-0 h-full w-full max-w-md bg-pearl text-shadow shadow-2xl transition-transform duration-500 ease-[0.16,1,0.3,1] ${
+        className={\`absolute top-0 right-0 h-full w-full max-w-md bg-pearl text-shadow shadow-2xl transition-transform duration-500 ease-[0.16,1,0.3,1] \${
           isOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
+        }\`}
       >
         <div className="flex flex-col h-full">
           {/* Header */}
@@ -82,13 +84,13 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
                 return (
                   <div
-                    key={`${item.fragrance.id}-${item.size}-${idx}`}
+                    key={\`\${item.fragrance.id}-\${item.size}-\${idx}\`}
                     className="flex gap-6 pb-8 border-b border-shadow/[0.08] last:border-b-0"
                   >
                     {/* Exact Bottle Image Showcase (Uncropped) */}
-                    <div className={`w-24 h-32 rounded-none shrink-0 p-3 flex items-center justify-center relative overflow-hidden ${
+                    <div className={\`w-24 h-32 rounded-none shrink-0 p-3 flex items-center justify-center relative overflow-hidden \${
                       isSignature ? 'bg-[#EAE6DF]' : 'bg-oyster/50'
-                    }`}>
+                    }\`}>
                       <img
                         src={item.fragrance.image}
                         alt={item.fragrance.name}
@@ -174,15 +176,15 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   const cartDetails = cartItems
                     .map(
                       (i) =>
-                        `• ${getFragranceTitle(i.fragrance)} (${i.fragrance.id === 'discovery-set' ? '5x5ml Testers' : i.size}, qty: ${i.quantity}) - Rs ${(
+                        \`• \${getFragranceTitle(i.fragrance)} (\${i.fragrance.id === 'discovery-set' ? '5x5ml Testers' : i.size}, qty: \${i.quantity}) - Rs \${(
                           i.price * i.quantity
-                        ).toLocaleString()}`
+                        ).toLocaleString()}\`
                     )
-                    .join('\n');
+                    .join('\\n');
                   const msg = encodeURIComponent(
-                    `Hello FUME Concierge, I would like to place an order (Cash on Delivery):\n\n${cartDetails}\n\nTotal: Rs ${subtotal.toLocaleString()}\n\nDelivery Address: `
+                    \`Hello FUME Concierge, I would like to place an order (Cash on Delivery):\\n\\n\${cartDetails}\\n\\nTotal: Rs \${subtotal.toLocaleString()}\\n\\nDelivery Address: \`
                   );
-                  window.open(`https://wa.me/92381825636?text=${msg}`, '_blank');
+                  window.open(\`https://wa.me/92381825636?text=\${msg}\`, '_blank');
                   onClose();
                 }}
                 className="w-full py-5 text-[10px] uppercase tracking-[0.3em] font-sans transition-all duration-300 flex items-center justify-center gap-4 bg-shadow text-pearl hover:bg-shadow/90"
@@ -196,3 +198,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
     </div>
   );
 };
+`;
+
+fs.writeFileSync('src/components/CartDrawer.tsx', code);
+console.log('Done replacing CartDrawer.tsx');

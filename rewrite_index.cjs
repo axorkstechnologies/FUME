@@ -1,4 +1,6 @@
-@import "tailwindcss";
+const fs = require('fs');
+
+const css = `@import "tailwindcss";
 
 @theme {
   --color-pearl: #FDFBF7;
@@ -140,3 +142,7 @@ button {
   letter-spacing: 0.15em;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
+`;
+
+fs.writeFileSync('src/index.css', css);
+console.log('Done rewriting index.css');

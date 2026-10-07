@@ -23,7 +23,7 @@ export interface Fragrance {
   origin?: string;
   productType?: 'signature' | 'impression' | 'set';
   inStock: boolean;
-  // Pastel luxury aesthetic attributes
+  // Pastel premium aesthetic attributes
   pastelBg: string;
   pastelAccent: string;
   pastelGlow: string;

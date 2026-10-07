@@ -1,4 +1,6 @@
-import React, { useState, useMemo } from 'react';
+const fs = require('fs');
+
+const code = `import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Fragrance, ThemeMode } from '../types';
 import { getFragranceTitle } from '../data/fragrances';
@@ -60,7 +62,7 @@ export const PerfumesView: React.FC<PerfumesViewProps> = ({
     const msg = encodeURIComponent(
       "Hello FUME Concierge, I am interested in creating a Custom Made Bespoke Fragrance. Please guide me through your private atelier process."
     );
-    window.open(`https://wa.me/92381825636?text=${msg}`, '_blank');
+    window.open(\`https://wa.me/92381825636?text=\${msg}\`, '_blank');
   };
 
   return (
@@ -90,11 +92,11 @@ export const PerfumesView: React.FC<PerfumesViewProps> = ({
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`text-[10px] uppercase tracking-[0.24em] font-sans transition-all duration-300 cursor-pointer relative py-1 ${
+                className={\`text-[10px] uppercase tracking-[0.24em] font-sans transition-all duration-300 cursor-pointer relative py-1 \${
                   selectedCategory === cat
                     ? 'text-shadow font-semibold after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-shadow'
                     : 'text-shadow/60 hover:text-shadow'
-                }`}
+                }\`}
               >
                 {cat}
               </button>
@@ -191,13 +193,13 @@ export const PerfumesView: React.FC<PerfumesViewProps> = ({
                     className="group flex flex-col cursor-pointer"
                   >
                     {/* Bottle Display - High-end framed look */}
-                    <div className={`relative w-full aspect-[3/4] flex items-center justify-center p-8 transition-colors duration-500 overflow-hidden mb-6 ${
+                    <div className={\`relative w-full aspect-[3/4] flex items-center justify-center p-8 transition-colors duration-500 overflow-hidden mb-6 \${
                       isSignature 
                         ? 'bg-[#EAE6DF]' // Sand tone for signature
                         : isDiscoverySet 
                         ? 'bg-oyster'
                         : 'bg-oyster/50 hover:bg-oyster'
-                    }`}>
+                    }\`}>
                       {isSignature && (
                         <div className="absolute top-4 left-4 right-4 flex justify-between items-center z-10">
                           <span className="text-[9px] uppercase tracking-[0.3em] font-sans font-semibold text-shadow">
@@ -222,7 +224,7 @@ export const PerfumesView: React.FC<PerfumesViewProps> = ({
 
                       <img
                         src={fragrance.image}
-                        alt={`FUME ${fragrance.name}`}
+                        alt={\`FUME \${fragrance.name}\`}
                         className="w-full h-full object-contain filter drop-shadow-md select-none transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:scale-105"
                         loading="lazy"
                       />
@@ -265,3 +267,7 @@ export const PerfumesView: React.FC<PerfumesViewProps> = ({
     </div>
   );
 };
+`;
+
+fs.writeFileSync('src/components/PerfumesView.tsx', code);
+console.log('Done replacing PerfumesView.tsx');

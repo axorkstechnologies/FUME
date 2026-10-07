@@ -1,4 +1,6 @@
-import React from 'react';
+const fs = require('fs');
+
+const code = `import React from 'react';
 import { motion } from 'motion/react';
 import { Fragrance, ThemeMode } from '../types';
 import { CAMPAIGN_IMAGE, EDITORIAL_IMAGE, HERO_BOTTLE_IMAGE } from '../data/fragrances';
@@ -63,7 +65,7 @@ export const CollectionsView: React.FC<CollectionsViewProps> = ({
 
             return (
               <section key={collection.title} className="space-y-16">
-                <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-24 items-center`}>
+                <div className={\`flex flex-col \${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-24 items-center\`}>
                   
                   {/* Editorial Image */}
                   <div className="w-full lg:w-[45%] aspect-[4/5] bg-oyster/50 flex items-center justify-center overflow-hidden">
@@ -134,3 +136,7 @@ export const CollectionsView: React.FC<CollectionsViewProps> = ({
     </div>
   );
 };
+`;
+
+fs.writeFileSync('src/components/CollectionsView.tsx', code);
+console.log('Done replacing CollectionsView.tsx');

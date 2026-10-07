@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+const fs = require('fs');
+
+const code = `import React, { useState } from 'react';
 import { ScreenView, ThemeMode } from '../types';
 
 interface FooterProps {
@@ -125,3 +127,7 @@ export const Footer: React.FC<FooterProps> = ({
     </footer>
   );
 };
+`;
+
+fs.writeFileSync('src/components/Footer.tsx', code);
+console.log('Done replacing Footer.tsx');

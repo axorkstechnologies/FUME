@@ -1,4 +1,6 @@
-import React from 'react';
+const fs = require('fs');
+
+const code = `import React from 'react';
 import { motion } from 'motion/react';
 import { ThemeMode } from '../types';
 
@@ -100,3 +102,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     </section>
   );
 };
+`;
+
+fs.writeFileSync('src/components/HeroSection.tsx', code);
+console.log('Done replacing HeroSection.tsx');
