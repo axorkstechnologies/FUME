@@ -10,9 +10,9 @@ export const BrandMarquee: React.FC<BrandMarqueeProps> = () => {
     'FUME HAUTE PARFUMERIE',
     'SINCE 2024',
     'SCENT, REFINED',
-    'GRASSE & PARIS',
-    '14+ HRS LONGEVITY',
-    'BOTANICAL DISTILLATES',
+    'KARACHI · EST. 2024',
+    'ALL-DAY PRESENCE',
+    'ARTISAN CRAFTED',
     'EST. 2024',
     'THE ARCHIVE COLLECTION'
   ];

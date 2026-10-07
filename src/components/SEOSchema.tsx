@@ -7,7 +7,7 @@ export const SEOSchema: React.FC = () => {
       "@type": "Product",
       "name": `FUME ${f.name} Eau de Parfum`,
       "image": `https://fume-six.vercel.app${f.image}`,
-      "description": `Luxury Eau de Parfum. ${f.notesLine}. Formulated with Grasse distillates for 14+ hours longevity.`,
+      "description": `Eau de Parfum. ${f.notesLine}. Crafted with premium ingredients for lasting presence.`,
       "brand": {
         "@type": "Brand",
         "name": "FUME FRAGRANCES"
@@ -34,7 +34,7 @@ export const SEOSchema: React.FC = () => {
           "name": "How long do FUME Fragrances last?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Our fragrances are formulated as true Eau de Parfum with high concentration (22-28%), ensuring 14+ hours of longevity on skin and fabrics."
+            "text": "Our fragrances are formulated as true Eau de Parfum with high concentration (22-28%), ensuring all-day presence on skin and fabrics."
           }
         },
         {
@@ -42,7 +42,7 @@ export const SEOSchema: React.FC = () => {
           "name": "Where are FUME Fragrances made?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Our distillates are sourced and formulated at our Creation Lab in Grasse, France, and carefully bottled in Pakistan to ensure accessible luxury pricing without compromising quality."
+            "text": "Our ingredients are carefully sourced and formulated, then bottled in Pakistan to ensure accessible pricing without compromising quality."
           }
         },
         {

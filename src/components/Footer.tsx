@@ -27,7 +27,7 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer className="relative w-full font-sans border-t border-shadow/[0.08] bg-pearl text-shadow/60">
+    <footer className="relative w-full font-sans border-t border-shadow/[0.08] bg-pearl text-shadow">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-20 pb-12 space-y-16">
 
         {/* Top: Logo & Newsletter */}
@@ -39,11 +39,11 @@ export const Footer: React.FC<FooterProps> = ({
                 alt="FUME FRAGRANCES"
                 className="h-8 md:h-10 w-auto object-contain select-none"
               />
-              <span className="text-[9px] uppercase tracking-[0.3em] text-dusty-rose font-sans font-medium px-2 py-0.5 border border-dusty-rose/40 rounded-xs">
+              <span className="text-[9px] uppercase tracking-[0.3em] text-dusty-rose font-sans font-semibold px-2 py-0.5 border border-dusty-rose/40 rounded-xs">
                 EST. 2024
               </span>
             </div>
-            <p className="text-xs uppercase tracking-[0.25em] text-dusty-rose">
+            <p className="text-xs uppercase tracking-[0.25em] text-dusty-rose font-medium">
               FUME FRAGRANCES (SMC-PRIVATE) LIMITED
             </p>
           </div>
@@ -52,7 +52,7 @@ export const Footer: React.FC<FooterProps> = ({
             <span className="text-[10px] uppercase tracking-[0.3em] block text-shadow font-medium">
               NEWSLETTER
             </span>
-            <p className="text-xs font-light max-w-md text-shadow/50 leading-relaxed">
+            <p className="text-xs font-normal max-w-md text-shadow/80 leading-relaxed">
               Receive private allocations, seasonal flacon releases, and invitations to salon appointments.
             </p>
 
@@ -155,26 +155,25 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </div>
 
-          {/* CREATION LAB & CONTACT */}
+          {/* STUDIO & CONTACT */}
           <div className="space-y-4">
             <span className="text-[10px] uppercase tracking-[0.28em] block font-medium text-shadow">
-              CREATION LAB
+              STUDIO
             </span>
             <ul className="space-y-2.5 text-[11px] tracking-wider">
-              <li className="uppercase text-shadow/50 leading-relaxed">
-                GRASSE LABORATORY<br />
-                8 Boulevard Fragonard,<br />
-                06130 Grasse, France<br />
-                <span className="text-[9px] text-dusty-rose">Private appointments only</span>
+              <li className="uppercase text-shadow leading-relaxed font-normal">
+                32/A Society Office,<br />
+                PECHS Block 2,<br />
+                Kashmir Road, Karachi
               </li>
               <li className="pt-1 border-t border-shadow/[0.06]">
-                <a href="mailto:jiaaryan20@gmail.com" className="hover:text-dusty-rose transition-colors lowercase text-shadow/60">
+                <a href="mailto:jiaaryan20@gmail.com" className="hover:text-dusty-rose transition-colors lowercase text-shadow font-medium">
                   jiaaryan20@gmail.com
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/923132970468" target="_blank" rel="noopener noreferrer" className="hover:text-dusty-rose transition-colors uppercase text-shadow/60">
-                  WhatsApp: +92 313 297 0468
+                <a href="https://wa.me/92381825636" target="_blank" rel="noopener noreferrer" className="hover:text-dusty-rose transition-colors uppercase text-shadow font-medium">
+                  WhatsApp: +92 381 825 636
                 </a>
               </li>
             </ul>
@@ -185,7 +184,7 @@ export const Footer: React.FC<FooterProps> = ({
             <span className="text-[10px] uppercase tracking-[0.28em] block font-medium text-shadow">
               OUTLETS
             </span>
-            <p className="text-[11px] tracking-wider uppercase text-dusty-rose/80 italic">
+            <p className="text-[11px] tracking-wider uppercase text-dusty-rose font-medium italic">
               Coming Soon
             </p>
 
@@ -194,12 +193,12 @@ export const Footer: React.FC<FooterProps> = ({
             </span>
             <ul className="space-y-2.5 text-[11px] tracking-wider uppercase">
               <li>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-dusty-rose transition-colors">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-dusty-rose transition-colors text-shadow font-medium">
                   Instagram
                 </a>
               </li>
               <li>
-                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="hover:text-dusty-rose transition-colors">
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="hover:text-dusty-rose transition-colors text-shadow font-medium">
                   TikTok
                 </a>
               </li>
@@ -208,12 +207,12 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
         {/* Bottom: Copyright */}
-        <div className="pt-8 border-t border-shadow/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-[0.25em] text-shadow/35">
+        <div className="pt-8 border-t border-shadow/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-[0.25em] text-shadow/60">
           <span>
             © 2024–{new Date().getFullYear()} FUME FRAGRANCES (SMC-PRIVATE) LIMITED. ALL RIGHTS RESERVED.
           </span>
           <div className="flex gap-6">
-            <span>GRASSE • KARACHI</span>
+            <span>KARACHI • PAKISTAN</span>
             <span>PRIVACY & LEGAL</span>
           </div>
         </div>

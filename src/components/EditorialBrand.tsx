@@ -46,7 +46,7 @@ export const EditorialBrand: React.FC<EditorialBrandProps> = ({
               <div className="absolute inset-0 bg-gradient-to-t from-pearl/70 via-transparent to-transparent pointer-events-none" />
 
               <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] text-dusty-rose font-sans">
-                <span>ATELIER GRASSE</span>
+                <span>ATELIER FUME</span>
                 <span>ARCHIVE EST. 2024</span>
               </div>
             </div>
@@ -60,23 +60,23 @@ export const EditorialBrand: React.FC<EditorialBrandProps> = ({
                   PHILOSOPHY & VISION
                 </span>
                 <span className="w-1.5 h-1.5 rounded-full bg-dusty-rose" />
-                <span className="text-[10px] uppercase tracking-[0.25em] text-shadow/60 font-sans">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-shadow/80 font-sans">
                   SINCE 2024
                 </span>
               </div>
 
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal uppercase tracking-[0.14em] leading-[1.15] text-shadow">
                 THE ESSENCE <br />
-                <span className="italic font-light text-dusty-rose">OF FUME</span>
+                <span className="italic font-normal text-dusty-rose">OF FUME</span>
               </h2>
             </div>
 
-            <div className="space-y-6 text-sm sm:text-base font-sans font-light leading-relaxed max-w-lg text-shadow/60">
+            <div className="space-y-6 text-sm sm:text-base font-sans font-normal leading-relaxed max-w-lg text-shadow">
               <p>
-                FUME creates luxurious, long-lasting fragrances designed to evoke emotion, sophistication, and a lasting impression.
+                FUME creates refined, long-lasting fragrances designed to evoke emotion, sophistication, and an indelible impression.
               </p>
-              <p className="text-xs sm:text-sm leading-relaxed">
-                Established in 2024, our atelier merges centuries-old French enfleurage techniques with modern molecular precision. Formulated at high perfume concentrations using rare botanicals, noble woods, and precious resins, each flacon is an intimate signature crafted to evolve with your skin's warmth.
+              <p className="text-xs sm:text-sm leading-relaxed text-shadow/80">
+                Established in 2024, our atelier merges time-honored artisanal enfleurage traditions with modern precision. Formulated at high perfume concentrations using rare botanicals, noble woods, and precious resins, each flacon is an intimate signature crafted to evolve with your skin's warmth.
               </p>
             </div>
 
@@ -86,15 +86,15 @@ export const EditorialBrand: React.FC<EditorialBrandProps> = ({
                 <span className="font-serif text-2xl sm:text-3xl text-dusty-rose font-normal block">
                   35%
                 </span>
-                <span className="text-[10px] uppercase tracking-[0.25em] font-sans block text-shadow/60">
+                <span className="text-[10px] uppercase tracking-[0.25em] font-sans block text-shadow/80">
                   Maximal Potency
                 </span>
               </div>
               <div className="space-y-1">
                 <span className="font-serif text-2xl sm:text-3xl text-dusty-rose font-normal block">
-                  14+ HRS
+                  ALL-DAY
                 </span>
-                <span className="text-[10px] uppercase tracking-[0.25em] font-sans block text-shadow/60">
+                <span className="text-[10px] uppercase tracking-[0.25em] font-sans block text-shadow/80">
                   Skin Longevity
                 </span>
               </div>

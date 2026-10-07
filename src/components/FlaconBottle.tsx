@@ -23,7 +23,7 @@ interface FlaconLabelProps {
  * Precision haute parfumerie label that seamlessly and perfectly overlaps
  * the physical white label strip existing on the flint glass bottle images.
  * Expanded slightly to align naturally with the flacon's architectural facet
- * and give an authentic physical luxury product look rather than an artificial overlay.
+ * and give an authentic physical premium product look rather than an artificial overlay.
  * Coordinates calibrated with natural margin:
  * top: 40.40%, left: 44.10%, width: 26.50%, height: 30.20%
  */
@@ -134,7 +134,7 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
   const isLight = themeMode === 'light';
   const nameToDisplay = customName || fragrance.name;
   const isMasterAsset = fragrance.image.startsWith('/bottles/');
-  const family = fragrance.olfactoryFamily || 'Luxury';
+  const family = fragrance.olfactoryFamily || 'Premium';
   const targetAudience = fragrance.genderCategory === 'FOR HER' ? 'women' : fragrance.genderCategory === 'FOR HIM' ? 'men' : 'unisex';
   const altText = `FUME ${nameToDisplay} Eau de Parfum bottle : ${family} fragrance for ${targetAudience}`;
 
@@ -259,7 +259,7 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
               e.stopPropagation();
               if (onQuickAdd) onQuickAdd();
             }}
-            className="w-full py-3 bg-dusty-rose text-pearl hover:bg-pearl transition-colors text-[10px] uppercase tracking-[0.24em] font-sans font-semibold cursor-pointer shadow-lg rounded-xs"
+            className="w-full py-4 bg-dusty-rose text-pearl hover:bg-pearl transition-colors text-[10px] uppercase tracking-[0.24em] font-sans font-semibold cursor-pointer shadow-lg rounded-xs"
           >
             ADD TO BAG
           </button>

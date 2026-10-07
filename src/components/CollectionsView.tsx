@@ -30,7 +30,7 @@ export const CollectionsView: React.FC<CollectionsViewProps> = ({
     {
       title: 'THE TERRA LEATHER ARCHIVE',
       tagline: 'RARE WOODS & AGED RESINS • EST. 2024',
-      description: 'Scorched birch, Tuscan leather, and Virginian tobacco aged in French oak casks for unprecedented longevity.',
+      description: 'Scorched birch, Tuscan leather, and Virginian tobacco aged in charred oak casks for unprecedented longevity.',
       image: EDITORIAL_IMAGE,
       featuredIds: ['bomb', 'creed', 'beckham'],
       pastelTag: '#FDFBF7'
@@ -64,7 +64,7 @@ export const CollectionsView: React.FC<CollectionsViewProps> = ({
             COLLECTIONS
           </h1>
           <p
-            className="text-xs sm:text-sm font-sans font-light tracking-widest max-w-md mx-auto text-shadow/60"
+            className="text-xs sm:text-sm font-sans font-normal tracking-widest max-w-md mx-auto text-shadow/80"
           >
             Thematic expressions uniting fragrance, architecture, and enduring emotion.
           </p>
@@ -100,7 +100,7 @@ export const CollectionsView: React.FC<CollectionsViewProps> = ({
                   {col.title}
                 </h2>
                 <p
-                  className="text-xs sm:text-sm font-sans font-light leading-relaxed text-shadow/60"
+                  className="text-xs sm:text-sm font-sans font-normal leading-relaxed text-shadow/80"
                 >
                   {col.description}
                 </p>
@@ -108,7 +108,7 @@ export const CollectionsView: React.FC<CollectionsViewProps> = ({
                 {/* Included Flacons Pills */}
                 <div className="pt-2 space-y-2">
                   <span
-                    className="text-[9px] uppercase tracking-[0.25em] block text-shadow/60"
+                    className="text-[9px] uppercase tracking-[0.25em] block text-shadow/80"
                   >
                     INCLUDED FLACONS:
                   </span>

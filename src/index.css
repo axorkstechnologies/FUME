@@ -1,17 +1,60 @@
 @import "tailwindcss";
 
 @theme {
-  --color-pearl: #FDFBF7;
-  --color-oyster: #F0EBE3;
-  --color-dusty-rose: #D4A59A;
-  --color-sand: #C4A484;
-  --color-shadow: #1A1A1A;
+  --color-pearl: #FAF8F5;
+  --color-oyster: #EFECE6;
+  --color-dusty-rose: #9E7D6A;
+  --color-sand: #C8B29E;
+  --color-shadow: #121110;
   
-  --font-serif: "Bodoni Moda", "Cinzel", Georgia, serif;
+  --font-serif: "Bodoni Moda", Georgia, serif;
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* Light Luxury Glassmorphism Utilities */
+/* === REFINED ARTISANAL BASELINE === */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1;
+  background-color: var(--color-pearl);
+  color: var(--color-shadow);
+}
+
+/* Stronger body text baseline */
+p, span, a, li, label, option, input, textarea, select {
+  font-weight: 400;
+}
+
+/* Elevate all serif headings */
+h1, h2, h3, h4, h5, h6 {
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+  text-rendering: geometricPrecision;
+}
+
+/* Premium focus ring */
+*:focus-visible {
+  outline: 2px solid var(--color-dusty-rose);
+  outline-offset: 2px;
+}
+
+/* Premium button base */
+button {
+  font-family: var(--font-sans);
+}
+
+/* Smooth image loading */
+img {
+  transition: opacity 0.4s ease;
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--color-dusty-rose);
+  color: var(--color-pearl);
+}
+
+/* Refined Architectural Glassmorphism Utilities */
 .glass-panel {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
   backdrop-filter: blur(24px);
@@ -158,7 +201,7 @@ html {
   }
 }
 
-/* Fine-tune logo tracking on laptop & tablet (768px - 1280px) to maximize luxury elegance & clearance */
+/* Fine-tune logo tracking on laptop & tablet (768px - 1280px) to maximize elegance & clearance */
 @media (min-width: 768px) and (max-width: 1280px) {
   .brand button span:first-child {
     font-size: clamp(24px, 2.3vw, 28px);

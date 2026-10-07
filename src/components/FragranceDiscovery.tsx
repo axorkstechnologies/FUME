@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Fragrance, ThemeMode } from '../types';
 import { getFragranceTitle } from '../data/fragrances';
-
 
 interface FragranceDiscoveryProps {
   fragrances: Fragrance[];
@@ -12,70 +11,85 @@ interface FragranceDiscoveryProps {
   themeMode: ThemeMode;
 }
 
-type DiscoveryCategory = 'ALL' | 'FOR HIM' | 'FOR HER' | 'UNISEX' | 'FRESH' | 'WOODY' | 'ORIENTAL';
+type DiscoveryCategory = 'FOR HIM' | 'FOR HER' | 'UNISEX' | 'FRESH' | 'WOODY' | 'ORIENTAL';
 
 const CATEGORIES: {
   label: DiscoveryCategory;
   description: string;
-  pastelPill: string;
 }[] = [
-  { label: 'FOR HIM', description: 'Commanding woods, mineral ambergris, and crisp bergamot', pastelPill: '#F0EBE3' },
-  { label: 'FOR HER', description: 'Nocturnal jasmine, luminous tuberose, and velvet vanilla', pastelPill: '#F0EBE3' },
-  { label: 'UNISEX', description: 'Tuscan leather, Florentine iris, and smoked oakmoss', pastelPill: '#F0EBE3' },
-  { label: 'FRESH', description: 'Calabrian citrus, frost aldehydes, and oceanic accords', pastelPill: '#F0EBE3' },
-  { label: 'WOODY', description: 'Smoky birch, aged cedarwood, and cured Virginian tobacco', pastelPill: '#F0EBE3' },
-  { label: 'ORIENTAL', description: 'Charred tonka bean, sacred frankincense, and warm resins', pastelPill: '#F0EBE3' }
+  { label: 'FOR HIM', description: 'Commanding noble woods, mineral ambergris, and crisp bergamot.' },
+  { label: 'FOR HER', description: 'Nocturnal jasmine, luminous white tuberose, and velvet bourbon vanilla.' },
+  { label: 'UNISEX', description: 'Tuscan leather, Florentine iris butter, and smoked oakmoss.' },
+  { label: 'FRESH', description: 'Calabrian citrus, frost aldehydes, and pure oceanic accords.' },
+  { label: 'WOODY', description: 'Smoky birch, aged cedarwood, and cured Virginian tobacco.' },
+  { label: 'ORIENTAL', description: 'Charred tonka bean, sacred frankincense, and warm amber resins.' }
 ];
 
 export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
   fragrances,
   onSelectFragrance,
   onAddToCart,
-  onViewAllPerfumes,
-  themeMode
+  onViewAllPerfumes
 }) => {
   const [activeCategory, setActiveCategory] = useState<DiscoveryCategory>('UNISEX');
-  const isLight = themeMode === 'light';
 
-  const filteredFragrances = fragrances.filter((f) => {
-    if (activeCategory === 'ALL') return true;
-    if (activeCategory === 'FOR HIM') return f.gender === 'him';
-    if (activeCategory === 'FOR HER') return f.gender === 'her';
-    if (activeCategory === 'UNISEX') return f.gender === 'unisex';
-    return f.families.includes(activeCategory.toLowerCase());
-  });
+  const filteredFragrances = useMemo(() => {
+    let list = fragrances.filter((f) => {
+      if (activeCategory === 'FOR HIM') return f.gender === 'him';
+      if (activeCategory === 'FOR HER') return f.gender === 'her';
+      if (activeCategory === 'UNISEX') return f.gender === 'unisex';
+      return f.families.includes(activeCategory.toLowerCase());
+    });
+
+    // Ensure Discovery Set is always at the end if present
+    const discoverySet = list.find((f) => f.id === 'discovery-set');
+    const itemsWithoutSet = list.filter((f) => f.id !== 'discovery-set');
+
+    // Ensure Signature scents (ARAB & DESERT) are prioritized at top
+    itemsWithoutSet.sort((a, b) => {
+      if (a.id === 'arab' || a.id === 'desert') {
+        if (b.id !== 'arab' && b.id !== 'desert') return -1;
+      }
+      if (b.id === 'arab' || b.id === 'desert') {
+        if (a.id !== 'arab' && a.id !== 'desert') return 1;
+      }
+      return 0;
+    });
+
+    return discoverySet ? [...itemsWithoutSet, discoverySet] : itemsWithoutSet;
+  }, [fragrances, activeCategory]);
 
   return (
     <section
-      className="relative w-full py-24 md:py-36 px-6 md:px-12 lg:px-20 border-t border-shadow/[0.06] bg-pearl"
+      className="relative w-full py-28 md:py-40 px-5 sm:px-8 md:px-12 lg:px-20 border-t border-shadow/[0.06] bg-pearl"
     >
-      <div className="max-w-[1700px] mx-auto space-y-16 md:space-y-20">
+      <div className="max-w-[1600px] mx-auto space-y-16 md:space-y-20">
         {/* Section Header */}
         <div className="text-center space-y-4 max-w-xl mx-auto">
-          <span className="text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-sans font-medium block">
-            OLFACTORY CURATION • SINCE 2024
+          <span className="text-[10px] uppercase tracking-[0.45em] text-dusty-rose font-sans font-medium block">
+            OLFACTORY CURATION • EST. 2024
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal uppercase tracking-[0.16em] text-shadow">
             FIND YOUR SIGNATURE
           </h2>
-          <p className="text-xs sm:text-sm font-sans font-light tracking-wide text-shadow/60">
-            Select a profile to uncover your personal aura.
+          <p className="text-xs sm:text-sm font-sans font-normal tracking-wider text-shadow/80">
+            Select an olfactory profile to discover the scent that belongs to you.
           </p>
         </div>
 
-        {/* Sophisticated Editorial Category Navigation with Dark Glass Pills */}
+        {/* Category Navigation Pills */}
         <div className="max-w-4xl mx-auto space-y-4">
-          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-5">
+          <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 md:gap-4">
             {CATEGORIES.map((cat) => {
               const isSelected = activeCategory === cat.label;
               return (
                 <button
                   key={cat.label}
                   onClick={() => setActiveCategory(cat.label)}
-                  className={`px-6 py-3 text-[11px] uppercase tracking-[0.24em] font-sans transition-all duration-300 cursor-pointer rounded-xs border ${
+                  className={`px-5 sm:px-6 py-2.5 sm:py-3 text-[10px] uppercase tracking-[0.24em] font-sans transition-all duration-300 cursor-pointer rounded-xs border ${
                     isSelected
-                      ? 'bg-dusty-rose text-pearl border-dusty-rose font-medium shadow-[0_0_20px_rgba(201,169,166,0.35)]'
-                      : 'bg-pearl/[0.04] text-shadow/60 border-shadow/[0.08] hover:border-dusty-rose/60 hover:text-shadow'
+                      ? 'bg-shadow text-pearl border-shadow font-semibold shadow-sm'
+                      : 'bg-white/60 text-shadow/80 border-shadow/[0.08] hover:border-dusty-rose hover:text-shadow'
                   }`}
                 >
                   {cat.label}
@@ -85,77 +99,112 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
           </div>
 
           {/* Active Category Description */}
-          <div className="text-center pt-3 text-xs text-dusty-rose font-sans italic tracking-wider">
+          <div className="text-center pt-2 text-xs text-dusty-rose font-sans tracking-wide">
             {CATEGORIES.find((c) => c.label === activeCategory)?.description}
           </div>
         </div>
 
-        {/* Filtered Fragrances – Consistent Card Structure */}
+        {/* Filtered Fragrance Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-10 pt-4"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 sm:gap-8 pt-4"
         >
           <AnimatePresence mode="popLayout">
-            {filteredFragrances.map((fragrance) => (
-              <motion.div
-                key={fragrance.id}
-                layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4 }}
-                className="group flex flex-col cursor-pointer"
-                onClick={() => onSelectFragrance(fragrance)}
-              >
-                {/* Image Card – Fixed aspect ratio for consistency */}
-                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg bg-oyster border border-shadow/[0.06] transition-all duration-500 group-hover:shadow-[0_16px_48px_rgba(26,26,26,0.1)] group-hover:border-dusty-rose/40 group-hover:-translate-y-1.5">
-                  <img
-                    src={fragrance.image}
-                    alt={`FUME ${fragrance.name} Eau de Parfum`}
-                    className="absolute inset-0 w-full h-full object-contain object-center p-6 sm:p-8 select-none transition-transform duration-700 group-hover:scale-[1.04]"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto z-20">
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        onAddToCart(fragrance);
-                      }}
-                      className="w-full py-3 bg-dusty-rose text-pearl text-[10px] uppercase tracking-[0.24em] font-sans font-semibold cursor-pointer rounded transition-colors hover:bg-shadow hover:text-pearl shadow-md active:scale-[0.98]"
-                    >
-                      ADD TO BAG
-                    </button>
-                  </div>
-                </div>
+            {filteredFragrances.map((fragrance) => {
+              const isSignature = fragrance.productType === 'signature';
+              const isDiscoverySet = fragrance.id === 'discovery-set';
 
-                {/* Product Meta – Identical to FeaturedCollection */}
-                <div className="pt-5 space-y-1.5 text-center">
-                  <h3 className="font-serif text-base md:text-lg font-normal uppercase tracking-[0.16em] text-shadow transition-colors group-hover:text-dusty-rose leading-snug">
-                    {getFragranceTitle(fragrance)}
-                  </h3>
-                  <p className="text-[10px] font-sans uppercase tracking-[0.22em] text-shadow/45">
-                    {fragrance.concentration}
-                  </p>
-                  <p className="text-[9px] font-sans tracking-[0.2em] text-shadow/40">
-                    {fragrance.volume}
-                  </p>
-                  <p className="text-sm font-sans font-medium tracking-wider text-dusty-rose pt-1">
-                    Rs {fragrance.price.toLocaleString()}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+              return (
+                <motion.div
+                  key={fragrance.id}
+                  layout
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4 }}
+                  className={`group flex flex-col justify-between rounded-sm p-6 cursor-pointer transition-all duration-400 hover:shadow-[0_16px_40px_rgba(18,17,16,0.08)] hover:-translate-y-1 ${
+                    isSignature
+                      ? 'bg-[#F4EFEB] border-2 border-dusty-rose/40 hover:border-dusty-rose'
+                      : isDiscoverySet
+                      ? 'bg-gradient-to-b from-[#F7F2EC] to-[#EFECE6] border border-dusty-rose/30 hover:border-dusty-rose'
+                      : 'bg-[#F8F5F1] border border-shadow/[0.08] hover:border-dusty-rose/50'
+                  }`}
+                  onClick={() => onSelectFragrance(fragrance)}
+                >
+                  {/* Badges */}
+                  <div className="flex items-center justify-between mb-3">
+                    {isSignature ? (
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-shadow text-pearl text-[8px] uppercase tracking-[0.28em] font-semibold rounded-xs shadow-xs">
+                        <span className="w-1.5 h-1.5 rounded-full bg-dusty-rose animate-pulse" />
+                        SIGNATURE
+                      </span>
+                    ) : isDiscoverySet ? (
+                      <span className="px-3 py-1 bg-dusty-rose text-pearl text-[8px] uppercase tracking-[0.25em] font-semibold rounded-xs shadow-xs">
+                        TESTERS COFFRET
+                      </span>
+                    ) : (
+                      <span className="px-2.5 py-1 bg-white border border-shadow/10 text-shadow text-[8px] uppercase tracking-[0.22em] font-medium rounded-xs shadow-xs">
+                        IMPRESSION
+                      </span>
+                    )}
+
+                    <span className="text-[9px] uppercase tracking-[0.2em] text-shadow/60 font-sans">
+                      {fragrance.genderCategory}
+                    </span>
+                  </div>
+
+                  {/* Bottle Showcase */}
+                  <div className="relative w-full aspect-[4/5] flex items-center justify-center p-6 bg-pearl/75 rounded-xs border border-shadow/[0.03] overflow-hidden my-3">
+                    <img
+                      src={fragrance.image}
+                      alt={`FUME ${fragrance.name} Flacon`}
+                      className="w-full h-full object-contain p-2 select-none transition-transform duration-600 ease-out group-hover:scale-105 filter drop-shadow-sm"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  {/* Metadata & Actions */}
+                  <div className="pt-3 space-y-3 flex-1 flex flex-col justify-between">
+                    <div className="space-y-1 text-center">
+                      <h4 className="font-serif text-lg uppercase tracking-[0.14em] text-shadow group-hover:text-dusty-rose transition-colors duration-300">
+                        {getFragranceTitle(fragrance)}
+                      </h4>
+                      <p className="text-[10px] uppercase tracking-[0.2em] text-dusty-rose font-sans font-medium">
+                        {fragrance.subtitle}
+                      </p>
+                      <p className="text-[9px] uppercase tracking-[0.18em] text-shadow/60 font-sans">
+                        {isDiscoverySet ? '5 × 5 ML CURATED TESTERS' : '50 ML EAU DE PARFUM'}
+                      </p>
+                    </div>
+
+                    <div className="pt-4 border-t border-shadow/[0.06] flex items-center justify-between">
+                      <span className="font-serif text-lg font-medium text-dusty-rose">
+                        Rs {fragrance.price.toLocaleString()}
+                      </span>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          onAddToCart(fragrance);
+                        }}
+                        className="px-4 py-2 bg-shadow text-pearl hover:bg-dusty-rose text-[9px] uppercase tracking-[0.22em] font-sans font-semibold transition-colors duration-300 cursor-pointer shadow-xs active:scale-[0.98]"
+                      >
+                        ADD TO BAG
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </motion.div>
 
-        {/* View All Discovery Link */}
+        {/* View All Perfumes CTA */}
         <div className="text-center pt-8">
           <button
             onClick={onViewAllPerfumes}
-            className="text-[11px] uppercase tracking-[0.28em] transition-colors cursor-pointer border-b border-dusty-rose pb-1 font-sans text-shadow/60 hover:text-shadow"
+            className="px-12 py-4 bg-transparent border border-shadow/30 text-shadow hover:border-dusty-rose hover:text-dusty-rose text-[10px] uppercase tracking-[0.28em] font-sans font-medium transition-all duration-300 cursor-pointer"
           >
-            EXPLORE COMPLETE COLLECTION →
+            VIEW ALL PERFUMES
           </button>
         </div>
       </div>

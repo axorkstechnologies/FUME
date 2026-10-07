@@ -51,7 +51,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
       {/* Close button */}
       <button
         onClick={onClose}
-        className="absolute top-8 right-8 p-2 cursor-pointer transition-colors text-shadow/60 hover:text-dusty-rose"
+        className="absolute top-8 right-8 p-2 cursor-pointer transition-colors text-shadow/80 hover:text-dusty-rose"
         aria-label="Close search"
       >
         <X className="w-6 h-6" />
@@ -74,7 +74,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="SEARCH PERFUMES OR NOTES (E.G. JASMINE, BIRCH, LEATHER)..."
-            className="w-full bg-transparent text-xl sm:text-2xl md:text-3xl font-serif placeholder:text-shadow/40 focus:outline-none uppercase tracking-wider pr-10 text-shadow"
+            className="w-full bg-transparent text-xl sm:text-2xl md:text-3xl font-serif placeholder:text-shadow/70 focus:outline-none uppercase tracking-wider pr-10 text-shadow"
           />
           <SearchIcon className="absolute right-0 top-2 w-6 h-6 text-dusty-rose" />
         </div>
@@ -82,7 +82,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         {/* Quick Suggestion Pills */}
         <div className="flex flex-wrap items-center gap-2 text-xs font-sans">
           <span
-            className="text-[10px] uppercase tracking-widest text-shadow/60"
+            className="text-[10px] uppercase tracking-widest text-shadow/80"
           >
             QUICK NOTES:
           </span>
@@ -90,7 +90,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
             <button
               key={note}
               onClick={() => setQuery(note)}
-              className="px-3 py-1 text-[10px] uppercase tracking-wider rounded-xs transition-colors cursor-pointer border bg-pearl/[0.04] border-shadow/[0.08] text-shadow/60 hover:border-dusty-rose hover:text-shadow"
+              className="px-3 py-1 text-[10px] uppercase tracking-wider rounded-xs transition-colors cursor-pointer border bg-pearl/[0.04] border-shadow/[0.08] text-shadow/80 hover:border-dusty-rose hover:text-shadow"
             >
               {note}
             </button>
@@ -100,7 +100,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
         {/* Results */}
         <div className="space-y-4 max-h-[50vh] overflow-y-auto pt-4">
           {query.trim() && results.length === 0 ? (
-            <div className="text-center py-12 text-xs uppercase tracking-widest text-shadow/60 font-sans">
+            <div className="text-center py-12 text-xs uppercase tracking-widest text-shadow/80 font-sans">
               NO FRAGRANCES FOUND MATCHING &quot;{query}&quot;
             </div>
           ) : (
@@ -117,21 +117,35 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   <div
                     className="w-12 h-14 overflow-hidden rounded-xs shrink-0 p-0.5 flex items-center justify-center border border-shadow/[0.08] bg-pearl"
                   >
-                    <FlaconBottle
-                      fragrance={fragrance}
-                      variant="thumb"
-                      themeMode="dark"
-                      className="w-full h-full"
+                    <img
+                      src={fragrance.image}
+                      alt={fragrance.name}
+                      className="w-full h-full object-contain"
                     />
                   </div>
                   <div>
-                    <h4
-                      className="font-serif text-lg uppercase tracking-wider group-hover:text-dusty-rose transition-colors text-shadow"
-                    >
-                      {getFragranceTitle(fragrance)}
-                    </h4>
+                    <div className="flex items-center gap-2">
+                      <h4
+                        className="font-serif text-lg uppercase tracking-wider group-hover:text-dusty-rose transition-colors text-shadow"
+                      >
+                        {getFragranceTitle(fragrance)}
+                      </h4>
+                      {fragrance.productType === 'signature' ? (
+                        <span className="text-[7px] uppercase tracking-[0.2em] px-2 py-0.5 bg-shadow text-pearl font-semibold rounded-2xs">
+                          SIGNATURE
+                        </span>
+                      ) : fragrance.id === 'discovery-set' ? (
+                        <span className="text-[7px] uppercase tracking-[0.2em] px-2 py-0.5 bg-dusty-rose text-pearl font-semibold rounded-2xs">
+                          SET
+                        </span>
+                      ) : (
+                        <span className="text-[7px] uppercase tracking-[0.2em] px-2 py-0.5 border border-shadow/20 text-shadow/80 rounded-2xs">
+                          IMPRESSION
+                        </span>
+                      )}
+                    </div>
                     <p
-                      className="text-[10px] uppercase tracking-wider text-shadow/60"
+                      className="text-[10px] uppercase tracking-wider text-shadow/80"
                     >
                       {fragrance.subtitle} • <span className="text-dusty-rose">{fragrance.olfactoryFamily}</span>
                     </p>
@@ -143,7 +157,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                     Rs {fragrance.price.toLocaleString()}
                   </span>
                   <ArrowRight
-                    className="w-4 h-4 text-shadow/60 group-hover:translate-x-1 group-hover:text-dusty-rose transition-all"
+                    className="w-4 h-4 text-shadow/80 group-hover:translate-x-1 group-hover:text-dusty-rose transition-all"
                   />
                 </div>
               </div>

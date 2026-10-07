@@ -35,7 +35,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose, the
         <button
           onClick={onClose}
           className={`absolute top-6 right-6 p-2 cursor-pointer transition-colors ${
-            'text-shadow/60 hover:text-shadow'
+            'text-shadow/80 hover:text-shadow'
           }`}
           aria-label="Close account modal"
         >
@@ -67,7 +67,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose, the
             className={`pb-3 flex-1 text-center cursor-pointer transition-colors ${
               activeTab === 'signin'
                 ? 'text-shadow border-b-2 border-shadow/10 font-medium'
-                : 'text-shadow/60'
+                : 'text-shadow/80'
             }`}
           >
             Sanctuary Access
@@ -77,7 +77,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose, the
             className={`pb-3 flex-1 text-center cursor-pointer transition-colors ${
               activeTab === 'orders'
                 ? 'text-shadow border-b-2 border-shadow/10 font-medium'
-                : 'text-shadow/60'
+                : 'text-shadow/80'
             }`}
           >
             Allocation Dossier
@@ -91,15 +91,15 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose, the
               <ShieldCheck className="w-10 h-10 text-dusty-rose mx-auto" />
               <h4 className="font-serif text-xl">AUTHENTICATED PATRON</h4>
               <p
-                className={`text-xs font-sans font-light ${
-                  'text-shadow/60'
+                className={`text-xs font-sans font-normal ${
+                  'text-shadow/80'
                 }`}
               >
                 Welcome back, {email}. Your private allocations and complimentary express delivery privileges are active.
               </p>
               <button
                 onClick={() => setIsLoggedIn(false)}
-                className="text-[10px] uppercase tracking-widest text-shadow/60 hover:text-dusty-rose pt-4"
+                className="text-[10px] uppercase tracking-widest text-shadow/80 hover:text-dusty-rose pt-4"
               >
                 SIGN OUT
               </button>
@@ -109,7 +109,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose, the
               <div className="space-y-1.5">
                 <label
                   className={`uppercase tracking-wider text-[10px] ${
-                    'text-shadow/60'
+                    'text-shadow/80'
                   }`}
                 >
                   Patron Email
@@ -119,7 +119,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose, the
                     'border-sand bg-white'
                   }`}
                 >
-                  <Mail className="w-4 h-4 text-shadow/60 mr-2 shrink-0" />
+                  <Mail className="w-4 h-4 text-shadow/80 mr-2 shrink-0" />
                   <input
                     type="email"
                     required
@@ -134,7 +134,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose, the
               <div className="space-y-1.5">
                 <label
                   className={`uppercase tracking-wider text-[10px] ${
-                    'text-shadow/60'
+                    'text-shadow/80'
                   }`}
                 >
                   Access Key / Password
@@ -144,7 +144,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose, the
                     'border-sand bg-white'
                   }`}
                 >
-                  <Key className="w-4 h-4 text-shadow/60 mr-2 shrink-0" />
+                  <Key className="w-4 h-4 text-shadow/80 mr-2 shrink-0" />
                   <input
                     type="password"
                     required
@@ -168,7 +168,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose, the
           )
         ) : (
           <div className="text-center py-10 space-y-4 text-xs font-sans">
-            <p className={'text-shadow/60'}>
+            <p className={'text-shadow/80'}>
               NO PAST ALLOCATIONS FOUND UNDER THIS CREDENTIAL.
             </p>
             <p className="text-[10px] uppercase tracking-wider text-dusty-rose">

@@ -30,15 +30,15 @@ export const CareView: React.FC<CareViewProps> = ({
       category: 'PERFORMANCE & LONGEVITY',
       question: 'HOW LONG DOES FUME PERFUME LAST ON SKIN AND TEXTILES?',
       answer:
-        'FUME Eau de Parfum creations are formulated with an uncompromised 22% to 28% pure perfume oil concentration. In real-world wear tests across Pakistan, our scents consistently deliver 12 to 16+ hours of active skin persistence and up to 24 hours on garments, remaining distinct and elegant even in warm summer climates.',
-      highlight: '12 to 16+ hours verified skin persistence in warm climates.'
+        'FUME Eau de Parfum creations are formulated with an uncompromised 22% to 28% pure perfume oil concentration. In real-world wear tests across Pakistan, our scents consistently deliver all-day active skin persistence and exceptional longevity on garments, remaining distinct and elegant even in warm summer climates.',
+      highlight: 'All-day verified skin persistence in warm climates.'
     },
     {
       category: 'AUTHENTICITY & ORIGIN',
       question: 'WHERE IS FUME FORMULATED AND MANUFACTURED?',
       answer:
-        'FUME combines European haute parfumerie standards with Pakistani artisanal precision. We source our botanical distillates, resinous absolutes, and floral essences from Grasse, France. Compounding, 45-day cool cellar maceration, and hand-pouring in heavy architectural flint glass flacons take place in our laboratory in Pakistan.',
-      highlight: 'Formulated with Grasse distillates, hand-poured in Pakistan.'
+        'FUME combines artisan parfumerie standards with Pakistani artisanal precision. We source our premium ingredients, resinous absolutes, and floral essences. Compounding, 45-day cool cellar maceration, and hand-pouring in heavy architectural flint glass flacons take place in our studio in Pakistan.',
+      highlight: 'Formulated with premium ingredients for lasting presence'
     },
     {
       category: 'SHIPPING & DISPATCH',
@@ -111,8 +111,8 @@ export const CareView: React.FC<CareViewProps> = ({
           </h1>
 
           <p
-            className={`text-sm sm:text-base font-sans font-light tracking-wide leading-relaxed ${
-              'text-shadow/60'
+            className={`text-sm sm:text-base font-sans font-normal tracking-wide leading-relaxed ${
+              'text-shadow/80'
             }`}
           >
             Detailed protocols on the 2ml Discovery Guarantee, global carbon-neutral shipping, flacon conservation, and authenticity verification.
@@ -135,8 +135,8 @@ export const CareView: React.FC<CareViewProps> = ({
               THE DISCOVERY GUARANTEE
             </h3>
             <p
-              className={`text-xs font-sans font-light leading-relaxed ${
-                'text-shadow/60'
+              className={`text-xs font-sans font-normal leading-relaxed ${
+                'text-shadow/80'
               }`}
             >
               Every bottle includes a companion 2ml sample. Test before unwrapping the sealed flacon. Return free if unsuited.
@@ -157,8 +157,8 @@ export const CareView: React.FC<CareViewProps> = ({
               WHITE-GLOVE DISPATCH
             </h3>
             <p
-              className={`text-xs font-sans font-light leading-relaxed ${
-                'text-shadow/60'
+              className={`text-xs font-sans font-normal leading-relaxed ${
+                'text-shadow/80'
               }`}
             >
               Complimentary temperature-controlled international courier delivery with real-time GPS tracking.
@@ -179,8 +179,8 @@ export const CareView: React.FC<CareViewProps> = ({
               ARCHIVAL REFILLS
             </h3>
             <p
-              className={`text-xs font-sans font-light leading-relaxed ${
-                'text-shadow/60'
+              className={`text-xs font-sans font-normal leading-relaxed ${
+                'text-shadow/80'
               }`}
             >
               Bring your empty flint glass flacon to any FUME atelier for a circular botanical refill at 25% privilege.
@@ -200,7 +200,7 @@ export const CareView: React.FC<CareViewProps> = ({
               className={`px-4 py-2 text-[10px] uppercase tracking-widest font-sans rounded-xs transition-colors cursor-pointer border ${
                 activeCategory === cat
                   ? 'bg-oyster text-pearl border-shadow/10'
-                  : 'bg-white border-sand text-shadow/60 hover:border-dusty-rose hover:text-shadow'
+                  : 'bg-white border-sand text-shadow/80 hover:border-dusty-rose hover:text-shadow'
               }`}
             >
               {cat}
@@ -253,8 +253,8 @@ export const CareView: React.FC<CareViewProps> = ({
                       transition={{ duration: 0.25 }}
                     >
                       <div
-                        className={`px-6 pb-6 pt-2 border-t space-y-3 text-xs sm:text-sm font-sans font-light leading-relaxed ${
-                          'border-shadow/10 text-shadow/60'
+                        className={`px-6 pb-6 pt-2 border-t space-y-3 text-xs sm:text-sm font-sans font-normal leading-relaxed ${
+                          'border-shadow/10 text-shadow/80'
                         }`}
                       >
                         <p>{faq.answer}</p>
@@ -292,8 +292,8 @@ export const CareView: React.FC<CareViewProps> = ({
           </h3>
 
           <p
-            className={`text-xs sm:text-sm font-sans font-light max-w-lg mx-auto leading-relaxed ${
-              'text-shadow/60'
+            className={`text-xs sm:text-sm font-sans font-normal max-w-lg mx-auto leading-relaxed ${
+              'text-shadow/80'
             }`}
           >
             Our dedicated client concierge is available daily for private orders, customized bridal flacons, and batch lookups.
@@ -306,21 +306,16 @@ export const CareView: React.FC<CareViewProps> = ({
             >
               jiaaryan20@gmail.com
             </a>
-            <span className="text-shadow/60">•</span>
+            <span className="text-shadow/80">•</span>
+            
+            <span className="text-shadow/80">•</span>
             <a
-              href="tel:+923132970468"
-              className="text-dusty-rose hover:underline"
-            >
-              +92 313 297 0468
-            </a>
-            <span className="text-shadow/60">•</span>
-            <a
-              href="https://wa.me/923132970468?text=Hello%20FUME%20Concierge"
+              href="https://wa.me/92381825636?text=Hello%20FUME%20Concierge"
               target="_blank"
               rel="noopener noreferrer"
               className="text-dusty-rose hover:underline"
             >
-              WhatsApp (+92 313 297 0468)
+              WhatsApp (+92 381 825 636)
             </a>
           </div>
 
@@ -332,7 +327,7 @@ export const CareView: React.FC<CareViewProps> = ({
               CONTACT CONCIERGE
             </button>
             <a
-              href="https://wa.me/923132970468?text=Hello%20FUME%20Concierge"
+              href="https://wa.me/92381825636?text=Hello%20FUME%20Concierge"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3.5 border border-dusty-rose text-shadow hover:bg-white transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer rounded-xs"

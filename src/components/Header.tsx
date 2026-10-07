@@ -72,7 +72,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={() => handleLinkClick('home')}
               className={`text-[11px] uppercase tracking-[0.2em] font-sans transition-colors ${
-                currentView === 'home' ? 'text-dusty-rose font-medium' : 'text-shadow/60 hover:text-shadow'
+                currentView === 'home' ? 'text-dusty-rose font-medium' : 'text-shadow/80 hover:text-shadow'
               }`}
             >
               Shop
@@ -80,7 +80,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={() => handleLinkClick('perfumes')}
               className={`text-[11px] uppercase tracking-[0.2em] font-sans transition-colors ${
-                currentView === 'perfumes' ? 'text-dusty-rose font-medium' : 'text-shadow/60 hover:text-shadow'
+                currentView === 'perfumes' ? 'text-dusty-rose font-medium' : 'text-shadow/80 hover:text-shadow'
               }`}
             >
               Perfumes
@@ -88,7 +88,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={() => handleLinkClick('collections')}
               className={`text-[11px] uppercase tracking-[0.2em] font-sans transition-colors ${
-                currentView === 'collections' ? 'text-dusty-rose font-medium' : 'text-shadow/60 hover:text-shadow'
+                currentView === 'collections' ? 'text-dusty-rose font-medium' : 'text-shadow/80 hover:text-shadow'
               }`}
             >
               Collections
@@ -96,7 +96,7 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={() => handleLinkClick('story')}
               className={`text-[11px] uppercase tracking-[0.2em] font-sans transition-colors ${
-                currentView === 'story' ? 'text-dusty-rose font-medium' : 'text-shadow/60 hover:text-shadow'
+                currentView === 'story' ? 'text-dusty-rose font-medium' : 'text-shadow/80 hover:text-shadow'
               }`}
             >
               Story
@@ -104,17 +104,17 @@ export const Header: React.FC<HeaderProps> = ({
           </nav>
 
           {/* Desktop Left Navigation */}
-          <nav className="hidden lg:flex items-center justify-start gap-2 lg:gap-2.5 xl:gap-4.5 2xl:gap-6 w-full min-w-0">
+          <nav className="hidden lg:flex items-center justify-start gap-2.5 lg:gap-3 xl:gap-5 2xl:gap-7 w-full min-w-0">
             {navLinks.map((item) => {
               const isActive = currentView === item.view;
               return (
                 <button
                   key={item.view}
                   onClick={() => handleLinkClick(item.view)}
-                  className={`text-[10px] xl:text-[11px] uppercase tracking-[0.08em] lg:tracking-[0.09em] xl:tracking-[0.16em] font-sans transition-colors cursor-pointer relative py-1 whitespace-nowrap shrink-0 ${
+                  className={`text-[10px] xl:text-[11px] uppercase tracking-[0.12em] lg:tracking-[0.14em] xl:tracking-[0.18em] font-sans transition-colors cursor-pointer relative py-1.5 whitespace-nowrap shrink-0 ${
                     isActive
-                      ? 'text-shadow font-medium after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-dusty-rose'
-                      : 'text-shadow/60 hover:text-dusty-rose'
+                      ? 'text-shadow font-semibold after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1.5px] after:bg-dusty-rose'
+                      : 'text-shadow/85 font-medium hover:text-dusty-rose'
                   }`}
                 >
                   {item.label}
@@ -212,7 +212,7 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
           </nav>
 
-          <div className="pt-6 border-t border-shadow/[0.08] flex items-center justify-between text-[10px] uppercase tracking-[0.25em] text-shadow/60">
+          <div className="pt-6 border-t border-shadow/[0.08] flex items-center justify-between text-[10px] uppercase tracking-[0.25em] text-shadow/80">
             <span>Your Scent. Your Story.</span>
             <span className="text-dusty-rose font-medium">SINCE 2024</span>
           </div>

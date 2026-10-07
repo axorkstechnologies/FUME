@@ -76,7 +76,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
         <button
           onClick={onClose}
           aria-label="Close scent finder"
-          className="absolute top-4 right-4 p-2 text-shadow/60 hover:text-shadow transition-colors rounded-full"
+          className="absolute top-4 right-4 p-2 text-shadow/80 hover:text-shadow transition-colors rounded-full"
         >
           <X className="w-5 h-5" />
         </button>
@@ -104,7 +104,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
               <h2 id="quiz-modal-title" className="font-serif text-2xl sm:text-3xl uppercase tracking-wider text-shadow">
                 Who Are You Choosing Scent For?
               </h2>
-              <p className="text-xs sm:text-sm font-sans text-shadow/60 max-w-md mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm font-sans text-shadow/80 max-w-md mx-auto leading-relaxed">
                 Select the recipient profile so our nose can curate the most harmonious scent notes.
               </p>
             </div>
@@ -113,7 +113,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
               {[
                 { label: 'For Him', val: 'him', sub: 'Masculine woods, fresh spices and smoked amber' },
                 { label: 'For Her', val: 'her', sub: 'Luminous florals, velvety vanilla and champagne musk' },
-                { label: 'Unisex', val: 'unisex', sub: 'Shared botanical distillates and mineral woods' }
+                { label: 'Unisex', val: 'unisex', sub: 'Shared accords and mineral woods' }
               ].map(opt => (
                 <button
                   key={opt.val}
@@ -123,7 +123,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
                   <span className="font-serif text-base uppercase tracking-wider text-shadow group-hover:text-dusty-rose block transition-colors">
                     {opt.label}
                   </span>
-                  <span className="text-[10px] font-sans text-shadow/60 block mt-1 leading-snug">
+                  <span className="text-[10px] font-sans text-shadow/80 block mt-1 leading-snug">
                     {opt.sub}
                   </span>
                 </button>
@@ -139,7 +139,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
               <h2 className="font-serif text-2xl sm:text-3xl uppercase tracking-wider text-shadow">
                 What Is Your Primary Occasion?
               </h2>
-              <p className="text-xs sm:text-sm font-sans text-shadow/60 max-w-md mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm font-sans text-shadow/80 max-w-md mx-auto leading-relaxed">
                 Different environments call for specific diffusion rates and sillage envelopes.
               </p>
             </div>
@@ -159,7 +159,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
                   <span className="font-serif text-sm uppercase tracking-wider text-shadow group-hover:text-dusty-rose block transition-colors">
                     {opt.label}
                   </span>
-                  <span className="text-[10px] font-sans text-shadow/60 block mt-1 leading-snug">
+                  <span className="text-[10px] font-sans text-shadow/80 block mt-1 leading-snug">
                     {opt.desc}
                   </span>
                 </button>
@@ -175,7 +175,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
               <h2 className="font-serif text-2xl sm:text-3xl uppercase tracking-wider text-shadow">
                 Which Olfactory Family Captivates You?
               </h2>
-              <p className="text-xs sm:text-sm font-sans text-shadow/60 max-w-md mx-auto leading-relaxed">
+              <p className="text-xs sm:text-sm font-sans text-shadow/80 max-w-md mx-auto leading-relaxed">
                 Choose the fragrance backbone that resonates with your personal energy.
               </p>
             </div>
@@ -185,7 +185,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
                 { label: 'Woody & Resinous', val: 'woody', desc: 'Sandalwood, Virginia cedarwood, smoked vetiver and oakmoss.' },
                 { label: 'Spicy & Oriental', val: 'oriental', desc: 'Rich saffron, golden oud, warm spices and amber accord.' },
                 { label: 'Fresh Citrus & Aromatic', val: 'fresh', desc: 'Calabrian bergamot, crisp lavender and invigorating grapefruit.' },
-                { label: 'Nocturnal Floral', val: 'oriental', desc: 'Night jasmine, French tuberose and velvety orange blossom.' }
+                { label: 'Nocturnal Floral', val: 'oriental', desc: 'Night jasmine, white tuberose and velvety orange blossom.' }
               ].map((opt, i) => (
                 <button
                   key={i}
@@ -195,7 +195,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
                   <span className="font-serif text-sm uppercase tracking-wider text-shadow group-hover:text-dusty-rose block transition-colors">
                     {opt.label}
                   </span>
-                  <span className="text-[10px] font-sans text-shadow/60 block mt-1 leading-snug">
+                  <span className="text-[10px] font-sans text-shadow/80 block mt-1 leading-snug">
                     {opt.desc}
                   </span>
                 </button>
@@ -214,31 +214,31 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
               <h2 className="font-serif text-2xl sm:text-3xl uppercase tracking-wider text-shadow">
                 {recommendation.name}
               </h2>
-              <p className="text-xs uppercase tracking-[0.2em] text-shadow/60 font-sans">
+              <p className="text-xs uppercase tracking-[0.2em] text-shadow/80 font-sans">
                 {recommendation.subtitle}
               </p>
             </div>
 
             {/* Bottle Preview */}
             <div className="w-48 h-64 mx-auto my-2">
-              <FlaconBottle
-                fragrance={recommendation}
-                variant="card"
-                className="w-full h-full"
+              <img
+                src={recommendation.image}
+                alt={recommendation.name}
+                className="w-full h-full object-contain"
               />
             </div>
 
-            <p className="text-xs sm:text-sm font-sans text-shadow/60 max-w-md mx-auto leading-relaxed">
+            <p className="text-xs sm:text-sm font-sans text-shadow/80 max-w-md mx-auto leading-relaxed">
               {recommendation.description}
             </p>
 
             {/* Pricing & Guarantees */}
-            <div className="flex items-center justify-center gap-4 text-xs font-sans text-shadow/60 pt-1">
+            <div className="flex items-center justify-center gap-4 text-xs font-sans text-shadow/80 pt-1">
               <span className="font-serif text-lg font-medium text-shadow">
                 Rs {recommendation.price.toLocaleString()}
               </span>
               <span>•</span>
-              <span>14+ Hrs Persistence</span>
+              <span>All-Day Presence</span>
               <span>•</span>
               <span>Cash on Delivery</span>
             </div>
@@ -270,7 +270,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
             <div className="pt-3">
               <button
                 onClick={handleReset}
-                className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] text-shadow/60 hover:text-shadow transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-[0.2em] text-shadow/80 hover:text-shadow transition-colors cursor-pointer"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
                 <span>Retake Scent Matcher</span>

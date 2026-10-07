@@ -155,7 +155,7 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
       {/* Ambient Vignette Gradients */}
       <div className="absolute inset-0 bg-gradient-to-t from-pearl/85 via-pearl/20 to-pearl/35 pointer-events-none" />
 
-      {/* Subtle Hairline Luxury Gold Border on Hover */}
+      {/* Subtle Hairline Border on Hover */}
       <div className="absolute inset-0 border border-transparent group-hover:border-dusty-rose/40 transition-colors duration-500 pointer-events-none" />
 
       {/* Top Header Bar: Kicker, Duration & Sound Control */}
@@ -205,7 +205,7 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
       {showOverlayInfo && (
         <div className="absolute bottom-0 inset-x-0 p-3.5 sm:p-4 z-20 flex flex-col justify-end space-y-2 pointer-events-auto">
           {/* Quote / Blurb */}
-          <p className="text-[11px] sm:text-xs text-pearl font-sans font-light leading-snug line-clamp-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+          <p className="text-[11px] sm:text-xs text-pearl font-sans font-normal leading-snug line-clamp-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
             {film.blurb}
           </p>
 

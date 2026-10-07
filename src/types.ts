@@ -21,6 +21,7 @@ export interface Fragrance {
   baseNotes: string;
   description: string;
   origin?: string;
+  productType?: 'signature' | 'impression' | 'set';
   inStock: boolean;
   // Pastel luxury aesthetic attributes
   pastelBg: string;

@@ -10,14 +10,14 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({ onOpenCo
     const msg = encodeURIComponent(
       "Hello FUME! I'd like to create a custom fragrance. Please guide me through the process."
     );
-    window.open(`https://wa.me/923132970468?text=${msg}`, '_blank');
+    window.open(`https://wa.me/92381825636?text=${msg}`, '_blank');
   };
 
   const handleDescribeScent = () => {
     const msg = encodeURIComponent(
       "Hello FUME! I have a scent idea in mind and I'd like to describe it to your perfumer."
     );
-    window.open(`https://wa.me/923132970468?text=${msg}`, '_blank');
+    window.open(`https://wa.me/92381825636?text=${msg}`, '_blank');
   };
 
   return (
@@ -47,7 +47,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({ onOpenCo
           className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-normal uppercase tracking-[0.14em] text-shadow leading-tight"
         >
           CREATE YOUR <br className="hidden sm:block" />
-          <span className="italic font-light text-dusty-rose">SIGNATURE</span>
+          <span className="italic font-normal text-dusty-rose">SIGNATURE</span>
         </motion.h2>
 
         {/* Description */}
@@ -56,9 +56,9 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({ onOpenCo
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-sm md:text-base font-sans font-light tracking-wide text-shadow/60 max-w-xl mx-auto leading-relaxed"
+          className="text-sm md:text-base font-sans font-normal tracking-wide text-shadow/80 max-w-xl mx-auto leading-relaxed"
         >
-          Work with our master perfumers to compose an entirely personal fragrance. Formulated at our Creation Lab in Grasse, France, and bottled exclusively for you in a bespoke engraved flacon.
+          Work with our master perfumers to compose an entirely personal fragrance. Bottled exclusively for you in a bespoke engraved flacon.
         </motion.p>
 
         {/* Feature Pills */}
@@ -72,7 +72,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({ onOpenCo
           {['Choose Your Notes', 'Expert Guidance', 'Custom Bottle', 'Personal Formula'].map((feature) => (
             <span
               key={feature}
-              className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] px-4 py-2 font-sans border border-sand/60 text-shadow/60 rounded-full bg-pearl/50"
+              className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] px-4 py-2 font-sans border border-sand/60 text-shadow/80 rounded-full bg-pearl/50"
             >
               {feature}
             </span>

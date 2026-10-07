@@ -24,7 +24,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose, themeMo
         <button
           onClick={onClose}
           className={`absolute top-5 right-5 p-2 cursor-pointer transition-colors ${
-            'text-shadow/60 hover:text-shadow'
+            'text-shadow/80 hover:text-shadow'
           }`}
           aria-label="Close story modal"
         >
@@ -60,39 +60,31 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose, themeMo
 
         {/* Core Story Content */}
         <div
-          className={`space-y-4 text-xs sm:text-sm font-sans font-light leading-relaxed max-w-2xl mx-auto ${
-            'text-shadow/60'
-          }`}
+          className="space-y-4 text-xs sm:text-sm font-sans font-normal leading-relaxed max-w-2xl mx-auto text-shadow"
         >
           <p>
-            <strong>I didn’t start FUME FRAGRANCES simply because I wanted to start a business. I started it because I believed in something deeper.</strong>
+            I didn’t start Fume simply because I wanted to start a business.
+            I started it because I believed in something.
+            A passion that had already been bringing me compliments, questions, and curiosity from people around the world.
           </p>
           <p>
-            For years, perfume lovers in Pakistan faced an unfair compromise: paying Rs 40,000+ for imported designer bottles that were often counterfeit or diluted, or settling for synthetic body sprays that faded in thirty minutes.
+            In 2024, at just 24 years old, I decided to turn that belief into something of my own. At that time, I was also stepping into one of the most beautiful and transformative chapters of my life — becoming a mother.
           </p>
           <p>
-            At 24, as a young mother holding my child, I set out with a singular conviction: to create an independent luxury fragrance house right here in Pakistan. Hand-testing botanical oil concentrations, perfecting all-day 14-hour sillage, and packaging every scent in heavy flint glass at honest prices.
+            From the very first printing to developing fragrances, working on packaging, managing orders, and personally dispatching them, I was involved in every little detail of Fume.
           </p>
-
-          <div
-            className={`p-4 border rounded-xs space-y-2 ${
-              'bg-pearl border-shadow/10'
-            }`}
-          >
-            <div className="flex items-center gap-1.5 text-[9px] uppercase tracking-[0.2em] text-dusty-rose font-medium font-sans">
-              <Award className="w-3.5 h-3.5 text-dusty-rose" />
-              <span>OUR MISSION</span>
-            </div>
-            <p className="text-xs italic leading-relaxed text-dusty-rose">
-              &ldquo;To make authentic, long-lasting luxury fragrances accessible to everyone in Pakistan through honest craftsmanship and direct pricing.&rdquo;
-            </p>
-          </div>
+          <p>
+            For me, Fume was never just about selling perfumes. It became a reflection of what I believed a woman could create when she trusted herself enough to begin. Behind every bottle is a part of my journey — the risks I took, the hard work, the sleepless nights, the courage to keep going, and above all, the love I put into what I was building.
+          </p>
+          <p className="font-medium text-shadow pt-2">
+            This is the story of how Fume began. And this is only the beginning.
+          </p>
         </div>
 
         {/* Footer Meta & WhatsApp Action */}
         <div
           className={`pt-5 border-t flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-[0.25em] ${
-            'border-shadow/10 text-shadow/60'
+            'border-shadow/10 text-shadow/80'
           }`}
         >
           <div className="flex items-center gap-2">
@@ -104,13 +96,13 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose, themeMo
           </div>
 
           <a
-            href="https://wa.me/923132970468?text=Hello%20FUME%20FRAGRANCES%2C%20I%20would%20love%20to%20learn%20more%20about%20your%20fragrances."
+            href="https://wa.me/92381825636?text=Hello%20FUME%20FRAGRANCES%2C%20I%20would%20love%20to%20learn%20more%20about%20your%20fragrances."
             target="_blank"
             rel="noopener noreferrer"
             className="text-dusty-rose hover:underline flex items-center gap-1 font-medium cursor-pointer"
           >
             <MessageCircle className="w-3.5 h-3.5" />
-            <span>TALK TO FOUNDER (+92 313 297 0468)</span>
+            <span>TALK TO FOUNDER (+92 381 825 636)</span>
           </a>
         </div>
       </div>

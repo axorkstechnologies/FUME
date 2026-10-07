@@ -276,7 +276,7 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
           </h3>
 
           {/* Blurb */}
-          <p className="text-xs text-pearl/90 font-sans font-light leading-relaxed drop-shadow-md">
+          <p className="text-xs text-pearl/90 font-sans font-normal leading-relaxed drop-shadow-md">
             {activeFilm.blurb}
           </p>
 

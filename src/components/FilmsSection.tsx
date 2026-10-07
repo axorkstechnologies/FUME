@@ -64,8 +64,8 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
             </h2>
 
             <p
-              className={`text-xs sm:text-sm font-sans font-light tracking-wider leading-relaxed ${
-                'text-shadow/60'
+              className={`text-xs sm:text-sm font-sans font-normal tracking-wider leading-relaxed ${
+                'text-shadow/80'
               }`}
             >
               Real customer unboxings, all-day sillage impressions, and product beauty films straight from our community.
@@ -88,7 +88,7 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
                   className={`px-4 py-2 text-[10px] uppercase tracking-[0.2em] font-sans font-medium transition-all rounded-full cursor-pointer whitespace-nowrap border ${
                     active
                       ? 'bg-oyster text-shadow border-shadow/10 shadow-sm'
-                      : 'bg-transparent text-shadow/60 border-sand hover:border-dusty-rose hover:text-shadow'
+                      : 'bg-transparent text-shadow/80 border-sand hover:border-dusty-rose hover:text-shadow'
                   }`}
                 >
                   {tab.label}
@@ -147,7 +147,7 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
                   type="button"
                   onClick={() => onOpenReel(film)}
                   className={`text-[9px] uppercase tracking-[0.2em] font-sans font-medium transition-colors flex items-center gap-1 shrink-0 ${
-                    'text-shadow/60 hover:text-dusty-rose'
+                    'text-shadow/80 hover:text-dusty-rose'
                   }`}
                 >
                   <span>WATCH FULL</span>
@@ -176,8 +176,8 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
               SHARE YOUR FUME MOMENT
             </h4>
             <p
-              className={`text-xs font-sans font-light tracking-wider max-w-xl ${
-                'text-shadow/60'
+              className={`text-xs font-sans font-normal tracking-wider max-w-xl ${
+                'text-shadow/80'
               }`}
             >
               Tag us @fume.official with your unboxing or all-day wear test to be featured in the official Maison archive.

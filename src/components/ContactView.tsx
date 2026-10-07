@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
 import { ThemeMode } from '../types';
-import { Mail, Phone, MapPin, Clock, Check, Send, MessageCircle } from 'lucide-react';
+import { Mail, Clock, Check, Send, MessageCircle, MapPin } from 'lucide-react';
 
 interface ContactViewProps {
   onNavigateToCare: () => void;
   themeMode: ThemeMode;
 }
 
-export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, themeMode }) => {
+export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare }) => {
   const [submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -17,8 +16,6 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
     inquiryType: 'Bespoke Flacon Commission',
     message: ''
   });
-
-  const isLight = themeMode === 'light';
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,187 +40,115 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
 
   return (
     <div
-      className="relative w-full min-h-screen pt-32 pb-32 px-6 md:px-12 lg:px-16 bg-pearl text-shadow"
+      className="relative w-full min-h-screen pt-32 pb-32 px-5 sm:px-8 md:px-12 lg:px-16 bg-pearl text-shadow font-sans"
     >
-      <div className="max-w-[1500px] mx-auto space-y-20">
+      <div className="max-w-[1400px] mx-auto space-y-20">
         {/* Header with Breadcrumb */}
-        <div className="text-center space-y-5 max-w-3xl mx-auto">
-          <div className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.4em] text-dusty-rose font-sans font-medium">
+        <div className="text-center space-y-4 max-w-3xl mx-auto">
+          <div className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.4em] text-dusty-rose font-medium">
             <span>HOME</span>
             <span>/</span>
             <span>CLIENT CONCIERGE</span>
             <span className="w-1.5 h-1.5 rounded-full bg-dusty-rose ml-1" />
-            <span>SINCE 2024</span>
+            <span>EST. 2024</span>
           </div>
 
-          <h1
-            className={`font-serif text-4xl sm:text-5xl md:text-6xl font-normal uppercase tracking-[0.16em] ${
-              'text-shadow'
-            }`}
-          >
+          <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal uppercase tracking-[0.16em] text-shadow">
             ATELIER CONCIERGE
           </h1>
 
-          <p
-            className={`text-sm sm:text-base font-sans font-light tracking-wide leading-relaxed ${
-              'text-shadow/60'
-            }`}
-          >
-            Private olfactory styling, bespoke monogramming, order dossiers, and atelier visit appointments in Paris and Grasse.
+          <p className="text-sm sm:text-base font-normal tracking-wide leading-relaxed text-shadow/80 max-w-xl mx-auto">
+            Olfactory consultations, bespoke flacon commissions, and direct customer care across Pakistan.
           </p>
         </div>
 
         {/* 2-Column Layout: Atelier Details & Interactive Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          {/* Left Column: Ateliers & Direct Privileges */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Left Column: Direct Channels & Studio */}
           <div className="lg:col-span-5 space-y-8">
-            <div className="space-y-3">
-              <span className="text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-sans font-medium block">
-                SANCTUARIES & HUBS • SINCE 2024
+            <div className="space-y-2">
+              <span className="text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-semibold block">
+                ATELIER &amp; STUDIO • EST. 2024
               </span>
-              <h2
-                className={`font-serif text-2xl sm:text-3xl uppercase tracking-wider ${
-                  'text-shadow'
-                }`}
-              >
-                OUR ATELIERS
+              <h2 className="font-serif text-2xl sm:text-3xl uppercase tracking-wider text-shadow">
+                DIRECT CONTACT
               </h2>
             </div>
 
-            {/* Paris Flagship */}
-            <div
-              className={`p-6 border rounded-xs space-y-3 transition-colors ${
-                'border-sand bg-white'
-              }`}
-            >
+            {/* Studio Address Card */}
+            <div className="p-8 border border-shadow/[0.1] rounded-sm space-y-4 bg-white shadow-xs">
               <div className="flex items-center justify-between">
-                <h4 className="font-serif text-lg uppercase tracking-wider text-dusty-rose">
-                  PARIS SANCTUARY
-                </h4>
-                <span className="text-[9px] uppercase tracking-widest px-2 py-0.5 border border-dusty-rose/40 text-dusty-rose">
-                  FLAGSHIP
+                <h3 className="font-serif text-lg uppercase tracking-wider text-dusty-rose">
+                  CREATION STUDIO
+                </h3>
+                <span className="text-[9px] uppercase tracking-widest px-2.5 py-1 border border-dusty-rose/40 text-dusty-rose font-medium rounded-2xs">
+                  BY APPOINTMENT
                 </span>
               </div>
-              <p
-                className={`text-xs font-sans leading-relaxed ${
-                  'text-shadow/60'
-                }`}
-              >
-                14 Rue de Castiglione, 75001 Paris, France
-              </p>
-              <div className="flex items-center gap-2 text-xs font-sans text-shadow/60 pt-1">
-                <Clock className="w-4 h-4 text-dusty-rose" />
-                <span>Tuesday to Saturday: 11h00 to 19h30</span>
+              
+              <div className="flex items-start gap-3 text-xs leading-relaxed text-shadow">
+                <MapPin className="w-4 h-4 text-dusty-rose shrink-0 mt-0.5" />
+                <div>
+                  <span className="block font-medium">FUME FRAGRANCES STUDIO</span>
+                  <span className="block text-shadow/80">32/A Society Office, PECHS Block 2, Kashmir Road, Karachi</span>
+                </div>
               </div>
-            </div>
 
-            {/* Grasse Laboratory */}
-            <div
-              className={`p-6 border rounded-xs space-y-3 transition-colors ${
-                'border-sand bg-white'
-              }`}
-            >
-              <div className="flex items-center justify-between">
-                <h4 className="font-serif text-lg uppercase tracking-wider text-dusty-rose">
-                  GRASSE LABORATORY
-                </h4>
-                <span className="text-[9px] uppercase tracking-widest px-2 py-0.5 border border-dusty-rose/40 text-dusty-rose">
-                  CREATION LAB
-                </span>
-              </div>
-              <p
-                className={`text-xs font-sans leading-relaxed ${
-                  'text-shadow/60'
-                }`}
-              >
-                8 Boulevard Fragonard, 06130 Grasse, France
-              </p>
-              <div className="flex items-center gap-2 text-xs font-sans text-shadow/60 pt-1">
-                <Clock className="w-4 h-4 text-dusty-rose" />
-                <span>Private appointments only • Est. 2024</span>
+              <div className="flex items-center gap-3 text-xs text-shadow/70 pt-2 border-t border-shadow/[0.06]">
+                <Clock className="w-4 h-4 text-dusty-rose shrink-0" />
+                <span>Monday – Saturday • 10:00 to 19:00 PKT</span>
               </div>
             </div>
 
             {/* Direct Channels */}
-            <div
-              className={`p-6 border rounded-xs space-y-4 ${
-                'border-sand bg-pearl/70'
-              }`}
-            >
-              <h4 className="font-serif text-sm uppercase tracking-widest text-dusty-rose">
-                DIRECT CHANNELS
-              </h4>
-              <div className="space-y-3 text-xs font-sans">
+            <div className="p-8 border border-shadow/[0.1] rounded-sm space-y-5 bg-[#F8F5F1]">
+              <h3 className="font-serif text-sm uppercase tracking-widest text-dusty-rose font-medium">
+                VERIFIED COMMUNICATIONS
+              </h3>
+
+              <div className="space-y-4 text-xs font-sans">
                 <a
                   href="mailto:jiaaryan20@gmail.com"
-                  className="flex items-center gap-3 hover:text-dusty-rose transition-colors"
+                  className="flex items-center gap-3 hover:text-dusty-rose transition-colors group p-3 bg-white rounded-xs border border-shadow/[0.04]"
                 >
-                  <Mail className="w-4 h-4 text-dusty-rose shrink-0" />
-                  <span>jiaaryan20@gmail.com</span>
+                  <Mail className="w-4 h-4 text-dusty-rose shrink-0 group-hover:scale-110 transition-transform" />
+                  <span className="font-medium">jiaaryan20@gmail.com</span>
                 </a>
+                
                 <a
-                  href="tel:+923132970468"
-                  className="flex items-center gap-3 hover:text-dusty-rose transition-colors"
-                >
-                  <Phone className="w-4 h-4 text-dusty-rose shrink-0" />
-                  <span>+92 313 297 0468</span>
-                </a>
-                <a
-                  href="https://wa.me/923132970468"
+                  href="https://wa.me/92381825636"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-3 hover:text-dusty-rose transition-colors"
+                  className="flex items-center gap-3 hover:text-dusty-rose transition-colors group p-3 bg-white rounded-xs border border-shadow/[0.04]"
                 >
-                  <MessageCircle className="w-4 h-4 text-dusty-rose shrink-0" />
-                  <span>WhatsApp: +92 313 297 0468</span>
+                  <MessageCircle className="w-4 h-4 text-dusty-rose shrink-0 group-hover:scale-110 transition-transform" />
+                  <span className="font-medium">WhatsApp: +92 381 825 636</span>
                 </a>
-                <div className="flex items-center gap-3 text-shadow/60">
-                  <MapPin className="w-4 h-4 text-dusty-rose shrink-0" />
-                  <div className="leading-tight">
-                    <span className="block text-shadow font-medium">GRASSE LABORATORY</span>
-                    <span className="block">8 Boulevard Fragonard, 06130 Grasse, France</span>
-                    <span className="block text-dusty-rose text-[10px]">Private appointments only • Est. 2024</span>
-                  </div>
-                </div>
               </div>
 
-              <div className="pt-3 border-t border-sand/60">
+              <div className="pt-4 border-t border-shadow/[0.08]">
                 <button
                   onClick={onNavigateToCare}
-                  className="text-[10px] uppercase tracking-widest text-dusty-rose hover:underline cursor-pointer"
+                  className="text-[10px] uppercase tracking-widest text-dusty-rose hover:underline cursor-pointer font-medium"
                 >
-                  View Shipping & Return Directives →
+                  View Client Care &amp; Shipping Guidelines →
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Transmission Dossier Form */}
+          {/* Right Column: Inquiry Dossier Form */}
           <div className="lg:col-span-7">
-            <div
-              className={`border p-8 sm:p-12 rounded-xs shadow-xl space-y-8 ${
-                'border-sand bg-white'
-              }`}
-            >
+            <div className="border border-shadow/[0.1] p-8 sm:p-12 rounded-sm shadow-md space-y-8 bg-white">
               <div className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-sans font-medium">
-                    DIRECT INQUIRY DOSSIER
-                  </span>
-                </div>
-                <h3
-                  className={`font-serif text-2xl sm:text-3xl font-normal uppercase tracking-wide ${
-                    'text-shadow'
-                  }`}
-                >
+                <span className="text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-semibold block">
+                  CLIENT COMMUNICATIONS
+                </span>
+                <h3 className="font-serif text-2xl sm:text-3xl font-normal uppercase tracking-wide text-shadow">
                   TRANSMIT AN INQUIRY
                 </h3>
-                <p
-                  className={`text-xs font-sans font-light ${
-                    'text-shadow/60'
-                  }`}
-                >
-                  An olfactory advisor will analyze your requirements and reply within 12 hours.
+                <p className="text-xs font-sans text-shadow/80">
+                  Our fragrance concierge will analyze your request and reply promptly within working hours.
                 </p>
               </div>
 
@@ -232,37 +157,25 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                   <div className="w-16 h-16 rounded-full border border-dusty-rose flex items-center justify-center mx-auto text-dusty-rose">
                     <Check className="w-8 h-8" />
                   </div>
-                  <h4
-                    className={`font-serif text-2xl uppercase tracking-wider ${
-                      'text-shadow'
-                    }`}
-                  >
-                    DOSSIER RECORDED & DISPATCHED
+                  <h4 className="font-serif text-2xl uppercase tracking-wider text-shadow">
+                    INQUIRY DISPATCHED
                   </h4>
-                  <p
-                    className={`text-xs sm:text-sm font-sans max-w-md mx-auto font-light leading-relaxed ${
-                      'text-shadow/60'
-                    }`}
-                  >
+                  <p className="text-xs sm:text-sm font-sans max-w-md mx-auto leading-relaxed text-shadow/80">
                     Thank you, {formData.name || 'Patron'}. Your inquiry regarding{' '}
-                    <span className="text-dusty-rose font-medium">&quot;{formData.inquiryType}&quot;</span> has been transmitted to our senior olfactory concierge in Grasse.
+                    <span className="text-dusty-rose font-medium">&quot;{formData.inquiryType}&quot;</span> has been received.
                   </p>
                   <button
                     onClick={handleReset}
-                    className="mt-6 px-8 py-3.5 bg-oyster text-pearl hover:bg-dusty-rose hover:text-pearl transition-colors uppercase tracking-[0.25em] text-[10px] font-sans font-medium cursor-pointer"
+                    className="mt-6 px-8 py-3.5 bg-shadow text-pearl hover:bg-dusty-rose text-[10px] uppercase tracking-[0.25em] font-semibold cursor-pointer transition-colors"
                   >
-                    TRANSMIT ANOTHER REQUEST
+                    SEND ANOTHER MESSAGE
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6 font-sans text-xs">
+                <form onSubmit={handleSubmit} className="space-y-6 text-xs">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="space-y-1.5">
-                      <label
-                        className={`uppercase tracking-wider text-[10px] block font-medium ${
-                          'text-shadow/60'
-                        }`}
-                      >
+                    <div className="space-y-2">
+                      <label className="uppercase tracking-wider text-[10px] block font-medium text-shadow">
                         Full Name *
                       </label>
                       <input
@@ -270,19 +183,13 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                         required
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        placeholder="Madame / Monsieur de Valois"
-                        className={`w-full border px-4 py-3 focus:outline-none rounded-xs ${
-                          'border-sand bg-pearl text-shadow focus:border-dusty-rose'
-                        }`}
+                        placeholder="Your Full Name"
+                        className="w-full border border-shadow/[0.15] bg-[#FAF8F5] px-4 py-3.5 text-shadow focus:border-dusty-rose focus:outline-none rounded-xs"
                       />
                     </div>
 
-                    <div className="space-y-1.5">
-                      <label
-                        className={`uppercase tracking-wider text-[10px] block font-medium ${
-                          'text-shadow/60'
-                        }`}
-                      >
+                    <div className="space-y-2">
+                      <label className="uppercase tracking-wider text-[10px] block font-medium text-shadow">
                         Email Address *
                       </label>
                       <input
@@ -290,40 +197,28 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                         required
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        placeholder="patron@domain.com"
-                        className={`w-full border px-4 py-3 focus:outline-none rounded-xs ${
-                          'border-sand bg-pearl text-shadow focus:border-dusty-rose'
-                        }`}
+                        placeholder="name@email.com"
+                        className="w-full border border-shadow/[0.15] bg-[#FAF8F5] px-4 py-3.5 text-shadow focus:border-dusty-rose focus:outline-none rounded-xs"
                       />
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <div className="space-y-1.5">
-                      <label
-                        className={`uppercase tracking-wider text-[10px] block font-medium ${
-                          'text-shadow/60'
-                        }`}
-                      >
-                        Direct Phone / WhatsApp
+                    <div className="space-y-2">
+                      <label className="uppercase tracking-wider text-[10px] block font-medium text-shadow">
+                        Phone / WhatsApp
                       </label>
                       <input
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+1 (555) 000-0000"
-                        className={`w-full border px-4 py-3 focus:outline-none rounded-xs ${
-                          'border-sand bg-pearl text-shadow focus:border-dusty-rose'
-                        }`}
+                        placeholder="+92 300 0000000"
+                        className="w-full border border-shadow/[0.15] bg-[#FAF8F5] px-4 py-3.5 text-shadow focus:border-dusty-rose focus:outline-none rounded-xs"
                       />
                     </div>
 
-                    <div className="space-y-1.5">
-                      <label
-                        className={`uppercase tracking-wider text-[10px] block font-medium ${
-                          'text-shadow/60'
-                        }`}
-                      >
+                    <div className="space-y-2">
+                      <label className="uppercase tracking-wider text-[10px] block font-medium text-shadow">
                         Inquiry Category
                       </label>
                       <select
@@ -331,63 +226,50 @@ export const ContactView: React.FC<ContactViewProps> = ({ onNavigateToCare, them
                         onChange={(e) =>
                           setFormData({ ...formData, inquiryType: e.target.value })
                         }
-                        className={`w-full border px-4 py-3 focus:outline-none rounded-xs cursor-pointer ${
-                          'border-sand bg-pearl text-shadow focus:border-dusty-rose'
-                        }`}
+                        className="w-full border border-shadow/[0.15] bg-[#FAF8F5] px-4 py-3.5 text-shadow focus:border-dusty-rose focus:outline-none rounded-xs cursor-pointer"
                       >
                         <option value="Bespoke Flacon Commission">Bespoke Flacon Commission</option>
-                        <option value="Paris Atelier Appointment">Paris Atelier Appointment</option>
-                        <option value="Grasse Private Consultation">Grasse Private Consultation</option>
+                        <option value="Studio Appointment">Studio Appointment</option>
+                        <option value="Private Consultation">Private Consultation</option>
                         <option value="Existing Order Status">Existing Order Status</option>
                         <option value="Fragrance Note Recommendation">Fragrance Note Recommendation</option>
-                        <option value="Press & VIP Relations">Press & VIP Relations</option>
                       </select>
                     </div>
                   </div>
 
-                  <div className="space-y-1.5">
-                    <label
-                      className={`uppercase tracking-wider text-[10px] block font-medium ${
-                        'text-shadow/60'
-                      }`}
-                    >
-                      Message Dossier *
+                  <div className="space-y-2">
+                    <label className="uppercase tracking-wider text-[10px] block font-medium text-shadow">
+                      Message *
                     </label>
                     <textarea
                       rows={5}
                       required
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Please specify notes preferences, recipient details, flacon engraving requirements, or preferred consultation dates..."
-                      className={`w-full border px-4 py-3 focus:outline-none rounded-xs resize-none ${
-                        'border-sand bg-pearl text-shadow focus:border-dusty-rose'
-                      }`}
+                      placeholder="Share your olfactory preferences, custom engraving requests, or order details..."
+                      className="w-full border border-shadow/[0.15] bg-[#FAF8F5] px-4 py-3.5 text-shadow focus:border-dusty-rose focus:outline-none rounded-xs resize-none"
                     />
                   </div>
 
                   <div className="pt-2 space-y-3">
                     <button
                       type="submit"
-                      className={`w-full py-4 transition-all uppercase tracking-[0.28em] font-medium text-[11px] cursor-pointer flex items-center justify-center gap-2 ${
-                        'bg-oyster text-pearl hover:bg-dusty-rose hover:text-pearl'
-                      }`}
+                      className="w-full py-4 uppercase tracking-[0.28em] font-semibold text-[11px] cursor-pointer flex items-center justify-center gap-2 bg-shadow text-pearl hover:bg-dusty-rose transition-colors shadow-sm active:scale-[0.98]"
                     >
-                      <span>TRANSMIT DOSSIER TO CONCIERGE</span>
+                      <span>TRANSMIT INQUIRY</span>
                       <Send className="w-3.5 h-3.5" />
                     </button>
 
                     <a
-                      href={`https://wa.me/923132970468?text=${encodeURIComponent(
-                        `Hello FUME Concierge, my name is ${formData.name || 'Patron'}${formData.email ? ` (${formData.email})` : ''}.\nInquiry category: ${formData.inquiryType}\nMessage:\n${formData.message || 'I would like to inquire regarding FUME haute fragrances.'}`
+                      href={`https://wa.me/92381825636?text=${encodeURIComponent(
+                        `Hello FUME Concierge, my name is ${formData.name || 'Patron'}${formData.email ? ` (${formData.email})` : ''}.\nInquiry category: ${formData.inquiryType}\nMessage:\n${formData.message || 'I would like to inquire regarding FUME fragrances.'}`
                       )}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`w-full py-3.5 border transition-all uppercase tracking-[0.28em] font-medium text-[11px] cursor-pointer flex items-center justify-center gap-2 ${
-                        'border-dusty-rose text-shadow hover:bg-dusty-rose/10'
-                      }`}
+                      className="w-full py-3.5 border border-dusty-rose text-shadow hover:bg-dusty-rose/10 uppercase tracking-[0.26em] font-medium text-[10px] cursor-pointer flex items-center justify-center gap-2 transition-colors"
                     >
                       <MessageCircle className="w-3.5 h-3.5 text-dusty-rose" />
-                      <span>DIRECT INQUIRY VIA WHATSAPP (+92 313 297 0468)</span>
+                      <span>DIRECT CHAT VIA WHATSAPP (+92 381 825 636)</span>
                     </a>
                   </div>
                 </form>

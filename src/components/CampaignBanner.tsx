@@ -30,9 +30,9 @@ export const CampaignBanner: React.FC<CampaignBannerProps> = ({ onShopNow }) => 
 
         <h2 className="font-serif text-3xl sm:text-4xl md:text-6xl font-normal text-shadow uppercase tracking-[0.16em] leading-tight">
           LIGHT, STONE <br />
-          <span className="italic font-light text-dusty-rose">& SHADOW</span>
+          <span className="italic font-normal text-dusty-rose">& SHADOW</span>
         </h2>
-        <p className="text-xs sm:text-sm text-shadow/70 font-sans font-light tracking-widest max-w-md mx-auto">
+        <p className="text-xs sm:text-sm text-shadow/70 font-sans font-normal tracking-widest max-w-md mx-auto">
           WHERE BOTANICAL DENSITY MEETS NOCTURNAL CLARITY.
         </p>
 
@@ -47,7 +47,7 @@ export const CampaignBanner: React.FC<CampaignBannerProps> = ({ onShopNow }) => 
       </div>
 
       {/* Bottom Subtle Caption */}
-      <div className="absolute bottom-6 left-8 right-8 hidden md:flex items-center justify-between text-[9px] uppercase tracking-[0.35em] text-shadow/60 font-sans">
+      <div className="absolute bottom-6 left-8 right-8 hidden md:flex items-center justify-between text-[9px] uppercase tracking-[0.35em] text-shadow/80 font-sans">
         <span>FUME ATELIER STUDY</span>
         <span className="text-dusty-rose">SINCE 2024</span>
         <span>EAU DE PARFUM 50 ML</span>

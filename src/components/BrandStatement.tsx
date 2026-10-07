@@ -24,10 +24,10 @@ export const BrandStatement: React.FC<BrandStatementProps> = ({ themeMode }) => 
 
         {/* Short supporting copy */}
         <div className="space-y-6 max-w-2xl mx-auto">
-          <p className="text-base sm:text-lg md:text-xl font-sans font-light leading-relaxed text-shadow/60">
-            True luxury does not clamor for attention. It commands through quiet presence and enduring depth.
+          <p className="text-base sm:text-lg md:text-xl font-sans font-normal leading-relaxed text-shadow/80">
+            True refinement does not clamor for attention. It commands through quiet presence and enduring depth.
           </p>
-          <p className="text-xs sm:text-sm font-sans font-light leading-relaxed max-w-xl mx-auto text-shadow/60">
+          <p className="text-xs sm:text-sm font-sans font-normal leading-relaxed max-w-xl mx-auto text-shadow/80">
             Founded in 2024, FUME crafts every fragrance with exceptional concentration. Formulated to bond with epidermal warmth, our noble woods and balsamic resins mature into an indelible personal signature that stays with you all day and into the night.
           </p>
         </div>
@@ -38,8 +38,8 @@ export const BrandStatement: React.FC<BrandStatementProps> = ({ themeMode }) => 
             <span className="font-serif text-lg text-dusty-rose font-normal block">
               LONGEVITY
             </span>
-            <span className="text-[10px] uppercase tracking-[0.25em] font-sans block text-shadow/60">
-              12 to 16 Hour Persistence
+            <span className="text-[10px] uppercase tracking-[0.25em] font-sans block text-shadow/80">
+              All-Day Skin Presence
             </span>
           </div>
 
@@ -47,7 +47,7 @@ export const BrandStatement: React.FC<BrandStatementProps> = ({ themeMode }) => 
             <span className="font-serif text-lg text-dusty-rose font-normal block">
               PURITY
             </span>
-            <span className="text-[10px] uppercase tracking-[0.25em] font-sans block text-shadow/60">
+            <span className="text-[10px] uppercase tracking-[0.25em] font-sans block text-shadow/80">
               High Potency Oils
             </span>
           </div>
@@ -56,7 +56,7 @@ export const BrandStatement: React.FC<BrandStatementProps> = ({ themeMode }) => 
             <span className="font-serif text-lg text-dusty-rose font-normal block">
               HERITAGE
             </span>
-            <span className="text-[10px] uppercase tracking-[0.25em] font-sans block text-shadow/60">
+            <span className="text-[10px] uppercase tracking-[0.25em] font-sans block text-shadow/80">
               Hand-Poured Since 2024
             </span>
           </div>

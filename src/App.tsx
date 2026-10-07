@@ -37,7 +37,7 @@ export function App() {
   const [selectedFragrance, setSelectedFragrance] = useState<Fragrance | null>(null);
   const [activeReelFilm, setActiveReelFilm] = useState<Film | null>(null);
 
-  // Dark Luxury theme system
+  // Dark premium theme system
   const themeMode: ThemeMode = 'light';
 
   // Cart State with Local Persistence
@@ -48,25 +48,17 @@ export function App() {
         const parsed = JSON.parse(saved);
         return parsed.map((item: any) => {
           const fid = item.fragrance?.id || '';
+          const exactFragrance = FRAGRANCES.find((f) => f.id === fid) || item.fragrance;
           const p50 = getPrice50(fid);
           const p100 = getPrice100(p50);
           const currentPrice = item.size === '100ml' ? p100 : p50;
-          return { ...item, price: currentPrice };
+          return { ...item, fragrance: exactFragrance, price: currentPrice };
         });
       }
     } catch {
       // Ignore
     }
-    // Start with 1 item so users immediately experience the shopping bag
-    const initialPrice50 = getPrice50(FRAGRANCES[0].id);
-    return [
-      {
-        fragrance: FRAGRANCES[0], // Bloom
-        quantity: 1,
-        size: '50ml',
-        price: initialPrice50
-      }
-    ];
+    return [];
   });
 
   useEffect(() => {
@@ -87,8 +79,8 @@ export function App() {
   // Dynamic SEO / AEO / GEO Metadata per view
   useEffect(() => {
     const titles: Record<ScreenView, string> = {
-      home: 'FUME FRAGRANCES | Your Scent. Your Story. Luxury Eau de Parfum',
-      perfumes: 'All Perfumes | FUME FRAGRANCES : 14+ Hour Haute Parfumerie in Pakistan',
+      home: 'FUME FRAGRANCES | Your Scent. Your Story. Eau de Parfum',
+      perfumes: 'All Perfumes | FUME FRAGRANCES : Artisanal Parfumerie in Pakistan',
       collections: 'Haute Collections | FUME FRAGRANCES : Curated Scent Families',
       story: 'Our Story & Founder Creed | FUME FRAGRANCES Pakistan',
       contact: 'Concierge & Bespoke Service | FUME FRAGRANCES',
@@ -96,8 +88,8 @@ export function App() {
       films: 'FUME on Film | Authentic Customer Experiences & Unboxing'
     };
     const descriptions: Record<ScreenView, string> = {
-      home: 'FUME FRAGRANCES: Authentic luxury Eau de Parfum hand-crafted in Pakistan. Formulated with Grasse distillates, 14+ hour persistence, and nationwide Cash on Delivery.',
-      perfumes: 'Explore all 24 luxury Eau de Parfum creations by FUME. Hand-formulated in Grasse and bottled in architectural flint glass with free 2ml discovery vials.',
+      home: 'FUME FRAGRANCES: Authentic premium Eau de Parfum hand-crafted in Pakistan. Crafted with premium ingredients, all-day presence, and nationwide Cash on Delivery.',
+      perfumes: 'Explore all 24 premium Eau de Parfum creations by FUME. Hand-formulated in Karachi and bottled in architectural flint glass with free 2ml discovery vials.',
       collections: 'Discover curated fragrance collections across Fresh, Floral, Oriental, and Woody olfactory families. Tested for Pakistan warm climates.',
       story: 'The story behind FUME FRAGRANCES: making authentic, master-crafted fragrances accessible across Pakistan without international retail markups.',
       contact: 'Connect with the FUME Concierge for bespoke flacon engraving, scent consultations, and WhatsApp orders across Pakistan.',
@@ -208,7 +200,7 @@ export function App() {
               themeMode={themeMode}
             />
 
-            {/* ANIMATED LUXURY MARQUEE TICKER */}
+            {/* ANIMATED premium MARQUEE TICKER */}
             <BrandMarquee themeMode={themeMode} />
 
             {/* 2. FEATURED PERFUMES (THE COLLECTION) — Dark Glass Cards */}

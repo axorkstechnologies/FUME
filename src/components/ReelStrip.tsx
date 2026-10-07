@@ -162,7 +162,7 @@ export const ReelStrip: React.FC<ReelStripProps> = ({ films, onOpenReel }) => {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: 'FUME Fragrances — Real Customer Films',
-    description: 'Authentic unboxing, review, and lifestyle videos showcasing FUME luxury fragrances — handcrafted in Grasse, Pakistan-priced.',
+    description: 'Authentic unboxing, review, and lifestyle videos showcasing FUME fragrances — handcrafted in Pakistan with premium ingredients.',
     numberOfItems: films.length,
     itemListElement: films.map((film, i) => ({
       '@type': 'ListItem',
@@ -196,7 +196,7 @@ export const ReelStrip: React.FC<ReelStripProps> = ({ films, onOpenReel }) => {
             Seen on Film
           </h2>
         </div>
-        <p className="hidden sm:block text-xs font-sans text-shadow/60 tracking-wide max-w-[260px] text-right leading-relaxed">
+        <p className="hidden sm:block text-xs font-sans text-shadow/80 tracking-wide max-w-[260px] text-right leading-relaxed">
           Authentic client reviews and unboxing stories from across Pakistan.
         </p>
       </div>

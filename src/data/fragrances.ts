@@ -15,6 +15,7 @@ export const getFragranceTitle = (fragrance: Fragrance): string => {
 
 export const DISCOVERY_SET: Fragrance = {
   id: 'discovery-set',
+    productType: 'set',
   name: 'DISCOVERY SET',
   title: 'FUME FRAGRANCES Discovery Set',
   subtitle: '5 × 5ML CURATED TESTERS',
@@ -32,7 +33,6 @@ export const DISCOVERY_SET: Fragrance = {
   heartNotes: 'Smoky Birch, Tuberose, Crisp Lavender',
   baseNotes: 'Tuscan Leather, Precious Woods, Ambergris',
   description: '5 × 5ml testers curated for your taste. Discover your signature scent across our floral, fresh, oriental, and woody creations in heavy miniature glass flacons.',
-  origin: 'Hand-Crafted in Pakistan • Since 2024',
   inStock: true,
   pastelBg: '#F8F4F0',
   pastelAccent: '#C9A9A6',
@@ -40,10 +40,11 @@ export const DISCOVERY_SET: Fragrance = {
   cardTone: 'Discovery Coffret'
 };
 
-export const FRAGRANCES: Fragrance[] = [
+const RAW_FRAGRANCES: Fragrance[] = [
   // ── Discovery row (first 5, order: BLOOM · MY WAY · BOMB · ETERNITY · CREED) ──
   {
     id: 'bloom',
+    productType: 'impression',
     name: 'BLOOM',
     subtitle: 'NIGHT JASMINE & SMOKED OAKMOSS',
     concentration: 'Eau de Parfum',
@@ -57,10 +58,9 @@ export const FRAGRANCES: Fragrance[] = [
     notesLine: 'Tuberose, orange blossom, warm jasmine',
     image: '/bottles/bloom.webp',
     topNotes: 'Italian Bergamot, Pink Pepper',
-    heartNotes: 'Night-Blooming Jasmine, Grasse Tuberose',
+    heartNotes: 'Night-Blooming Jasmine, Tuberose Absolute',
     baseNotes: 'Smoked Oakmoss, White Amber, Cashmeran',
     description: 'An ethereal nocturnal floral anchored in mineral clarity. Crisp night jasmine suspended over petrified oakmoss and subtle atmospheric smoke.',
-    origin: 'Grasse, France • Since 2024',
     inStock: true,
     pastelBg: '#E3DDD3',
     pastelAccent: '#D6C7B2',
@@ -69,6 +69,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'my-way',
+    productType: 'impression',
     name: 'MY WAY',
     subtitle: 'ORANGE BLOSSOM & WARM CEDARWOOD',
     concentration: 'Eau de Parfum',
@@ -85,7 +86,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Indian Tuberose, Velvet Jasmine',
     baseNotes: 'Virginian Cedarwood, Bourbon Vanilla, White Musk',
     description: 'A luminous invitation to self-discovery. Radiant white floral heart embraced by warm champagne amber and dark Virginia cedarwood.',
-    origin: 'Grasse & Virginia • Since 2024',
     inStock: true,
     pastelBg: '#F8F4F0',
     pastelAccent: '#C9A9A6',
@@ -94,6 +94,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'bomb',
+    productType: 'impression',
     name: 'BOMB',
     subtitle: 'TUSCAN LEATHER & SCORCHED BIRCH',
     concentration: 'Eau de Parfum',
@@ -110,7 +111,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Birch Tar, Midnight Violet, Frankincense',
     baseNotes: 'Tuscan Leather, Black Suede, Amber Wood',
     description: 'Commanding density and regal projection. Scorched birch tar and saffron intertwine with supple Italian leather for an unyielding trail.',
-    origin: 'Florence & Grasse • Since 2024',
     inStock: true,
     pastelBg: '#E3DDD3',
     pastelAccent: '#D6C7B2',
@@ -119,6 +119,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'eternity',
+    productType: 'impression',
     name: 'ETERNITY',
     subtitle: 'ALDEHYDIC IRIS & MINERAL AMBER',
     concentration: 'Eau de Parfum',
@@ -135,7 +136,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Florentine Orris Butter, White Peony',
     baseNotes: 'Mineral Amber, Cashmeran, Clean Cedar',
     description: 'Pristine, crystalline, and eternal. Cool powdered iris meets clean skin musks in razor-sharp equilibrium, leaving a magnetic presence.',
-    origin: 'Florence • Since 2024',
     inStock: true,
     pastelBg: '#F8F4F0',
     pastelAccent: '#C9A9A6',
@@ -144,6 +144,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'creed',
+    productType: 'impression',
     name: 'CREED',
     subtitle: 'SMOKY BIRCH & DRY OAKMOSS',
     concentration: 'Eau de Parfum',
@@ -158,9 +159,8 @@ export const FRAGRANCES: Fragrance[] = [
     image: '/bottles/creed.webp',
     topNotes: 'Crisp Bergamot, Blackcurrant, Pink Apple',
     heartNotes: 'Smoky Birch, Patchouli, Moroccan Jasmine',
-    baseNotes: 'French Oakmoss, Ambergris, Bourbon Vanilla',
+    baseNotes: 'Imperial Oakmoss, Ambergris, Bourbon Vanilla',
     description: 'The archetype of confident poise. Rich smoky woods energized by bright bergamot and dry oceanic ambergris that lingers from dawn till dusk.',
-    origin: 'Grasse & Paris • Since 2024',
     inStock: true,
     pastelBg: '#E3DDD3',
     pastelAccent: '#D6C7B2',
@@ -173,6 +173,7 @@ export const FRAGRANCES: Fragrance[] = [
 
   {
     id: 'sauvage',
+    productType: 'impression',
     name: 'SAUVAGE',
     subtitle: 'CALABRIAN BERGAMOT & RAW AMBROXAN',
     concentration: 'Eau de Parfum',
@@ -189,7 +190,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Lavender, Star Anise, Nutmeg',
     baseNotes: 'Raw Ambroxan, Papua Vanilla, Cedarwood',
     description: 'An instinctual rush of radiant freshness colliding with noble woods. Sensual, modern, and boldly magnetic in its projection.',
-    origin: 'Calabria & Grasse • Since 2024',
     inStock: true,
     pastelBg: '#F8F4F0',
     pastelAccent: '#C9A9A6',
@@ -198,6 +198,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'wanted',
+    productType: 'impression',
     name: 'WANTED',
     subtitle: 'CARDAMOM & CHARRED TONKA BEAN',
     concentration: 'Eau de Parfum',
@@ -214,7 +215,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Incense, Charred Toffee, Juniper',
     baseNotes: 'Roasted Tonka Bean, Vetiver, Amberwood',
     description: 'Intoxicating warmth and nocturnal charisma. Rich golden spices harmonize with smoky tonka and resins that melt into the skin.',
-    origin: 'Grasse & Guatemala • Since 2024',
     inStock: true,
     pastelBg: '#E3DDD3',
     pastelAccent: '#D6C7B2',
@@ -223,6 +223,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'beckham',
+    productType: 'impression',
     name: 'BECKHAM',
     subtitle: 'VIRGINIAN TOBACCO & DARK SUEDE',
     concentration: 'Eau de Parfum',
@@ -239,7 +240,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Cured Virginian Tobacco, Dark Patchouli',
     baseNotes: 'Supple Dark Suede, Sandalwood, Dry Amber',
     description: 'Understated masculine elegance. Notes of cured tobacco leaves and tailored suede balanced with warm sandalwood for effortless distinction.',
-    origin: 'London & Grasse • Since 2024',
     inStock: true,
     pastelBg: '#F8F4F0',
     pastelAccent: '#C9A9A6',
@@ -248,6 +248,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'rouge',
+    productType: 'impression',
     name: 'ROUGE',
     subtitle: 'RED ROSE & SMOKY INCENSE',
     concentration: 'Eau de Parfum',
@@ -264,7 +265,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Damascena Red Rose, Oud',
     baseNotes: 'Smoky Incense, Amber, Benzoin',
     description: 'A smouldering rose steeped in sacred incense. Saffron ignites the opening while smoky resins anchor a long, hypnotic trail.',
-    origin: 'Grasse & Paris • Since 2024',
     inStock: true,
     pastelBg: '#E3DDD3',
     pastelAccent: '#D6C7B2',
@@ -273,6 +273,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'aqua',
+    productType: 'impression',
     name: 'AQUA',
     subtitle: 'SEA AIR & MINERAL MUSK',
     concentration: 'Eau de Parfum',
@@ -289,7 +290,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Marine Accord, Rosemary',
     baseNotes: 'Mineral Musk, Driftwood, White Cedar',
     description: 'The scent of a Mediterranean morning. Transparent sea air and sun-warmed citrus settle into mineral musk and bleached driftwood.',
-    origin: 'Grasse & Paris • Since 2024',
     inStock: true,
     pastelBg: '#F8F4F0',
     pastelAccent: '#C9A9A6',
@@ -298,6 +298,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'issey',
+    productType: 'impression',
     name: 'ISSEY',
     subtitle: 'YUZU & TRANSPARENT WOODS',
     concentration: 'Eau de Parfum',
@@ -314,7 +315,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Lotus Flower, Lily of the Valley',
     baseNotes: 'Transparent Woods, White Musk, Blonde Cedar',
     description: 'A meditation in luminosity. Sheer yuzu and aquatic lotus dissolve into transparent woods for an airy, near-invisible elegance.',
-    origin: 'Grasse & Paris • Since 2024',
     inStock: true,
     pastelBg: '#E3DDD3',
     pastelAccent: '#D6C7B2',
@@ -323,6 +323,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'ams',
+    productType: 'impression',
     name: 'AMS',
     subtitle: 'GREEN APPLE & DRY CEDAR',
     concentration: 'Eau de Parfum',
@@ -339,7 +340,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Geranium, Cinnamon Bark',
     baseNotes: 'Dry Cedar, Amberwood, Musk',
     description: 'Crisp green architecture meeting warm amber foundations. A modern masculine contour drawn with botanical precision.',
-    origin: 'Grasse & Paris • Since 2024',
     inStock: true,
     pastelBg: '#F8F4F0',
     pastelAccent: '#C9A9A6',
@@ -348,6 +348,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'khabib',
+    productType: 'impression',
     name: 'KHABIB',
     subtitle: 'LEATHER & CRUSHED HERBS',
     concentration: 'Eau de Parfum',
@@ -364,7 +365,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Raw Leather, Labdanum',
     baseNotes: 'Smoke, Vetiver, Dark Amber',
     description: 'Unyielding strength distilled into scent. Raw leather and crushed mountain herbs over a base of fire-cured amber and vetiver.',
-    origin: 'Grasse & Paris • Since 2024',
     inStock: true,
     pastelBg: '#E3DDD3',
     pastelAccent: '#D6C7B2',
@@ -373,6 +373,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'bleu',
+    productType: 'impression',
     name: 'BLEU',
     subtitle: 'GRAPEFRUIT & DRY CEDAR',
     concentration: 'Eau de Parfum',
@@ -389,7 +390,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Incense, Ginger, Nutmeg',
     baseNotes: 'Dry Cedar, Sandalwood, Patchouli',
     description: 'A decisive stroke of aromatic freshness and smoky depth. Grapefruit opens with absolute clarity before settling into sacred incense and wood.',
-    origin: 'Grasse & Paris • Since 2024',
     inStock: true,
     pastelBg: '#F8F4F0',
     pastelAccent: '#C9A9A6',
@@ -398,6 +398,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'limm',
+    productType: 'impression',
     name: "L'IMM",
     title: "FUME FRAGRANCES : L'IMM",
     subtitle: 'AMBER WOODS & MINERAL AIR',
@@ -415,7 +416,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Lavender, Rosemary, Geranium',
     baseNotes: 'Amber Woods, Mineral Musk, Patchouli',
     description: 'An immaterial veil of mineral air threaded through amber woods. Impossibly light yet persistent, a scent that exists just beyond reach.',
-    origin: 'Grasse & Paris • Since 2024',
     inStock: true,
     pastelBg: '#E3DDD3',
     pastelAccent: '#D6C7B2',
@@ -424,6 +424,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'arab',
+    productType: 'signature',
     name: 'ARAB',
     subtitle: 'OUD & SUN-WARMED AMBER',
     concentration: 'Eau de Parfum',
@@ -440,7 +441,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Damascena Rose, Cambodian Oud',
     baseNotes: 'Sun-Warmed Amber, Benzoin, Musk',
     description: 'An opulent oud tapestry woven with rose and radiant amber. Sun-warmed spices and sacred resins evoke ancient desert grandeur.',
-    origin: 'Grasse & Paris • Since 2024',
     inStock: true,
     pastelBg: '#F8F4F0',
     pastelAccent: '#C9A9A6',
@@ -449,6 +449,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'desert',
+    productType: 'signature',
     name: 'DESERT',
     subtitle: 'HOT SAND & FRANKINCENSE',
     concentration: 'Eau de Parfum',
@@ -465,7 +466,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Sacred Frankincense, Myrrh',
     baseNotes: 'Dry Cedar, Amber, Guaiac Wood',
     description: 'The desert at high noon captured in glass. Scorched sand and sacred frankincense give way to dry cedar and smouldering amber.',
-    origin: 'Grasse & Paris • Since 2024',
     inStock: true,
     pastelBg: '#E3DDD3',
     pastelAccent: '#D6C7B2',
@@ -474,6 +474,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'million',
+    productType: 'impression',
     name: 'MILLION',
     subtitle: 'HONEYED LEATHER & TONKA',
     concentration: 'Eau de Parfum',
@@ -490,7 +491,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Rose Absolute, Clary Sage',
     baseNotes: 'Honeyed Leather, Tonka Bean, Amber',
     description: 'Liquid gold for the audacious. Honeyed leather and molten cinnamon fuse with roasted tonka for a rich, long-lasting trail.',
-    origin: 'Grasse & Paris • Since 2024',
     inStock: true,
     pastelBg: '#F8F4F0',
     pastelAccent: '#C9A9A6',
@@ -499,6 +499,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'owood',
+    productType: 'impression',
     name: "O'WOOD",
     title: "FUME FRAGRANCES : O'WOOD",
     subtitle: 'OAKMOSS & SMOKED WOODS',
@@ -516,7 +517,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Oakmoss, Smoked Woods',
     baseNotes: 'Vetiver, Cedarwood, Musk',
     description: 'Deep forest solitude. Ancient oakmoss and smoked heartwoods converge with earthy vetiver for a primordial, grounding scent.',
-    origin: 'Grasse & Paris • Since 2024',
     inStock: true,
     pastelBg: '#E3DDD3',
     pastelAccent: '#D6C7B2',
@@ -525,6 +525,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'legend',
+    productType: 'impression',
     name: 'LEGEND',
     subtitle: 'LAVENDER & PINEAPPLE',
     concentration: 'Eau de Parfum',
@@ -541,7 +542,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Lavender, Violet Leaf',
     baseNotes: 'Oakmoss, Tonka, Cedarwood',
     description: 'A legendary accord of aromatic lavender lifted by tropical pineapple. Dry oakmoss and tonka create an enduring, masculine signature.',
-    origin: 'Grasse & Paris • Since 2024',
     inStock: true,
     pastelBg: '#F8F4F0',
     pastelAccent: '#C9A9A6',
@@ -550,6 +550,7 @@ export const FRAGRANCES: Fragrance[] = [
   },
   {
     id: 'v-wmn',
+    productType: 'impression',
     name: 'V WMN',
     subtitle: 'PEONY & VANILLA ORCHID',
     concentration: 'Eau de Parfum',
@@ -566,7 +567,6 @@ export const FRAGRANCES: Fragrance[] = [
     heartNotes: 'Vanilla Orchid, Jasmine Sambac',
     baseNotes: 'Soft Woods, White Musk, Cashmeran',
     description: 'Femininity distilled to its essence. Lush peony and vanilla orchid float over whisper-soft woods and creamy cashmeran.',
-    origin: 'Grasse & Paris • Since 2024',
     inStock: true,
     pastelBg: '#E3DDD3',
     pastelAccent: '#D6C7B2',
@@ -574,3 +574,15 @@ export const FRAGRANCES: Fragrance[] = [
     cardTone: 'Velvet Peony'
   }
 ];
+
+export const FRAGRANCES: Fragrance[] = [...RAW_FRAGRANCES].sort((a, b) => {
+  if (a.id === 'arab' || a.id === 'desert') {
+    if (b.id !== 'arab' && b.id !== 'desert') return -1;
+  }
+  if (b.id === 'arab' || b.id === 'desert') {
+    if (a.id !== 'arab' && a.id !== 'desert') return 1;
+  }
+  if (a.id === 'discovery-set') return 1;
+  if (b.id === 'discovery-set') return -1;
+  return 0;
+});

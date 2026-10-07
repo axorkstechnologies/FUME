@@ -20,7 +20,7 @@ const TESTIMONIALS: Testimonial[] = [
     scent: 'DESERT Eau de Parfum',
     rating: 5,
     date: 'August 2026',
-    comment: 'First spray in the morning before work. The amber and smoky sandalwood projection is unbelievable in Karachi heat. Still caught wafts at 9 PM. The heavy glass flacon and packaging is pure luxury.',
+    comment: 'First spray in the morning before work. The amber and smoky sandalwood projection is unbelievable in Karachi heat. Still caught wafts at 9 PM. The heavy glass flacon and packaging is pure refinement.',
     verified: true
   },
   {
@@ -69,7 +69,7 @@ export const TestimonialsSection: React.FC = () => {
           <h2 id="testimonials-heading" className="font-serif text-3xl sm:text-4xl uppercase tracking-[0.14em] text-shadow font-normal">
             Voices of Sillage
           </h2>
-          <p className="text-xs sm:text-sm font-sans text-shadow/60 leading-relaxed">
+          <p className="text-xs sm:text-sm font-sans text-shadow/80 leading-relaxed">
             Real experiences from fragrance collectors across Karachi, Lahore, Islamabad, and nationwide.
           </p>
         </div>
@@ -90,7 +90,7 @@ export const TestimonialsSection: React.FC = () => {
                     ))}
                   </div>
                   {t.verified && (
-                    <span className="inline-flex items-center gap-1 text-[9px] uppercase tracking-wider text-shadow/60 font-sans">
+                    <span className="inline-flex items-center gap-1 text-[9px] uppercase tracking-wider text-shadow/80 font-sans">
                       <ShieldCheck className="w-3 h-3 text-dusty-rose" />
                       Verified
                     </span>
@@ -103,7 +103,7 @@ export const TestimonialsSection: React.FC = () => {
                 </span>
 
                 {/* Comment */}
-                <p className="text-xs sm:text-sm font-sans font-light leading-relaxed text-shadow/60 italic">
+                <p className="text-xs sm:text-sm font-sans font-normal leading-relaxed text-shadow/80 italic">
                   &ldquo;{t.comment}&rdquo;
                 </p>
               </div>
@@ -111,7 +111,7 @@ export const TestimonialsSection: React.FC = () => {
               {/* Author Info */}
               <div className="pt-4 border-t border-shadow/[0.08] flex items-center justify-between text-[10px] uppercase tracking-wider font-sans">
                 <span className="font-medium text-shadow">{t.name}</span>
-                <span className="text-shadow/60">{t.location}</span>
+                <span className="text-shadow/80">{t.location}</span>
               </div>
             </div>
           ))}
@@ -121,17 +121,17 @@ export const TestimonialsSection: React.FC = () => {
         <div className="p-6 bg-shadow/5/60 border border-shadow/[0.06] rounded-xs flex flex-wrap items-center justify-around gap-6 text-center">
           <div className="space-y-0.5">
             <span className="font-serif text-2xl text-dusty-rose font-medium block">4.9 / 5.0</span>
-            <span className="text-[9px] uppercase tracking-[0.25em] text-shadow/60 font-sans block">Aggregate Buyer Rating</span>
+            <span className="text-[9px] uppercase tracking-[0.25em] text-shadow/80 font-sans block">Aggregate Buyer Rating</span>
           </div>
           <div className="w-[1px] h-8 bg-pearl/[0.08] hidden sm:block" />
           <div className="space-y-0.5">
-            <span className="font-serif text-2xl text-dusty-rose font-medium block">14+ Hours</span>
-            <span className="text-[9px] uppercase tracking-[0.25em] text-shadow/60 font-sans block">Verified Skin Persistence</span>
+            <span className="font-serif text-2xl text-dusty-rose font-medium block">All-Day</span>
+            <span className="text-[9px] uppercase tracking-[0.25em] text-shadow/80 font-sans block">Verified Skin Persistence</span>
           </div>
           <div className="w-[1px] h-8 bg-pearl/[0.08] hidden sm:block" />
           <div className="space-y-0.5">
             <span className="font-serif text-2xl text-dusty-rose font-medium block">100% Free</span>
-            <span className="text-[9px] uppercase tracking-[0.25em] text-shadow/60 font-sans block">2ml Risk-Free Tester With Every Flacon</span>
+            <span className="text-[9px] uppercase tracking-[0.25em] text-shadow/80 font-sans block">2ml Risk-Free Tester With Every Flacon</span>
           </div>
         </div>
       </div>

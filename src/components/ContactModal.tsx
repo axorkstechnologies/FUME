@@ -40,7 +40,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
         <button
           onClick={onClose}
           className={`absolute top-6 right-6 p-2 cursor-pointer transition-colors ${
-            'text-shadow/60 hover:text-shadow'
+            'text-shadow/80 hover:text-shadow'
           }`}
           aria-label="Close modal"
         >
@@ -59,8 +59,8 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
             CONCIERGE INQUIRY
           </h3>
           <p
-            className={`text-xs font-light ${
-              'text-shadow/60'
+            className={`text-xs font-normal ${
+              'text-shadow/80'
             }`}
           >
             Shipping assistance, bespoke flacons, and private appointments.
@@ -73,7 +73,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
             <p className="font-serif text-lg uppercase tracking-wider text-dusty-rose">
               MESSAGE DISPATCHED
             </p>
-            <p className={`text-xs ${'text-shadow/60'}`}>
+            <p className={`text-xs ${'text-shadow/80'}`}>
               A FUME olfactory advisor will respond to your dossier within 24 hours.
             </p>
           </div>
@@ -82,7 +82,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
             <div className="space-y-1">
               <label
                 className={`uppercase tracking-wider text-[10px] ${
-                  'text-shadow/60'
+                  'text-shadow/80'
                 }`}
               >
                 Full Name
@@ -102,7 +102,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
             <div className="space-y-1">
               <label
                 className={`uppercase tracking-wider text-[10px] ${
-                  'text-shadow/60'
+                  'text-shadow/80'
                 }`}
               >
                 Email Address
@@ -122,7 +122,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
             <div className="space-y-1">
               <label
                 className={`uppercase tracking-wider text-[10px] ${
-                  'text-shadow/60'
+                  'text-shadow/80'
                 }`}
               >
                 Inquiry Details
@@ -150,7 +150,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
               </button>
 
               <a
-                href={`https://wa.me/923132970468?text=${encodeURIComponent(
+                href={`https://wa.me/92381825636?text=${encodeURIComponent(
                   `Hello FUME Concierge, my name is ${name || 'Patron'}${email ? ` (${email})` : ''}.\nInquiry: ${message || 'I would like to inquire regarding FUME bespoke services.'}`
                 )}`}
                 target="_blank"
@@ -159,7 +159,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
                   'border-dusty-rose text-shadow hover:bg-dusty-rose/10'
                 }`}
               >
-                DIRECT INQUIRY ON WHATSAPP (+92 313 297 0468)
+                DIRECT INQUIRY ON WHATSAPP (+92 381 825 636)
               </a>
             </div>
           </form>
