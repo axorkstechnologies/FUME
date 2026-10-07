@@ -25,7 +25,7 @@ export const CollectionsView: React.FC<CollectionsViewProps> = ({
       description: 'Conceived for intimate darkness and low-lit rooms. Formulated with smoked oakmoss, night-blooming jasmine, and charred tonka bean.',
       image: HERO_BOTTLE_IMAGE,
       featuredIds: ['bloom', 'my-way', 'wanted'],
-      pastelTag: '#F8F4F0'
+      pastelTag: '#FDFBF7'
     },
     {
       title: 'THE TERRA LEATHER ARCHIVE',
@@ -33,7 +33,7 @@ export const CollectionsView: React.FC<CollectionsViewProps> = ({
       description: 'Scorched birch, Tuscan leather, and Virginian tobacco aged in French oak casks for unprecedented longevity.',
       image: EDITORIAL_IMAGE,
       featuredIds: ['bomb', 'creed', 'beckham'],
-      pastelTag: '#F8F4F0'
+      pastelTag: '#FDFBF7'
     },
     {
       title: 'THE MINERAL & ALDEHYDE SUITE',
@@ -41,7 +41,7 @@ export const CollectionsView: React.FC<CollectionsViewProps> = ({
       description: 'Frost aldehydes, Florentine iris butter, and raw ambroxan. Razor-sharp elegance that cuts cleanly through cold air.',
       image: CAMPAIGN_IMAGE,
       featuredIds: ['eternity', 'sauvage'],
-      pastelTag: '#F8F4F0'
+      pastelTag: '#FDFBF7'
     }
   ];
 

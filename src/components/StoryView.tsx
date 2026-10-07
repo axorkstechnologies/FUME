@@ -66,7 +66,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
               <div className="absolute inset-0 bg-gradient-to-t from-pearl/75 via-pearl/20 to-transparent" />
               <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-[10px] uppercase tracking-[0.28em] text-pearl font-sans">
                 <span>HAND-CRAFTED IN PAKISTAN</span>
-                <span className="text-dusty-rose">AUTHENTIC BATCH #F8F4F0</span>
+                <span className="text-dusty-rose">AUTHENTIC BATCH #FDFBF7</span>
               </div>
             </div>
           </div>

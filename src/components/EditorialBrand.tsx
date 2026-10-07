@@ -23,7 +23,7 @@ export const EditorialBrand: React.FC<EditorialBrandProps> = ({
       <motion.div
         className="absolute top-1/2 left-1/4 w-[400px] h-[400px] rounded-full blur-[100px] opacity-15 pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, #C9A9A6 0%, #C9A9A6 60%, transparent 80%)'
+          background: 'radial-gradient(circle, #D4A59A 0%, #D4A59A 60%, transparent 80%)'
         }}
         animate={{
           scale: [1, 1.2, 1],

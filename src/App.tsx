@@ -23,6 +23,7 @@ import { SearchModal } from './components/SearchModal';
 import { ScentQuizModal } from './components/ScentQuizModal';
 import { StoryModal } from './components/StoryModal';
 import { ContactModal } from './components/ContactModal';
+import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { StoryView } from './components/StoryView';
 import { ContactView } from './components/ContactView';
 import { CareView } from './components/CareView';
@@ -370,6 +371,9 @@ export function App() {
         onClose={() => setIsContactOpen(false)}
         themeMode={themeMode}
       />
+
+      {/* Floating WhatsApp Button */}
+      <FloatingWhatsApp />
     </div>
   );
 }

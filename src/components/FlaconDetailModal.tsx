@@ -145,8 +145,8 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
         <div
           className="pdp-media relative overflow-hidden flex items-center justify-center md:justify-end border-b md:border-b-0 md:border-r h-full"
           style={{
-            backgroundColor: fragrance.pastelBg,
-            borderColor: '#F8F4F0',
+            backgroundColor: '#F0EBE3',
+            borderColor: '#FDFBF7',
             minHeight: 0,
             overflow: 'hidden'
           }}
@@ -200,7 +200,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
               <div
                 className="absolute inset-0 opacity-50 blur-[40px] pointer-events-none"
                 style={{
-                  background: `radial-gradient(circle, ${fragrance.pastelGlow} 0%, transparent 70%)`
+                  background: `radial-gradient(circle, rgba(212, 165, 154, 0.25) 0%, transparent 70%)`
                 }}
               />
 

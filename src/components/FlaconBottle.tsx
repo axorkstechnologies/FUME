@@ -146,7 +146,7 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
           <img
             src={fragrance.image}
             alt={altText}
-            className={`w-full h-full object-contain object-center select-none drop-shadow-[0_30px_70px_rgba(44,37,34,0.85)] ${imageClassName}`}
+            className={`w-full h-full object-contain object-center select-none rounded-2xl drop-shadow-[0_20px_40px_rgba(44,37,34,0.08)] ${imageClassName}`}
             loading="eager"
           />
 
@@ -173,7 +173,7 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
           <img
             src={fragrance.image}
             alt={altText}
-            className={`w-full h-full object-contain md:object-right select-none ${imageClassName}`}
+            className={`w-full h-full object-contain md:object-right select-none rounded-2xl ${imageClassName}`}
           />
 
           {customMonogram && (
@@ -196,7 +196,7 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
         <img
           src={fragrance.image}
           alt={altText}
-          className={`w-full h-full object-contain select-none ${imageClassName}`}
+          className={`w-full h-full object-contain select-none rounded-2xl ${imageClassName}`}
           loading="lazy"
         />
         {!isMasterAsset && (
@@ -236,7 +236,7 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
         <img
           src={fragrance.image}
           alt={altText}
-          className={`w-full h-full object-contain object-center select-none drop-shadow-[0_15px_30px_rgba(44,37,34,0.1)] ${imageClassName}`}
+          className={`w-full h-full object-contain object-center select-none rounded-2xl drop-shadow-[0_15px_30px_rgba(44,37,34,0.1)] ${imageClassName}`}
           loading="lazy"
         />
 

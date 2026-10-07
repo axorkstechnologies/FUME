@@ -41,7 +41,6 @@ export const DISCOVERY_SET: Fragrance = {
 };
 
 export const FRAGRANCES: Fragrance[] = [
-  DISCOVERY_SET,
   // ── Discovery row (first 5, order: BLOOM · MY WAY · BOMB · ETERNITY · CREED) ──
   {
     id: 'bloom',
@@ -169,6 +168,7 @@ export const FRAGRANCES: Fragrance[] = [
     cardTone: 'Imperial Sage'
   },
 
+  DISCOVERY_SET,
   // ── Remaining catalog (non-discovery) ──
   {
     id: 'tuscan-amber',

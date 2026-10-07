@@ -47,10 +47,10 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 bg-pearl/90 backdrop-blur-xl border-b ${
         isScrolled
-          ? 'bg-pearl/95 backdrop-blur-xl border-b border-shadow/[0.08] shadow-[0_4px_30px_rgba(44,37,34,0.05)]'
-          : 'bg-gradient-to-b from-pearl/90 via-pearl/40 to-transparent'
+          ? 'border-shadow/[0.08] shadow-[0_4px_30px_rgba(44,37,34,0.05)] py-0'
+          : 'border-shadow/[0.04] shadow-none py-1 md:py-2'
       }`}
     >
       <div className="site-header w-full max-w-[1700px] mx-auto px-4 sm:px-6 md:px-8 lg:px-8 xl:px-12 h-20 md:h-24">

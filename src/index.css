@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @theme {
-  --color-pearl: #F8F4F0;
-  --color-oyster: #E8E2DC;
-  --color-dusty-rose: #C9A9A6;
-  --color-sand: #D4C4B0;
-  --color-shadow: #2C2522;
+  --color-pearl: #FDFBF7;
+  --color-oyster: #F0EBE3;
+  --color-dusty-rose: #D4A59A;
+  --color-sand: #C4A484;
+  --color-shadow: #1A1A1A;
   
   --font-serif: "Bodoni Moda", "Cinzel", Georgia, serif;
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;

@@ -19,12 +19,12 @@ const CATEGORIES: {
   description: string;
   pastelPill: string;
 }[] = [
-  { label: 'FOR HIM', description: 'Commanding woods, mineral ambergris, and crisp bergamot', pastelPill: '#E8E2DC' },
-  { label: 'FOR HER', description: 'Nocturnal jasmine, luminous tuberose, and velvet vanilla', pastelPill: '#E8E2DC' },
-  { label: 'UNISEX', description: 'Tuscan leather, Florentine iris, and smoked oakmoss', pastelPill: '#E8E2DC' },
-  { label: 'FRESH', description: 'Calabrian citrus, frost aldehydes, and oceanic accords', pastelPill: '#E8E2DC' },
-  { label: 'WOODY', description: 'Smoky birch, aged cedarwood, and cured Virginian tobacco', pastelPill: '#E8E2DC' },
-  { label: 'ORIENTAL', description: 'Charred tonka bean, sacred frankincense, and warm resins', pastelPill: '#E8E2DC' }
+  { label: 'FOR HIM', description: 'Commanding woods, mineral ambergris, and crisp bergamot', pastelPill: '#F0EBE3' },
+  { label: 'FOR HER', description: 'Nocturnal jasmine, luminous tuberose, and velvet vanilla', pastelPill: '#F0EBE3' },
+  { label: 'UNISEX', description: 'Tuscan leather, Florentine iris, and smoked oakmoss', pastelPill: '#F0EBE3' },
+  { label: 'FRESH', description: 'Calabrian citrus, frost aldehydes, and oceanic accords', pastelPill: '#F0EBE3' },
+  { label: 'WOODY', description: 'Smoky birch, aged cedarwood, and cured Virginian tobacco', pastelPill: '#F0EBE3' },
+  { label: 'ORIENTAL', description: 'Charred tonka bean, sacred frankincense, and warm resins', pastelPill: '#F0EBE3' }
 ];
 
 export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
@@ -104,13 +104,13 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
-                className="group flex flex-col cursor-pointer p-5 transition-all duration-300 rounded-sm border bg-shadow/5/80 border-shadow/[0.06] hover:border-dusty-rose/50 hover:shadow-[0_8px_32px_rgba(201,169,166,0.12)]"
+                className="group flex flex-col cursor-pointer p-5 transition-all duration-300 rounded-sm border bg-shadow/5 border-shadow/[0.06] hover:border-dusty-rose/50 hover:shadow-[0_8px_32px_rgba(201,169,166,0.12)]"
                 onClick={() => onSelectFragrance(fragrance)}
               >
                 <FlaconBottle
                   fragrance={fragrance}
                   variant="card"
-                  themeMode="dark"
+                  themeMode="light"
                   showQuickAdd={true}
                   onQuickAdd={() => onAddToCart(fragrance)}
                   className="mb-5 rounded-xs"

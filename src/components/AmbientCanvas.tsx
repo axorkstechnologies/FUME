@@ -15,7 +15,7 @@ export const AmbientCanvas: React.FC<AmbientCanvasProps> = ({ themeMode }) => {
       <motion.div
         className="absolute -top-[10%] -left-[5%] w-[60vw] h-[60vw] rounded-full blur-[110px] opacity-40 mix-blend-multiply"
         style={{
-          background: 'radial-gradient(circle, #F8F4F0 0%, #F8F4F0 50%, transparent 70%)'
+          background: 'radial-gradient(circle, #FDFBF7 0%, #FDFBF7 50%, transparent 70%)'
         }}
         animate={{
           x: [0, 40, -30, 0],
@@ -33,7 +33,7 @@ export const AmbientCanvas: React.FC<AmbientCanvasProps> = ({ themeMode }) => {
       <motion.div
         className="absolute top-[35%] -right-[10%] w-[55vw] h-[55vw] rounded-full blur-[120px] opacity-35"
         style={{
-          background: 'radial-gradient(circle, #F8F4F0 0%, #F8F4F0 45%, transparent 70%)'
+          background: 'radial-gradient(circle, #FDFBF7 0%, #FDFBF7 45%, transparent 70%)'
         }}
         animate={{
           x: [0, -60, 40, 0],
@@ -51,7 +51,7 @@ export const AmbientCanvas: React.FC<AmbientCanvasProps> = ({ themeMode }) => {
       <motion.div
         className="absolute -bottom-[10%] left-[20%] w-[50vw] h-[50vw] rounded-full blur-[130px] opacity-30"
         style={{
-          background: 'radial-gradient(circle, #F8F4F0 0%, #F8F4F0 50%, transparent 70%)'
+          background: 'radial-gradient(circle, #FDFBF7 0%, #FDFBF7 50%, transparent 70%)'
         }}
         animate={{
           x: [0, 50, -40, 0],

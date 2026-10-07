@@ -102,6 +102,40 @@ export const FILMS: Film[] = [
     blurb: '“Experience our hand-poured haute flacons, custom monogram engraving, and personal scent discovery at our flagship.”',
     author: 'FUME Concierge',
     authorRole: 'Flagship Experience'
+  },
+  {
+    id: 'review-fume',
+    src: '/videos/review-fume.mp4',
+    poster: '/videos/posters/fume-boutique-intro.webp', 
+    title: 'PURE LUXURY IN A BOTTLE',
+    kicker: 'LIFESTYLE REVIEW',
+    duration: '0:15',
+    durationSec: 15,
+    kind: 'review',
+    productId: undefined,
+    productName: 'FUME COLLECTION',
+    loop: true,
+    autoPlayMuted: true,
+    blurb: '“This feels incredibly premium. The bottle, the spray, the sillage – absolutely unmatched luxury.”',
+    author: 'Sarah J.',
+    authorRole: 'Verified Buyer'
+  },
+  {
+    id: 'review-high',
+    src: '/videos/review-high.mp4',
+    poster: '/videos/posters/bloom-unboxing.webp', 
+    title: 'THE ULTIMATE FRAGRANCE',
+    kicker: 'CREATOR REVIEW',
+    duration: '0:20',
+    durationSec: 20,
+    kind: 'review',
+    productId: undefined,
+    productName: 'FUME SIGNATURE',
+    loop: true,
+    autoPlayMuted: true,
+    blurb: '“I have stopped wearing all my other perfumes since I received this. The persistence is crazy!”',
+    author: 'Ali M.',
+    authorRole: 'Fragrance Creator'
   }
 ];
 
