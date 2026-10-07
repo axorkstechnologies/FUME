@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Fragrance, ThemeMode } from '../types';
 import { getFragranceTitle } from '../data/fragrances';
-import { FlaconBottle } from './FlaconBottle';
+
 
 interface FragranceDiscoveryProps {
   fragrances: Fragrance[];
@@ -90,7 +90,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
           </div>
         </div>
 
-        {/* Filtered Fragrances Showcase with Animated Transitions */}
+        {/* Filtered Fragrances – Consistent Card Structure */}
         <motion.div
           layout
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-10 pt-4"
@@ -104,26 +104,43 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4 }}
-                className="group flex flex-col cursor-pointer p-5 transition-all duration-300 rounded-sm border bg-shadow/5 border-shadow/[0.06] hover:border-dusty-rose/50 hover:shadow-[0_8px_32px_rgba(201,169,166,0.12)]"
+                className="group flex flex-col cursor-pointer"
                 onClick={() => onSelectFragrance(fragrance)}
               >
-                <FlaconBottle
-                  fragrance={fragrance}
-                  variant="card"
-                  themeMode="light"
-                  showQuickAdd={true}
-                  onQuickAdd={() => onAddToCart(fragrance)}
-                  className="mb-5 rounded-xs"
-                />
+                {/* Image Card – Fixed aspect ratio for consistency */}
+                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg bg-oyster border border-shadow/[0.06] transition-all duration-500 group-hover:shadow-[0_16px_48px_rgba(26,26,26,0.1)] group-hover:border-dusty-rose/40 group-hover:-translate-y-1.5">
+                  <img
+                    src={fragrance.image}
+                    alt={`FUME ${fragrance.name} Eau de Parfum`}
+                    className="absolute inset-0 w-full h-full object-contain object-center p-6 sm:p-8 select-none transition-transform duration-700 group-hover:scale-[1.04]"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto z-20">
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onAddToCart(fragrance);
+                      }}
+                      className="w-full py-3 bg-dusty-rose text-pearl text-[10px] uppercase tracking-[0.24em] font-sans font-semibold cursor-pointer rounded transition-colors hover:bg-shadow hover:text-pearl shadow-md active:scale-[0.98]"
+                    >
+                      ADD TO BAG
+                    </button>
+                  </div>
+                </div>
 
-                <div className="space-y-1 text-center">
-                  <h3 className="font-serif text-lg font-normal uppercase tracking-[0.16em] text-shadow group-hover:text-dusty-rose transition-colors">
+                {/* Product Meta – Identical to FeaturedCollection */}
+                <div className="pt-5 space-y-1.5 text-center">
+                  <h3 className="font-serif text-base md:text-lg font-normal uppercase tracking-[0.16em] text-shadow transition-colors group-hover:text-dusty-rose leading-snug">
                     {getFragranceTitle(fragrance)}
                   </h3>
-                  <p className="text-[10px] font-sans uppercase tracking-[0.2em] text-shadow/60">
-                    {fragrance.concentration} • {fragrance.volume}
+                  <p className="text-[10px] font-sans uppercase tracking-[0.22em] text-shadow/45">
+                    {fragrance.concentration}
                   </p>
-                  <p className="text-[11px] font-sans font-medium pt-1 text-dusty-rose">
+                  <p className="text-[9px] font-sans tracking-[0.2em] text-shadow/40">
+                    {fragrance.volume}
+                  </p>
+                  <p className="text-sm font-sans font-medium tracking-wider text-dusty-rose pt-1">
                     Rs {fragrance.price.toLocaleString()}
                   </p>
                 </div>

@@ -16,7 +16,6 @@ export const Footer: React.FC<FooterProps> = ({
 }) => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
-  const isLight = themeMode === 'light';
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,15 +27,12 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer
-      className="relative w-full font-sans border-t border-shadow/[0.08] bg-pearl text-shadow/60"
-    >
-      <div className="max-w-[1700px] mx-auto px-6 md:px-12 lg:px-16 pt-20 pb-12 space-y-16">
-        {/* Top Tier: FUME Wordmark & Minimal Newsletter */}
-        <div
-          className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start pb-16 border-b border-shadow/[0.08]"
-        >
-          <div className="lg:col-span-5 space-y-2">
+    <footer className="relative w-full font-sans border-t border-shadow/[0.08] bg-pearl text-shadow/60">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 pt-20 pb-12 space-y-16">
+
+        {/* Top: Logo & Newsletter */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start pb-16 border-b border-shadow/[0.08]">
+          <div className="lg:col-span-5 space-y-3">
             <div className="flex items-center gap-3">
               <img
                 src="/logo/logo-black.png"
@@ -53,13 +49,11 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
 
           <div className="lg:col-span-7 lg:pl-10 space-y-4">
-            <span
-              className="text-[10px] uppercase tracking-[0.3em] block text-shadow"
-            >
+            <span className="text-[10px] uppercase tracking-[0.3em] block text-shadow font-medium">
               NEWSLETTER
             </span>
-            <p className="text-xs font-light max-w-md text-shadow/60">
-              Receive private allocations, seasonal flacon releases, and invitations to private salon appointments.
+            <p className="text-xs font-light max-w-md text-shadow/50 leading-relaxed">
+              Receive private allocations, seasonal flacon releases, and invitations to salon appointments.
             </p>
 
             {subscribed ? (
@@ -67,17 +61,14 @@ export const Footer: React.FC<FooterProps> = ({
                 THANK YOU FOR SUBSCRIBING. YOUR DOSSIER HAS BEEN NOTED.
               </div>
             ) : (
-              <form
-                onSubmit={handleSubscribe}
-                className="flex max-w-md border-b border-shadow/20 pb-1"
-              >
+              <form onSubmit={handleSubscribe} className="flex max-w-md border-b border-shadow/20 pb-1">
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="ENTER YOUR EMAIL..."
-                  className="bg-transparent text-xs placeholder:text-shadow/40 focus:outline-none flex-1 uppercase tracking-wider py-2 text-shadow"
+                  className="bg-transparent text-xs placeholder:text-shadow/30 focus:outline-none flex-1 uppercase tracking-wider py-2 text-shadow"
                 />
                 <button
                   type="submit"
@@ -90,37 +81,26 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
         </div>
 
-        {/* Middle Tier: Categorized Navigation Links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 text-xs">
+        {/* Middle: Navigation + Studio Info */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10 text-xs">
           {/* SHOP */}
           <div className="space-y-4">
-            <span
-              className="text-[10px] uppercase tracking-[0.28em] block font-medium text-shadow"
-            >
+            <span className="text-[10px] uppercase tracking-[0.28em] block font-medium text-shadow">
               SHOP
             </span>
             <ul className="space-y-2.5 text-[11px] tracking-wider uppercase">
               <li>
-                <button
-                  onClick={() => onNavigate('perfumes')}
-                  className="hover:text-dusty-rose transition-colors cursor-pointer"
-                >
+                <button onClick={() => onNavigate('perfumes')} className="hover:text-dusty-rose transition-colors cursor-pointer">
                   Perfumes
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('collections')}
-                  className="hover:text-dusty-rose transition-colors cursor-pointer"
-                >
+                <button onClick={() => onNavigate('collections')} className="hover:text-dusty-rose transition-colors cursor-pointer">
                   Collections
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('perfumes')}
-                  className="hover:text-dusty-rose transition-colors cursor-pointer"
-                >
+                <button onClick={() => onNavigate('perfumes')} className="hover:text-dusty-rose transition-colors cursor-pointer">
                   Best Sellers
                 </button>
               </li>
@@ -129,117 +109,96 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* ABOUT */}
           <div className="space-y-4">
-            <span
-              className="text-[10px] uppercase tracking-[0.28em] block font-medium text-shadow"
-            >
+            <span className="text-[10px] uppercase tracking-[0.28em] block font-medium text-shadow">
               ABOUT
             </span>
             <ul className="space-y-2.5 text-[11px] tracking-wider uppercase">
               <li>
-                <button
-                  onClick={() => onNavigate('story')}
-                  className="hover:text-dusty-rose transition-colors cursor-pointer"
-                >
+                <button onClick={() => onNavigate('story')} className="hover:text-dusty-rose transition-colors cursor-pointer">
                   Our Story
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('films')}
-                  className="hover:text-dusty-rose transition-colors cursor-pointer"
-                >
+                <button onClick={() => onNavigate('films')} className="hover:text-dusty-rose transition-colors cursor-pointer">
                   Films & Stories
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('contact')}
-                  className="hover:text-dusty-rose transition-colors cursor-pointer"
-                >
-                  Contact & Concierge
+                <button onClick={() => onNavigate('contact')} className="hover:text-dusty-rose transition-colors cursor-pointer">
+                  Concierge
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* HELP */}
+          {/* CLIENT CARE */}
           <div className="space-y-4">
-            <span
-              className="text-[10px] uppercase tracking-[0.28em] block font-medium text-shadow"
-            >
+            <span className="text-[10px] uppercase tracking-[0.28em] block font-medium text-shadow">
               CLIENT CARE
             </span>
             <ul className="space-y-2.5 text-[11px] tracking-wider uppercase">
               <li>
-                <button
-                  onClick={() => onNavigate('care')}
-                  className="hover:text-dusty-rose transition-colors cursor-pointer"
-                >
+                <button onClick={() => onNavigate('care')} className="hover:text-dusty-rose transition-colors cursor-pointer">
                   Shipping & Delivery
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('care')}
-                  className="hover:text-dusty-rose transition-colors cursor-pointer"
-                >
-                  Returns & Discovery Guarantee
+                <button onClick={() => onNavigate('care')} className="hover:text-dusty-rose transition-colors cursor-pointer">
+                  Returns & Guarantee
                 </button>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('care')}
-                  className="hover:text-dusty-rose transition-colors cursor-pointer"
-                >
-                  Bottle Care & FAQs
+                <button onClick={() => onNavigate('care')} className="hover:text-dusty-rose transition-colors cursor-pointer">
+                  FAQs
                 </button>
               </li>
-              <li className="pt-1 border-t border-shadow/[0.08]">
-                <a
-                  href="mailto:jiaaryan20@gmail.com"
-                  className="hover:text-dusty-rose transition-colors lowercase block text-shadow/80"
-                >
+            </ul>
+          </div>
+
+          {/* STUDIO & CONTACT */}
+          <div className="space-y-4">
+            <span className="text-[10px] uppercase tracking-[0.28em] block font-medium text-shadow">
+              STUDIO
+            </span>
+            <ul className="space-y-2.5 text-[11px] tracking-wider">
+              <li className="uppercase text-shadow/50 leading-relaxed">
+                32/A Society Office,<br />
+                PECHS Block 2,<br />
+                Kashmir Road, Karachi
+              </li>
+              <li className="pt-1 border-t border-shadow/[0.06]">
+                <a href="mailto:jiaaryan20@gmail.com" className="hover:text-dusty-rose transition-colors lowercase text-shadow/60">
                   jiaaryan20@gmail.com
                 </a>
               </li>
               <li>
-                <a
-                  href="https://wa.me/923132970468"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-dusty-rose transition-colors block text-shadow/80"
-                >
+                <a href="https://wa.me/923132970468" target="_blank" rel="noopener noreferrer" className="hover:text-dusty-rose transition-colors uppercase text-shadow/60">
                   WhatsApp: +92 313 297 0468
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* SOCIAL */}
+          {/* OUTLETS & SOCIAL */}
           <div className="space-y-4">
-            <span
-              className="text-[10px] uppercase tracking-[0.28em] block font-medium text-shadow"
-            >
+            <span className="text-[10px] uppercase tracking-[0.28em] block font-medium text-shadow">
+              OUTLETS
+            </span>
+            <p className="text-[11px] tracking-wider uppercase text-dusty-rose/80 italic">
+              Coming Soon
+            </p>
+
+            <span className="text-[10px] uppercase tracking-[0.28em] block font-medium text-shadow pt-4">
               SOCIAL
             </span>
             <ul className="space-y-2.5 text-[11px] tracking-wider uppercase">
               <li>
-                <a
-                  href="https://instagram.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-dusty-rose transition-colors"
-                >
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-dusty-rose transition-colors">
                   Instagram
                 </a>
               </li>
               <li>
-                <a
-                  href="https://tiktok.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-dusty-rose transition-colors"
-                >
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" className="hover:text-dusty-rose transition-colors">
                   TikTok
                 </a>
               </li>
@@ -247,15 +206,13 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
         </div>
 
-        {/* Bottom Tier: Copyright & Understated Marks */}
-        <div
-          className="pt-8 border-t border-shadow/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-[0.25em] text-shadow/40"
-        >
+        {/* Bottom: Copyright */}
+        <div className="pt-8 border-t border-shadow/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] uppercase tracking-[0.25em] text-shadow/35">
           <span>
-            © 2024 {new Date().getFullYear()} FUME FRAGRANCES (SMC-PRIVATE) LIMITED. ALL RIGHTS RESERVED.
+            © 2024–{new Date().getFullYear()} FUME FRAGRANCES (SMC-PRIVATE) LIMITED. ALL RIGHTS RESERVED.
           </span>
           <div className="flex gap-6">
-            <span>GRASSE • PARIS • LONDON</span>
+            <span>KARACHI • PAKISTAN</span>
             <span>PRIVACY & LEGAL</span>
           </div>
         </div>

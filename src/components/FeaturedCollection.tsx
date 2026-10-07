@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Fragrance, ThemeMode } from '../types';
 import { getFragranceTitle } from '../data/fragrances';
-import { FlaconBottle } from './FlaconBottle';
 
 interface FeaturedCollectionProps {
   fragrances: Fragrance[];
@@ -17,70 +16,78 @@ export const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
   onAddToCart,
   themeMode
 }) => {
-  const isLight = themeMode === 'light';
-
   return (
     <section
       id="collection-section"
-      className="relative w-full py-24 md:py-36 px-6 md:px-12 lg:px-16 bg-pearl"
+      className="relative w-full py-28 md:py-40 px-6 md:px-12 lg:px-16 bg-pearl"
     >
-      <div className="max-w-[1700px] mx-auto space-y-16 md:space-y-24">
-        {/* Editorial Section Header */}
-        <div className="text-center space-y-4 max-w-2xl mx-auto">
-          <div className="flex items-center justify-center gap-2">
-            <span className="text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-sans font-medium">
-              EST. 2024 • PERMANENT ARCHIVE
-            </span>
-          </div>
-
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal uppercase tracking-[0.18em] text-shadow">
+      <div className="max-w-[1400px] mx-auto space-y-16 md:space-y-20">
+        {/* Section Header */}
+        <div className="text-center space-y-5 max-w-2xl mx-auto">
+          <span className="text-[10px] uppercase tracking-[0.4em] text-dusty-rose font-sans font-medium block">
+            EST. 2024 • PERMANENT ARCHIVE
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal uppercase tracking-[0.16em] text-shadow leading-tight">
             THE COLLECTION
           </h2>
-
-          <p className="text-xs sm:text-sm font-sans font-light tracking-wider text-shadow/60">
-            A curated selection of FUME fragrances, formulated in Grasse since 2024.
+          <p className="text-sm font-sans font-light tracking-wide text-shadow/50 max-w-md mx-auto leading-relaxed">
+            A curated archive of FUME fragrances, each formulated with pure botanical distillates and housed in architectural flint glass.
           </p>
         </div>
 
-        {/* Sophisticated Pastel & Gold Product Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 lg:gap-x-8 gap-y-14 md:gap-y-18">
+        {/* Product Grid – Consistent Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-10">
           {fragrances.map((fragrance, index) => (
             <motion.div
               key={fragrance.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.08 }}
-              whileHover={{ y: -6 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: index * 0.06 }}
               onClick={() => onSelectFragrance(fragrance)}
               className="group flex flex-col cursor-pointer"
             >
-              {/* Product Flacon with Printed Plaque, Ambient Aura & Quick Add */}
-              <FlaconBottle
-                fragrance={fragrance}
-                variant="card"
-                themeMode={themeMode}
-                showQuickAdd={true}
-                onQuickAdd={() => onAddToCart(fragrance)}
-                className="mb-5"
-              />
+              {/* Image Card – Fixed aspect ratio for consistency */}
+              <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg bg-oyster border border-shadow/[0.06] transition-all duration-500 group-hover:shadow-[0_16px_48px_rgba(26,26,26,0.1)] group-hover:border-dusty-rose/40 group-hover:-translate-y-1.5">
+                {/* Product Image */}
+                <img
+                  src={fragrance.image}
+                  alt={`FUME ${fragrance.name} Eau de Parfum bottle`}
+                  className="absolute inset-0 w-full h-full object-contain object-center p-6 sm:p-8 select-none transition-transform duration-700 group-hover:scale-[1.04]"
+                  loading="lazy"
+                />
 
-              {/* Minimal Product Meta */}
-              <div className="space-y-1 text-center">
-                <h3 className="font-serif text-lg md:text-xl font-normal uppercase tracking-[0.18em] transition-colors text-shadow group-hover:text-dusty-rose">
+                {/* Subtle shimmer on hover */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
+
+                {/* ADD TO BAG – consistent bottom position */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none group-hover:pointer-events-auto z-20">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      onAddToCart(fragrance);
+                    }}
+                    className="w-full py-3 bg-dusty-rose text-pearl text-[10px] uppercase tracking-[0.24em] font-sans font-semibold cursor-pointer rounded transition-colors hover:bg-shadow hover:text-pearl shadow-md active:scale-[0.98]"
+                  >
+                    ADD TO BAG
+                  </button>
+                </div>
+              </div>
+
+              {/* Product Meta – Identical structure for every card */}
+              <div className="pt-5 space-y-1.5 text-center">
+                <h3 className="font-serif text-base md:text-lg font-normal uppercase tracking-[0.16em] text-shadow transition-colors group-hover:text-dusty-rose leading-snug">
                   {getFragranceTitle(fragrance)}
                 </h3>
-                <p className="text-[11px] font-sans uppercase tracking-[0.2em] text-shadow/60">
+                <p className="text-[10px] font-sans uppercase tracking-[0.22em] text-shadow/45">
                   {fragrance.concentration}
                 </p>
-                <p className="text-[10px] font-sans tracking-[0.25em] text-shadow/60">
+                <p className="text-[9px] font-sans tracking-[0.2em] text-shadow/40">
                   {fragrance.volume}
                 </p>
-                <div className="pt-1 flex items-center justify-center gap-1.5">
-                  <span className="text-xs font-sans font-medium tracking-wider text-dusty-rose">
-                    Rs {fragrance.price.toLocaleString()}
-                  </span>
-                </div>
+                <p className="text-sm font-sans font-medium tracking-wider text-dusty-rose pt-1">
+                  Rs {fragrance.price.toLocaleString()}
+                </p>
               </div>
             </motion.div>
           ))}

@@ -24,6 +24,7 @@ import { ScentQuizModal } from './components/ScentQuizModal';
 import { StoryModal } from './components/StoryModal';
 import { ContactModal } from './components/ContactModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { CustomScentAtelier } from './components/CustomScentAtelier';
 import { StoryView } from './components/StoryView';
 import { ContactView } from './components/ContactView';
 import { CareView } from './components/CareView';
@@ -233,6 +234,9 @@ export function App() {
             <CampaignBanner
               onShopNow={() => handleNavigate('perfumes')}
             />
+
+            {/* 5.5 CUSTOM SCENT ATELIER */}
+            <CustomScentAtelier onOpenContact={() => setIsContactOpen(true)} />
 
             {/* 6. SEEN ON FILM — horizontal autoplay portrait reel strip */}
             <ReelStrip
