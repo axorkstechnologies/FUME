@@ -102,18 +102,15 @@ html {
     margin: 0;
   }
   .nav-left, .nav-right {
-    max-width: calc(50% - 110px);
+    max-width: calc(50% - 70px);
     flex: 0 1 auto;
     min-width: 0;
     z-index: 20;
   }
   .nav-left nav {
-    gap: clamp(6px, 1.5vw, 30px);
     max-width: 100%;
   }
-  .nav-left nav button {
-    font-size: clamp(9px, 0.75vw, 10.5px);
-    letter-spacing: clamp(0.1em, 0.15vw, 0.25em);
+  .nav-left nav a {
     white-space: nowrap;
     flex-shrink: 0;
   }

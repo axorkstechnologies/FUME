@@ -54,7 +54,7 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${headerClasses}`}>
-      <div className="site-header w-full max-w-[1700px] mx-auto px-5 sm:px-8 md:px-12 h-20 md:h-24">
+      <div className="site-header w-full max-w-[1700px] mx-auto px-5 sm:px-8 md:px-8 xl:px-12 h-20 md:h-24">
         
         {/* Left Navigation */}
         <div className="nav-left flex items-center min-w-0">
@@ -67,7 +67,7 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           </div>
 
-          <nav className="hidden lg:flex items-center justify-start gap-5 2xl:gap-8 w-full min-w-0">
+          <nav className="hidden lg:flex items-center justify-start gap-3 xl:gap-5 2xl:gap-8 w-full min-w-0">
             {navLinks.map((item) => {
               const isActive = currentView === item.view;
               return (
@@ -75,7 +75,7 @@ export const Header: React.FC<HeaderProps> = ({
                   href={`#${item.view}`}
                   key={item.view}
                   onClick={(e) => { e.preventDefault(); handleLinkClick(item.view); }}
-                  className={`text-[10px] xl:text-[10.5px] uppercase tracking-[0.2em] font-sans transition-all duration-300 cursor-pointer relative py-1.5 whitespace-nowrap shrink-0 ${
+                  className={`text-[9px] xl:text-[10px] 2xl:text-[10.5px] uppercase tracking-[0.1em] xl:tracking-[0.2em] font-sans transition-all duration-300 cursor-pointer relative py-1.5 whitespace-nowrap shrink-0 ${
                     isActive
                       ? `${textColorClass} font-semibold after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-current`
                       : `${textColorClass}/70 hover:${textColorClass}`
