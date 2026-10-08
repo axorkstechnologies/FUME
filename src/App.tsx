@@ -33,6 +33,7 @@ import { SEOSchema } from './components/SEOSchema';
 
 export function App() {
   const getInitialView = (): ScreenView => {
+    if (typeof window === 'undefined') return 'home';
     const hash = window.location.hash.replace('#', '');
     const validViews: ScreenView[] = ['home', 'perfumes', 'collections', 'films', 'story', 'contact', 'care'];
     if (!hash) return 'home';
@@ -108,7 +109,8 @@ export function App() {
       story: 'Our Story & Founder Creed | FUME FRAGRANCES Pakistan',
       contact: 'Concierge & Bespoke Service | FUME FRAGRANCES',
       care: 'Client Care, Shipping & FAQs | FUME FRAGRANCES',
-      films: 'FUME on Film | Authentic Customer Experiences & Unboxing'
+      films: 'FUME on Film | Authentic Customer Experiences & Unboxing',
+      'not-found': 'Page Not Found | FUME FRAGRANCES'
     };
     const descriptions: Record<ScreenView, string> = {
       home: 'FUME FRAGRANCES: Authentic premium Eau de Parfum hand-crafted in Pakistan. Crafted with premium ingredients, all-day presence, and nationwide Cash on Delivery.',
@@ -117,7 +119,8 @@ export function App() {
       story: 'The story behind FUME FRAGRANCES: making authentic, master-crafted fragrances accessible across Pakistan without international retail markups.',
       contact: 'Connect with the FUME Concierge for bespoke flacon engraving, scent consultations, and WhatsApp orders across Pakistan.',
       care: 'Client Care & FAQs: Shipping timelines, nationwide Cash on Delivery, 30-day returns, and our complimentary 2ml discovery vial guarantee.',
-      films: 'Watch authentic unboxing and review films from fragrance lovers across Pakistan wearing FUME Eau de Parfum.'
+      films: 'Watch authentic unboxing and review films from fragrance lovers across Pakistan wearing FUME Eau de Parfum.',
+      'not-found': 'The page you are looking for does not exist.'
     };
     document.title = titles[currentView] || titles.home;
     const metaDesc = document.querySelector('meta[name="description"]');
@@ -320,7 +323,6 @@ export function App() {
 
         {currentView === 'contact' && (
           <ContactView
-            onNavigateToCare={() => handleNavigate('care')}
             themeMode={themeMode}
           />
         )}
