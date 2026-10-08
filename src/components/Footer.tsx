@@ -100,6 +100,7 @@ export const Footer: React.FC<FooterProps> = ({
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="EMAIL ADDRESS"
+                  aria-label="Email address for newsletter"
                   className="bg-transparent border-b border-pearl/30 px-0 py-2 text-xs font-sans tracking-widest text-pearl focus:outline-none focus:border-pearl transition-colors rounded-none placeholder:text-pearl/30 uppercase"
                 />
                 <button

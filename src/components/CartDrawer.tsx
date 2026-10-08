@@ -29,14 +29,14 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
       aria-hidden={!isOpen}
     >
       <div
-        className={`absolute inset-0 bg-shadow/40 backdrop-blur-sm transition-opacity duration-500 ${
+        className={`absolute inset-0 bg-shadow/40 transition-opacity duration-500 ${
           isOpen ? 'opacity-100' : 'opacity-0'
         }`}
         onClick={onClose}
       />
 
       <div
-        className={`absolute top-0 right-0 h-full w-full max-w-md bg-pearl text-shadow shadow-2xl transition-transform duration-500 ease-[0.16,1,0.3,1] ${
+        className={`absolute top-0 right-0 h-full w-full max-w-md bg-pearl text-shadow transition-transform duration-500 ease-[0.16,1,0.3,1] ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
@@ -123,16 +123,16 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                         <div className="flex items-center border border-shadow/20">
                           <button
                             onClick={() => onUpdateQuantity(idx, item.quantity - 1)}
-                            className="px-3 py-2 text-shadow/60 hover:text-shadow transition-colors"
+                            className="w-10 h-10 flex items-center justify-center text-shadow/60 hover:text-shadow transition-colors" aria-label="Adjust quantity"
                           >
                             <Minus className="w-3 h-3" />
                           </button>
-                          <span className="px-2 text-[10px] font-sans text-shadow">
+                          <span className="w-6 text-center text-[10px] font-sans text-shadow">
                             {item.quantity}
                           </span>
                           <button
                             onClick={() => onUpdateQuantity(idx, item.quantity + 1)}
-                            className="px-3 py-2 text-shadow/60 hover:text-shadow transition-colors"
+                            className="w-10 h-10 flex items-center justify-center text-shadow/60 hover:text-shadow transition-colors" aria-label="Adjust quantity"
                           >
                             <Plus className="w-3 h-3" />
                           </button>

@@ -149,7 +149,7 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[1100] flex items-center justify-center p-2 sm:p-4 bg-pearl/85 backdrop-blur-md animate-in fade-in duration-200"
+      className="fixed inset-0 z-[1100] flex items-center justify-center p-2 sm:p-4 bg-pearl/85 animate-in fade-in duration-200"
       onClick={onClose}
     >
       {/* Top Bar: Close button & Reel count */}
@@ -161,7 +161,7 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
           type="button"
           aria-label="Close Reel Viewer"
           onClick={onClose}
-          className="w-11 h-11 rounded-full bg-pearl/60 hover:bg-pearl/90 text-shadow hover:text-dusty-rose flex items-center justify-center border border-shadow/20 transition-all cursor-pointer shadow-2xl"
+          className="w-11 h-11 rounded-full bg-pearl/60 hover:bg-pearl/90 text-shadow hover:text-dusty-rose flex items-center justify-center border border-shadow/20 transition-all cursor-pointer"
         >
           <X className="w-5 h-5" strokeWidth={1.5} />
         </button>
@@ -198,7 +198,7 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
         onClick={(e) => e.stopPropagation()}
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
-        className="relative w-full max-w-[440px] h-[92dvh] max-h-[860px] aspect-[9/16] bg-pearl rounded-xs overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.95)] border border-shadow/15 flex flex-col justify-between select-none"
+        className="relative w-full max-w-[440px] h-[92dvh] max-h-[860px] aspect-[9/16] bg-pearl overflow-hidden border border-shadow/15 flex flex-col justify-between select-none"
       >
         {/* Active Video Element */}
         <video
@@ -221,10 +221,10 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
         {/* Top Header Controls within Reel */}
         <div className="relative z-20 p-4 flex items-center justify-between pointer-events-auto">
           <div className="flex items-center gap-2">
-            <span className="text-[9px] uppercase tracking-[0.3em] font-sans font-medium text-dusty-rose bg-pearl/60 px-2.5 py-1 rounded-xs border border-dusty-rose/40 backdrop-blur-md">
+            <span className="text-[9px] uppercase tracking-[0.3em] font-sans font-medium text-dusty-rose bg-pearl/60 px-2.5 py-1 border border-dusty-rose/40">
               {activeFilm.kicker}
             </span>
-            <span className="text-[9px] tracking-widest font-sans text-shadow/80 bg-pearl/40 px-2 py-1 rounded-xs border border-shadow/10">
+            <span className="text-[9px] tracking-widest font-sans text-shadow/80 bg-pearl/40 px-2 py-1 border border-shadow/10">
               {activeFilm.duration}
             </span>
           </div>
@@ -235,7 +235,7 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
               type="button"
               onClick={toggleMute}
               aria-label={isMuted ? 'Unmute' : 'Mute'}
-              className="w-9 h-9 rounded-full bg-pearl/60 hover:bg-pearl/90 text-shadow hover:text-dusty-rose flex items-center justify-center border border-shadow/15 transition-all cursor-pointer backdrop-blur-md"
+              className="w-9 h-9 rounded-full bg-pearl/60 hover:bg-pearl/90 text-shadow hover:text-dusty-rose flex items-center justify-center border border-shadow/15 transition-all cursor-pointer"
             >
               {isMuted ? (
                 <VolumeX className="w-4 h-4 text-dusty-rose" />
@@ -253,7 +253,7 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
             !isPlaying ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}
         >
-          <div className="w-16 h-16 rounded-full bg-pearl/75 backdrop-blur-md border border-dusty-rose/70 flex items-center justify-center text-dusty-rose shadow-2xl">
+          <div className="w-16 h-16 rounded-full bg-pearl/75 border border-dusty-rose/70 flex items-center justify-center text-dusty-rose">
             <Play className="w-7 h-7 fill-current ml-1" />
           </div>
         </div>
@@ -282,7 +282,7 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
 
           {/* Product Quick-View CTA */}
           {matchingFragrance && (
-            <div className="pt-2 border-t border-shadow/15 flex items-center justify-between gap-3 bg-pearl/50 backdrop-blur-md p-3 rounded-xs border">
+            <div className="pt-2 border-t border-shadow/15 flex items-center justify-between gap-3 bg-pearl/50 p-3 border">
               <div>
                 <span className="text-[8px] uppercase tracking-[0.25em] text-dusty-rose block font-sans">
                   FEATURED FLACON
@@ -301,7 +301,7 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
                   onSelectFragrance(matchingFragrance);
                   onClose();
                 }}
-                className="px-4 py-2 bg-dusty-rose hover:bg-pearl text-pearl text-[10px] uppercase tracking-[0.22em] font-sans font-medium transition-colors cursor-pointer flex items-center gap-1.5 rounded-xs"
+                className="px-4 py-2 bg-dusty-rose hover:bg-pearl text-pearl text-[10px] uppercase tracking-[0.22em] font-sans font-medium transition-colors cursor-pointer flex items-center gap-1.5"
               >
                 <span>VIEW FLACON</span>
                 <ShoppingBag className="w-3 h-3" />

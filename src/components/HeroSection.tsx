@@ -58,7 +58,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
           transition={{ duration: 1.2, delay: 1.0 }}
-          className="w-14 h-px bg-pearl/30 my-6 origin-center"
+          className="w-14 h-px bg-pearl my-6 origin-center"
         />
 
         {/* Subtitle */}
@@ -100,14 +100,14 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         >
           <button
             onClick={onShopPerfumes}
-            className="w-full sm:w-auto px-14 py-5 text-[10px] uppercase tracking-[0.35em] font-sans font-medium transition-all duration-500 bg-pearl text-shadow hover:bg-pearl/90 active:scale-[0.98] cursor-pointer"
+            className="w-full sm:w-auto px-14 py-5 text-[10px] uppercase tracking-[0.35em] font-sans font-medium transition-all duration-500 bg-pearl text-shadow hover:bg-pearl hover:text-shadow active:scale-[0.98] cursor-pointer"
           >
             SHOP THE COLLECTION
           </button>
 
           <button
             onClick={onOpenQuiz || onExploreFume}
-            className="w-full sm:w-auto px-14 py-5 text-[10px] uppercase tracking-[0.35em] font-sans font-medium transition-all duration-500 bg-transparent border border-pearl/30 text-pearl hover:border-pearl hover:bg-pearl/5 active:scale-[0.98] cursor-pointer"
+            className="w-full sm:w-auto px-14 py-5 text-[10px] uppercase tracking-[0.35em] font-sans font-medium transition-all duration-500 bg-transparent border border-pearl/30 text-pearl hover:border-pearl hover:bg-pearl hover:text-shadow active:scale-[0.98] cursor-pointer"
           >
             {onOpenQuiz ? 'FIND YOUR SCENT' : 'EXPLORE FUME'}
           </button>

@@ -18,7 +18,7 @@ export const BrandMarquee: React.FC<BrandMarqueeProps> = () => {
   ];
 
   return (
-    <div className="relative w-full overflow-hidden py-4 border-y border-shadow/[0.06] bg-pearl/90 text-shadow/80 select-none z-10">
+    <div className="relative w-full overflow-hidden py-4 border-y border-shadow/[0.06] bg-pearl text-shadow/80 select-none z-10">
       <div className="animate-marquee flex items-center space-x-12 whitespace-nowrap text-[10px] sm:text-[11px] uppercase tracking-[0.35em] font-sans font-medium">
         {[...items, ...items].map((text, idx) => (
           <div key={idx} className="flex items-center space-x-12">

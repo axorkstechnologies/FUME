@@ -46,7 +46,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 backdrop-blur-2xl flex flex-col items-center pt-24 px-6 md:px-12 animate-in fade-in duration-200 bg-pearl/95 text-shadow"
+      className="fixed inset-0 z-50 flex flex-col items-center pt-24 px-6 md:px-12 animate-in fade-in duration-200 bg-pearl/95 text-shadow"
     >
       {/* Close button */}
       <button
@@ -90,7 +90,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
             <button
               key={note}
               onClick={() => setQuery(note)}
-              className="px-3 py-1 text-[10px] uppercase tracking-wider rounded-xs transition-colors cursor-pointer border bg-pearl/[0.04] border-shadow/[0.08] text-shadow/80 hover:border-dusty-rose hover:text-shadow"
+              className="px-3 py-1 text-[10px] uppercase tracking-wider transition-colors cursor-pointer border bg-pearl/[0.04] border-shadow/[0.08] text-shadow/80 hover:border-dusty-rose hover:text-shadow"
             >
               {note}
             </button>
@@ -111,11 +111,11 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   onSelectFragrance(fragrance);
                   onClose();
                 }}
-                className="p-4 border border-shadow/[0.08] bg-shadow/5/80 hover:border-dusty-rose/60 transition-all flex items-center justify-between cursor-pointer group rounded-xs"
+                className="p-4 border border-shadow/[0.08] bg-shadow/5/80 hover:border-dusty-rose/60 transition-all flex items-center justify-between cursor-pointer group"
               >
                 <div className="flex items-center gap-4">
                   <div
-                    className="w-12 h-14 overflow-hidden rounded-xs shrink-0 p-0.5 flex items-center justify-center border border-shadow/[0.08] bg-pearl"
+                    className="w-12 h-14 overflow-hidden shrink-0 p-0.5 flex items-center justify-center border border-shadow/[0.08] bg-pearl"
                   >
                     <img src={fragrance.image}
                       alt={fragrance.name}

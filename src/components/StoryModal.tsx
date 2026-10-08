@@ -14,9 +14,9 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose, themeMo
   const isLight = themeMode === 'light';
 
   return (
-    <div className="fixed inset-0 z-50 bg-pearl/80 backdrop-blur-md flex items-center justify-center p-4 md:p-8 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 bg-pearl/80 flex items-center justify-center p-4 md:p-8 animate-in fade-in duration-200">
       <div
-        className={`relative w-full max-w-3xl border p-6 sm:p-10 md:p-12 shadow-2xl space-y-7 max-h-[88vh] overflow-y-auto ${
+        className={`relative w-full max-w-3xl border p-6 sm:p-10 md:p-12 space-y-7 max-h-[88vh] overflow-y-auto ${
           'bg-pearl border-shadow/10 text-shadow'
         }`}
       >
@@ -46,7 +46,7 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose, themeMo
         </div>
 
         {/* Visual Hero */}
-        <div className="aspect-[16/9] w-full bg-pearl overflow-hidden rounded-xs border border-dusty-rose/30 relative">
+        <div className="aspect-[16/9] w-full bg-pearl overflow-hidden border border-dusty-rose/30 relative">
           <img src={HERO_BOTTLE_IMAGE}
             alt="FUME FRAGRANCES Haute Parfumerie in Pakistan"
             className="w-full h-full object-cover object-center filter brightness-90"

@@ -67,11 +67,11 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
       {/* Backdrop */}
       <div
         onClick={onClose}
-        className="absolute inset-0 bg-oyster/75 backdrop-blur-md transition-opacity duration-300"
+        className="absolute inset-0 bg-oyster/75 transition-opacity duration-300"
       />
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-xl bg-pearl border border-sand rounded-sm shadow-2xl p-6 sm:p-10 text-shadow z-10 max-h-[92vh] overflow-y-auto">
+      <div className="relative w-full max-w-xl bg-pearl border border-sand p-6 sm:p-10 text-shadow z-10 max-h-[92vh] overflow-y-auto">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -118,7 +118,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
                 <button
                   key={opt.val}
                   onClick={() => handleAnswer('gender', opt.val)}
-                  className="p-5 border border-sand bg-pearl hover:border-dusty-rose hover:bg-pearl transition-all text-left rounded-xs cursor-pointer group"
+                  className="p-5 border border-sand bg-pearl hover:border-dusty-rose hover:bg-pearl transition-all text-left cursor-pointer group"
                 >
                   <span className="font-serif text-base uppercase tracking-wider text-shadow group-hover:text-dusty-rose block transition-colors">
                     {opt.label}
@@ -154,7 +154,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
                 <button
                   key={opt.val}
                   onClick={() => handleAnswer('occasion', opt.val)}
-                  className="p-5 border border-sand bg-pearl hover:border-dusty-rose hover:bg-pearl transition-all text-left rounded-xs cursor-pointer group"
+                  className="p-5 border border-sand bg-pearl hover:border-dusty-rose hover:bg-pearl transition-all text-left cursor-pointer group"
                 >
                   <span className="font-serif text-sm uppercase tracking-wider text-shadow group-hover:text-dusty-rose block transition-colors">
                     {opt.label}
@@ -190,7 +190,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
                 <button
                   key={i}
                   onClick={() => handleAnswer('family', opt.val)}
-                  className="p-5 border border-sand bg-pearl hover:border-dusty-rose hover:bg-pearl transition-all text-left rounded-xs cursor-pointer group"
+                  className="p-5 border border-sand bg-pearl hover:border-dusty-rose hover:bg-pearl transition-all text-left cursor-pointer group"
                 >
                   <span className="font-serif text-sm uppercase tracking-wider text-shadow group-hover:text-dusty-rose block transition-colors">
                     {opt.label}
@@ -249,7 +249,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
                   onAddToCart(recommendation);
                   onClose();
                 }}
-                className="w-full sm:w-auto px-8 py-3.5 bg-oyster text-shadow text-xs uppercase tracking-[0.2em] font-sans font-medium hover:bg-dusty-rose transition-colors rounded-xs cursor-pointer shadow-md"
+                className="w-full sm:w-auto px-8 py-3.5 bg-oyster text-shadow text-xs uppercase tracking-[0.2em] font-sans font-medium hover:bg-dusty-rose transition-colors cursor-pointer"
               >
                 Add Flacon to Bag
               </button>
@@ -259,7 +259,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
                   onSelectFragrance(recommendation);
                   onClose();
                 }}
-                className="w-full sm:w-auto px-8 py-3.5 border border-shadow/10 text-shadow text-xs uppercase tracking-[0.2em] font-sans font-medium hover:bg-pearl transition-colors rounded-xs cursor-pointer"
+                className="w-full sm:w-auto px-8 py-3.5 border border-shadow/10 text-shadow text-xs uppercase tracking-[0.2em] font-sans font-medium hover:bg-pearl transition-colors cursor-pointer"
               >
                 View Full Dossier
               </button>

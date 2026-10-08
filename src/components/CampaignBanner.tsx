@@ -39,7 +39,7 @@ export const CampaignBanner: React.FC<CampaignBannerProps> = ({ onShopNow }) => 
         <div className="pt-4">
           <button
             onClick={onShopNow}
-            className="px-9 py-4 bg-pearl hover:bg-dusty-rose hover:text-shadow text-shadow text-[10px] uppercase tracking-[0.28em] font-sans font-medium transition-all cursor-pointer shadow-lg"
+            className="px-9 py-4 bg-pearl hover:bg-dusty-rose hover:text-shadow text-shadow text-[10px] uppercase tracking-[0.28em] font-sans font-medium transition-all cursor-pointer"
           >
             EXPLORE THE EDITION
           </button>

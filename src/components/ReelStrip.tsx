@@ -86,11 +86,11 @@ const ReelCard: React.FC<ReelCardProps> = ({ film, index, onOpenReel }) => {
         aria-label={`Watch ${film.title}`}
         onClick={handleClick}
         onKeyDown={handleKeyDown}
-        className="absolute inset-0 z-10 cursor-pointer rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dusty-rose"
+        className="absolute inset-0 z-10 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dusty-rose"
       />
 
       {/* Video container */}
-      <div className="relative w-full h-full overflow-hidden rounded-2xl shadow-[0_4px_24px_rgba(26,24,22,0.10)]">
+      <div className="relative w-full h-full overflow-hidden">
         {/* Poster shown until video plays */}
         <img
           src={film.poster}
@@ -229,7 +229,7 @@ export const ReelStrip: React.FC<ReelStripProps> = ({ films, onOpenReel }) => {
           <span
             key={i}
             className={`block rounded-full transition-all duration-300 ${
-              i === 0 ? 'w-4 h-1 bg-dusty-rose' : 'w-1 h-1 bg-shadow/20'
+              i === 0 ? 'w-4 h-1 bg-dusty-rose' : 'w-1 h-1 bg-shadow'
             }`}
           />
         ))}

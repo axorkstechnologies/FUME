@@ -21,7 +21,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
         <header className="text-center space-y-8 max-w-4xl mx-auto">
           <div className="flex items-center justify-center gap-3 text-[10px] uppercase tracking-[0.4em] text-shadow/60 font-medium">
             <span>MAISON</span>
-            <span className="w-1 h-1 rounded-full bg-shadow/40" />
+            <span className="w-1 h-1 rounded-full bg-shadow" />
             <span>EST. 2024</span>
           </div>
 
@@ -47,7 +47,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
 
           <div className="space-y-10 lg:pl-8">
             <div className="flex items-center gap-4">
-              <span className="w-12 h-[1px] bg-shadow/20" />
+              <span className="w-12 h-[1px] bg-shadow" />
               <span className="text-[10px] uppercase tracking-[0.4em] text-shadow font-semibold">
                 THE GENESIS
               </span>
@@ -141,7 +141,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
           <div className="inline-flex flex-col sm:flex-row items-center gap-6 justify-center w-full sm:w-auto">
             <button
               onClick={onShopPerfumes}
-              className="w-full sm:w-auto px-12 py-5 bg-shadow text-pearl hover:bg-shadow/90 text-[10px] uppercase tracking-[0.3em] font-sans transition-all cursor-pointer"
+              className="w-full sm:w-auto px-12 py-5 bg-shadow text-pearl hover:bg-shadow text-[10px] uppercase tracking-[0.3em] font-sans transition-all cursor-pointer"
             >
               EXPLORE THE COLLECTION
             </button>

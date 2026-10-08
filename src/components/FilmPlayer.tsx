@@ -161,10 +161,10 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
       {/* Top Header Bar: Kicker, Duration & Sound Control */}
       <div className="absolute top-3 left-3 right-3 flex items-center justify-between z-20 pointer-events-auto">
         <div className="flex items-center gap-2">
-          <span className="text-[9px] uppercase tracking-[0.25em] font-sans font-medium text-dusty-rose bg-pearl/60 backdrop-blur-md px-2.5 py-1 rounded-xs border border-dusty-rose/30">
+          <span className="text-[9px] uppercase tracking-[0.25em] font-sans font-medium text-dusty-rose bg-pearl px-2.5 py-1 border border-dusty-rose/30">
             {film.kicker}
           </span>
-          <span className="text-[9px] tracking-widest font-sans text-pearl/80 bg-pearl/40 backdrop-blur-xs px-2 py-1 rounded-xs border border-shadow/10 hidden sm:inline-block">
+          <span className="text-[9px] tracking-widest font-sans text-pearl/80 bg-pearl px-2 py-1 border border-shadow/10 hidden sm:inline-block">
             {film.duration}
           </span>
         </div>
@@ -175,7 +175,7 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
             type="button"
             onClick={toggleMute}
             aria-label={isMuted ? 'Unmute video audio' : 'Mute video audio'}
-            className="w-8 h-8 rounded-full bg-pearl/60 hover:bg-pearl/90 backdrop-blur-md flex items-center justify-center text-shadow hover:text-dusty-rose transition-all border border-shadow/15 hover:border-dusty-rose/60 cursor-pointer shadow-lg"
+            className="w-8 h-8 rounded-full bg-pearl hover:bg-pearl flex items-center justify-center text-shadow hover:text-dusty-rose transition-all border border-shadow/15 hover:border-dusty-rose/60 cursor-pointer"
           >
             {isMuted ? (
               <VolumeX className="w-3.5 h-3.5 text-dusty-rose" />
@@ -192,7 +192,7 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
           !isPlaying ? 'opacity-100' : 'opacity-0 group-hover:opacity-60'
         }`}
       >
-        <div className="w-12 h-12 rounded-full bg-pearl/65 backdrop-blur-md border border-dusty-rose/50 flex items-center justify-center text-dusty-rose shadow-2xl transition-transform duration-300 group-hover:scale-110">
+        <div className="w-12 h-12 rounded-full bg-pearl border border-dusty-rose/50 flex items-center justify-center text-dusty-rose transition-transform duration-300 group-hover:scale-110">
           {isPlaying ? (
             <Pause className="w-5 h-5 fill-current" />
           ) : (
@@ -232,7 +232,7 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
                       onProductClick(film.productId);
                     }
                   }}
-                  className="px-2.5 py-1 text-[9px] uppercase tracking-[0.2em] font-sans text-shadow bg-dusty-rose/25 hover:bg-dusty-rose hover:text-pearl border border-dusty-rose/60 rounded-xs transition-all cursor-pointer font-medium"
+                  className="px-2.5 py-1 text-[9px] uppercase tracking-[0.2em] font-sans text-shadow bg-dusty-rose/25 hover:bg-dusty-rose hover:text-pearl border border-dusty-rose/60 transition-all cursor-pointer font-medium"
                 >
                   SHOP {film.productName || 'SCENT'}
                 </button>
@@ -246,7 +246,7 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
                     onOpenReel(film);
                   }}
                   aria-label="Expand reel"
-                  className="p-1.5 rounded-full bg-pearl/50 hover:bg-pearl text-shadow hover:text-dusty-rose transition-colors border border-shadow/10"
+                  className="p-1.5 rounded-full bg-pearl hover:bg-pearl text-shadow hover:text-dusty-rose transition-colors border border-shadow/10"
                 >
                   <Maximize2 className="w-3 h-3" />
                 </button>
@@ -257,7 +257,7 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
       )}
 
       {/* Progress Bar Timeline at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/20 z-30">
+      <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white z-30">
         <div
           className="h-full bg-dusty-rose transition-all duration-100 ease-linear"
           style={{ width: `${progress}%` }}

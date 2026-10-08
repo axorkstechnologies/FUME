@@ -12,7 +12,6 @@ import { EditorialBrand } from './components/EditorialBrand';
 import { FragranceDiscovery } from './components/FragranceDiscovery';
 import { ReelViewerModal } from './components/ReelViewerModal';
 import { CampaignLookbook } from './components/CampaignLookbook';
-import { TestimonialsSection } from './components/TestimonialsSection';
 import { BrandStatement } from './components/BrandStatement';
 import { Footer } from './components/Footer';
 import { PerfumesView } from './components/PerfumesView';
@@ -33,7 +32,28 @@ import { getPrice50, getPrice100 } from './utils/pricing';
 import { SEOSchema } from './components/SEOSchema';
 
 export function App() {
-  const [currentView, setCurrentView] = useState<ScreenView>('home');
+  const getInitialView = (): ScreenView => {
+    const hash = window.location.hash.replace('#', '');
+    const validViews: ScreenView[] = ['home', 'perfumes', 'collections', 'films', 'story', 'contact', 'care'];
+    return validViews.includes(hash as ScreenView) ? (hash as ScreenView) : 'home';
+  };
+  const [currentView, setCurrentView] = useState<ScreenView>(getInitialView);
+
+  // Sync hash changes
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace('#', '');
+      const validViews: ScreenView[] = ['home', 'perfumes', 'collections', 'films', 'story', 'contact', 'care'];
+      if (validViews.includes(hash as ScreenView)) {
+        setCurrentView(hash as ScreenView);
+      } else if (hash === '') {
+        setCurrentView('home');
+      }
+    };
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   const [selectedFragrance, setSelectedFragrance] = useState<Fragrance | null>(null);
   const [activeReelFilm, setActiveReelFilm] = useState<Film | null>(null);
 
@@ -112,6 +132,11 @@ export function App() {
     resetScrollLock();
     setCurrentView(view);
     window.scrollTo({ top: 0, behavior: 'auto' });
+    if(view === 'home') {
+      window.history.pushState(null, '', window.location.pathname);
+    } else {
+      window.location.hash = view;
+    }
   };
 
   const handleAddToCart = (
@@ -239,7 +264,6 @@ export function App() {
             />
 
             {/* 7. VERIFIED CLIENT TESTIMONIALS */}
-            <TestimonialsSection />
 
             {/* 8. BRAND STATEMENT with Since 2024 */}
             <BrandStatement themeMode={themeMode} />

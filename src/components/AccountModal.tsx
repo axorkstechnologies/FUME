@@ -25,9 +25,9 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose, the
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-pearl/75 backdrop-blur-md flex items-center justify-center p-4 md:p-8 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 bg-pearl/75 flex items-center justify-center p-4 md:p-8 animate-in fade-in duration-200">
       <div
-        className={`relative w-full max-w-lg border p-8 md:p-12 shadow-2xl space-y-8 ${
+        className={`relative w-full max-w-lg border p-8 md:p-12 space-y-8 ${
           'bg-pearl border-shadow/10 text-shadow'
         }`}
       >
@@ -115,7 +115,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose, the
                   Patron Email
                 </label>
                 <div
-                  className={`flex items-center border px-3 py-2.5 rounded-xs ${
+                  className={`flex items-center border px-3 py-2.5 ${
                     'border-sand bg-white'
                   }`}
                 >
@@ -140,7 +140,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose, the
                   Access Key / Password
                 </label>
                 <div
-                  className={`flex items-center border px-3 py-2.5 rounded-xs ${
+                  className={`flex items-center border px-3 py-2.5 ${
                     'border-sand bg-white'
                   }`}
                 >

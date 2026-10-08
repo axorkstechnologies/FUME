@@ -22,7 +22,7 @@ export const CampaignLookbook: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.8 }}
-            className="w-full flex items-center justify-center p-8 bg-oyster/50 rounded-xl"
+            className="w-full flex items-center justify-center p-8 bg-oyster/50"
           >
             <img 
               src="/campaigns/desert-girl.jpg" 
@@ -36,7 +36,7 @@ export const CampaignLookbook: React.FC = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full flex items-center justify-center p-8 bg-oyster/50 rounded-xl"
+            className="w-full flex items-center justify-center p-8 bg-oyster/50"
           >
             <img 
               src="/campaigns/desert-man.jpg" 
@@ -54,7 +54,7 @@ export const CampaignLookbook: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.8 }}
-            className="w-full flex items-center justify-center p-8 bg-oyster/50 rounded-xl md:order-last"
+            className="w-full flex items-center justify-center p-8 bg-oyster/50 md:order-last"
           >
             <img 
               src="/campaigns/arab-girl-bg.jpg" 
@@ -68,7 +68,7 @@ export const CampaignLookbook: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="w-full flex items-center justify-center p-8 bg-oyster/50 rounded-xl"
+            className="w-full flex items-center justify-center p-8 bg-oyster/50"
           >
             <img 
               src="/campaigns/arab-man.jpg" 

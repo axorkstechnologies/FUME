@@ -99,7 +99,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[1000] flex items-center justify-center p-2 sm:p-4 backdrop-blur-xs"
+      className="fixed inset-0 z-[1000] flex items-center justify-center p-2 sm:p-4"
       style={{
         position: 'fixed',
         inset: 0,
@@ -114,7 +114,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
         aria-modal="true"
         aria-label={`FUME ${fragrance.name} Details`}
         onClick={(e) => e.stopPropagation()}
-        className="relative shadow-none border overflow-hidden grid grid-cols-1 md:grid-cols-2 grid-rows-[minmax(180px,36%)_1fr] md:grid-rows-1 bg-pearl/98 backdrop-blur-2xl text-shadow border-shadow/[0.08]"
+        className="relative shadow-none border overflow-hidden grid grid-cols-1 md:grid-cols-2 grid-rows-[minmax(180px,36%)_1fr] md:grid-rows-1 bg-pearl/98 text-shadow border-shadow/[0.08]"
         style={{
           width: 'min(1120px, calc(100vw - 32px))',
           height: 'min(860px, calc(100dvh - 32px))',
@@ -153,7 +153,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
         >
           {/* Bottle / Film Switcher (Visible when a fragrance film exists) */}
           {matchingFilm && (
-            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-30 flex items-center bg-pearl/75 backdrop-blur-md rounded-none p-1 border border-shadow/20 shadow-none pointer-events-auto">
+            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-30 flex items-center bg-pearl/75 rounded-none p-1 border border-shadow/20 shadow-none pointer-events-auto">
               <button
                 type="button"
                 onClick={() => setMediaTab('bottle')}
@@ -209,7 +209,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                 className="relative z-10 w-full h-full object-contain p-8 md:p-12 drop-shadow-none"
                loading="lazy" decoding="async" />
 
-              <div className="absolute bottom-4 left-4 z-20 text-[9px] uppercase tracking-[0.3em] font-sans text-dusty-rose font-medium bg-pearl/40 backdrop-blur-xs px-2.5 py-1 rounded-none border border-dusty-rose/30 pointer-events-none">
+              <div className="absolute bottom-4 left-4 z-20 text-[9px] uppercase tracking-[0.3em] font-sans text-dusty-rose font-medium bg-pearl/40 px-2.5 py-1 rounded-none border border-dusty-rose/30 pointer-events-none">
                 HAUTE FLACON • SINCE 2024
               </div>
             </>
@@ -518,7 +518,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
             </div>
 
             {/* Mobile Sticky Add to Bag Bar */}
-            <div className="md:hidden sticky -bottom-6 -mx-6 px-6 py-3 bg-pearl/95 backdrop-blur-md border-t border-shadow/[0.08] flex items-center justify-between z-30 shadow-none mt-4">
+            <div className="md:hidden sticky -bottom-6 -mx-6 px-6 py-3 bg-pearl/95 border-t border-shadow/[0.08] flex items-center justify-between z-30 shadow-none mt-4">
               <div>
                 <span className="text-[9px] uppercase tracking-wider text-shadow/80 block font-sans">
                   {selectedSize}

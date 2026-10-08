@@ -30,9 +30,9 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-pearl/80 backdrop-blur-md flex items-center justify-center p-4 md:p-8 animate-in fade-in duration-200">
+    <div className="fixed inset-0 z-50 bg-pearl/80 flex items-center justify-center p-4 md:p-8 animate-in fade-in duration-200">
       <div
-        className={`relative w-full max-w-xl border p-8 md:p-12 shadow-2xl space-y-6 ${
+        className={`relative w-full max-w-xl border p-8 md:p-12 space-y-6 ${
           'bg-pearl border-shadow/10 text-shadow'
         }`}
       >
@@ -93,7 +93,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Madame / Monsieur"
-                className={`w-full border px-3 py-2.5 focus:outline-none rounded-xs ${
+                className={`w-full border px-3 py-2.5 focus:outline-none ${
                   'border-sand bg-white text-shadow'
                 }`}
               />
@@ -113,7 +113,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="patron@domain.com"
-                className={`w-full border px-3 py-2.5 focus:outline-none rounded-xs ${
+                className={`w-full border px-3 py-2.5 focus:outline-none ${
                   'border-sand bg-white text-shadow'
                 }`}
               />
@@ -133,7 +133,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="Please describe your inquiry..."
-                className={`w-full border px-3 py-2.5 focus:outline-none rounded-xs resize-none ${
+                className={`w-full border px-3 py-2.5 focus:outline-none resize-none ${
                   'border-sand bg-white text-shadow'
                 }`}
               />

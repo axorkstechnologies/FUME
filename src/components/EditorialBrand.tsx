@@ -36,7 +36,7 @@ export const EditorialBrand: React.FC<EditorialBrandProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
           {/* Left: Cinematic Fragrance Photography with Gold Border Accent */}
           <div className="lg:col-span-6 relative">
-            <div className="w-full bg-oyster overflow-hidden relative group rounded-lg shadow-[0_20px_60px_rgba(44,37,34,0.08)] border border-dusty-rose/25 hover:border-dusty-rose/50 transition-colors duration-500">
+            <div className="w-full bg-oyster overflow-hidden relative group border border-dusty-rose/25 hover:border-dusty-rose/50 transition-colors duration-500">
               <img
                 src={EDITORIAL_IMAGE}
                 alt="The Essence of FUME"

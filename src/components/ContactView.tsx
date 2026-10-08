@@ -31,7 +31,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
   };
 
   return (
-    <div className="relative w-full min-h-screen pt-32 pb-32 px-5 sm:px-8 md:px-12 lg:px-16 bg-pearl text-shadow">
+    <section className="relative w-full min-h-screen pt-32 pb-32 px-5 sm:px-8 md:px-12 lg:px-16 bg-pearl text-shadow">
       <div className="max-w-[1400px] mx-auto space-y-16 md:space-y-24">
         
         {/* Header */}
@@ -65,7 +65,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
 
             <div className="space-y-8">
               <div className="flex items-start gap-5">
-                <div className="w-10 h-10 rounded-none bg-shadow/5 flex flex-col items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-none bg-shadow flex flex-col items-center justify-center shrink-0">
                   <MessageCircle className="w-4 h-4 text-shadow" />
                 </div>
                 <div className="space-y-2">
@@ -77,7 +77,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
               </div>
 
               <div className="flex items-start gap-5">
-                <div className="w-10 h-10 rounded-none bg-shadow/5 flex flex-col items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-none bg-shadow flex flex-col items-center justify-center shrink-0">
                   <Mail className="w-4 h-4 text-shadow" />
                 </div>
                 <div className="space-y-2">
@@ -89,7 +89,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
               </div>
 
               <div className="flex items-start gap-5">
-                <div className="w-10 h-10 rounded-none bg-shadow/5 flex flex-col items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-none bg-shadow flex flex-col items-center justify-center shrink-0">
                   <MapPin className="w-4 h-4 text-shadow" />
                 </div>
                 <div className="space-y-2">
@@ -108,7 +108,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
           <div className="bg-oyster/30 p-8 sm:p-12 border border-shadow/[0.05]">
             {submitted ? (
               <div className="py-24 text-center space-y-6 animate-in fade-in">
-                <div className="w-16 h-16 rounded-none bg-shadow/5 flex items-center justify-center mx-auto">
+                <div className="w-16 h-16 rounded-none bg-shadow flex items-center justify-center mx-auto">
                   <MessageCircle className="w-6 h-6 text-shadow" />
                 </div>
                 <h3 className="font-serif text-2xl uppercase tracking-[0.14em]">
@@ -184,7 +184,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-5 bg-shadow text-pearl hover:bg-shadow/90 text-[10px] uppercase tracking-[0.3em] font-sans transition-all duration-300 flex items-center justify-center gap-4"
+                  className="w-full py-5 bg-shadow text-pearl hover:bg-shadow text-[10px] uppercase tracking-[0.3em] font-sans transition-all duration-300 flex items-center justify-center gap-4"
                 >
                   <span>TRANSMIT DOSSIER</span>
                   <ArrowRight className="w-4 h-4" />
@@ -194,6 +194,6 @@ export const ContactView: React.FC<ContactViewProps> = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

@@ -92,7 +92,7 @@ export const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
                 </div>
 
                 {/* Flacon Image Showcase — Generous Framing */}
-                <div className="relative w-full md:w-1/2 aspect-square flex items-center justify-center p-6 bg-pearl/60 rounded-none border border-shadow/[0.04] overflow-hidden">
+                <div className="relative w-full md:w-1/2 aspect-square flex items-center justify-center p-6 bg-pearl rounded-none border border-shadow/[0.04] overflow-hidden">
                   <img
                     src={fragrance.image}
                     alt={`FUME ${fragrance.name} Signature Flacon`}
@@ -215,7 +215,7 @@ export const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
                   </div>
 
                   {/* Bottle Showcase — Uncropped with Breathing Room */}
-                  <div className="relative w-full aspect-[4/5] flex items-center justify-center p-6 bg-pearl/80 rounded-none border border-shadow/[0.03] overflow-hidden my-2">
+                  <div className="relative w-full aspect-[4/5] flex items-center justify-center p-6 bg-pearl rounded-none border border-shadow/[0.03] overflow-hidden my-2">
                     <img
                       src={fragrance.image}
                       alt={`FUME ${fragrance.name} Flacon`}

@@ -72,7 +72,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({ onOpenCo
           {['Choose Your Notes', 'Expert Guidance', 'Custom Bottle', 'Personal Formula'].map((feature) => (
             <span
               key={feature}
-              className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] px-4 py-2 font-sans border border-sand/60 text-shadow/80 rounded-full bg-pearl/50"
+              className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] px-4 py-2 font-sans border border-sand/60 text-shadow/80 rounded-full bg-pearl"
             >
               {feature}
             </span>
@@ -89,7 +89,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({ onOpenCo
         >
           <button
             onClick={handleWhatsAppCustom}
-            className="w-full sm:w-auto px-10 py-4 bg-dusty-rose text-pearl text-xs uppercase tracking-[0.28em] font-sans font-semibold transition-all hover:bg-shadow hover:text-pearl shadow-md active:scale-[0.97] cursor-pointer"
+            className="w-full sm:w-auto px-10 py-4 bg-dusty-rose text-pearl text-xs uppercase tracking-[0.28em] font-sans font-semibold transition-all hover:bg-shadow hover:text-pearl active:scale-[0.97] cursor-pointer"
           >
             START YOUR CUSTOM SCENT
           </button>

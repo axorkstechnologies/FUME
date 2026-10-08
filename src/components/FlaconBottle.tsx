@@ -40,7 +40,7 @@ const FlaconLabel: React.FC<FlaconLabelProps> = ({ name, customMonogram, compact
       }}
       aria-hidden="true"
     >
-      <div className="relative w-full h-full p-[4%] rounded-[1.5px] border border-dusty-rose/80 bg-gradient-to-b from-pearl via-oyster to-pearl shadow-[0_4px_14px_rgba(44,37,34,0.85),0_1.5px_4px_rgba(44,37,34,0.9),inset_0_1px_0_rgba(255,255,255,0.16),inset_0_-1px_0_rgba(44,37,34,0.7)] overflow-hidden flex flex-col justify-between items-center">
+      <div className="relative w-full h-full p-[4%] rounded-[1.5px] border border-dusty-rose/80 bg-gradient-to-b from-pearl via-oyster to-pearl overflow-hidden flex flex-col justify-between items-center">
         {/* Subtle cylindrical bottle reflection and lighting gradient across the plaque */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -146,13 +146,13 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
           <img
             src={fragrance.image}
             alt={altText}
-            className={`w-full h-full object-contain object-center select-none rounded-2xl drop-shadow-[0_20px_40px_rgba(44,37,34,0.08)] ${imageClassName}`}
+            className={`w-full h-full object-contain object-center select-none drop-shadow-[0_20px_40px_rgba(44,37,34,0.08)] ${imageClassName}`}
             loading="eager"
           />
 
           {/* If custom monogram is provided, display bespoke gold engraving badge */}
           {customMonogram && (
-            <div className="absolute top-[48%] left-1/2 -translate-x-1/2 bg-pearl/85 border border-dusty-rose px-3 py-1 rounded text-[9px] text-shadow/80 font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
+            <div className="absolute top-[48%] left-1/2 -translate-x-1/2 bg-pearl border border-dusty-rose px-3 py-1 rounded text-[9px] text-shadow/80 font-serif font-semibold tracking-widest z-20 pointer-events-none whitespace-nowrap">
               ENGRAVED: {customMonogram}
             </div>
           )}
@@ -172,11 +172,11 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
           {/* Fragrance Bottle Image */}
           <img src={fragrance.image}
             alt={altText}
-            className={`w-full h-full object-contain md:object-right select-none rounded-2xl ${imageClassName}`}
+            className={`w-full h-full object-contain md:object-right select-none ${imageClassName}`}
            loading="lazy" decoding="async" />
 
           {customMonogram && (
-            <div className="absolute top-[48%] left-1/2 md:left-[60%] -translate-x-1/2 bg-pearl/85 border border-dusty-rose px-3 py-1 rounded text-[9px] text-shadow/80 font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
+            <div className="absolute top-[48%] left-1/2 md:left-[60%] -translate-x-1/2 bg-pearl border border-dusty-rose px-3 py-1 rounded text-[9px] text-shadow/80 font-serif font-semibold tracking-widest z-20 pointer-events-none whitespace-nowrap">
               ENGRAVED: {customMonogram}
             </div>
           )}
@@ -195,7 +195,7 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
         <img
           src={fragrance.image}
           alt={altText}
-          className={`w-full h-full object-contain select-none rounded-2xl ${imageClassName}`}
+          className={`w-full h-full object-contain select-none ${imageClassName}`}
           loading="lazy"
         />
         {!isMasterAsset && (
@@ -208,7 +208,7 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
   // Standard Product Card Flacon
   return (
     <div
-      className={`relative aspect-[3/4] w-full overflow-hidden transition-all duration-500 rounded-lg border flex items-center justify-center bg-gradient-to-b from-pearl via-oyster to-pearl backdrop-blur-xl border-shadow/[0.08] hover:border-dusty-rose/50 shadow-[0_8px_24px_rgba(44,37,34,0.06)] hover:shadow-[0_12px_36px_rgba(44,37,34,0.12),0_0_20px_rgba(201,169,166,0.1)] group ${className}`}
+      className={`relative aspect-[3/4] w-full overflow-hidden transition-all duration-500 border flex items-center justify-center bg-gradient-to-b from-pearl via-oyster to-pearl border-shadow/[0.08] hover:border-dusty-rose/50 hover:shadow-[0_12px_36px_rgba(44,37,34,0.12),0_0_20px_rgba(201,169,166,0.1)] group ${className}`}
     >
       {/* Subtle Warm Light Ambient Halo behind the bottle */}
       <div
@@ -224,7 +224,7 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
       {/* Fragrance Tone Tag */}
       {fragrance.cardTone && (
         <div className="absolute top-3 left-3 z-20 pointer-events-none">
-          <span className="text-[9px] uppercase tracking-[0.2em] px-2.5 py-0.5 font-sans font-medium rounded-full border border-shadow/10 bg-pearl/60 text-shadow/80 backdrop-blur-md shadow-sm">
+          <span className="text-[9px] uppercase tracking-[0.2em] px-2.5 py-0.5 font-sans font-medium rounded-full border border-shadow/10 bg-pearl text-shadow/80">
             {fragrance.cardTone}
           </span>
         </div>
@@ -235,12 +235,12 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
         <img
           src={fragrance.image}
           alt={altText}
-          className={`w-full h-full object-contain object-center select-none rounded-2xl drop-shadow-[0_15px_30px_rgba(44,37,34,0.1)] ${imageClassName}`}
+          className={`w-full h-full object-contain object-center select-none drop-shadow-[0_15px_30px_rgba(44,37,34,0.1)] ${imageClassName}`}
           loading="lazy"
         />
 
         {customMonogram && (
-          <div className="absolute top-[48%] left-1/2 -translate-x-1/2 bg-pearl/90 border border-dusty-rose px-2 py-0.5 rounded text-[8px] text-shadow/80 font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">
+          <div className="absolute top-[48%] left-1/2 -translate-x-1/2 bg-pearl border border-dusty-rose px-2 py-0.5 rounded text-[8px] text-shadow/80 font-serif font-semibold tracking-widest z-20 pointer-events-none whitespace-nowrap">
             ENGRAVED: {customMonogram}
           </div>
         )}
@@ -252,13 +252,13 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
 
       {/* Quick Add Overlay on Hover */}
       {showQuickAdd && (
-        <div className="absolute inset-0 bg-pearl/45 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-5 z-30 pointer-events-none group-hover:pointer-events-auto backdrop-blur-xs">
+        <div className="absolute inset-0 bg-pearl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4 sm:p-5 z-30 pointer-events-none group-hover:pointer-events-auto">
           <button
             onClick={(e) => {
               e.stopPropagation();
               if (onQuickAdd) onQuickAdd();
             }}
-            className="w-full py-4 bg-dusty-rose text-pearl hover:bg-pearl transition-colors text-[10px] uppercase tracking-[0.24em] font-sans font-semibold cursor-pointer shadow-lg rounded-xs"
+            className="w-full py-4 bg-dusty-rose text-pearl hover:bg-pearl transition-colors text-[10px] uppercase tracking-[0.24em] font-sans font-semibold cursor-pointer"
           >
             ADD TO BAG
           </button>

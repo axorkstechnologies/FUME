@@ -87,7 +87,7 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
                   onClick={() => setSelectedFilter(tab.id as any)}
                   className={`px-4 py-2 text-[10px] uppercase tracking-[0.2em] font-sans font-medium transition-all rounded-full cursor-pointer whitespace-nowrap border ${
                     active
-                      ? 'bg-oyster text-shadow border-shadow/10 shadow-sm'
+                      ? 'bg-oyster text-shadow border-shadow/10'
                       : 'bg-transparent text-shadow/80 border-sand hover:border-dusty-rose hover:text-shadow'
                   }`}
                 >
@@ -103,7 +103,7 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
           {filteredFilms.map((film) => (
             <div
               key={film.id}
-              className={`group flex flex-col rounded-xs overflow-hidden border transition-all duration-500 hover:shadow-2xl ${
+              className={`group flex flex-col overflow-hidden border transition-all duration-500 hover:shadow-2xl ${
                 'bg-pearl border-sand hover:border-dusty-rose'
               }`}
             >
@@ -160,7 +160,7 @@ export const FilmsSection: React.FC<FilmsSectionProps> = ({
 
         {/* Bottom Banner */}
         <div
-          className={`p-6 sm:p-8 rounded-xs border flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left ${
+          className={`p-6 sm:p-8 border flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left ${
             'bg-pearl border-sand'
           }`}
         >

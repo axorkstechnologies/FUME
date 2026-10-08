@@ -88,7 +88,7 @@ export const CareView: React.FC<CareViewProps> = ({
   };
 
   return (
-    <div
+    <section
       className="relative w-full min-h-screen pt-32 pb-32 px-6 md:px-12 lg:px-16 bg-pearl text-shadow"
     >
       <div className="max-w-[1400px] mx-auto space-y-20">
@@ -122,7 +122,7 @@ export const CareView: React.FC<CareViewProps> = ({
         {/* 3 Value Pillars */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div
-            className={`p-8 border rounded-xs space-y-3 ${
+            className={`p-8 border space-y-3 ${
               'border-sand bg-white'
             }`}
           >
@@ -144,7 +144,7 @@ export const CareView: React.FC<CareViewProps> = ({
           </div>
 
           <div
-            className={`p-8 border rounded-xs space-y-3 ${
+            className={`p-8 border space-y-3 ${
               'border-sand bg-white'
             }`}
           >
@@ -166,7 +166,7 @@ export const CareView: React.FC<CareViewProps> = ({
           </div>
 
           <div
-            className={`p-8 border rounded-xs space-y-3 ${
+            className={`p-8 border space-y-3 ${
               'border-sand bg-white'
             }`}
           >
@@ -197,7 +197,7 @@ export const CareView: React.FC<CareViewProps> = ({
                 setActiveCategory(cat);
                 setOpenIndex(0);
               }}
-              className={`px-4 py-2 text-[10px] uppercase tracking-widest font-sans rounded-xs transition-colors cursor-pointer border ${
+              className={`px-4 py-2 text-[10px] uppercase tracking-widest font-sans transition-colors cursor-pointer border ${
                 activeCategory === cat
                   ? 'bg-oyster text-pearl border-shadow/10'
                   : 'bg-white border-sand text-shadow/80 hover:border-dusty-rose hover:text-shadow'
@@ -215,10 +215,10 @@ export const CareView: React.FC<CareViewProps> = ({
             return (
               <div
                 key={idx}
-                className={`border rounded-xs transition-all overflow-hidden ${
+                className={`border transition-all overflow-hidden ${
                   isOpen
-                    ? 'border-dusty-rose bg-white shadow-sm'
-                    : 'border-sand bg-white/70 hover:border-dusty-rose/60'
+                    ? 'border-dusty-rose bg-white'
+                    : 'border-sand bg-white hover:border-dusty-rose/60'
                 }`}
               >
                 <button
@@ -274,8 +274,8 @@ export const CareView: React.FC<CareViewProps> = ({
 
         {/* Bottom Contact Concierge Box */}
         <div
-          className={`border p-8 sm:p-12 text-center rounded-xs space-y-5 max-w-3xl mx-auto ${
-            'border-sand bg-pearl/70'
+          className={`border p-8 sm:p-12 text-center space-y-5 max-w-3xl mx-auto ${
+            'border-sand bg-pearl'
           }`}
         >
           <div className="flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.35em] text-dusty-rose font-sans font-medium">
@@ -322,7 +322,7 @@ export const CareView: React.FC<CareViewProps> = ({
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             <button
               onClick={onNavigateToContact}
-              className="px-8 py-3.5 bg-oyster text-pearl hover:bg-dusty-rose hover:text-shadow transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer rounded-xs"
+              className="px-8 py-3.5 bg-oyster text-pearl hover:bg-dusty-rose hover:text-shadow transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer"
             >
               CONTACT CONCIERGE
             </button>
@@ -330,7 +330,7 @@ export const CareView: React.FC<CareViewProps> = ({
               href="https://wa.me/923281825636?text=Hello%20FUME%20Concierge"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-8 py-3.5 border border-dusty-rose text-shadow hover:bg-white transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer rounded-xs"
+              className="px-8 py-3.5 border border-dusty-rose text-shadow hover:bg-white transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer"
             >
               CHAT ON WHATSAPP
             </a>
@@ -356,7 +356,7 @@ export const CareView: React.FC<CareViewProps> = ({
           })
         }}
       />
-    </div>
+    </section>
   );
 };
 
