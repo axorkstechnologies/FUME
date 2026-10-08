@@ -204,11 +204,10 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                 }}
               />
 
-              <img
-                src={fragrance.image}
+              <img src={fragrance.image}
                 alt={fragrance.name}
                 className="relative z-10 w-full h-full object-contain p-8 md:p-12 drop-shadow-none"
-              />
+               loading="lazy" decoding="async" />
 
               <div className="absolute bottom-4 left-4 z-20 text-[9px] uppercase tracking-[0.3em] font-sans text-dusty-rose font-medium bg-pearl/40 backdrop-blur-xs px-2.5 py-1 rounded-none border border-dusty-rose/30 pointer-events-none">
                 HAUTE FLACON • SINCE 2024

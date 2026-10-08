@@ -89,11 +89,10 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     <div className={`w-24 h-32 rounded-none shrink-0 p-3 flex items-center justify-center relative overflow-hidden ${
                       isSignature ? 'bg-[#EAE6DF]' : 'bg-oyster/50'
                     }`}>
-                      <img
-                        src={item.fragrance.image}
+                      <img src={item.fragrance.image}
                         alt={item.fragrance.name}
                         className="w-full h-full object-contain filter drop-shadow-sm select-none mix-blend-multiply"
-                      />
+                       loading="lazy" decoding="async" />
                     </div>
 
                     <div className="flex-1 flex flex-col justify-between py-1">

@@ -117,11 +117,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                   <div
                     className="w-12 h-14 overflow-hidden rounded-xs shrink-0 p-0.5 flex items-center justify-center border border-shadow/[0.08] bg-pearl"
                   >
-                    <img
-                      src={fragrance.image}
+                    <img src={fragrance.image}
                       alt={fragrance.name}
                       className="w-full h-full object-contain"
-                    />
+                     loading="lazy" decoding="async" />
                   </div>
                   <div>
                     <div className="flex items-center gap-2">

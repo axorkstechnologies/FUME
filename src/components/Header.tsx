@@ -59,7 +59,7 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Left Navigation */}
         <div className="nav-left flex items-center min-w-0">
           <div className="flex md:hidden items-center">
-            <button
+            <button aria-label="Toggle mobile menu"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className={`p-2 transition-colors cursor-pointer ${textColorClass}/80 hover:${textColorClass}`}
             >
@@ -93,11 +93,10 @@ export const Header: React.FC<HeaderProps> = ({
             onClick={() => handleLinkClick('home')}
             className="cursor-pointer group flex flex-col items-center justify-center py-1 select-none"
           >
-            <img
-              src={logoSrc}
+            <img src={logoSrc}
               alt="FUME FRAGRANCES"
               className="h-8 sm:h-9 md:h-10 w-auto object-contain transition-opacity duration-300 group-hover:opacity-85"
-            />
+             loading="lazy" decoding="async" />
           </button>
         </div>
 

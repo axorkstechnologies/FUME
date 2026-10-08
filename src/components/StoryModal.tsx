@@ -47,11 +47,10 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose, themeMo
 
         {/* Visual Hero */}
         <div className="aspect-[16/9] w-full bg-pearl overflow-hidden rounded-xs border border-dusty-rose/30 relative">
-          <img
-            src={HERO_BOTTLE_IMAGE}
+          <img src={HERO_BOTTLE_IMAGE}
             alt="FUME FRAGRANCES Haute Parfumerie in Pakistan"
             className="w-full h-full object-cover object-center filter brightness-90"
-          />
+           loading="lazy" decoding="async" />
           <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-[9px] uppercase tracking-[0.25em] text-shadow/90 font-sans">
             <span>ARTISANAL EAU DE PARFUM</span>
             <span className="text-dusty-rose">EST. 2024</span>

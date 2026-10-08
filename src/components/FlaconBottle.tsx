@@ -170,11 +170,10 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
       <div className={`relative w-full h-full flex items-center justify-center md:justify-end select-none ${className}`}>
         <div className="relative aspect-square w-auto h-full max-h-full max-w-[380px] sm:max-w-[420px] md:max-w-none md:w-auto md:h-full flex items-center justify-center md:justify-end [container-type:inline-size] mx-auto md:mx-0 md:ml-auto">
           {/* Fragrance Bottle Image */}
-          <img
-            src={fragrance.image}
+          <img src={fragrance.image}
             alt={altText}
             className={`w-full h-full object-contain md:object-right select-none rounded-2xl ${imageClassName}`}
-          />
+           loading="lazy" decoding="async" />
 
           {customMonogram && (
             <div className="absolute top-[48%] left-1/2 md:left-[60%] -translate-x-1/2 bg-pearl/85 border border-dusty-rose px-3 py-1 rounded text-[9px] text-shadow/80 font-serif font-semibold tracking-widest z-20 shadow-xl pointer-events-none whitespace-nowrap">

@@ -221,11 +221,10 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
 
             {/* Bottle Preview */}
             <div className="w-48 h-64 mx-auto my-2">
-              <img
-                src={recommendation.image}
+              <img src={recommendation.image}
                 alt={recommendation.name}
                 className="w-full h-full object-contain"
-              />
+               loading="lazy" decoding="async" />
             </div>
 
             <p className="text-xs sm:text-sm font-sans text-shadow/80 max-w-md mx-auto leading-relaxed">
