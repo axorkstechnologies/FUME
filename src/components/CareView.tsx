@@ -250,7 +250,7 @@ export const CareView: React.FC<CareViewProps> = ({
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25 }}
+                      transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                     >
                       <div
                         className={`px-6 pb-6 pt-2 border-t space-y-3 text-xs sm:text-sm font-sans font-normal leading-relaxed ${

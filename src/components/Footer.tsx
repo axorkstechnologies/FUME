@@ -45,19 +45,19 @@ export const Footer: React.FC<FooterProps> = ({
             <h4 className="text-[10px] uppercase tracking-[0.4em] font-semibold text-pearl/50">EXPLORE</h4>
             <ul className="space-y-4">
               <li>
-                <button onClick={() => onNavigate('perfumes')} className="text-xs uppercase tracking-[0.25em] font-sans text-pearl hover:text-pearl/60 transition-colors">
+                <a href="#perfumes" onClick={(e) => { e.preventDefault(); onNavigate('perfumes'); }} className="text-xs uppercase tracking-[0.25em] font-sans text-pearl hover:text-pearl/60 transition-colors">
                   ALL PERFUMES
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => onNavigate('collections')} className="text-xs uppercase tracking-[0.25em] font-sans text-pearl hover:text-pearl/60 transition-colors">
+                <a href="#collections" onClick={(e) => { e.preventDefault(); onNavigate('collections'); }} className="text-xs uppercase tracking-[0.25em] font-sans text-pearl hover:text-pearl/60 transition-colors">
                   COLLECTIONS
-                </button>
+                </a>
               </li>
               <li>
-                <button onClick={() => onNavigate('story')} className="text-xs uppercase tracking-[0.25em] font-sans text-pearl hover:text-pearl/60 transition-colors">
+                <a href="#story" onClick={(e) => { e.preventDefault(); onNavigate('story'); }} className="text-xs uppercase tracking-[0.25em] font-sans text-pearl hover:text-pearl/60 transition-colors">
                   OUR STORY
-                </button>
+                </a>
               </li>
             </ul>
           </div>
@@ -67,9 +67,9 @@ export const Footer: React.FC<FooterProps> = ({
             <h4 className="text-[10px] uppercase tracking-[0.4em] font-semibold text-pearl/50">CLIENT CARE</h4>
             <ul className="space-y-4">
               <li>
-                <button onClick={() => onNavigate('care')} className="text-xs uppercase tracking-[0.25em] font-sans text-pearl hover:text-pearl/60 transition-colors">
+                <a href="#care" onClick={(e) => { e.preventDefault(); onNavigate('care'); }} className="text-xs uppercase tracking-[0.25em] font-sans text-pearl hover:text-pearl/60 transition-colors">
                   SHIPPING & RETURNS
-                </button>
+                </a>
               </li>
               <li>
                 <button onClick={onOpenContact} className="text-xs uppercase tracking-[0.25em] font-sans text-pearl hover:text-pearl/60 transition-colors">

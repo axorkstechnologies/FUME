@@ -32,7 +32,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({ onOpenCo
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-[10px] uppercase tracking-[0.5em] text-dusty-rose font-sans font-medium block"
         >
           BESPOKE OLFACTORY EXPERIENCE
@@ -43,7 +43,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({ onOpenCo
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.1 }}
+          transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-normal uppercase tracking-[0.14em] text-shadow leading-tight"
         >
           CREATE YOUR <br className="hidden sm:block" />
@@ -55,7 +55,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({ onOpenCo
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-sm md:text-base font-sans font-normal tracking-wide text-shadow/80 max-w-xl mx-auto leading-relaxed"
         >
           Work with our master perfumers to compose an entirely personal fragrance. Bottled exclusively for you in a bespoke engraved flacon.
@@ -66,7 +66,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({ onOpenCo
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-wrap items-center justify-center gap-3 md:gap-4"
         >
           {['Choose Your Notes', 'Expert Guidance', 'Custom Bottle', 'Personal Formula'].map((feature) => (
@@ -84,7 +84,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({ onOpenCo
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.4 }}
+          transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
         >
           <button
@@ -106,7 +106,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({ onOpenCo
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+          transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="text-[10px] uppercase tracking-[0.3em] text-shadow/35 font-sans pt-4"
         >
           COMPLIMENTARY CONSULTATION • HANDCRAFTED IN KARACHI • FROM RS 3,500

@@ -121,7 +121,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.4 }}
+                  transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                   className={`group flex flex-col justify-between p-6 cursor-pointer transition-all duration-400 hover:shadow-[0_16px_40px_rgba(18,17,16,0.08)] hover:-translate-y-1 ${
                     isSignature
                       ? 'bg-[#F4EFEB] border-2 border-dusty-rose/40 hover:border-dusty-rose'

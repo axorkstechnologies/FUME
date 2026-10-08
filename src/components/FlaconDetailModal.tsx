@@ -530,7 +530,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
               <button
                 onClick={handleAdd}
                 disabled={added}
-                className="px-6 py-2.5 bg-dusty-rose text-pearl text-[10px] uppercase tracking-[0.2em] font-sans font-semibold rounded-none cursor-pointer active:scale-95 transition-transform"
+                className="px-6 py-2.5 bg-dusty-rose text-pearl text-[10px] uppercase tracking-[0.2em] font-sans font-semibold rounded-none cursor-pointer active:scale-[0.98] transition-transform"
               >
                 {added ? 'ADDED' : 'ADD TO BAG'}
               </button>

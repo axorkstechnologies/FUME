@@ -37,7 +37,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, delay: 0.4 }}
+          transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className="text-[10px] md:text-[11px] uppercase tracking-[0.5em] font-sans text-pearl/70 font-medium mb-10"
         >
           YOUR SCENT. YOUR STORY.
@@ -57,7 +57,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <motion.div
           initial={{ opacity: 0, scaleX: 0 }}
           animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 1.2, delay: 1.0 }}
+          transition={{ duration: 1.2, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
           className="w-14 h-px bg-pearl my-6 origin-center"
         />
 
@@ -65,7 +65,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 1.2 }}
+          transition={{ duration: 1.2, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="text-xs md:text-sm tracking-[0.5em] font-sans font-light uppercase text-pearl/60 mb-6"
         >
           FRAGRANCES
@@ -75,7 +75,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.4 }}
+          transition={{ duration: 1.2, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
           className="text-[9px] tracking-[0.5em] font-sans text-pearl/40 uppercase mb-4"
         >
           EST. 2024
@@ -85,7 +85,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.6 }}
+          transition={{ duration: 1.2, delay: 1.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-[11px] md:text-xs font-sans text-pearl/50 tracking-[0.12em] max-w-md mx-auto mb-14 leading-relaxed"
         >
           An independent Pakistani fragrance house crafting signature and impression Eau de Parfum with uncompromising presence.
@@ -95,12 +95,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.8 }}
+          transition={{ duration: 1.2, delay: 1.8, ease: [0.16, 1, 0.3, 1] }}
           className="w-full max-w-sm sm:max-w-none sm:w-auto flex flex-col sm:flex-row items-center gap-5"
         >
           <button
             onClick={onShopPerfumes}
-            className="w-full sm:w-auto px-14 py-5 text-[10px] uppercase tracking-[0.35em] font-sans font-medium transition-all duration-500 bg-pearl text-shadow hover:bg-pearl hover:text-shadow active:scale-[0.98] cursor-pointer"
+            className="w-full sm:w-auto px-14 py-5 text-[10px] uppercase tracking-[0.35em] font-sans font-medium transition-all duration-500 bg-pearl text-shadow hover:bg-pearl/90 hover:text-shadow active:scale-[0.98] cursor-pointer"
           >
             SHOP THE COLLECTION
           </button>

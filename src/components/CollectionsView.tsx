@@ -70,7 +70,7 @@ export const CollectionsView: React.FC<CollectionsViewProps> = ({
                     <img
                       src={collection.image}
                       alt={collection.title}
-                      className="w-full h-full object-cover filter grayscale opacity-90 transition-transform duration-1000 hover:scale-105"
+                      className="w-full h-full object-cover opacity-90 transition-transform duration-1000 hover:scale-105"
                       loading="lazy"
                     />
                   </div>

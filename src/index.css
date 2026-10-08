@@ -3,7 +3,7 @@
 @theme {
   --color-pearl: #FDFBF7;
   --color-oyster: #F5F2EF;
-  --color-dusty-rose: #211E1D; /* Deep charcoal/almost black */
+  --color-dusty-rose: #211E1D;
   --color-sand: #EAE6DF;
   --color-shadow: #0A0A0A;
   
@@ -21,35 +21,26 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* Clean up glass cards to be sharp, architectural, no blur */
-
-
-
-
-
-
-.gold-glow {
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.03);
-}
-
-/* Elevate headings */
+/* Headings: precise kerning and geometric rendering */
 h1, h2, h3, h4, h5, h6 {
   font-feature-settings: "kern" 1, "liga" 1;
   text-rendering: geometricPrecision;
   letter-spacing: 0.08em;
 }
 
+/* Focus: visible but restrained */
 *:focus-visible {
   outline: 1px solid var(--color-shadow);
   outline-offset: 2px;
 }
 
+/* Selection: inverted monochrome */
 ::selection {
   background-color: var(--color-shadow);
   color: var(--color-pearl);
 }
 
-/* Animations */
+/* Marquee */
 @keyframes marquee {
   0% { transform: translateX(0%); }
   100% { transform: translateX(-50%); }
@@ -61,11 +52,24 @@ h1, h2, h3, h4, h5, h6 {
   animation: marquee 30s linear infinite;
 }
 
+/* Respect reduced motion preference globally */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-marquee {
+    animation: none;
+  }
+}
+
 html {
   scroll-behavior: auto;
 }
 
-/* Clean Header Structure */
+/* Header grid: 3-column on mobile, flex on desktop */
 .site-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -115,12 +119,13 @@ html {
   }
 }
 
+/* Minimal scrollbar */
 ::-webkit-scrollbar { width: 4px; height: 4px; }
 ::-webkit-scrollbar-track { background: var(--color-pearl); }
 ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); }
 ::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.3); }
 
-/* Make buttons feel extremely solid */
+/* Buttons: solid, architectural */
 button {
   font-family: var(--font-sans);
   letter-spacing: 0.15em;

@@ -21,13 +21,13 @@ export const CampaignLookbook: React.FC = () => {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="w-full flex items-center justify-center p-8 bg-oyster/50"
           >
             <img 
               src="/campaigns/desert-girl.jpg" 
               alt="Desert Campaign Storyline"
-              className="w-full h-auto max-h-[80vh] object-contain drop-shadow-xl"
+              className="w-full h-auto max-h-[80vh] object-contain "
               loading="lazy"
             />
           </motion.div>
@@ -35,13 +35,13 @@ export const CampaignLookbook: React.FC = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="w-full flex items-center justify-center p-8 bg-oyster/50"
           >
             <img 
               src="/campaigns/desert-man.jpg" 
               alt="Desert Collection Detail"
-              className="w-full h-auto max-h-[80vh] object-contain drop-shadow-xl"
+              className="w-full h-auto max-h-[80vh] object-contain "
               loading="lazy"
             />
           </motion.div>
@@ -53,13 +53,13 @@ export const CampaignLookbook: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             className="w-full flex items-center justify-center p-8 bg-oyster/50 md:order-last"
           >
             <img 
               src="/campaigns/arab-girl-bg.jpg" 
               alt="Arab Collection Inspiration"
-              className="w-full h-auto max-h-[80vh] object-contain drop-shadow-xl"
+              className="w-full h-auto max-h-[80vh] object-contain "
               loading="lazy"
             />
           </motion.div>
@@ -67,13 +67,13 @@ export const CampaignLookbook: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="w-full flex items-center justify-center p-8 bg-oyster/50"
           >
             <img 
               src="/campaigns/arab-man.jpg" 
               alt="Arab Collection Flacon"
-              className="w-full h-auto max-h-[80vh] object-contain drop-shadow-xl"
+              className="w-full h-auto max-h-[80vh] object-contain "
               loading="lazy"
             />
           </motion.div>

@@ -43,7 +43,7 @@ export interface Currency {
   rate: number;
 }
 
-export type ScreenView = 'home' | 'perfumes' | 'collections' | 'story' | 'contact' | 'care' | 'films';
+export type ScreenView = 'home' | 'perfumes' | 'collections' | 'story' | 'contact' | 'care' | 'films' | 'not-found';
 export type ThemeMode = 'light' | 'dark';
 
 export type FilmKind = 'lifestyle' | 'review' | 'house';

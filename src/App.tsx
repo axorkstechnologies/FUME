@@ -35,7 +35,8 @@ export function App() {
   const getInitialView = (): ScreenView => {
     const hash = window.location.hash.replace('#', '');
     const validViews: ScreenView[] = ['home', 'perfumes', 'collections', 'films', 'story', 'contact', 'care'];
-    return validViews.includes(hash as ScreenView) ? (hash as ScreenView) : 'home';
+    if (!hash) return 'home';
+    return validViews.includes(hash as ScreenView) ? (hash as ScreenView) : 'not-found';
   };
   const [currentView, setCurrentView] = useState<ScreenView>(getInitialView);
 
@@ -44,10 +45,12 @@ export function App() {
     const handleHashChange = () => {
       const hash = window.location.hash.replace('#', '');
       const validViews: ScreenView[] = ['home', 'perfumes', 'collections', 'films', 'story', 'contact', 'care'];
-      if (validViews.includes(hash as ScreenView)) {
-        setCurrentView(hash as ScreenView);
-      } else if (hash === '') {
+      if (hash === '') {
         setCurrentView('home');
+      } else if (validViews.includes(hash as ScreenView)) {
+        setCurrentView(hash as ScreenView);
+      } else {
+        setCurrentView('not-found');
       }
     };
     window.addEventListener('hashchange', handleHashChange);
@@ -270,12 +273,20 @@ export function App() {
           </>
         )}
 
-        {/* 'films' view redirected to home — FilmsSection removed for performance */}
         {currentView === 'films' && (
-          <div className="pt-20 md:pt-28 bg-pearl min-h-screen flex items-center justify-center">
-            <div className="text-center space-y-6">
-              <p className="text-[10px] uppercase tracking-[0.4em] text-dusty-rose font-sans">Real Stories</p>
-              <p className="font-serif text-2xl uppercase tracking-[0.14em] text-shadow">Seen on Film</p>
+          <div className="pt-40 pb-32 bg-pearl min-h-screen border-t border-shadow/[0.08]">
+            <div className="text-center space-y-6 max-w-2xl mx-auto px-6 mb-20">
+              <span className="text-[10px] uppercase tracking-[0.4em] text-dusty-rose font-sans font-medium block">
+                THE ARCHIVE
+              </span>
+              <h2 className="font-serif text-4xl sm:text-5xl uppercase tracking-[0.16em] text-shadow leading-tight">
+                FUME ON FILM
+              </h2>
+              <p className="text-[10px] font-sans text-shadow/70 uppercase tracking-widest max-w-md mx-auto leading-relaxed">
+                Authentic unboxings, reviews, and editorial captures from the FUME community.
+              </p>
+            </div>
+            <div className="w-full">
               <ReelStrip films={FILMS} onOpenReel={(film) => setActiveReelFilm(film)} />
             </div>
           </div>

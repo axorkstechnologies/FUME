@@ -184,9 +184,9 @@ export const ContactView: React.FC<ContactViewProps> = () => {
 
                 <button
                   type="submit"
-                  className="w-full py-5 bg-shadow text-pearl hover:bg-shadow text-[10px] uppercase tracking-[0.3em] font-sans transition-all duration-300 flex items-center justify-center gap-4"
+                  className="w-full py-5 bg-shadow text-pearl hover:bg-shadow/90 active:scale-[0.98] text-[10px] uppercase tracking-[0.3em] font-sans transition-all duration-300 flex items-center justify-center gap-4"
                 >
-                  <span>TRANSMIT DOSSIER</span>
+                  <span>SEND MESSAGE</span>
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </form>

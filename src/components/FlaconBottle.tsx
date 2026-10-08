@@ -146,7 +146,7 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
           <img
             src={fragrance.image}
             alt={altText}
-            className={`w-full h-full object-contain object-center select-none drop-shadow-[0_20px_40px_rgba(44,37,34,0.08)] ${imageClassName}`}
+            className={`w-full h-full object-contain object-center select-none ${imageClassName}`}
             loading="eager"
           />
 
@@ -208,7 +208,7 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
   // Standard Product Card Flacon
   return (
     <div
-      className={`relative aspect-[3/4] w-full overflow-hidden transition-all duration-500 border flex items-center justify-center bg-gradient-to-b from-pearl via-oyster to-pearl border-shadow/[0.08] hover:border-dusty-rose/50 hover:shadow-[0_12px_36px_rgba(44,37,34,0.12),0_0_20px_rgba(201,169,166,0.1)] group ${className}`}
+      className={`relative aspect-[3/4] w-full overflow-hidden transition-all duration-500 border flex items-center justify-center bg-oyster border-shadow/[0.08] hover:border-dusty-rose/50 group ${className}`}
     >
       {/* Subtle Warm Light Ambient Halo behind the bottle */}
       <div
@@ -224,7 +224,7 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
       {/* Fragrance Tone Tag */}
       {fragrance.cardTone && (
         <div className="absolute top-3 left-3 z-20 pointer-events-none">
-          <span className="text-[9px] uppercase tracking-[0.2em] px-2.5 py-0.5 font-sans font-medium rounded-full border border-shadow/10 bg-pearl text-shadow/80">
+          <span className="text-[9px] uppercase tracking-[0.2em] px-2.5 py-0.5 font-sans font-medium border border-shadow/10 bg-pearl text-shadow/80">
             {fragrance.cardTone}
           </span>
         </div>
@@ -235,7 +235,7 @@ export const FlaconBottle: React.FC<FlaconBottleProps> = ({
         <img
           src={fragrance.image}
           alt={altText}
-          className={`w-full h-full object-contain object-center select-none drop-shadow-[0_15px_30px_rgba(44,37,34,0.1)] ${imageClassName}`}
+          className={`w-full h-full object-contain object-center select-none ${imageClassName}`}
           loading="lazy"
         />
 

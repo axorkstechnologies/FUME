@@ -123,7 +123,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                         <div className="flex items-center border border-shadow/20">
                           <button
                             onClick={() => onUpdateQuantity(idx, item.quantity - 1)}
-                            className="w-10 h-10 flex items-center justify-center text-shadow/60 hover:text-shadow transition-colors" aria-label="Adjust quantity"
+                            className="w-10 h-10 flex items-center justify-center text-shadow/60 hover:text-shadow transition-colors" aria-label="Decrease quantity"
                           >
                             <Minus className="w-3 h-3" />
                           </button>
@@ -132,7 +132,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                           </span>
                           <button
                             onClick={() => onUpdateQuantity(idx, item.quantity + 1)}
-                            className="w-10 h-10 flex items-center justify-center text-shadow/60 hover:text-shadow transition-colors" aria-label="Adjust quantity"
+                            className="w-10 h-10 flex items-center justify-center text-shadow/60 hover:text-shadow transition-colors" aria-label="Increase quantity"
                           >
                             <Plus className="w-3 h-3" />
                           </button>
@@ -184,7 +184,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   window.open(`https://wa.me/923281825636?text=${msg}`, '_blank');
                   onClose();
                 }}
-                className="w-full py-5 text-[10px] uppercase tracking-[0.3em] font-sans transition-all duration-300 flex items-center justify-center gap-4 bg-shadow text-pearl hover:bg-shadow/90"
+                className="w-full py-5 text-[10px] uppercase tracking-[0.3em] font-sans transition-all duration-300 flex items-center justify-center gap-4 bg-shadow text-pearl hover:bg-shadow/90 active:scale-[0.98]"
               >
                 <span>CHECKOUT VIA WHATSAPP</span>
               </button>

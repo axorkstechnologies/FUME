@@ -71,9 +71,10 @@ export const Header: React.FC<HeaderProps> = ({
             {navLinks.map((item) => {
               const isActive = currentView === item.view;
               return (
-                <button
+                <a
+                  href={`#${item.view}`}
                   key={item.view}
-                  onClick={() => handleLinkClick(item.view)}
+                  onClick={(e) => { e.preventDefault(); handleLinkClick(item.view); }}
                   className={`text-[10px] xl:text-[10.5px] uppercase tracking-[0.2em] font-sans transition-all duration-300 cursor-pointer relative py-1.5 whitespace-nowrap shrink-0 ${
                     isActive
                       ? `${textColorClass} font-semibold after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[1px] after:bg-current`
@@ -81,7 +82,7 @@ export const Header: React.FC<HeaderProps> = ({
                   }`}
                 >
                   {item.label}
-                </button>
+                </a>
               );
             })}
           </nav>
@@ -133,15 +134,16 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="md:hidden absolute top-full left-0 w-full h-screen bg-pearl text-shadow animate-in fade-in duration-300 border-t border-shadow/[0.05] px-8 py-10">
           <nav className="flex flex-col space-y-6">
             {navLinks.map((item) => (
-              <button
-                key={item.view}
-                onClick={() => handleLinkClick(item.view)}
-                className={`text-left py-2 text-xs uppercase tracking-[0.25em] font-sans transition-colors cursor-pointer ${
+              <a
+                  href={`#${item.view}`}
+                  key={item.view}
+                  onClick={(e) => { e.preventDefault(); handleLinkClick(item.view); }}
+                  className={`text-left py-2 text-xs uppercase tracking-[0.25em] font-sans transition-colors cursor-pointer ${
                   currentView === item.view ? 'text-shadow font-semibold' : 'text-shadow/60'
                 }`}
               >
                 {item.label}
-              </button>
+                </a>
             ))}
             <div className="pt-6 border-t border-shadow/[0.05]">
               <button
