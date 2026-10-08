@@ -310,12 +310,12 @@ export const CareView: React.FC<CareViewProps> = ({
             
             <span className="text-shadow/80">•</span>
             <a
-              href="https://wa.me/92381825636?text=Hello%20FUME%20Concierge"
+              href="https://wa.me/923281825636?text=Hello%20FUME%20Concierge"
               target="_blank"
               rel="noopener noreferrer"
               className="text-dusty-rose hover:underline"
             >
-              WhatsApp (+92 381 825 636)
+              WhatsApp (+92 328 182 5636)
             </a>
           </div>
 
@@ -327,7 +327,7 @@ export const CareView: React.FC<CareViewProps> = ({
               CONTACT CONCIERGE
             </button>
             <a
-              href="https://wa.me/92381825636?text=Hello%20FUME%20Concierge"
+              href="https://wa.me/923281825636?text=Hello%20FUME%20Concierge"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3.5 border border-dusty-rose text-shadow hover:bg-white transition-colors uppercase tracking-[0.25em] text-[11px] font-sans font-medium cursor-pointer rounded-xs"

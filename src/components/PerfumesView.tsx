@@ -60,7 +60,7 @@ export const PerfumesView: React.FC<PerfumesViewProps> = ({
     const msg = encodeURIComponent(
       "Hello FUME Concierge, I am interested in creating a Custom Made Bespoke Fragrance. Please guide me through your private atelier process."
     );
-    window.open(`https://wa.me/92381825636?text=${msg}`, '_blank');
+    window.open(`https://wa.me/923281825636?text=${msg}`, '_blank');
   };
 
   return (
@@ -223,7 +223,7 @@ export const PerfumesView: React.FC<PerfumesViewProps> = ({
                       <img
                         src={fragrance.image}
                         alt={`FUME ${fragrance.name}`}
-                        className="w-full h-full object-contain filter drop-shadow-md select-none transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:scale-105"
+                        className="w-full h-full object-contain filter drop-shadow-none select-none transition-transform duration-700 ease-[0.16,1,0.3,1] group-hover:scale-105"
                         loading="lazy"
                       />
                     </div>

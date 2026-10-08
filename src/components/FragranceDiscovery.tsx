@@ -135,7 +135,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                   <div className="flex items-center justify-between mb-3">
                     {isSignature ? (
                       <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-shadow text-pearl text-[8px] uppercase tracking-[0.28em] font-semibold rounded-xs shadow-xs">
-                        <span className="w-1.5 h-1.5 rounded-full bg-dusty-rose animate-pulse" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-dusty-rose " />
                         SIGNATURE
                       </span>
                     ) : isDiscoverySet ? (

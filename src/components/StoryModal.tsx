@@ -96,13 +96,13 @@ export const StoryModal: React.FC<StoryModalProps> = ({ isOpen, onClose, themeMo
           </div>
 
           <a
-            href="https://wa.me/92381825636?text=Hello%20FUME%20FRAGRANCES%2C%20I%20would%20love%20to%20learn%20more%20about%20your%20fragrances."
+            href="https://wa.me/923281825636?text=Hello%20FUME%20FRAGRANCES%2C%20I%20would%20love%20to%20learn%20more%20about%20your%20fragrances."
             target="_blank"
             rel="noopener noreferrer"
             className="text-dusty-rose hover:underline flex items-center gap-1 font-medium cursor-pointer"
           >
             <MessageCircle className="w-3.5 h-3.5" />
-            <span>TALK TO FOUNDER (+92 381 825 636)</span>
+            <span>TALK TO FOUNDER (+92 328 182 5636)</span>
           </a>
         </div>
       </div>

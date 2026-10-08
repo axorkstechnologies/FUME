@@ -90,6 +90,15 @@ export const StoryView: React.FC<StoryViewProps> = ({
 
         {/* Mission & Vision */}
         <section className="space-y-16 border-t border-shadow/[0.08] pt-24">
+          <div className="text-center space-y-3 max-w-2xl mx-auto mb-4">
+            <span className="text-[10px] uppercase tracking-[0.4em] text-shadow/50 font-sans font-medium block">
+              PURPOSE & DIRECTION
+            </span>
+            <h2 className="font-serif text-3xl sm:text-4xl font-normal uppercase tracking-[0.16em] text-shadow">
+              MISSION & VISION
+            </h2>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-24">
             
             {/* Mission */}
@@ -98,13 +107,13 @@ export const StoryView: React.FC<StoryViewProps> = ({
                 <span className="text-[10px] uppercase tracking-[0.3em] text-shadow font-semibold">
                   OUR MISSION
                 </span>
-                <span className="text-shadow/40">01</span>
+                <span className="text-shadow/30 font-sans text-sm">01</span>
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-normal uppercase tracking-[0.14em] text-shadow leading-snug">
                 MAKING QUALITY ACCESSIBLE TO EVERYONE
               </h3>
-              <p className="text-sm font-sans font-light leading-relaxed text-shadow/80">
-                Our mission is to make authentic, master-crafted fragrances accessible to everyone in Pakistan. We deliver genuine Eau de Parfum concentrations with long-lasting presence, transparent pricing, and uncompromising presentation.
+              <p className="text-sm font-sans font-light leading-[1.85] text-shadow/80">
+                Our mission is to make authentic, high-quality fragrances accessible to everyone. We believe exceptional fragrance should not come with an unreasonable price tag, which is why we are committed to offering beautifully crafted, authentic products at prices that remain genuinely accessible.
               </p>
             </div>
 
@@ -114,13 +123,13 @@ export const StoryView: React.FC<StoryViewProps> = ({
                 <span className="text-[10px] uppercase tracking-[0.3em] text-shadow font-semibold">
                   OUR VISION
                 </span>
-                <span className="text-shadow/40">02</span>
+                <span className="text-shadow/30 font-sans text-sm">02</span>
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-normal uppercase tracking-[0.14em] text-shadow leading-snug">
-                ESTABLISHING PAKISTAN'S PREMIER SCENT MAISON
+                PAKISTAN'S LEADING FRAGRANCE BRAND
               </h3>
-              <p className="text-sm font-sans font-light leading-relaxed text-shadow/80">
-                Our vision is to establish FUME as Pakistan's leading and most trusted artisanal fragrance house. We are building a homegrown brand that proves world-class formulation and olfactory poetry can be created right here.
+              <p className="text-sm font-sans font-light leading-[1.85] text-shadow/80">
+                Our vision is to establish Fume as one of Pakistan's leading fragrance brands — a name recognised for its authenticity, uncompromising quality, accessibility, and the trust we build with every customer.
               </p>
             </div>
 

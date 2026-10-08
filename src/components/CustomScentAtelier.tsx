@@ -10,14 +10,14 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({ onOpenCo
     const msg = encodeURIComponent(
       "Hello FUME! I'd like to create a custom fragrance. Please guide me through the process."
     );
-    window.open(`https://wa.me/92381825636?text=${msg}`, '_blank');
+    window.open(`https://wa.me/923281825636?text=${msg}`, '_blank');
   };
 
   const handleDescribeScent = () => {
     const msg = encodeURIComponent(
       "Hello FUME! I have a scent idea in mind and I'd like to describe it to your perfumer."
     );
-    window.open(`https://wa.me/92381825636?text=${msg}`, '_blank');
+    window.open(`https://wa.me/923281825636?text=${msg}`, '_blank');
   };
 
   return (

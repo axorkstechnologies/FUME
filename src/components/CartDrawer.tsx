@@ -182,7 +182,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   const msg = encodeURIComponent(
                     `Hello FUME Concierge, I would like to place an order (Cash on Delivery):\n\n${cartDetails}\n\nTotal: Rs ${subtotal.toLocaleString()}\n\nDelivery Address: `
                   );
-                  window.open(`https://wa.me/92381825636?text=${msg}`, '_blank');
+                  window.open(`https://wa.me/923281825636?text=${msg}`, '_blank');
                   onClose();
                 }}
                 className="w-full py-5 text-[10px] uppercase tracking-[0.3em] font-sans transition-all duration-300 flex items-center justify-center gap-4 bg-shadow text-pearl hover:bg-shadow/90"

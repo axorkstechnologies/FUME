@@ -180,7 +180,7 @@ export const FilmPlayer: React.FC<FilmPlayerProps> = ({
             {isMuted ? (
               <VolumeX className="w-3.5 h-3.5 text-dusty-rose" />
             ) : (
-              <Volume2 className="w-3.5 h-3.5 text-shadow animate-pulse" />
+              <Volume2 className="w-3.5 h-3.5 text-shadow " />
             )}
           </button>
         )}

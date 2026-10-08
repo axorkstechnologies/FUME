@@ -240,7 +240,7 @@ export const ReelViewerModal: React.FC<ReelViewerModalProps> = ({
               {isMuted ? (
                 <VolumeX className="w-4 h-4 text-dusty-rose" />
               ) : (
-                <Volume2 className="w-4 h-4 text-shadow animate-pulse" />
+                <Volume2 className="w-4 h-4 text-shadow " />
               )}
             </button>
           </div>

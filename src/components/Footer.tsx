@@ -77,8 +77,8 @@ export const Footer: React.FC<FooterProps> = ({
                 </button>
               </li>
               <li>
-                <a href="https://wa.me/92381825636" target="_blank" rel="noreferrer" className="text-xs uppercase tracking-[0.25em] font-sans text-pearl hover:text-pearl/60 transition-colors">
-                  WHATSAPP: +92 381 825 636
+                <a href="https://wa.me/923281825636" target="_blank" rel="noreferrer" className="text-xs uppercase tracking-[0.25em] font-sans text-pearl hover:text-pearl/60 transition-colors">
+                  WHATSAPP: +92 328 182 5636
                 </a>
               </li>
             </ul>

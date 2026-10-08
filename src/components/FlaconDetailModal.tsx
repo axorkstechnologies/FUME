@@ -114,7 +114,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
         aria-modal="true"
         aria-label={`FUME ${fragrance.name} Details`}
         onClick={(e) => e.stopPropagation()}
-        className="relative shadow-2xl border overflow-hidden grid grid-cols-1 md:grid-cols-2 grid-rows-[minmax(180px,36%)_1fr] md:grid-rows-1 bg-pearl/98 backdrop-blur-2xl text-shadow border-shadow/[0.08]"
+        className="relative shadow-none border overflow-hidden grid grid-cols-1 md:grid-cols-2 grid-rows-[minmax(180px,36%)_1fr] md:grid-rows-1 bg-pearl/98 backdrop-blur-2xl text-shadow border-shadow/[0.08]"
         style={{
           width: 'min(1120px, calc(100vw - 32px))',
           height: 'min(860px, calc(100dvh - 32px))',
@@ -128,7 +128,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
           type="button"
           aria-label="Close"
           onClick={onClose}
-          className="pdp-close absolute z-50 w-[44px] h-[44px] min-w-[44px] min-h-[44px] rounded-full flex items-center justify-center transition-all cursor-pointer border border-shadow/20 bg-pearl/70 text-shadow hover:border-dusty-rose hover:text-dusty-rose shadow-lg"
+          className="pdp-close absolute z-50 w-[44px] h-[44px] min-w-[44px] min-h-[44px] rounded-none flex items-center justify-center transition-all cursor-pointer border border-shadow/20 bg-pearl/70 text-shadow hover:border-dusty-rose hover:text-dusty-rose shadow-none"
           style={{
             position: 'absolute',
             top: '12px',
@@ -153,13 +153,13 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
         >
           {/* Bottle / Film Switcher (Visible when a fragrance film exists) */}
           {matchingFilm && (
-            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-30 flex items-center bg-pearl/75 backdrop-blur-md rounded-full p-1 border border-shadow/20 shadow-xl pointer-events-auto">
+            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 z-30 flex items-center bg-pearl/75 backdrop-blur-md rounded-none p-1 border border-shadow/20 shadow-none pointer-events-auto">
               <button
                 type="button"
                 onClick={() => setMediaTab('bottle')}
-                className={`px-3 py-1 rounded-full text-[9px] uppercase tracking-[0.22em] font-sans font-medium transition-all cursor-pointer ${
+                className={`px-3 py-1 rounded-none text-[9px] uppercase tracking-[0.22em] font-sans font-medium transition-all cursor-pointer ${
                   mediaTab === 'bottle'
-                    ? 'bg-dusty-rose text-pearl font-semibold shadow-sm'
+                    ? 'bg-dusty-rose text-pearl font-semibold shadow-none'
                     : 'text-shadow/80 hover:text-shadow'
                 }`}
               >
@@ -168,14 +168,14 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
               <button
                 type="button"
                 onClick={() => setMediaTab('film')}
-                className={`px-3 py-1 rounded-full text-[9px] uppercase tracking-[0.22em] font-sans font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
+                className={`px-3 py-1 rounded-none text-[9px] uppercase tracking-[0.22em] font-sans font-medium transition-all cursor-pointer flex items-center gap-1.5 ${
                   mediaTab === 'film'
-                    ? 'bg-dusty-rose text-pearl font-semibold shadow-sm'
+                    ? 'bg-dusty-rose text-pearl font-semibold shadow-none'
                     : 'text-shadow/80 hover:text-shadow'
                 }`}
               >
                 <span>THE FILM</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-dusty-rose animate-pulse" />
+                <span className="w-1.5 h-1.5 rounded-none bg-dusty-rose " />
               </button>
             </div>
           )}
@@ -207,10 +207,10 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
               <img
                 src={fragrance.image}
                 alt={fragrance.name}
-                className="relative z-10 w-full h-full object-contain p-8 md:p-12 drop-shadow-md"
+                className="relative z-10 w-full h-full object-contain p-8 md:p-12 drop-shadow-none"
               />
 
-              <div className="absolute bottom-4 left-4 z-20 text-[9px] uppercase tracking-[0.3em] font-sans text-dusty-rose font-medium bg-pearl/40 backdrop-blur-xs px-2.5 py-1 rounded-xs border border-dusty-rose/30 pointer-events-none">
+              <div className="absolute bottom-4 left-4 z-20 text-[9px] uppercase tracking-[0.3em] font-sans text-dusty-rose font-medium bg-pearl/40 backdrop-blur-xs px-2.5 py-1 rounded-none border border-dusty-rose/30 pointer-events-none">
                 HAUTE FLACON • SINCE 2024
               </div>
             </>
@@ -232,16 +232,16 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
               <div className="space-y-2">
                 <div className="flex items-center gap-2 flex-wrap">
                   {fragrance.productType === 'signature' ? (
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-shadow text-pearl text-[9px] uppercase tracking-[0.28em] font-semibold rounded-xs shadow-xs">
-                      <span className="w-1.5 h-1.5 rounded-full bg-dusty-rose animate-pulse" />
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-shadow text-pearl text-[9px] uppercase tracking-[0.28em] font-semibold rounded-none shadow-none">
+                      <span className="w-1.5 h-1.5 rounded-none bg-dusty-rose " />
                       SIGNATURE CREATION
                     </span>
                   ) : fragrance.id === 'discovery-set' ? (
-                    <span className="px-3 py-1 bg-dusty-rose text-pearl text-[9px] uppercase tracking-[0.25em] font-semibold rounded-xs shadow-xs">
+                    <span className="px-3 py-1 bg-dusty-rose text-pearl text-[9px] uppercase tracking-[0.25em] font-semibold rounded-none shadow-none">
                       TESTERS COFFRET
                     </span>
                   ) : (
-                    <span className="px-2.5 py-1 bg-white border border-shadow/15 text-shadow text-[9px] uppercase tracking-[0.22em] font-medium rounded-xs shadow-xs">
+                    <span className="px-2.5 py-1 bg-white border border-shadow/15 text-shadow text-[9px] uppercase tracking-[0.22em] font-medium rounded-none shadow-none">
                       IMPRESSION FLACON
                     </span>
                   )}
@@ -328,7 +328,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                     COFFRET CONTENTS
                   </span>
                   <div
-                    className={`py-3 px-4 text-xs font-sans uppercase tracking-widest border rounded-xs flex items-center justify-between ${
+                    className={`py-3 px-4 text-xs font-sans uppercase tracking-widest border rounded-none flex items-center justify-between ${
                       'border-dusty-rose bg-pearl text-shadow'
                     }`}
                   >
@@ -373,7 +373,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
               {/* Discovery Set Recommendation Upsell */}
               {fragrance.id !== 'discovery-set' && (
                 <div
-                  className={`p-3.5 rounded-xs border transition-colors flex items-center justify-between gap-3 ${
+                  className={`p-3.5 rounded-none border transition-colors flex items-center justify-between gap-3 ${
                     'bg-pearl border-sand'
                   }`}
                 >
@@ -395,7 +395,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                       onAddToCart(DISCOVERY_SET, '50ml', 1200);
                       onClose();
                     }}
-                    className="shrink-0 px-3 py-1.5 bg-dusty-rose text-pearl hover:bg-pearl transition-colors text-[9px] uppercase tracking-[0.2em] font-sans font-semibold rounded-xs cursor-pointer shadow-sm"
+                    className="shrink-0 px-3 py-1.5 bg-dusty-rose text-pearl hover:bg-pearl transition-colors text-[9px] uppercase tracking-[0.2em] font-sans font-semibold rounded-none cursor-pointer shadow-none"
                   >
                     ADD SET
                   </button>
@@ -423,7 +423,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                     value={monogram}
                     onChange={(e) => setMonogram(e.target.value.toUpperCase())}
                     placeholder="ENTER INITIALS (E.G. M.M.)"
-                    className={`w-full px-3 py-2 text-xs uppercase tracking-widest border focus:outline-none transition-colors rounded-xs ${
+                    className={`w-full px-3 py-2 text-xs uppercase tracking-widest border focus:outline-none transition-colors rounded-none ${
                       'bg-pearl border-sand text-shadow focus:border-dusty-rose'
                     }`}
                   />
@@ -451,10 +451,10 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
               <button
                 onClick={handleAdd}
                 disabled={added}
-                className={`px-8 py-4 transition-all text-xs uppercase tracking-[0.25em] font-sans font-semibold flex items-center gap-2 cursor-pointer rounded-xs ${
+                className={`px-8 py-4 transition-all text-xs uppercase tracking-[0.25em] font-sans font-semibold flex items-center gap-2 cursor-pointer rounded-none ${
                   added
                     ? 'bg-dusty-rose/50 text-pearl'
-                    : 'bg-dusty-rose text-pearl hover:bg-dusty-rose hover:shadow-[0_0_25px_rgba(201,169,166,0.4)]'
+                    : 'bg-dusty-rose text-pearl hover:bg-dusty-rose '
                 }`}
               >
                 {added ? (
@@ -471,20 +471,20 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
             {/* Direct WhatsApp Concierge Order / Query */}
             <div className="pt-2 text-center border-t border-shadow/[0.08]">
               <a
-                href={`https://wa.me/92381825636?text=${encodeURIComponent(
+                href={`https://wa.me/923281825636?text=${encodeURIComponent(
                   `Hello FUME Concierge, I would like to inquire / order ${getFragranceTitle(fragrance)} (${fragrance.id === 'discovery-set' ? '5x5ml Testers' : selectedSize} - Rs ${currentPrice.toLocaleString()})${monogram ? ` with bespoke monogram "${monogram}"` : ''}.`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 text-[10px] uppercase tracking-[0.22em] font-sans transition-colors py-1 text-shadow/80 hover:text-dusty-rose"
               >
-                <span>Order or Inquire via WhatsApp (+92 381 825 636)</span>
+                <span>Order or Inquire via WhatsApp (+92 328 182 5636)</span>
               </a>
             </div>
 
             {/* Trust Signals: COD, Free 2ml Sample Vial, All-Day Longevity */}
             <div className="pt-3 border-t border-shadow/[0.08] grid grid-cols-2 gap-2 text-left">
-              <div className="p-2.5 bg-shadow/5 border border-shadow/[0.06] rounded-xs space-y-0.5">
+              <div className="p-2.5 bg-shadow/5 border border-shadow/[0.06] rounded-none space-y-0.5">
                 <span className="text-[9px] uppercase tracking-[0.2em] font-sans font-medium text-dusty-rose block">
                   CASH ON DELIVERY
                 </span>
@@ -492,7 +492,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                   Nationwide across Pakistan. Pay at your doorstep.
                 </span>
               </div>
-              <div className="p-2.5 bg-shadow/5 border border-shadow/[0.06] rounded-xs space-y-0.5">
+              <div className="p-2.5 bg-shadow/5 border border-shadow/[0.06] rounded-none space-y-0.5">
                 <span className="text-[9px] uppercase tracking-[0.2em] font-sans font-medium text-dusty-rose block">
                   2ML TEST VIAL INCLUDED
                 </span>
@@ -500,7 +500,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                   Wear test sample first. Keep unopened box for full refund.
                 </span>
               </div>
-              <div className="p-2.5 bg-shadow/5 border border-shadow/[0.06] rounded-xs space-y-0.5">
+              <div className="p-2.5 bg-shadow/5 border border-shadow/[0.06] rounded-none space-y-0.5">
                 <span className="text-[9px] uppercase tracking-[0.2em] font-sans font-medium text-dusty-rose block">
                   ALL-DAY PERSISTENCE
                 </span>
@@ -508,7 +508,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                   High perfume oil concentration tested in warm weather.
                 </span>
               </div>
-              <div className="p-2.5 bg-shadow/5 border border-shadow/[0.06] rounded-xs space-y-0.5">
+              <div className="p-2.5 bg-shadow/5 border border-shadow/[0.06] rounded-none space-y-0.5">
                 <span className="text-[9px] uppercase tracking-[0.2em] font-sans font-medium text-dusty-rose block">
                   HAND-CRAFTED PURITY
                 </span>
@@ -519,7 +519,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
             </div>
 
             {/* Mobile Sticky Add to Bag Bar */}
-            <div className="md:hidden sticky -bottom-6 -mx-6 px-6 py-3 bg-pearl/95 backdrop-blur-md border-t border-shadow/[0.08] flex items-center justify-between z-30 shadow-2xl mt-4">
+            <div className="md:hidden sticky -bottom-6 -mx-6 px-6 py-3 bg-pearl/95 backdrop-blur-md border-t border-shadow/[0.08] flex items-center justify-between z-30 shadow-none mt-4">
               <div>
                 <span className="text-[9px] uppercase tracking-wider text-shadow/80 block font-sans">
                   {selectedSize}
@@ -531,7 +531,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
               <button
                 onClick={handleAdd}
                 disabled={added}
-                className="px-6 py-2.5 bg-dusty-rose text-pearl text-[10px] uppercase tracking-[0.2em] font-sans font-semibold rounded-xs cursor-pointer active:scale-95 transition-transform"
+                className="px-6 py-2.5 bg-dusty-rose text-pearl text-[10px] uppercase tracking-[0.2em] font-sans font-semibold rounded-none cursor-pointer active:scale-95 transition-transform"
               >
                 {added ? 'ADDED' : 'ADD TO BAG'}
               </button>

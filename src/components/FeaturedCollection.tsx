@@ -81,22 +81,22 @@ export const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 onClick={() => onSelectFragrance(fragrance)}
-                className="group relative flex flex-col md:flex-row bg-[#F4EFEB] rounded-sm border border-dusty-rose/30 p-6 sm:p-8 md:p-10 cursor-pointer transition-all duration-500 hover:border-dusty-rose hover:shadow-[0_20px_50px_rgba(18,17,16,0.08)] hover:-translate-y-1"
+                className="group relative flex flex-col md:flex-row bg-[#F4EFEB] rounded-none border border-dusty-rose/30 p-6 sm:p-8 md:p-10 cursor-pointer transition-all duration-500 hover:border-dusty-rose  hover:-translate-y-1"
               >
                 {/* Visual Accent Badge */}
                 <div className="absolute top-6 left-6 z-20">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-shadow text-pearl text-[9px] uppercase tracking-[0.3em] font-semibold rounded-xs shadow-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-dusty-rose animate-pulse" />
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-shadow text-pearl text-[9px] uppercase tracking-[0.3em] font-semibold rounded-none shadow-none">
+                    <span className="w-1.5 h-1.5 rounded-none bg-dusty-rose " />
                     SIGNATURE
                   </span>
                 </div>
 
                 {/* Flacon Image Showcase — Generous Framing */}
-                <div className="relative w-full md:w-1/2 aspect-square flex items-center justify-center p-6 bg-pearl/60 rounded-xs border border-shadow/[0.04] overflow-hidden">
+                <div className="relative w-full md:w-1/2 aspect-square flex items-center justify-center p-6 bg-pearl/60 rounded-none border border-shadow/[0.04] overflow-hidden">
                   <img
                     src={fragrance.image}
                     alt={`FUME ${fragrance.name} Signature Flacon`}
-                    className="w-full h-full object-contain p-2 select-none transition-transform duration-700 ease-out group-hover:scale-105 filter drop-shadow-md"
+                    className="w-full h-full object-contain p-2 select-none transition-transform duration-700 ease-out group-hover:scale-105 filter drop-shadow-none"
                     loading="eager"
                   />
                   {/* Subtle soft gradient reflection */}
@@ -141,7 +141,7 @@ export const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
                           e.stopPropagation();
                           onAddToCart(fragrance);
                         }}
-                        className="flex-1 py-3.5 bg-shadow text-pearl hover:bg-dusty-rose text-[10px] uppercase tracking-[0.26em] font-sans font-semibold transition-all duration-300 cursor-pointer shadow-sm active:scale-[0.98]"
+                        className="flex-1 py-3.5 bg-shadow text-pearl hover:bg-dusty-rose text-[10px] uppercase tracking-[0.26em] font-sans font-semibold transition-all duration-300 cursor-pointer shadow-none active:scale-[0.98]"
                       >
                         ADD TO BAG
                       </button>
@@ -191,7 +191,7 @@ export const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.5, delay: index * 0.04 }}
                   onClick={() => onSelectFragrance(fragrance)}
-                  className={`group flex flex-col justify-between bg-[#F8F5F1] border rounded-sm p-5 sm:p-6 cursor-pointer transition-all duration-400 hover:shadow-[0_16px_40px_rgba(18,17,16,0.06)] hover:-translate-y-1 ${
+                  className={`group flex flex-col justify-between bg-[#F8F5F1] border rounded-none p-5 sm:p-6 cursor-pointer transition-all duration-400  hover:-translate-y-1 ${
                     isDiscoverySet
                       ? 'border-dusty-rose/40 bg-gradient-to-b from-[#F7F2EC] to-[#EFECE6]'
                       : 'border-shadow/[0.08] hover:border-dusty-rose/60'
@@ -200,11 +200,11 @@ export const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
                   {/* Top Header / Badge */}
                   <div className="flex items-center justify-between mb-3">
                     {isDiscoverySet ? (
-                      <span className="px-2.5 py-1 bg-dusty-rose text-pearl text-[8px] uppercase tracking-[0.25em] font-semibold rounded-xs shadow-xs">
+                      <span className="px-2.5 py-1 bg-dusty-rose text-pearl text-[8px] uppercase tracking-[0.25em] font-semibold rounded-none shadow-none">
                         DISCOVERY SET
                       </span>
                     ) : (
-                      <span className="px-2.5 py-1 bg-white border border-shadow/10 text-shadow text-[8px] uppercase tracking-[0.22em] font-medium rounded-xs shadow-xs">
+                      <span className="px-2.5 py-1 bg-white border border-shadow/10 text-shadow text-[8px] uppercase tracking-[0.22em] font-medium rounded-none shadow-none">
                         IMPRESSION
                       </span>
                     )}
@@ -215,11 +215,11 @@ export const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
                   </div>
 
                   {/* Bottle Showcase — Uncropped with Breathing Room */}
-                  <div className="relative w-full aspect-[4/5] flex items-center justify-center p-6 bg-pearl/80 rounded-xs border border-shadow/[0.03] overflow-hidden my-2">
+                  <div className="relative w-full aspect-[4/5] flex items-center justify-center p-6 bg-pearl/80 rounded-none border border-shadow/[0.03] overflow-hidden my-2">
                     <img
                       src={fragrance.image}
                       alt={`FUME ${fragrance.name} Flacon`}
-                      className="w-full h-full object-contain p-2 select-none transition-transform duration-600 ease-out group-hover:scale-105 filter drop-shadow-sm"
+                      className="w-full h-full object-contain p-2 select-none transition-transform duration-600 ease-out group-hover:scale-105 filter drop-shadow-none"
                       loading="lazy"
                     />
                   </div>
@@ -247,7 +247,7 @@ export const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
                           e.stopPropagation();
                           onAddToCart(fragrance);
                         }}
-                        className="px-4 py-2 bg-shadow text-pearl hover:bg-dusty-rose text-[9px] uppercase tracking-[0.22em] font-sans font-semibold transition-colors duration-300 cursor-pointer shadow-xs active:scale-[0.98]"
+                        className="px-4 py-2 bg-shadow text-pearl hover:bg-dusty-rose text-[9px] uppercase tracking-[0.22em] font-sans font-semibold transition-colors duration-300 cursor-pointer shadow-none active:scale-[0.98]"
                       >
                         ADD TO BAG
                       </button>

@@ -150,7 +150,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
               </button>
 
               <a
-                href={`https://wa.me/92381825636?text=${encodeURIComponent(
+                href={`https://wa.me/923281825636?text=${encodeURIComponent(
                   `Hello FUME Concierge, my name is ${name || 'Patron'}${email ? ` (${email})` : ''}.\nInquiry: ${message || 'I would like to inquire regarding FUME bespoke services.'}`
                 )}`}
                 target="_blank"
@@ -159,7 +159,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose, the
                   'border-dusty-rose text-shadow hover:bg-dusty-rose/10'
                 }`}
               >
-                DIRECT INQUIRY ON WHATSAPP (+92 381 825 636)
+                DIRECT INQUIRY ON WHATSAPP (+92 328 182 5636)
               </a>
             </div>
           </form>

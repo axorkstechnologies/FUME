@@ -22,25 +22,11 @@ body {
 }
 
 /* Clean up glass cards to be sharp, architectural, no blur */
-.glass-panel {
-  background-color: rgba(253, 251, 247, 0.95);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(0, 0, 0, 0.04);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-}
 
-.glass-card {
-  background-color: var(--color-pearl);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
 
-.glass-card:hover {
-  border-color: rgba(0, 0, 0, 0.2);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
-  transform: translateY(-2px);
-}
+
+
+
 
 .gold-glow {
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.03);

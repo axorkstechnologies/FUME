@@ -70,8 +70,8 @@ export const ContactView: React.FC<ContactViewProps> = () => {
                 </div>
                 <div className="space-y-2">
                   <span className="text-[10px] uppercase tracking-[0.3em] font-semibold text-shadow">WHATSAPP CONCIERGE</span>
-                  <a href="https://wa.me/92381825636" target="_blank" rel="noreferrer" className="block text-sm font-sans tracking-widest hover:text-shadow/60 transition-colors">
-                    +92 381 825 636
+                  <a href="https://wa.me/923281825636" target="_blank" rel="noreferrer" className="block text-sm font-sans tracking-widest hover:text-shadow/60 transition-colors">
+                    +92 328 182 5636
                   </a>
                 </div>
               </div>
