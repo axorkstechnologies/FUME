@@ -254,12 +254,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                 >
                   {getFragranceTitle(fragrance)}
                 </h2>
-                <div className="flex items-center gap-2 pt-0.5">
-                  <span className="text-xs text-dusty-rose font-sans tracking-tight">★★★★★</span>
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-sans text-shadow/80">
-                    4.9 (140+ Verified Reviews)
-                  </span>
-                </div>
+                
                 <p className="text-xs uppercase tracking-[0.25em] text-dusty-rose font-sans font-medium">
                   {fragrance.subtitle}
                 </p>
@@ -562,11 +557,6 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
                       '@type': 'Organization',
                       name: 'FUME FRAGRANCES'
                     }
-                  },
-                  aggregateRating: {
-                    '@type': 'AggregateRating',
-                    ratingValue: '4.9',
-                    reviewCount: '142'
                   }
                 })
               }}

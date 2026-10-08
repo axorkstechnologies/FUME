@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { EDITORIAL_IMAGE } from '../data/fragrances';
 import { ThemeMode } from '../types';
 
@@ -19,18 +18,7 @@ export const EditorialBrand: React.FC<EditorialBrandProps> = ({
       id="essence-section"
       className="relative w-full py-28 md:py-40 px-6 md:px-12 lg:px-20 border-t border-shadow/[0.06] bg-pearl overflow-hidden"
     >
-      {/* Subtle Moving Background Glow */}
-      <motion.div
-        className="absolute top-1/2 left-1/4 w-[400px] h-[400px] rounded-full blur-[100px] opacity-15 pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle, #D4A59A 0%, #D4A59A 60%, transparent 80%)'
-        }}
-        animate={{
-          scale: [1, 1.2, 1],
-          x: [-20, 30, -20]
-        }}
-        transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
-      />
+
 
       <div className="max-w-[1500px] mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center">
@@ -84,10 +72,10 @@ export const EditorialBrand: React.FC<EditorialBrandProps> = ({
             <div className="pt-5 border-t border-shadow/[0.08] grid grid-cols-2 gap-8 max-w-md">
               <div className="space-y-1">
                 <span className="font-serif text-2xl sm:text-3xl text-dusty-rose font-normal block">
-                  35%
+                  22–28%
                 </span>
                 <span className="text-[10px] uppercase tracking-[0.25em] font-sans block text-shadow/80">
-                  Maximal Potency
+                  Pure Perfume Oil
                 </span>
               </div>
               <div className="space-y-1">

@@ -209,7 +209,7 @@ export const ScentQuizModal: React.FC<ScentQuizModalProps> = ({
           <div className="space-y-6 text-center animate-in fade-in zoom-in-95 duration-400">
             <div className="space-y-1">
               <span className="text-[10px] uppercase tracking-[0.3em] text-dusty-rose font-sans font-medium block">
-                98% Profile Alignment • Signature Recommendation
+                YOUR SIGNATURE MATCH
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl uppercase tracking-wider text-shadow">
                 {recommendation.name}

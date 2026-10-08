@@ -122,7 +122,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                  className={`group flex flex-col justify-between p-6 cursor-pointer transition-all duration-400 hover:shadow-[0_16px_40px_rgba(18,17,16,0.08)] hover:-translate-y-1 ${
+                  className={`group flex flex-col justify-between p-6 cursor-pointer transition-all duration-400  hover:-translate-y-1 ${
                     isSignature
                       ? 'bg-[#F4EFEB] border-2 border-dusty-rose/40 hover:border-dusty-rose'
                       : isDiscoverySet
@@ -134,16 +134,16 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                   {/* Badges */}
                   <div className="flex items-center justify-between mb-3">
                     {isSignature ? (
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-shadow text-pearl text-[8px] uppercase tracking-[0.28em] font-semibold shadow-xs">
-                        <span className="w-1.5 h-1.5 rounded-full bg-dusty-rose " />
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-shadow text-pearl text-[8px] uppercase tracking-[0.28em] font-semibold shadow-none">
+                        <span className="w-1.5 h-1.5 rounded-none bg-dusty-rose " />
                         SIGNATURE
                       </span>
                     ) : isDiscoverySet ? (
-                      <span className="px-3 py-1 bg-dusty-rose text-pearl text-[8px] uppercase tracking-[0.25em] font-semibold shadow-xs">
+                      <span className="px-3 py-1 bg-dusty-rose text-pearl text-[8px] uppercase tracking-[0.25em] font-semibold shadow-none">
                         TESTERS COFFRET
                       </span>
                     ) : (
-                      <span className="px-2.5 py-1 bg-white border border-shadow/10 text-shadow text-[8px] uppercase tracking-[0.22em] font-medium shadow-xs">
+                      <span className="px-2.5 py-1 bg-white border border-shadow/10 text-shadow text-[8px] uppercase tracking-[0.22em] font-medium shadow-none">
                         IMPRESSION
                       </span>
                     )}
@@ -158,7 +158,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                     <img
                       src={fragrance.image}
                       alt={`FUME ${fragrance.name} Flacon`}
-                      className="w-full h-full object-contain p-2 select-none transition-transform duration-600 ease-out group-hover:scale-105 filter drop-shadow-sm"
+                      className="w-full h-full object-contain p-2 select-none transition-transform duration-600 ease-out group-hover:scale-105 filter drop-shadow-none"
                       loading="lazy"
                     />
                   </div>
@@ -186,7 +186,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                           e.stopPropagation();
                           onAddToCart(fragrance);
                         }}
-                        className="px-4 py-2 bg-shadow text-pearl hover:bg-dusty-rose text-[9px] uppercase tracking-[0.22em] font-sans font-semibold transition-colors duration-300 cursor-pointer shadow-xs active:scale-[0.98]"
+                        className="px-4 py-2 bg-shadow text-pearl hover:bg-dusty-rose text-[9px] uppercase tracking-[0.22em] font-sans font-semibold transition-colors duration-300 cursor-pointer shadow-none active:scale-[0.98]"
                       >
                         ADD TO BAG
                       </button>

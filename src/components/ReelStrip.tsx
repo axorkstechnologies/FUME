@@ -125,7 +125,7 @@ const ReelCard: React.FC<ReelCardProps> = ({ film, index, onOpenReel }) => {
           aria-hidden="true"
         >
           {/* Gradient fade */}
-          <div className="h-28 bg-gradient-to-t from-shadow/80 via-shadow/30 to-transparent rounded-b-2xl" />
+          <div className="h-28 bg-gradient-to-t from-shadow/80 via-shadow/30 to-transparent " />
           {/* Text */}
           <div className="absolute bottom-0 inset-x-0 px-3 pb-3 space-y-0.5">
             <p className="text-[9px] uppercase tracking-[0.28em] text-dusty-rose drop-shadow-md font-sans font-medium leading-none">
@@ -228,7 +228,7 @@ export const ReelStrip: React.FC<ReelStripProps> = ({ films, onOpenReel }) => {
         {films.map((_, i) => (
           <span
             key={i}
-            className={`block rounded-full transition-all duration-300 ${
+            className={`block rounded-none transition-all duration-300 ${
               i === 0 ? 'w-4 h-1 bg-dusty-rose' : 'w-1 h-1 bg-shadow'
             }`}
           />
