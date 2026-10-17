@@ -4,12 +4,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "vite --port=3000 --host=0.0.0.0",
+    "build": "vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist server.js",
     "lint": "tsc --noEmit",
-    "start": "next start",
     "admin:promote": "tsx --conditions=react-server scripts/bootstrap-super-admin.ts",
     "db:dump": "tsx scripts/db-dump.ts",
     "db:cleanup": "tsx scripts/cleanup-test-data.ts"

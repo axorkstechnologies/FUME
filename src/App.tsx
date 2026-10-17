@@ -31,12 +31,15 @@ import { CareView } from './components/CareView';
 import { resetScrollLock } from './utils/scrollLock';
 import { getPrice50, getPrice100 } from './utils/pricing';
 import { SEOSchema } from './components/SEOSchema';
+import AdminPage from '../app/admin/page';
 
 export function App() {
   const getInitialView = (): ScreenView => {
     if (typeof window === 'undefined') return 'home';
+    const path = window.location.pathname.replace(/^\//, '');
     const hash = window.location.hash.replace('#', '');
-    const validViews: ScreenView[] = ['home', 'perfumes', 'collections', 'films', 'story', 'contact', 'care'];
+    const validViews: ScreenView[] = ['home', 'perfumes', 'collections', 'films', 'story', 'contact', 'care', 'admin'];
+    if (path === 'admin' || hash === 'admin') return 'admin';
     if (!hash) return 'home';
     return validViews.includes(hash as ScreenView) ? (hash as ScreenView) : 'not-found';
   };
@@ -45,9 +48,12 @@ export function App() {
   // Sync hash changes
   useEffect(() => {
     const handleHashChange = () => {
+      const path = window.location.pathname.replace(/^\//, '');
       const hash = window.location.hash.replace('#', '');
-      const validViews: ScreenView[] = ['home', 'perfumes', 'collections', 'films', 'story', 'contact', 'care'];
-      if (hash === '') {
+      const validViews: ScreenView[] = ['home', 'perfumes', 'collections', 'films', 'story', 'contact', 'care', 'admin'];
+      if (path === 'admin' || hash === 'admin') {
+        setCurrentView('admin');
+      } else if (hash === '') {
         setCurrentView('home');
       } else if (validViews.includes(hash as ScreenView)) {
         setCurrentView(hash as ScreenView);
@@ -113,6 +119,7 @@ export function App() {
       contact: 'Concierge & Bespoke Service | FUME FRAGRANCES',
       care: 'Client Care, Shipping & FAQs | FUME FRAGRANCES',
       films: 'FUME on Film | Authentic Customer Experiences & Unboxing',
+      admin: 'Admin Sanctuary | FUME FRAGRANCES',
       'not-found': 'Page Not Found | FUME FRAGRANCES'
     };
     const descriptions: Record<ScreenView, string> = {
@@ -123,6 +130,7 @@ export function App() {
       contact: 'Connect with the FUME Concierge for bespoke flacon engraving, scent consultations, and WhatsApp orders across Pakistan.',
       care: 'Client Care & FAQs: Shipping timelines, nationwide Cash on Delivery, 30-day returns, and our complimentary 2ml discovery vial guarantee.',
       films: 'Watch authentic unboxing and review films from fragrance lovers across Pakistan wearing FUME Eau de Parfum.',
+      admin: 'FUME Fragrances Administrative Control & Catalog Management.',
       'not-found': 'The page you are looking for does not exist.'
     };
     document.title = titles[currentView] || titles.home;
@@ -342,6 +350,12 @@ export function App() {
             onShopPerfumes={() => handleNavigate('perfumes')}
             themeMode={themeMode}
           />
+        )}
+
+        {currentView === 'admin' && (
+          <div className="pt-24 min-h-screen bg-pearl">
+            <AdminPage />
+          </div>
         )}
       </main>
 
