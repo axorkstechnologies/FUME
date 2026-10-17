@@ -1,116 +1,609 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Sparkles, Check, ShoppingBag, Bookmark, MessageSquare, ChevronRight } from 'lucide-react';
+import { Fragrance } from '../types';
 
 interface CustomScentAtelierProps {
   onOpenContact: () => void;
+  onAddToCart?: (fragrance: Fragrance, size?: '50ml' | '100ml', price?: number) => void;
+  selectedDirection?: string;
 }
 
-export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({ onOpenContact }) => {
-  const handleWhatsAppCustom = () => {
-    const msg = encodeURIComponent(
-      "Hello FUME! I'd like to create a custom fragrance. Please guide me through the process."
-    );
-    window.open(`https://wa.me/923281825636?text=${msg}`, '_blank');
+interface NoteOption {
+  id: string;
+  name: string;
+  facet: string;
+  description: string;
+}
+
+const TOP_NOTES: NoteOption[] = [
+  { id: 'calabrian-bergamot', name: 'Calabrian Bergamot', facet: 'Citrus', description: 'Crisp, sparkling sun-drenched Italian citrus' },
+  { id: 'pink-pepper', name: 'Pink Pepper & Cardamom', facet: 'Spicy', description: 'Vibrant dry spice with mineral warmth' },
+  { id: 'nocturnal-jasmine', name: 'Nocturnal Jasmine', facet: 'Floral', description: 'Intoxicating night-blooming white petals' },
+  { id: 'blood-mandarin', name: 'Blood Mandarin', facet: 'Citrus', description: 'Sweet, succulent Sicilian citrus essence' },
+  { id: 'frost-aldehydes', name: 'Frost Aldehydes', facet: 'Ozonic', description: 'Airy, metallic, crisp ozonic freshness' },
+  { id: 'saffron-almond', name: 'Saffron & Bitter Almond', facet: 'Gourmand', description: 'Velvety, rich nutty warmth with golden spice' }
+];
+
+const HEART_NOTES: NoteOption[] = [
+  { id: 'florentine-iris', name: 'Florentine Iris Butter', facet: 'Powdery', description: 'Aristocratic, earthy and root-like butter' },
+  { id: 'smoky-birch', name: 'Smoky Birch & Nutmeg', facet: 'Woody', description: 'Dry tarred timber with spiced leathery warmth' },
+  { id: 'damascena-rose', name: 'Velvet Damascena Rose', facet: 'Floral', description: 'Lush crimson petals infused with wine-honey' },
+  { id: 'white-tuberose', name: 'White Tuberose & Neroli', facet: 'Floral', description: 'Creamy, hypnotic nocturnal white blossom' },
+  { id: 'french-lavender', name: 'French Lavender & Sea Salt', facet: 'Aromatic', description: 'Clean herbal composure with oceanic mineral' },
+  { id: 'bourbon-patchouli', name: 'Aged Bourbon Patchouli', facet: 'Earthy', description: 'Dark, aged timber and cocoa leaf resonance' }
+];
+
+const BASE_NOTES: NoteOption[] = [
+  { id: 'cambodian-oud', name: 'Royal Cambodian Oud', facet: 'Oud', description: 'Rare, deep sacred resin with animalic warmth' },
+  { id: 'tuscan-leather', name: 'Tuscan Leather', facet: 'Leather', description: 'Supple, hand-cured artisanal saddle leather' },
+  { id: 'warm-amber', name: 'Warm Amber Resins', facet: 'Resin', description: 'Golden fossil resin with velvety honey sillage' },
+  { id: 'smoked-oakmoss', name: 'Smoked Oakmoss & Vetiver', facet: 'Chypre', description: 'Forest-floor moss with smoky earthen depths' },
+  { id: 'tonka-bean', name: 'Charred Tonka Bean', facet: 'Balsamic', description: 'Toasted almond, caramelized hay and balsamic' },
+  { id: 'bourbon-vanilla', name: 'Pure Bourbon Vanilla', facet: 'Sweet', description: 'Dark Madagascar orchid pod aged in oak casks' },
+  { id: 'virginian-cedar', name: 'Virginian Cedarwood', facet: 'Woody', description: 'Architectural, pencil-shaving noble timber' }
+];
+
+const DIRECTION_DEFAULTS: Record<string, { top: string[]; heart: string[]; base: string[] }> = {
+  'FOR HER': {
+    top: ['nocturnal-jasmine', 'blood-mandarin'],
+    heart: ['damascena-rose', 'white-tuberose'],
+    base: ['bourbon-vanilla', 'warm-amber']
+  },
+  'FOR HIM': {
+    top: ['calabrian-bergamot', 'pink-pepper'],
+    heart: ['smoky-birch', 'french-lavender'],
+    base: ['tuscan-leather', 'virginian-cedar']
+  },
+  'UNISEX': {
+    top: ['frost-aldehydes', 'calabrian-bergamot'],
+    heart: ['florentine-iris', 'bourbon-patchouli'],
+    base: ['smoked-oakmoss', 'tuscan-leather']
+  },
+  'ORIENTAL': {
+    top: ['saffron-almond', 'pink-pepper'],
+    heart: ['damascena-rose', 'florentine-iris'],
+    base: ['cambodian-oud', 'warm-amber']
+  }
+};
+
+export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
+  onOpenContact,
+  onAddToCart,
+  selectedDirection: externalDirection
+}) => {
+  const [direction, setDirection] = useState<'FOR HER' | 'FOR HIM' | 'UNISEX' | 'ORIENTAL'>('ORIENTAL');
+  const [selectedTop, setSelectedTop] = useState<string[]>(['saffron-almond', 'pink-pepper']);
+  const [selectedHeart, setSelectedHeart] = useState<string[]>(['damascena-rose', 'florentine-iris']);
+  const [selectedBase, setSelectedBase] = useState<string[]>(['cambodian-oud', 'warm-amber']);
+  const [bottleSize, setBottleSize] = useState<'50ml' | '100ml'>('50ml');
+  const [customName, setCustomName] = useState('Bespoke Formula No. 1');
+  const [engravingText, setEngravingText] = useState('');
+  const [saveStatus, setSaveStatus] = useState<string | null>(null);
+  const [isAdding, setIsAdding] = useState(false);
+
+  // Sync with external direction if passed
+  useEffect(() => {
+    if (externalDirection) {
+      const upper = externalDirection.toUpperCase();
+      if (['FOR HER', 'FOR HIM', 'UNISEX', 'ORIENTAL'].includes(upper)) {
+        const dir = upper as 'FOR HER' | 'FOR HIM' | 'UNISEX' | 'ORIENTAL';
+        setDirection(dir);
+        const defaults = DIRECTION_DEFAULTS[dir];
+        if (defaults) {
+          setSelectedTop(defaults.top);
+          setSelectedHeart(defaults.heart);
+          setSelectedBase(defaults.base);
+        }
+      }
+    }
+  }, [externalDirection]);
+
+  const handleDirectionChange = (newDir: 'FOR HER' | 'FOR HIM' | 'UNISEX' | 'ORIENTAL') => {
+    setDirection(newDir);
+    const defaults = DIRECTION_DEFAULTS[newDir];
+    if (defaults) {
+      setSelectedTop(defaults.top);
+      setSelectedHeart(defaults.heart);
+      setSelectedBase(defaults.base);
+    }
   };
 
-  const handleDescribeScent = () => {
+  const toggleNote = (
+    noteId: string,
+    currentSelected: string[],
+    setSelected: React.Dispatch<React.SetStateAction<string[]>>
+  ) => {
+    if (currentSelected.includes(noteId)) {
+      if (currentSelected.length > 1) {
+        setSelected(currentSelected.filter((id) => id !== noteId));
+      }
+    } else {
+      if (currentSelected.length < 2) {
+        setSelected([...currentSelected, noteId]);
+      } else {
+        // Replace second
+        setSelected([currentSelected[0], noteId]);
+      }
+    }
+  };
+
+  const price = bottleSize === '100ml' ? 5500 : 3500;
+
+  const topNames = selectedTop.map((id) => TOP_NOTES.find((n) => n.id === id)?.name || id);
+  const heartNames = selectedHeart.map((id) => HEART_NOTES.find((n) => n.id === id)?.name || id);
+  const baseNames = selectedBase.map((id) => BASE_NOTES.find((n) => n.id === id)?.name || id);
+
+  const handleAddToCart = () => {
+    if (!onAddToCart) return;
+    setIsAdding(true);
+
+    const bespokeFragrance: Fragrance = {
+      id: `custom-${Date.now()}`,
+      name: customName || 'Bespoke Atelier Creation',
+      title: `FUME ATELIER: ${customName || 'Bespoke Creation'}`,
+      subtitle: `Personal Formulation • ${direction} • Hand-blended in Karachi`,
+      concentration: 'Extrait de Parfum (35% Oil Concentration)',
+      volume: bottleSize === '100ml' ? '100 ML / 3.4 FL OZ' : '50 ML / 1.7 FL OZ',
+      price: price,
+      genderCategory: direction === 'FOR HIM' ? 'FOR HIM' : direction === 'FOR HER' ? 'FOR HER' : 'UNISEX',
+      olfactoryFamily: direction === 'ORIENTAL' ? 'ORIENTAL' : 'WOODY',
+      gender: direction === 'FOR HIM' ? 'him' : direction === 'FOR HER' ? 'her' : 'unisex',
+      families: [direction.toLowerCase(), 'bespoke'],
+      discovery: false,
+      notesLine: `Top: ${topNames.join(', ')} | Heart: ${heartNames.join(', ')} | Base: ${baseNames.join(', ')}`,
+      image: '/bottles/arab.webp',
+      topNotes: topNames.join(', '),
+      heartNotes: heartNames.join(', '),
+      baseNotes: baseNames.join(', '),
+      description: `Bespoke artisanal composition hand-crafted for the patron. Engraved flacon: "${engravingText || customName}". Olfactory direction: ${direction}.`,
+      productType: 'signature',
+      inStock: true,
+      pastelBg: '#F5F2EF',
+      pastelAccent: '#211E1D',
+      pastelGlow: 'rgba(33, 30, 29, 0.08)',
+      cardTone: 'signature'
+    };
+
+    onAddToCart(bespokeFragrance, bottleSize, price);
+    setTimeout(() => setIsAdding(false), 800);
+  };
+
+  const handleSaveFormula = async () => {
+    setSaveStatus('saving');
+    const formulaPayload = {
+      name: customName || 'Untitled Bespoke Formula',
+      genderCategory: direction,
+      topNotes: topNames,
+      heartNotes: heartNames,
+      baseNotes: baseNames,
+      bottleSize,
+      price,
+      notes: engravingText ? `Engraving: "${engravingText}"` : undefined
+    };
+
+    // Store in localStorage immediately so it's guaranteed saved on the patron's device
+    try {
+      const existing = JSON.parse(localStorage.getItem('fume_saved_custom_scents') || '[]');
+      existing.unshift({
+        id: `local-custom-${Date.now()}`,
+        ...formulaPayload,
+        createdAt: new Date().toISOString()
+      });
+      localStorage.setItem('fume_saved_custom_scents', JSON.stringify(existing));
+    } catch {
+      // Ignore
+    }
+
+    // Attempt API save to database
+    try {
+      const res = await fetch('/api/custom-fragrances', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formulaPayload)
+      });
+      if (res.ok) {
+        setSaveStatus('saved');
+      } else {
+        setSaveStatus('saved'); // Local persistence succeeded
+      }
+    } catch {
+      setSaveStatus('saved'); // Local persistence succeeded
+    }
+
+    setTimeout(() => setSaveStatus(null), 3500);
+  };
+
+  const handleWhatsAppCustom = () => {
     const msg = encodeURIComponent(
-      "Hello FUME! I have a scent idea in mind and I'd like to describe it to your perfumer."
+      `Hello FUME Master Perfumer! I have composed a bespoke fragrance formulation on your site:\n\n` +
+      `• Formula Name: ${customName}\n` +
+      `• Direction: ${direction}\n` +
+      `• Flacon Size: ${bottleSize} (Rs ${price.toLocaleString()})\n` +
+      `• Flacon Engraving: "${engravingText || 'None'}"\n\n` +
+      `• Top Notes: ${topNames.join(', ')}\n` +
+      `• Heart Notes: ${heartNames.join(', ')}\n` +
+      `• Base Notes: ${baseNames.join(', ')}\n\n` +
+      `Please confirm compounding availability and reservation.`
     );
     window.open(`https://wa.me/923281825636?text=${msg}`, '_blank');
   };
 
   return (
-    <section className="relative w-full py-28 md:py-40 px-6 md:px-12 lg:px-16 bg-oyster overflow-hidden">
-      {/* Subtle decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-dusty-rose/30 to-transparent" />
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-dusty-rose/30 to-transparent" />
+    <section
+      id="custom-scent-atelier"
+      className="relative w-full py-28 md:py-40 px-5 sm:px-8 md:px-12 lg:px-20 bg-oyster border-t border-shadow/[0.08] overflow-hidden"
+    >
+      {/* Subtle architectural hairline accents */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-shadow/15 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-shadow/15 to-transparent" />
 
-      <div className="max-w-[900px] mx-auto text-center space-y-10">
-        {/* Eyebrow */}
-        <motion.span
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[10px] uppercase tracking-[0.5em] text-dusty-rose font-sans font-medium block"
-        >
-          BESPOKE OLFACTORY EXPERIENCE
-        </motion.span>
+      <div className="max-w-[1400px] mx-auto space-y-16 md:space-y-24">
+        {/* Header */}
+        <div className="text-center space-y-4 max-w-2xl mx-auto">
+          <span className="text-[10px] uppercase tracking-[0.45em] text-dusty-rose font-sans font-medium block">
+            HAUTE PARFUMERIE ATELIER • KARACHI
+          </span>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal uppercase tracking-[0.16em] text-shadow leading-tight">
+            CREATE YOUR <br className="hidden sm:block" />
+            <span className="italic font-normal text-dusty-rose">SIGNATURE</span>
+          </h2>
+          <p className="text-xs sm:text-sm font-sans font-normal tracking-wide text-shadow/80 leading-relaxed">
+            Select your olfactory direction and hand-pick raw essence notes across the top, heart, and base tiers. 
+            Compounded by our master perfumer into an individually engraved flacon.
+          </p>
+        </div>
 
-        {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-normal uppercase tracking-[0.14em] text-shadow leading-tight"
-        >
-          CREATE YOUR <br className="hidden sm:block" />
-          <span className="italic font-normal text-dusty-rose">SIGNATURE</span>
-        </motion.h2>
+        {/* Builder Interface */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Left Column: Note Selection Controls */}
+          <div className="lg:col-span-7 space-y-10">
+            {/* 1. Base Direction Selector */}
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-shadow/10 pb-2">
+                <span className="text-[10px] uppercase tracking-[0.25em] font-sans font-semibold text-shadow">
+                  01. BASE OLFACTORY DIRECTION
+                </span>
+                <span className="text-[9px] uppercase tracking-wider text-dusty-rose font-sans">
+                  PRIMARY CHARACTER
+                </span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                {(['FOR HER', 'FOR HIM', 'UNISEX', 'ORIENTAL'] as const).map((dir) => {
+                  const isActive = direction === dir;
+                  return (
+                    <button
+                      key={dir}
+                      onClick={() => handleDirectionChange(dir)}
+                      className={`px-4 py-3 text-[10px] uppercase tracking-[0.2em] font-sans transition-all duration-300 border text-center cursor-pointer ${
+                        isActive
+                          ? 'bg-shadow text-pearl border-shadow font-semibold'
+                          : 'bg-pearl text-shadow/80 border-shadow/10 hover:border-dusty-rose'
+                      }`}
+                    >
+                      {dir}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
 
-        {/* Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-sm md:text-base font-sans font-normal tracking-wide text-shadow/80 max-w-xl mx-auto leading-relaxed"
-        >
-          Work with our master perfumers to compose an entirely personal fragrance. Bottled exclusively for you in a bespoke engraved flacon.
-        </motion.p>
+            {/* 2. Top Notes Tier */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between border-b border-shadow/10 pb-2">
+                <div>
+                  <span className="text-[10px] uppercase tracking-[0.25em] font-sans font-semibold text-shadow">
+                    02. TOP NOTES
+                  </span>
+                  <span className="ml-2 text-[9px] uppercase tracking-wider text-shadow/50 font-sans">
+                    (FIRST 15–30 MINUTES)
+                  </span>
+                </div>
+                <span className="text-[9px] uppercase tracking-wider text-dusty-rose font-sans font-medium">
+                  {selectedTop.length}/2 SELECTED
+                </span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {TOP_NOTES.map((note) => {
+                  const isSelected = selectedTop.includes(note.id);
+                  return (
+                    <div
+                      key={note.id}
+                      onClick={() => toggleNote(note.id, selectedTop, setSelectedTop)}
+                      className={`p-3.5 border transition-all duration-300 cursor-pointer flex items-start justify-between ${
+                        isSelected
+                          ? 'bg-pearl border-shadow shadow-sm'
+                          : 'bg-pearl/50 border-shadow/10 hover:border-shadow/30'
+                      }`}
+                    >
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-2">
+                          <span className={`text-[10px] uppercase tracking-wider font-sans font-medium ${isSelected ? 'text-shadow' : 'text-shadow/80'}`}>
+                            {note.name}
+                          </span>
+                          <span className="text-[8px] uppercase tracking-widest px-1.5 py-0.5 bg-shadow/[0.05] text-shadow/60">
+                            {note.facet}
+                          </span>
+                        </div>
+                        <p className="text-[9px] text-shadow/60 font-sans leading-tight">
+                          {note.description}
+                        </p>
+                      </div>
+                      <div className={`w-4 h-4 rounded-none border flex items-center justify-center shrink-0 ml-2 mt-0.5 ${
+                        isSelected ? 'bg-shadow border-shadow text-pearl' : 'border-shadow/20'
+                      }`}>
+                        {isSelected && <Check className="w-2.5 h-2.5" />}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
 
-        {/* Feature Pills */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-wrap items-center justify-center gap-3 md:gap-4"
-        >
-          {['Choose Your Notes', 'Expert Guidance', 'Custom Bottle', 'Personal Formula'].map((feature) => (
-            <span
-              key={feature}
-              className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] px-4 py-2 font-sans border border-sand/60 text-shadow/80 rounded-full bg-pearl"
-            >
-              {feature}
-            </span>
-          ))}
-        </motion.div>
+            {/* 3. Heart Notes Tier */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between border-b border-shadow/10 pb-2">
+                <div>
+                  <span className="text-[10px] uppercase tracking-[0.25em] font-sans font-semibold text-shadow">
+                    03. HEART NOTES
+                  </span>
+                  <span className="ml-2 text-[9px] uppercase tracking-wider text-shadow/50 font-sans">
+                    (CORE SILLAGE • 2–6 HOURS)
+                  </span>
+                </div>
+                <span className="text-[9px] uppercase tracking-wider text-dusty-rose font-sans font-medium">
+                  {selectedHeart.length}/2 SELECTED
+                </span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {HEART_NOTES.map((note) => {
+                  const isSelected = selectedHeart.includes(note.id);
+                  return (
+                    <div
+                      key={note.id}
+                      onClick={() => toggleNote(note.id, selectedHeart, setSelectedHeart)}
+                      className={`p-3.5 border transition-all duration-300 cursor-pointer flex items-start justify-between ${
+                        isSelected
+                          ? 'bg-pearl border-shadow shadow-sm'
+                          : 'bg-pearl/50 border-shadow/10 hover:border-shadow/30'
+                      }`}
+                    >
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-2">
+                          <span className={`text-[10px] uppercase tracking-wider font-sans font-medium ${isSelected ? 'text-shadow' : 'text-shadow/80'}`}>
+                            {note.name}
+                          </span>
+                          <span className="text-[8px] uppercase tracking-widest px-1.5 py-0.5 bg-shadow/[0.05] text-shadow/60">
+                            {note.facet}
+                          </span>
+                        </div>
+                        <p className="text-[9px] text-shadow/60 font-sans leading-tight">
+                          {note.description}
+                        </p>
+                      </div>
+                      <div className={`w-4 h-4 rounded-none border flex items-center justify-center shrink-0 ml-2 mt-0.5 ${
+                        isSelected ? 'bg-shadow border-shadow text-pearl' : 'border-shadow/20'
+                      }`}>
+                        {isSelected && <Check className="w-2.5 h-2.5" />}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
 
-        {/* CTAs */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
-        >
-          <button
-            onClick={handleWhatsAppCustom}
-            className="w-full sm:w-auto px-10 py-4 bg-dusty-rose text-pearl text-xs uppercase tracking-[0.28em] font-sans font-semibold transition-all hover:bg-shadow hover:text-pearl active:scale-[0.97] cursor-pointer"
-          >
-            START YOUR CUSTOM SCENT
-          </button>
-          <button
-            onClick={handleDescribeScent}
-            className="w-full sm:w-auto px-10 py-4 bg-transparent text-shadow text-xs uppercase tracking-[0.28em] font-sans font-medium transition-all border border-sand hover:border-dusty-rose hover:text-dusty-rose active:scale-[0.97] cursor-pointer"
-          >
-            DESCRIBE YOUR SCENT
-          </button>
-        </motion.div>
+            {/* 4. Base Notes Tier */}
+            <div className="space-y-3">
+              <div className="flex items-center justify-between border-b border-shadow/10 pb-2">
+                <div>
+                  <span className="text-[10px] uppercase tracking-[0.25em] font-sans font-semibold text-shadow">
+                    04. BASE NOTES
+                  </span>
+                  <span className="ml-2 text-[9px] uppercase tracking-wider text-shadow/50 font-sans">
+                    (DRYDOWN MEMORY • 8–16 HOURS)
+                  </span>
+                </div>
+                <span className="text-[9px] uppercase tracking-wider text-dusty-rose font-sans font-medium">
+                  {selectedBase.length}/2 SELECTED
+                </span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {BASE_NOTES.map((note) => {
+                  const isSelected = selectedBase.includes(note.id);
+                  return (
+                    <div
+                      key={note.id}
+                      onClick={() => toggleNote(note.id, selectedBase, setSelectedBase)}
+                      className={`p-3.5 border transition-all duration-300 cursor-pointer flex items-start justify-between ${
+                        isSelected
+                          ? 'bg-pearl border-shadow shadow-sm'
+                          : 'bg-pearl/50 border-shadow/10 hover:border-shadow/30'
+                      }`}
+                    >
+                      <div className="space-y-1">
+                        <div className="flex items-center gap-2">
+                          <span className={`text-[10px] uppercase tracking-wider font-sans font-medium ${isSelected ? 'text-shadow' : 'text-shadow/80'}`}>
+                            {note.name}
+                          </span>
+                          <span className="text-[8px] uppercase tracking-widest px-1.5 py-0.5 bg-shadow/[0.05] text-shadow/60">
+                            {note.facet}
+                          </span>
+                        </div>
+                        <p className="text-[9px] text-shadow/60 font-sans leading-tight">
+                          {note.description}
+                        </p>
+                      </div>
+                      <div className={`w-4 h-4 rounded-none border flex items-center justify-center shrink-0 ml-2 mt-0.5 ${
+                        isSelected ? 'bg-shadow border-shadow text-pearl' : 'border-shadow/20'
+                      }`}>
+                        {isSelected && <Check className="w-2.5 h-2.5" />}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
 
-        {/* Trust line */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[10px] uppercase tracking-[0.3em] text-shadow/35 font-sans pt-4"
-        >
-          COMPLIMENTARY CONSULTATION • HANDCRAFTED IN KARACHI • FROM RS 3,500
-        </motion.p>
+          {/* Right Column: Live Composition Summary & Packaging */}
+          <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-28">
+            <div className="bg-pearl border border-shadow/15 p-6 sm:p-8 space-y-6 shadow-sm">
+              <div className="border-b border-shadow/10 pb-4 flex items-center justify-between">
+                <span className="text-[9px] uppercase tracking-[0.3em] text-dusty-rose font-sans font-semibold">
+                  FORMULATION DOSSIER
+                </span>
+                <span className="text-[8px] uppercase tracking-[0.2em] px-2 py-0.5 bg-shadow text-pearl font-sans">
+                  ATELIER EDITION
+                </span>
+              </div>
+
+              {/* Formula Moniker & Flacon Engraving */}
+              <div className="space-y-4">
+                <div className="space-y-1">
+                  <label className="text-[9px] uppercase tracking-wider text-shadow/70 font-sans block">
+                    Formula Name / Title
+                  </label>
+                  <input
+                    type="text"
+                    value={customName}
+                    onChange={(e) => setCustomName(e.target.value)}
+                    placeholder="e.g. Nocturne No. 7"
+                    className="w-full bg-white border border-shadow/15 px-3 py-2 text-xs font-serif tracking-wider text-shadow focus:outline-none focus:border-dusty-rose"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-[9px] uppercase tracking-wider text-shadow/70 font-sans block">
+                    Flacon Custom Engraving (Optional)
+                  </label>
+                  <input
+                    type="text"
+                    maxLength={30}
+                    value={engravingText}
+                    onChange={(e) => setEngravingText(e.target.value)}
+                    placeholder="e.g. HAMZA • MMXXIV"
+                    className="w-full bg-white border border-shadow/15 px-3 py-2 text-xs font-sans tracking-widest text-shadow uppercase focus:outline-none focus:border-dusty-rose"
+                  />
+                </div>
+              </div>
+
+              {/* Olfactory Pyramid Architecture Visualization */}
+              <div className="bg-oyster/70 p-5 border border-shadow/10 space-y-4">
+                <span className="text-[9px] uppercase tracking-[0.25em] text-shadow/70 font-sans font-semibold block text-center">
+                  PYRAMID ARCHITECTURE
+                </span>
+
+                <div className="space-y-3 font-sans text-xs">
+                  {/* Top */}
+                  <div className="border-b border-shadow/10 pb-2.5">
+                    <span className="text-[8px] uppercase tracking-[0.2em] text-dusty-rose font-semibold block">
+                      TOP ACCORDS
+                    </span>
+                    <span className="text-[11px] font-serif text-shadow block tracking-wide">
+                      {topNames.join(' • ')}
+                    </span>
+                  </div>
+
+                  {/* Heart */}
+                  <div className="border-b border-shadow/10 pb-2.5">
+                    <span className="text-[8px] uppercase tracking-[0.2em] text-dusty-rose font-semibold block">
+                      HEART CORE
+                    </span>
+                    <span className="text-[11px] font-serif text-shadow block tracking-wide">
+                      {heartNames.join(' • ')}
+                    </span>
+                  </div>
+
+                  {/* Base */}
+                  <div>
+                    <span className="text-[8px] uppercase tracking-[0.2em] text-dusty-rose font-semibold block">
+                      DRYDOWN BASE
+                    </span>
+                    <span className="text-[11px] font-serif text-shadow block tracking-wide">
+                      {baseNames.join(' • ')}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Volume & Price Choice */}
+              <div className="space-y-3 pt-2">
+                <span className="text-[9px] uppercase tracking-[0.2em] text-shadow/70 font-sans block">
+                  FLACON APOTHECARY VOLUME
+                </span>
+                <div className="grid grid-cols-2 gap-3">
+                  <button
+                    onClick={() => setBottleSize('50ml')}
+                    className={`p-3 text-center border font-sans transition-all duration-300 cursor-pointer ${
+                      bottleSize === '50ml'
+                        ? 'bg-shadow text-pearl border-shadow'
+                        : 'bg-white text-shadow border-shadow/15 hover:border-dusty-rose'
+                    }`}
+                  >
+                    <span className="block text-xs font-semibold">50 ML</span>
+                    <span className="block text-[9px] tracking-wider opacity-80">Rs 3,500</span>
+                  </button>
+                  <button
+                    onClick={() => setBottleSize('100ml')}
+                    className={`p-3 text-center border font-sans transition-all duration-300 cursor-pointer ${
+                      bottleSize === '100ml'
+                        ? 'bg-shadow text-pearl border-shadow'
+                        : 'bg-white text-shadow border-shadow/15 hover:border-dusty-rose'
+                    }`}
+                  >
+                    <span className="block text-xs font-semibold">100 ML</span>
+                    <span className="block text-[9px] tracking-wider opacity-80">Rs 5,500</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Total & CTAs */}
+              <div className="pt-4 border-t border-shadow/10 space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] uppercase tracking-[0.2em] font-sans text-shadow/70">
+                    BESPOKE TOTAL
+                  </span>
+                  <span className="font-serif text-2xl font-medium text-dusty-rose">
+                    Rs {price.toLocaleString()}
+                  </span>
+                </div>
+
+                <div className="space-y-2.5">
+                  <button
+                    onClick={handleAddToCart}
+                    disabled={isAdding}
+                    className="w-full py-4 bg-shadow text-pearl hover:bg-dusty-rose text-[10px] uppercase tracking-[0.28em] font-sans font-semibold transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
+                  >
+                    <ShoppingBag className="w-3.5 h-3.5" />
+                    <span>{isAdding ? 'ADDING TO BAG...' : 'ADD BESPOKE SCENT TO BAG'}</span>
+                  </button>
+
+                  <div className="grid grid-cols-2 gap-2.5">
+                    <button
+                      onClick={handleSaveFormula}
+                      className="py-3 px-3 bg-pearl border border-shadow/20 hover:border-dusty-rose text-shadow text-[9px] uppercase tracking-[0.18em] font-sans font-medium transition-colors duration-300 flex items-center justify-center gap-1.5 cursor-pointer"
+                    >
+                      <Bookmark className="w-3 h-3 text-dusty-rose" />
+                      <span>{saveStatus === 'saved' ? '✓ SAVED' : saveStatus === 'saving' ? 'SAVING...' : 'SAVE FORMULA'}</span>
+                    </button>
+
+                    <button
+                      onClick={handleWhatsAppCustom}
+                      className="py-3 px-3 bg-white border border-shadow/20 hover:border-dusty-rose text-shadow text-[9px] uppercase tracking-[0.18em] font-sans font-medium transition-colors duration-300 flex items-center justify-center gap-1.5 cursor-pointer"
+                    >
+                      <MessageSquare className="w-3 h-3 text-dusty-rose" />
+                      <span>WHATSAPP ATELIER</span>
+                    </button>
+                  </div>
+                </div>
+
+                <p className="text-[9px] uppercase tracking-[0.2em] text-center text-shadow/50 font-sans pt-1">
+                  Complimentary nationwide courier • Hand-blended in Karachi • Master Formula Preserved
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

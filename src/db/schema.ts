@@ -398,3 +398,24 @@ export const auditLogs = pgTable('audit_logs', {
   metadata: jsonb('metadata'),
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
 });
+
+// CUSTOM FRAGRANCES (ATELIER BESPOKE COMPOSITIONS)
+export const customFragrances = pgTable('custom_fragrances', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  userId: uuid('user_id').references(() => profiles.id, { onDelete: 'set null' }),
+  guestEmail: varchar('guest_email', { length: 255 }),
+  customerName: varchar('customer_name', { length: 255 }),
+  customerPhone: varchar('customer_phone', { length: 50 }),
+  name: varchar('name', { length: 255 }).notNull(),
+  genderCategory: varchar('gender_category', { length: 50 }).notNull(),
+  topNotes: jsonb('top_notes').notNull(),
+  heartNotes: jsonb('heart_notes').notNull(),
+  baseNotes: jsonb('base_notes').notNull(),
+  bottleSize: varchar('bottle_size', { length: 50 }).default('50ml').notNull(),
+  price: decimal('price', { precision: 12, scale: 2 }).default('3500.00').notNull(),
+  status: varchar('status', { length: 50 }).default('saved').notNull(),
+  orderId: uuid('order_id').references(() => orders.id, { onDelete: 'set null' }),
+  notes: text('notes'),
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().notNull(),
+});

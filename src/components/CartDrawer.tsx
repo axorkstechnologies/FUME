@@ -113,9 +113,27 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                             ? '100 ML FLACON'
                             : '50 ML EAU DE PARFUM'}
                         </p>
-                        <p className="text-[9px] uppercase tracking-[0.25em] text-shadow/40 font-sans mt-1">
-                          {isSignature ? 'SIGNATURE' : isDiscoverySet ? 'COFFRET SET' : 'IMPRESSION'}
+                        <p className="text-[9px] uppercase tracking-[0.25em] text-dusty-rose font-sans mt-1">
+                          {item.customDetails
+                            ? `BESPOKE • ${item.customDetails.direction || 'CUSTOM'}`
+                            : isSignature ? 'SIGNATURE' : isDiscoverySet ? 'COFFRET SET' : 'IMPRESSION'}
                         </p>
+                        {item.customDetails && (
+                          <div className="mt-2 p-2 bg-pearl border border-shadow/10 text-[8px] font-sans text-shadow/70 space-y-0.5">
+                            <span className="block font-semibold uppercase tracking-wider text-shadow">
+                              Formula: {item.customDetails.customName || 'Atelier Blend'}
+                            </span>
+                            <span className="block truncate">
+                              Top: {item.customDetails.topNotes?.join(', ')}
+                            </span>
+                            <span className="block truncate">
+                              Heart: {item.customDetails.heartNotes?.join(', ')}
+                            </span>
+                            <span className="block truncate">
+                              Base: {item.customDetails.baseNotes?.join(', ')}
+                            </span>
+                          </div>
+                        )}
                       </div>
 
                       <div className="flex justify-between items-center mt-6">
@@ -175,7 +193,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       (i) =>
                         `• ${getFragranceTitle(i.fragrance)} (${i.fragrance.id === 'discovery-set' ? '5x5ml Testers' : i.size}, qty: ${i.quantity}) - Rs ${(
                           i.price * i.quantity
-                        ).toLocaleString()}`
+                        ).toLocaleString()}${i.customDetails ? ` [Bespoke Formula: "${i.customDetails.customName}" | Notes: ${i.customDetails.topNotes?.join(', ')} / ${i.customDetails.heartNotes?.join(', ')} / ${i.customDetails.baseNotes?.join(', ')}]` : ''}`
                     )
                     .join('\n');
                   const msg = encodeURIComponent(

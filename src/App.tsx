@@ -24,6 +24,7 @@ import { StoryModal } from './components/StoryModal';
 import { ContactModal } from './components/ContactModal';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
 import { CustomScentAtelier } from './components/CustomScentAtelier';
+import { AccountModal } from './components/AccountModal';
 import { StoryView } from './components/StoryView';
 import { ContactView } from './components/ContactView';
 import { CareView } from './components/CareView';
@@ -99,6 +100,8 @@ export function App() {
   const [isQuizOpen, setIsQuizOpen] = useState(false);
   const [isStoryOpen, setIsStoryOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isAccountOpen, setIsAccountOpen] = useState(false);
+  const [customScentDirection, setCustomScentDirection] = useState<string>('ORIENTAL');
 
   // Dynamic SEO / AEO / GEO Metadata per view
   useEffect(() => {
@@ -217,6 +220,7 @@ export function App() {
         cartCount={totalCartCount}
         onOpenCart={() => setIsCartOpen(true)}
         onOpenSearch={() => setIsSearchOpen(true)}
+        onOpenAccount={() => setIsAccountOpen(true)}
       />
 
       {/* Main Content Area */}
@@ -254,6 +258,7 @@ export function App() {
               onSelectFragrance={(f) => setSelectedFragrance(f)}
               onAddToCart={(f) => handleAddToCart(f)}
               onViewAllPerfumes={() => handleNavigate('perfumes')}
+              onSelectCustomCategory={(cat) => setCustomScentDirection(cat)}
               themeMode={themeMode}
             />
 
@@ -261,7 +266,11 @@ export function App() {
             <CampaignLookbook />
 
             {/* 5.5 CUSTOM SCENT ATELIER */}
-            <CustomScentAtelier onOpenContact={() => setIsContactOpen(true)} />
+            <CustomScentAtelier
+              onOpenContact={() => setIsContactOpen(true)}
+              onAddToCart={handleAddToCart}
+              selectedDirection={customScentDirection}
+            />
 
             {/* 6. SEEN ON FILM — horizontal autoplay portrait reel strip */}
             <ReelStrip
@@ -405,6 +414,14 @@ export function App() {
         isOpen={isContactOpen}
         onClose={() => setIsContactOpen(false)}
         themeMode={themeMode}
+      />
+
+      {/* Patron Account & Sanctuary Modal */}
+      <AccountModal
+        isOpen={isAccountOpen}
+        onClose={() => setIsAccountOpen(false)}
+        themeMode={themeMode}
+        onAddToCart={handleAddToCart}
       />
 
       {/* Floating WhatsApp Button */}

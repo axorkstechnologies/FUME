@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Search, ShoppingBag, Menu, X } from 'lucide-react';
+import { Search, ShoppingBag, Menu, X, User } from 'lucide-react';
 import { ScreenView } from '../types';
 
 interface HeaderProps {
@@ -8,6 +8,7 @@ interface HeaderProps {
   cartCount: number;
   onOpenCart: () => void;
   onOpenSearch: () => void;
+  onOpenAccount?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -15,7 +16,8 @@ export const Header: React.FC<HeaderProps> = ({
   onNavigate,
   cartCount,
   onOpenCart,
-  onOpenSearch
+  onOpenSearch,
+  onOpenAccount
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -58,7 +60,7 @@ export const Header: React.FC<HeaderProps> = ({
         
         {/* Left Navigation */}
         <div className="nav-left flex items-center min-w-0">
-          <div className="flex md:hidden items-center">
+          <div className="flex lg:hidden items-center">
             <button aria-label="Toggle mobile menu"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className={`p-2 transition-colors cursor-pointer ${textColorClass}/80 hover:${textColorClass}`}
@@ -67,7 +69,7 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           </div>
 
-          <nav className="hidden lg:flex items-center justify-start gap-3 xl:gap-5 2xl:gap-8 w-full min-w-0">
+          <nav className="hidden lg:flex items-center justify-start gap-2.5 xl:gap-4 2xl:gap-6 w-full min-w-0 pr-2 xl:pr-5">
             {navLinks.map((item) => {
               const isActive = currentView === item.view;
               return (
@@ -97,14 +99,26 @@ export const Header: React.FC<HeaderProps> = ({
             <img src={logoSrc}
               alt="FUME FRAGRANCES"
               className="h-8 sm:h-9 md:h-10 w-auto object-contain transition-opacity duration-300 group-hover:opacity-85"
-             loading="lazy" decoding="async" />
+              loading="lazy" decoding="async" />
           </button>
         </div>
 
         {/* Right Navigation */}
-        <div className="nav-right flex items-center justify-end gap-5 md:gap-6 min-w-0">
+        <div className="nav-right flex items-center justify-end gap-3 sm:gap-4 md:gap-5 min-w-0">
+          {onOpenAccount && (
+            <button
+              onClick={onOpenAccount}
+              title="Patron Sanctuary / Account"
+              aria-label="Patron Account"
+              className={`p-2 transition-colors cursor-pointer ${textColorClass}/80 hover:${textColorClass}`}
+            >
+              <User className="w-4 h-4 md:w-[18px] md:h-[18px]" />
+            </button>
+          )}
+
           <button
             onClick={onOpenSearch}
+            aria-label="Search Fragrances"
             className={`p-2 transition-colors cursor-pointer ${textColorClass}/80 hover:${textColorClass}`}
           >
             <Search className="w-4 h-4 md:w-[18px] md:h-[18px]" />
@@ -112,6 +126,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={onOpenCart}
+            aria-label="View Shopping Bag"
             className={`flex items-center gap-2 transition-colors cursor-pointer group ${textColorClass}/80 hover:${textColorClass}`}
           >
             <div className="relative">
@@ -131,7 +146,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full h-screen bg-pearl text-shadow animate-in fade-in duration-300 border-t border-shadow/[0.05] px-8 py-10">
+        <div className="lg:hidden absolute top-full left-0 w-full h-screen bg-pearl text-shadow animate-in fade-in duration-300 border-t border-shadow/[0.05] px-8 py-10">
           <nav className="flex flex-col space-y-6">
             {navLinks.map((item) => (
               <a
@@ -145,10 +160,19 @@ export const Header: React.FC<HeaderProps> = ({
                 {item.label}
                 </a>
             ))}
-            <div className="pt-6 border-t border-shadow/[0.05]">
+            <div className="pt-6 border-t border-shadow/[0.05] space-y-4">
+              {onOpenAccount && (
+                <button
+                  onClick={() => { setMobileMenuOpen(false); onOpenAccount(); }}
+                  className="text-left py-2 text-xs uppercase tracking-[0.25em] font-sans text-shadow/60 flex items-center gap-3 hover:text-shadow"
+                >
+                  <User className="w-4 h-4" />
+                  <span>PATRON SANCTUARY</span>
+                </button>
+              )}
               <button
                 onClick={() => { setMobileMenuOpen(false); onOpenSearch(); }}
-                className="text-left py-2 text-xs uppercase tracking-[0.25em] font-sans text-shadow/60 flex items-center gap-3"
+                className="text-left py-2 text-xs uppercase tracking-[0.25em] font-sans text-shadow/60 flex items-center gap-3 hover:text-shadow"
               >
                 <Search className="w-4 h-4" />
                 <span>ARCHIVE SEARCH</span>

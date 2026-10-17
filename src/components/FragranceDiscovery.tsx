@@ -9,27 +9,29 @@ interface FragranceDiscoveryProps {
   onAddToCart: (fragrance: Fragrance) => void;
   onViewAllPerfumes: () => void;
   themeMode: ThemeMode;
+  onSelectCustomCategory?: (category: 'FOR HER' | 'FOR HIM' | 'UNISEX' | 'ORIENTAL' | string) => void;
 }
 
-type DiscoveryCategory = 'FOR HIM' | 'FOR HER' | 'UNISEX' | 'FRESH' | 'WOODY' | 'ORIENTAL';
+type DiscoveryCategory = 'FOR HER' | 'FOR HIM' | 'UNISEX' | 'ORIENTAL' | 'FRESH' | 'WOODY';
 
 const CATEGORIES: {
   label: DiscoveryCategory;
   description: string;
 }[] = [
-  { label: 'FOR HIM', description: 'Commanding noble woods, mineral ambergris, and crisp bergamot.' },
   { label: 'FOR HER', description: 'Nocturnal jasmine, luminous white tuberose, and velvet bourbon vanilla.' },
+  { label: 'FOR HIM', description: 'Commanding noble woods, mineral ambergris, and crisp bergamot.' },
   { label: 'UNISEX', description: 'Tuscan leather, Florentine iris butter, and smoked oakmoss.' },
+  { label: 'ORIENTAL', description: 'Charred tonka bean, sacred frankincense, and warm amber resins.' },
   { label: 'FRESH', description: 'Calabrian citrus, frost aldehydes, and pure oceanic accords.' },
-  { label: 'WOODY', description: 'Smoky birch, aged cedarwood, and cured Virginian tobacco.' },
-  { label: 'ORIENTAL', description: 'Charred tonka bean, sacred frankincense, and warm amber resins.' }
+  { label: 'WOODY', description: 'Smoky birch, aged cedarwood, and cured Virginian tobacco.' }
 ];
 
 export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
   fragrances,
   onSelectFragrance,
   onAddToCart,
-  onViewAllPerfumes
+  onViewAllPerfumes,
+  onSelectCustomCategory
 }) => {
   const [activeCategory, setActiveCategory] = useState<DiscoveryCategory>('UNISEX');
 
@@ -38,6 +40,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
       if (activeCategory === 'FOR HIM') return f.gender === 'him';
       if (activeCategory === 'FOR HER') return f.gender === 'her';
       if (activeCategory === 'UNISEX') return f.gender === 'unisex';
+      if (activeCategory === 'ORIENTAL') return f.families.includes('oriental') || f.olfactoryFamily === 'ORIENTAL';
       return f.families.includes(activeCategory.toLowerCase());
     });
 
@@ -98,9 +101,26 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
             })}
           </div>
 
-          {/* Active Category Description */}
-          <div className="text-center pt-2 text-xs text-dusty-rose font-sans tracking-wide">
-            {CATEGORIES.find((c) => c.label === activeCategory)?.description}
+          {/* Active Category Description & Atelier Bridge */}
+          <div className="text-center pt-2 space-y-3">
+            <p className="text-xs text-dusty-rose font-sans tracking-wide">
+              {CATEGORIES.find((c) => c.label === activeCategory)?.description}
+            </p>
+            <div className="flex items-center justify-center pt-1">
+              <button
+                onClick={() => {
+                  if (onSelectCustomCategory) {
+                    onSelectCustomCategory(activeCategory);
+                  }
+                  const el = document.getElementById('custom-scent-atelier');
+                  if (el) el.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="group inline-flex items-center gap-2 px-5 py-2 border border-dusty-rose/30 bg-pearl hover:bg-shadow hover:text-pearl text-[9px] uppercase tracking-[0.22em] font-sans font-medium text-shadow transition-all duration-300 cursor-pointer"
+              >
+                <span>Compose Bespoke {activeCategory} Formula</span>
+                <span className="text-dusty-rose group-hover:text-pearl transition-transform duration-300 group-hover:translate-x-1">→</span>
+              </button>
+            </div>
           </div>
         </div>
 

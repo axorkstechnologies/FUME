@@ -35,6 +35,14 @@ export interface CartItem {
   quantity: number;
   size: '50ml' | '100ml';
   price: number;
+  customDetails?: {
+    customName?: string;
+    direction?: string;
+    topNotes?: string[];
+    heartNotes?: string[];
+    baseNotes?: string[];
+    bottleSize?: string;
+  };
 }
 
 export interface Currency {
