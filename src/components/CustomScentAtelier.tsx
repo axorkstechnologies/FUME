@@ -275,10 +275,10 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
                     <button
                       key={dir}
                       onClick={() => handleDirectionChange(dir)}
-                      className={`px-4 py-3 text-[10px] uppercase tracking-[0.2em] font-sans transition-all duration-300 border text-center cursor-pointer ${
+                      className={`px-4 py-3.5 text-[10px] uppercase tracking-[0.22em] font-sans transition-all duration-300 border text-center cursor-pointer ${
                         isActive
-                          ? 'bg-shadow text-pearl border-shadow font-semibold'
-                          : 'bg-pearl text-shadow/80 border-shadow/10 hover:border-dusty-rose'
+                          ? 'tactile-button-dark font-semibold'
+                          : 'bg-white/80 text-shadow/80 border-shadow/10 hover:border-dusty-rose hover:bg-white'
                       }`}
                     >
                       {dir}
@@ -312,8 +312,8 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
                       onClick={() => toggleNote(note.id, selectedTop, setSelectedTop)}
                       className={`p-3.5 border transition-all duration-300 cursor-pointer flex items-start justify-between ${
                         isSelected
-                          ? 'bg-pearl border-shadow shadow-sm'
-                          : 'bg-pearl/50 border-shadow/10 hover:border-shadow/30'
+                          ? 'bg-white border-shadow shadow-[0_4px_16px_rgba(0,0,0,0.08)] ring-1 ring-shadow/90'
+                          : 'bg-white/70 backdrop-blur-sm border-shadow/10 hover:border-dusty-rose/40 hover:bg-white'
                       }`}
                     >
                       <div className="space-y-1">
@@ -364,8 +364,8 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
                       onClick={() => toggleNote(note.id, selectedHeart, setSelectedHeart)}
                       className={`p-3.5 border transition-all duration-300 cursor-pointer flex items-start justify-between ${
                         isSelected
-                          ? 'bg-pearl border-shadow shadow-sm'
-                          : 'bg-pearl/50 border-shadow/10 hover:border-shadow/30'
+                          ? 'bg-white border-shadow shadow-[0_4px_16px_rgba(0,0,0,0.08)] ring-1 ring-shadow/90'
+                          : 'bg-white/70 backdrop-blur-sm border-shadow/10 hover:border-dusty-rose/40 hover:bg-white'
                       }`}
                     >
                       <div className="space-y-1">
@@ -416,8 +416,8 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
                       onClick={() => toggleNote(note.id, selectedBase, setSelectedBase)}
                       className={`p-3.5 border transition-all duration-300 cursor-pointer flex items-start justify-between ${
                         isSelected
-                          ? 'bg-pearl border-shadow shadow-sm'
-                          : 'bg-pearl/50 border-shadow/10 hover:border-shadow/30'
+                          ? 'bg-white border-shadow shadow-[0_4px_16px_rgba(0,0,0,0.08)] ring-1 ring-shadow/90'
+                          : 'bg-white/70 backdrop-blur-sm border-shadow/10 hover:border-dusty-rose/40 hover:bg-white'
                       }`}
                     >
                       <div className="space-y-1">
@@ -447,20 +447,50 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
 
           {/* Right Column: Live Composition Summary & Packaging */}
           <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-28">
-            <div className="bg-pearl border border-shadow/15 p-6 sm:p-8 space-y-6 shadow-sm">
+            <div className="luxury-glass border border-shadow/15 p-6 sm:p-8 space-y-6 shadow-[0_20px_45px_-12px_rgba(10,10,10,0.06)] relative overflow-hidden">
               <div className="border-b border-shadow/10 pb-4 flex items-center justify-between">
-                <span className="text-[9px] uppercase tracking-[0.3em] text-dusty-rose font-sans font-semibold">
+                <span className="text-[9px] uppercase tracking-[0.32em] text-dusty-rose font-sans font-semibold">
                   FORMULATION DOSSIER
                 </span>
-                <span className="text-[8px] uppercase tracking-[0.2em] px-2 py-0.5 bg-shadow text-pearl font-sans">
+                <span className="text-[8px] uppercase tracking-[0.24em] px-2.5 py-1 bg-shadow text-pearl font-sans font-medium border border-white/10">
                   ATELIER EDITION
                 </span>
+              </div>
+
+              {/* Bespoke Flacon Mockup Card with Dynamic Engraving */}
+              <div className="p-4 bg-pearl/90 border border-shadow/10 flex items-center gap-4 relative overflow-hidden pedestal-light">
+                <div className="w-16 h-20 bg-white/80 border border-shadow/20 flex flex-col items-center justify-center p-2 relative shadow-[0_4px_10px_rgba(0,0,0,0.04)] shrink-0">
+                  <div className="w-4 h-2 bg-shadow/70 mb-1" />
+                  <span className="font-serif text-[8px] tracking-widest text-shadow uppercase font-bold text-center leading-none">
+                    FUME
+                  </span>
+                  <div className="w-full h-px bg-shadow/20 my-1" />
+                  <span className="text-[6px] tracking-tighter text-dusty-rose font-sans uppercase truncate max-w-full text-center">
+                    {customName || 'BESPOKE'}
+                  </span>
+                  {engravingText && (
+                    <span className="text-[5px] tracking-widest text-shadow/60 font-mono uppercase truncate max-w-full text-center mt-0.5">
+                      {engravingText}
+                    </span>
+                  )}
+                </div>
+                <div className="space-y-1 min-w-0">
+                  <span className="text-[8px] uppercase tracking-[0.25em] text-dusty-rose font-semibold block">
+                    BESPOKE FLACON PREVIEW
+                  </span>
+                  <h4 className="font-serif text-sm uppercase tracking-wider text-shadow truncate">
+                    {customName || 'Bespoke Formula'}
+                  </h4>
+                  <p className="text-[8px] uppercase tracking-widest text-shadow/60 font-sans">
+                    {bottleSize.toUpperCase()} FLACON &bull; {direction} DIRECTION
+                  </p>
+                </div>
               </div>
 
               {/* Formula Moniker & Flacon Engraving */}
               <div className="space-y-4">
                 <div className="space-y-1">
-                  <label className="text-[9px] uppercase tracking-wider text-shadow/70 font-sans block">
+                  <label className="text-[9px] uppercase tracking-wider text-shadow/70 font-sans block font-medium">
                     Formula Name / Title
                   </label>
                   <input
@@ -468,12 +498,12 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
                     value={customName}
                     onChange={(e) => setCustomName(e.target.value)}
                     placeholder="e.g. Nocturne No. 7"
-                    className="w-full bg-white border border-shadow/15 px-3 py-2 text-xs font-serif tracking-wider text-shadow focus:outline-none focus:border-dusty-rose"
+                    className="w-full bg-white/90 border border-shadow/15 px-3.5 py-2.5 text-xs font-serif tracking-wider text-shadow focus:outline-none focus:border-dusty-rose shadow-[inset_0_1px_2px_rgba(0,0,0,0.02)]"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-[9px] uppercase tracking-wider text-shadow/70 font-sans block">
+                  <label className="text-[9px] uppercase tracking-wider text-shadow/70 font-sans block font-medium">
                     Flacon Custom Engraving (Optional)
                   </label>
                   <input
@@ -482,21 +512,21 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
                     value={engravingText}
                     onChange={(e) => setEngravingText(e.target.value)}
                     placeholder="e.g. HAMZA • MMXXIV"
-                    className="w-full bg-white border border-shadow/15 px-3 py-2 text-xs font-sans tracking-widest text-shadow uppercase focus:outline-none focus:border-dusty-rose"
+                    className="w-full bg-white/90 border border-shadow/15 px-3.5 py-2.5 text-xs font-sans tracking-widest text-shadow uppercase focus:outline-none focus:border-dusty-rose shadow-[inset_0_1px_2px_rgba(0,0,0,0.02)]"
                   />
                 </div>
               </div>
 
               {/* Olfactory Pyramid Architecture Visualization */}
-              <div className="bg-oyster/70 p-5 border border-shadow/10 space-y-4">
-                <span className="text-[9px] uppercase tracking-[0.25em] text-shadow/70 font-sans font-semibold block text-center">
+              <div className="bg-white/80 p-5 border border-shadow/10 space-y-4 shadow-[0_2px_8px_rgba(0,0,0,0.02)]">
+                <span className="text-[9px] uppercase tracking-[0.28em] text-shadow/70 font-sans font-semibold block text-center">
                   PYRAMID ARCHITECTURE
                 </span>
 
                 <div className="space-y-3 font-sans text-xs">
                   {/* Top */}
                   <div className="border-b border-shadow/10 pb-2.5">
-                    <span className="text-[8px] uppercase tracking-[0.2em] text-dusty-rose font-semibold block">
+                    <span className="text-[8px] uppercase tracking-[0.22em] text-dusty-rose font-semibold block">
                       TOP ACCORDS
                     </span>
                     <span className="text-[11px] font-serif text-shadow block tracking-wide">
@@ -506,7 +536,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
 
                   {/* Heart */}
                   <div className="border-b border-shadow/10 pb-2.5">
-                    <span className="text-[8px] uppercase tracking-[0.2em] text-dusty-rose font-semibold block">
+                    <span className="text-[8px] uppercase tracking-[0.22em] text-dusty-rose font-semibold block">
                       HEART CORE
                     </span>
                     <span className="text-[11px] font-serif text-shadow block tracking-wide">
@@ -516,7 +546,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
 
                   {/* Base */}
                   <div>
-                    <span className="text-[8px] uppercase tracking-[0.2em] text-dusty-rose font-semibold block">
+                    <span className="text-[8px] uppercase tracking-[0.22em] text-dusty-rose font-semibold block">
                       DRYDOWN BASE
                     </span>
                     <span className="text-[11px] font-serif text-shadow block tracking-wide">
@@ -528,7 +558,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
 
               {/* Volume & Price Choice */}
               <div className="space-y-3 pt-2">
-                <span className="text-[9px] uppercase tracking-[0.2em] text-shadow/70 font-sans block">
+                <span className="text-[9px] uppercase tracking-[0.2em] text-shadow/70 font-sans block font-medium">
                   FLACON APOTHECARY VOLUME
                 </span>
                 <div className="grid grid-cols-2 gap-3">
@@ -536,8 +566,8 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
                     onClick={() => setBottleSize('50ml')}
                     className={`p-3 text-center border font-sans transition-all duration-300 cursor-pointer ${
                       bottleSize === '50ml'
-                        ? 'bg-shadow text-pearl border-shadow'
-                        : 'bg-white text-shadow border-shadow/15 hover:border-dusty-rose'
+                        ? 'tactile-button-dark font-semibold'
+                        : 'bg-white/80 text-shadow border-shadow/15 hover:border-dusty-rose'
                     }`}
                   >
                     <span className="block text-xs font-semibold">50 ML</span>
@@ -547,8 +577,8 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
                     onClick={() => setBottleSize('100ml')}
                     className={`p-3 text-center border font-sans transition-all duration-300 cursor-pointer ${
                       bottleSize === '100ml'
-                        ? 'bg-shadow text-pearl border-shadow'
-                        : 'bg-white text-shadow border-shadow/15 hover:border-dusty-rose'
+                        ? 'tactile-button-dark font-semibold'
+                        : 'bg-white/80 text-shadow border-shadow/15 hover:border-dusty-rose'
                     }`}
                   >
                     <span className="block text-xs font-semibold">100 ML</span>
@@ -560,7 +590,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
               {/* Total & CTAs */}
               <div className="pt-4 border-t border-shadow/10 space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] uppercase tracking-[0.2em] font-sans text-shadow/70">
+                  <span className="text-[10px] uppercase tracking-[0.22em] font-sans text-shadow/70">
                     BESPOKE TOTAL
                   </span>
                   <span className="font-serif text-2xl font-medium text-dusty-rose">
@@ -572,7 +602,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
                   <button
                     onClick={handleAddToCart}
                     disabled={isAdding}
-                    className="w-full py-4 bg-shadow text-pearl hover:bg-dusty-rose text-[10px] uppercase tracking-[0.28em] font-sans font-semibold transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98]"
+                    className="w-full py-4.5 tactile-button-dark animate-sheen text-[10px] uppercase tracking-[0.28em] font-sans font-semibold transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer"
                   >
                     <ShoppingBag className="w-3.5 h-3.5" />
                     <span>{isAdding ? 'ADDING TO BAG...' : 'ADD BESPOKE SCENT TO BAG'}</span>
@@ -581,7 +611,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
                   <div className="grid grid-cols-2 gap-2.5">
                     <button
                       onClick={handleSaveFormula}
-                      className="py-3 px-3 bg-pearl border border-shadow/20 hover:border-dusty-rose text-shadow text-[9px] uppercase tracking-[0.18em] font-sans font-medium transition-colors duration-300 flex items-center justify-center gap-1.5 cursor-pointer"
+                      className="py-3 px-3 bg-white border border-shadow/20 hover:border-dusty-rose text-shadow text-[9px] uppercase tracking-[0.2em] font-sans font-medium transition-colors duration-300 flex items-center justify-center gap-1.5 cursor-pointer hover:bg-pearl"
                     >
                       <Bookmark className="w-3 h-3 text-dusty-rose" />
                       <span>{saveStatus === 'saved' ? '✓ SAVED' : saveStatus === 'saving' ? 'SAVING...' : 'SAVE FORMULA'}</span>
@@ -589,7 +619,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
 
                     <button
                       onClick={handleWhatsAppCustom}
-                      className="py-3 px-3 bg-white border border-shadow/20 hover:border-dusty-rose text-shadow text-[9px] uppercase tracking-[0.18em] font-sans font-medium transition-colors duration-300 flex items-center justify-center gap-1.5 cursor-pointer"
+                      className="py-3 px-3 bg-white border border-shadow/20 hover:border-dusty-rose text-shadow text-[9px] uppercase tracking-[0.2em] font-sans font-medium transition-colors duration-300 flex items-center justify-center gap-1.5 cursor-pointer hover:bg-pearl"
                     >
                       <MessageSquare className="w-3 h-3 text-dusty-rose" />
                       <span>WHATSAPP ATELIER</span>
@@ -598,7 +628,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
                 </div>
 
                 <p className="text-[9px] uppercase tracking-[0.2em] text-center text-shadow/50 font-sans pt-1">
-                  Complimentary nationwide courier • Hand-blended in Karachi • Master Formula Preserved
+                  Complimentary nationwide courier &bull; Hand-blended in Karachi &bull; Master Formula Preserved
                 </p>
               </div>
             </div>

@@ -104,7 +104,9 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
         position: 'fixed',
         inset: 0,
         zIndex: 1000,
-        backgroundColor: 'rgba(44,37,34,0.45)'
+        backgroundColor: 'rgba(10, 10, 10, 0.7)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)'
       }}
       onClick={onClose}
     >
@@ -114,7 +116,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
         aria-modal="true"
         aria-label={`FUME ${fragrance.name} Details`}
         onClick={(e) => e.stopPropagation()}
-        className="relative shadow-none border overflow-hidden grid grid-cols-1 md:grid-cols-2 grid-rows-[minmax(180px,36%)_1fr] md:grid-rows-1 bg-pearl/98 text-shadow border-shadow/[0.08]"
+        className="relative shadow-[0_25px_60px_-15px_rgba(0,0,0,0.35)] border overflow-hidden grid grid-cols-1 md:grid-cols-2 grid-rows-[minmax(180px,36%)_1fr] md:grid-rows-1 bg-[#FDFBF7] text-shadow border-white/40 luxury-glass"
         style={{
           width: 'min(1120px, calc(100vw - 32px))',
           height: 'min(860px, calc(100dvh - 32px))',
@@ -445,15 +447,13 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
               <button
                 onClick={handleAdd}
                 disabled={added}
-                className={`px-8 py-4 transition-all text-xs uppercase tracking-[0.25em] font-sans font-semibold flex items-center gap-2 cursor-pointer rounded-none ${
-                  added
-                    ? 'bg-dusty-rose/50 text-pearl'
-                    : 'bg-dusty-rose text-pearl hover:bg-dusty-rose '
+                className={`px-8 py-4 transition-all text-xs uppercase tracking-[0.28em] font-sans font-semibold flex items-center gap-2 cursor-pointer tactile-button-dark animate-sheen ${
+                  added ? 'opacity-70' : ''
                 }`}
               >
                 {added ? (
                   <>
-                    <Check className="w-4 h-4" />
+                    <Check className="w-4 h-4 text-[#D4A59A]" />
                     <span>ADDED TO BAG</span>
                   </>
                 ) : (
@@ -525,7 +525,7 @@ export const FlaconDetailModal: React.FC<FlaconDetailModalProps> = ({
               <button
                 onClick={handleAdd}
                 disabled={added}
-                className="px-6 py-2.5 bg-dusty-rose text-pearl text-[10px] uppercase tracking-[0.2em] font-sans font-semibold rounded-none cursor-pointer active:scale-[0.98] transition-transform"
+                className="px-6 py-2.5 tactile-button-dark animate-sheen text-[10px] uppercase tracking-[0.2em] font-sans font-semibold cursor-pointer"
               >
                 {added ? 'ADDED' : 'ADD TO BAG'}
               </button>

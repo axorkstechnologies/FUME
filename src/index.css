@@ -155,3 +155,147 @@ button {
   letter-spacing: 0.15em;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
+/* === $20,000 LUXURY DIGITAL COMMISSION: ELEVATION DESIGN SYSTEM === */
+
+/* 1. Liquid Glass / Advanced Glassmorphism */
+.luxury-glass {
+  background: rgba(253, 251, 247, 0.82);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 
+    0 20px 45px -15px rgba(10, 10, 10, 0.06),
+    0 1px 2px rgba(10, 10, 10, 0.02),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.luxury-glass-dark {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.45),
+    0 2px 4px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.luxury-glass-card {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(10, 10, 10, 0.06);
+  box-shadow: 
+    0 12px 32px -10px rgba(10, 10, 10, 0.04),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.85);
+}
+
+/* 2. Museum Crystal Vitrine (Product Showcase) */
+.crystal-vitrine {
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+}
+
+.crystal-vitrine::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 50%, rgba(212, 165, 154, 0.06) 100%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 10;
+}
+
+.crystal-vitrine:hover::before {
+  opacity: 1;
+}
+
+/* 3. Illuminated Pedestal Plinth */
+.pedestal-light {
+  background: radial-gradient(circle at 50% 65%, rgba(255, 255, 255, 0.95) 0%, rgba(245, 242, 239, 0.5) 45%, rgba(245, 242, 239, 0) 75%);
+}
+
+.pedestal-light-dark {
+  background: radial-gradient(circle at 50% 65%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 70%);
+}
+
+/* 4. Luxury Skeuomorphic Tactile Buttons */
+.tactile-button-dark {
+  background: #0A0A0A;
+  color: #FDFBF7;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 
+    0 4px 14px rgba(10, 10, 10, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tactile-button-dark:hover {
+  background: #1A1817;
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 
+    0 8px 24px rgba(10, 10, 10, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.32);
+  transform: translateY(-1px);
+}
+
+.tactile-button-dark:active {
+  transform: translateY(1px) scale(0.99);
+  box-shadow: 
+    0 2px 6px rgba(10, 10, 10, 0.18),
+    inset 0 1px 2px rgba(0, 0, 0, 0.45);
+}
+
+.tactile-button-light {
+  background: #FFFFFF;
+  color: #0A0A0A;
+  border: 1px solid rgba(10, 10, 10, 0.12);
+  box-shadow: 
+    0 4px 12px rgba(10, 10, 10, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tactile-button-light:hover {
+  border-color: rgba(10, 10, 10, 0.3);
+  box-shadow: 
+    0 8px 20px rgba(10, 10, 10, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
+}
+
+.tactile-button-light:active {
+  transform: translateY(1px) scale(0.99);
+  box-shadow: 
+    0 2px 4px rgba(10, 10, 10, 0.05),
+    inset 0 1px 2px rgba(10, 10, 10, 0.05);
+}
+
+/* 5. Luminous Sheen Animation */
+@keyframes lightSheen {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(250%) skewX(-20deg); }
+}
+
+.animate-sheen {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-sheen::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
+  transform: translateX(-150%) skewX(-20deg);
+  pointer-events: none;
+}
+
+.animate-sheen:hover::after {
+  animation: lightSheen 1.2s ease-in-out;
+}

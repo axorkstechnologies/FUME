@@ -44,9 +44,9 @@ export const Header: React.FC<HeaderProps> = ({
     { view: 'care', label: 'Client Care' }
   ];
 
-  // We rely on CSS variables for a strict monochrome look.
+  // Luxury Glassmorphism when scrolled
   const headerClasses = isScrolled 
-    ? 'bg-pearl border-b border-shadow/[0.05] shadow-none py-1 md:py-2'
+    ? 'luxury-glass border-b border-shadow/[0.06] shadow-[0_10px_30px_-10px_rgba(10,10,10,0.05)] py-1 md:py-2'
     : 'bg-transparent border-b border-transparent py-2 md:py-3';
 
   // For Hero (Home) transparent state text color

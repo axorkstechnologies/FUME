@@ -195,6 +195,10 @@ export function App() {
     setCartItems((prev) => prev.filter((_, i) => i !== index));
   };
 
+  const handleClearCart = () => {
+    setCartItems([]);
+  };
+
   const totalCartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
   const scrollToEssence = () => {
@@ -394,6 +398,8 @@ export function App() {
         cartItems={cartItems}
         onUpdateQuantity={handleUpdateQuantity}
         onRemoveItem={handleRemoveItem}
+        onClearCart={handleClearCart}
+        onOpenAccount={() => setIsAccountOpen(true)}
         themeMode={themeMode}
       />
 

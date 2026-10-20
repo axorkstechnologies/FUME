@@ -314,8 +314,8 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose, onA
   };
 
   return (
-    <div className="fixed inset-0 z-50 bg-shadow/60 flex items-center justify-center p-4 md:p-8 animate-in fade-in duration-300 backdrop-blur-sm">
-      <div className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-pearl border border-shadow/20 text-shadow p-6 sm:p-10 space-y-6 shadow-2xl">
+    <div className="fixed inset-0 z-50 bg-black/65 flex items-center justify-center p-4 md:p-8 animate-in fade-in duration-300 backdrop-blur-md">
+      <div className="relative w-full max-w-xl max-h-[90vh] overflow-y-auto bg-[#FDFBF7] border border-shadow/20 text-shadow p-6 sm:p-10 space-y-6 shadow-2xl luxury-glass">
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -710,7 +710,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose, onA
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full py-3.5 bg-shadow text-pearl hover:bg-dusty-rose text-[10px] uppercase tracking-[0.25em] font-sans font-semibold transition-colors cursor-pointer mt-2"
+                  className="w-full py-4.5 tactile-button-dark animate-sheen text-[10px] uppercase tracking-[0.28em] font-sans font-semibold cursor-pointer mt-2"
                 >
                   {isLoading ? 'AUTHENTICATING...' : 'ENTER SANCTUARY'}
                 </button>
@@ -783,7 +783,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose, onA
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full py-3.5 bg-shadow text-pearl hover:bg-dusty-rose text-[10px] uppercase tracking-[0.25em] font-sans font-semibold transition-colors cursor-pointer mt-2"
+                  className="w-full py-4.5 tactile-button-dark animate-sheen text-[10px] uppercase tracking-[0.28em] font-sans font-semibold cursor-pointer mt-2"
                 >
                   {isLoading ? 'ENROLLING...' : 'ENROL AS VERIFIED PATRON'}
                 </button>
@@ -813,7 +813,7 @@ export const AccountModal: React.FC<AccountModalProps> = ({ isOpen, onClose, onA
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="w-full py-3.5 bg-shadow text-pearl hover:bg-dusty-rose text-[10px] uppercase tracking-[0.25em] font-sans font-semibold transition-colors cursor-pointer"
+                  className="w-full py-4.5 tactile-button-dark animate-sheen text-[10px] uppercase tracking-[0.28em] font-sans font-semibold cursor-pointer"
                 >
                   {isLoading ? 'DISPATCHING...' : 'DISPATCH RESET INSTRUCTIONS'}
                 </button>

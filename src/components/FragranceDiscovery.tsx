@@ -76,19 +76,19 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
           </p>
         </div>
 
-        {/* Category Navigation Pills */}
-        <div className="max-w-4xl mx-auto space-y-4">
-          <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 md:gap-4">
+        {/* Category Navigation Pills on Liquid Glass Runway */}
+        <div className="max-w-4xl mx-auto space-y-6">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 p-2 luxury-glass-card max-w-fit mx-auto border border-shadow/[0.08] shadow-[0_10px_30px_-10px_rgba(10,10,10,0.05)]">
             {CATEGORIES.map((cat) => {
               const isSelected = activeCategory === cat.label;
               return (
                 <button
                   key={cat.label}
                   onClick={() => setActiveCategory(cat.label)}
-                  className={`px-5 sm:px-6 py-2.5 sm:py-3 text-[10px] uppercase tracking-[0.24em] font-sans transition-all duration-300 cursor-pointer border ${
+                  className={`px-7 py-3 text-[10px] uppercase tracking-[0.26em] font-sans transition-all duration-300 cursor-pointer ${
                     isSelected
-                      ? 'bg-shadow text-pearl border-shadow font-semibold'
-                      : 'bg-white text-shadow/80 border-shadow/[0.08] hover:border-dusty-rose hover:text-shadow'
+                      ? 'tactile-button-dark font-semibold'
+                      : 'bg-white/80 text-shadow/70 hover:text-shadow hover:bg-white border border-transparent hover:border-shadow/10'
                   }`}
                 >
                   {cat.label}
@@ -98,8 +98,8 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
           </div>
 
           {/* Active Category Description & Atelier Bridge */}
-          <div className="text-center pt-2 space-y-3">
-            <p className="text-xs text-dusty-rose font-sans tracking-wide">
+          <div className="text-center pt-2 space-y-4">
+            <p className="text-xs text-dusty-rose font-sans tracking-wide max-w-md mx-auto">
               {CATEGORIES.find((c) => c.label === activeCategory)?.description}
             </p>
             <div className="flex items-center justify-center pt-1">
@@ -111,7 +111,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                   const el = document.getElementById('custom-scent-atelier');
                   if (el) el.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="group inline-flex items-center gap-2 px-5 py-2 border border-dusty-rose/30 bg-pearl hover:bg-shadow hover:text-pearl text-[9px] uppercase tracking-[0.22em] font-sans font-medium text-shadow transition-all duration-300 cursor-pointer"
+                className="group inline-flex items-center gap-2.5 px-6 py-2.5 border border-dusty-rose/40 bg-white/90 hover:bg-shadow hover:text-pearl text-[9px] uppercase tracking-[0.24em] font-sans font-medium text-shadow transition-all duration-300 cursor-pointer shadow-[0_2px_8px_rgba(0,0,0,0.03)]"
               >
                 <span>Compose Bespoke {activeCategory} Formula</span>
                 <span className="text-dusty-rose group-hover:text-pearl transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -134,13 +134,13 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                 <motion.div
                   key={fragrance.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0, scale: 0.96 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                  className={`group flex flex-col justify-between p-6 cursor-pointer transition-all duration-400  hover:-translate-y-1 ${
+                  exit={{ opacity: 0, scale: 0.96 }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                  className={`group flex flex-col justify-between p-6 cursor-pointer crystal-vitrine transition-all duration-500 hover:-translate-y-1.5 shadow-[0_10px_25px_-10px_rgba(10,10,10,0.04)] hover:shadow-[0_22px_45px_-12px_rgba(10,10,10,0.12)] ${
                     isSignature
-                      ? 'bg-[#F4EFEB] border-2 border-dusty-rose/40 hover:border-dusty-rose'
+                      ? 'bg-[#F4EFEB] border border-dusty-rose/40 hover:border-dusty-rose'
                       : isDiscoverySet
                       ? 'bg-gradient-to-b from-[#F7F2EC] to-[#EFECE6] border border-dusty-rose/30 hover:border-dusty-rose'
                       : 'bg-[#F8F5F1] border border-shadow/[0.08] hover:border-dusty-rose/50'
@@ -150,31 +150,31 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                   {/* Badges */}
                   <div className="flex items-center justify-between mb-3">
                     {isSignature ? (
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-shadow text-pearl text-[8px] uppercase tracking-[0.28em] font-semibold shadow-none">
-                        <span className="w-1.5 h-1.5 rounded-none bg-dusty-rose " />
+                      <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-shadow text-pearl text-[8px] uppercase tracking-[0.3em] font-semibold">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#D4A59A] animate-pulse" />
                         SIGNATURE
                       </span>
                     ) : isDiscoverySet ? (
-                      <span className="px-3 py-1 bg-dusty-rose text-pearl text-[8px] uppercase tracking-[0.25em] font-semibold shadow-none">
+                      <span className="px-3 py-1 bg-dusty-rose text-pearl text-[8px] uppercase tracking-[0.25em] font-semibold">
                         TESTERS COFFRET
                       </span>
                     ) : (
-                      <span className="px-2.5 py-1 bg-white border border-shadow/10 text-shadow text-[8px] uppercase tracking-[0.22em] font-medium shadow-none">
+                      <span className="px-2.5 py-1 bg-white/90 backdrop-blur-sm border border-shadow/10 text-shadow text-[8px] uppercase tracking-[0.22em] font-medium">
                         IMPRESSION
                       </span>
                     )}
 
-                    <span className="text-[9px] uppercase tracking-[0.2em] text-shadow/60 font-sans">
+                    <span className="text-[9px] uppercase tracking-[0.2em] text-shadow/60 font-sans font-medium">
                       {fragrance.genderCategory}
                     </span>
                   </div>
 
-                  {/* Bottle Showcase */}
-                  <div className="relative w-full aspect-[4/5] flex items-center justify-center p-6 bg-pearl border border-shadow/[0.03] overflow-hidden my-3">
+                  {/* Bottle Showcase with Pedestal Lighting */}
+                  <div className="relative w-full aspect-[4/5] flex items-center justify-center p-6 bg-pearl border border-shadow/[0.03] overflow-hidden my-3 pedestal-light group-hover:scale-[1.02] transition-transform duration-700">
                     <img
                       src={fragrance.image}
                       alt={`FUME ${fragrance.name} Flacon`}
-                      className="w-full h-full object-contain p-2 select-none transition-transform duration-600 ease-out group-hover:scale-105 filter drop-shadow-none"
+                      className="w-full h-full object-contain p-2 select-none transition-transform duration-700 ease-out group-hover:scale-105 filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.1)]"
                       loading="lazy"
                     />
                   </div>
@@ -202,7 +202,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                           e.stopPropagation();
                           onAddToCart(fragrance);
                         }}
-                        className="px-4 py-2 bg-shadow text-pearl hover:bg-dusty-rose text-[9px] uppercase tracking-[0.22em] font-sans font-semibold transition-colors duration-300 cursor-pointer shadow-none active:scale-[0.98]"
+                        className="px-4 py-2.5 tactile-button-dark animate-sheen text-[9px] uppercase tracking-[0.24em] font-sans font-semibold cursor-pointer"
                       >
                         ADD TO BAG
                       </button>
@@ -218,7 +218,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
         <div className="text-center pt-8">
           <button
             onClick={onViewAllPerfumes}
-            className="px-12 py-4 bg-transparent border border-shadow/30 text-shadow hover:border-dusty-rose hover:text-dusty-rose text-[10px] uppercase tracking-[0.28em] font-sans font-medium transition-all duration-300 cursor-pointer"
+            className="px-12 py-4.5 bg-transparent border border-shadow/30 text-shadow hover:border-dusty-rose hover:text-dusty-rose text-[10px] uppercase tracking-[0.3em] font-sans font-semibold transition-all duration-400 cursor-pointer hover:bg-white/50"
           >
             VIEW ALL PERFUMES
           </button>

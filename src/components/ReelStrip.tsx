@@ -4,15 +4,13 @@
  * Videos: autoplay · muted · loop · playsInline (required for iOS Safari).
  * IntersectionObserver drives play/pause so off-screen videos are paused,
  * conserving CPU/battery and satisfying browser autoplay policies.
- * Lazy-loads the <source> element only when the card enters the viewport
- * (avoids downloading all 6 video files upfront).
+ * Lazy-loads the <source> element only when the card enters the viewport.
  */
 import React, { useRef, useEffect, useCallback } from 'react';
 import { Film } from '../types';
 
 interface ReelStripProps {
   films: Film[];
-  /** Called when a card is tapped/clicked so the full reel viewer can open */
   onOpenReel?: (film: Film) => void;
 }
 
@@ -28,7 +26,6 @@ const ReelCard: React.FC<ReelCardProps> = ({ film, index, onOpenReel }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const loadedRef = useRef(false);
 
-  // IntersectionObserver: play when ≥30% visible, pause when leaving
   useEffect(() => {
     const video = videoRef.current;
     const container = containerRef.current;
@@ -38,16 +35,14 @@ const ReelCard: React.FC<ReelCardProps> = ({ film, index, onOpenReel }) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Lazy-inject the <source> src on first visibility
             if (!loadedRef.current && sourceRef.current && film.src) {
               sourceRef.current.src = film.src;
               video.load();
               loadedRef.current = true;
             }
-            // Play with promise to swallow any NotAllowedError gracefully
             const playPromise = video.play();
             if (playPromise !== undefined) {
-              playPromise.catch(() => {/* autoplay blocked — silently no-op */});
+              playPromise.catch(() => {});
             }
           } else {
             video.pause();
@@ -79,7 +74,7 @@ const ReelCard: React.FC<ReelCardProps> = ({ film, index, onOpenReel }) => {
       className="reel-card group relative flex-none w-[75vw] sm:w-[40vw] md:w-[30vw] lg:w-[18vw] xl:w-[16vw]"
       style={{ aspectRatio: '9/16' }}
     >
-      {/* Tappable / clickable overlay — opens full reel viewer */}
+      {/* Tappable overlay */}
       <div
         role="button"
         tabIndex={0}
@@ -89,8 +84,16 @@ const ReelCard: React.FC<ReelCardProps> = ({ film, index, onOpenReel }) => {
         className="absolute inset-0 z-10 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-dusty-rose"
       />
 
-      {/* Video container */}
-      <div className="relative w-full h-full overflow-hidden">
+      {/* Video container with Crystal Vitrine & Liquid Glass indicator */}
+      <div className="relative w-full h-full overflow-hidden border border-shadow/10 shadow-[0_12px_28px_-8px_rgba(10,10,10,0.12)] crystal-vitrine group-hover:border-dusty-rose/40 transition-colors duration-500">
+        {/* Watch Film Glass Pill Indicator */}
+        <div className="absolute top-3 right-3 z-20 pointer-events-none">
+          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-black/60 backdrop-blur-md border border-white/20 text-white text-[8px] uppercase tracking-[0.25em] font-sans font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D4A59A] animate-pulse" />
+            FILM
+          </span>
+        </div>
+
         {/* Poster shown until video plays */}
         <img
           src={film.poster}
@@ -101,7 +104,7 @@ const ReelCard: React.FC<ReelCardProps> = ({ film, index, onOpenReel }) => {
           aria-hidden="true"
         />
 
-        {/* Native video — source src injected lazily */}
+        {/* Native video */}
         <video
           ref={videoRef}
           muted
@@ -124,14 +127,12 @@ const ReelCard: React.FC<ReelCardProps> = ({ film, index, onOpenReel }) => {
           className="absolute inset-x-0 bottom-0 z-20 pointer-events-none"
           aria-hidden="true"
         >
-          {/* Gradient fade */}
-          <div className="h-28 bg-gradient-to-t from-shadow/80 via-shadow/30 to-transparent " />
-          {/* Text */}
-          <div className="absolute bottom-0 inset-x-0 px-3 pb-3 space-y-0.5">
-            <p className="text-[9px] uppercase tracking-[0.28em] text-dusty-rose drop-shadow-md font-sans font-medium leading-none">
+          <div className="h-28 bg-gradient-to-t from-shadow/90 via-shadow/40 to-transparent" />
+          <div className="absolute bottom-0 inset-x-0 px-3.5 pb-3.5 space-y-1">
+            <p className="text-[9px] uppercase tracking-[0.3em] text-[#D4A59A] drop-shadow-md font-sans font-medium leading-none">
               {film.kicker}
             </p>
-            <p className="text-[11px] uppercase tracking-[0.14em] text-white font-sans font-medium drop-shadow-md leading-tight line-clamp-2">
+            <p className="text-[11px] uppercase tracking-[0.16em] text-white font-sans font-medium drop-shadow-md leading-tight line-clamp-2">
               {film.productName}
             </p>
           </div>
@@ -144,20 +145,18 @@ const ReelCard: React.FC<ReelCardProps> = ({ film, index, onOpenReel }) => {
 export const ReelStrip: React.FC<ReelStripProps> = ({ films, onOpenReel }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Keyboard arrow-key scroll for the strip (accessibility)
   const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLDivElement>) => {
     const el = scrollRef.current;
     if (!el) return;
     if (e.key === 'ArrowRight') {
       e.preventDefault();
-      el.scrollBy({ left: 220, behavior: 'smooth' });
+      el.scrollBy({ left: 240, behavior: 'smooth' });
     } else if (e.key === 'ArrowLeft') {
       e.preventDefault();
-      el.scrollBy({ left: -220, behavior: 'smooth' });
+      el.scrollBy({ left: -240, behavior: 'smooth' });
     }
   }, []);
 
-  // Structured data — VideoObject list (GEO / SEO)
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -181,23 +180,26 @@ export const ReelStrip: React.FC<ReelStripProps> = ({ films, onOpenReel }) => {
   return (
     <section
       aria-labelledby="reel-strip-heading"
-      className="w-full overflow-hidden bg-pearl border-t border-shadow/[0.06] py-10 sm:py-14"
+      className="w-full overflow-hidden bg-pearl border-t border-shadow/[0.06] py-14 sm:py-20"
     >
       {/* Section header */}
-      <div className="px-5 sm:px-8 lg:px-16 mb-6 sm:mb-8 flex items-end justify-between gap-4">
-        <div className="space-y-1">
-          <p className="text-[10px] uppercase tracking-[0.38em] text-dusty-rose font-sans font-medium">
-            Real Stories
-          </p>
+      <div className="px-5 sm:px-8 lg:px-16 mb-8 sm:mb-10 flex items-end justify-between gap-4">
+        <div className="space-y-1.5">
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D4A59A]" />
+            <p className="text-[10px] uppercase tracking-[0.4em] text-dusty-rose font-sans font-semibold">
+              CINEMATIC ARCHIVE
+            </p>
+          </div>
           <h2
             id="reel-strip-heading"
-            className="font-serif text-2xl sm:text-3xl uppercase tracking-[0.12em] text-shadow font-normal"
+            className="font-serif text-2xl sm:text-3xl md:text-4xl uppercase tracking-[0.14em] text-shadow font-normal"
           >
             Seen on Film
           </h2>
         </div>
-        <p className="hidden sm:block text-xs font-sans text-shadow/80 tracking-wide max-w-[260px] text-right leading-relaxed">
-          Authentic client reviews and unboxing stories from across Pakistan.
+        <p className="hidden sm:block text-xs font-sans text-shadow/80 tracking-wide max-w-[280px] text-right leading-relaxed font-light">
+          Authentic client reviews, packaging unboxings, and editorial captures from across Pakistan.
         </p>
       </div>
 
@@ -217,21 +219,6 @@ export const ReelStrip: React.FC<ReelStripProps> = ({ films, onOpenReel }) => {
           <div key={film.id} role="listitem" className="snap-start">
             <ReelCard film={film} index={i} onOpenReel={onOpenReel} />
           </div>
-        ))}
-      </div>
-
-      {/* Scroll hint dots — mobile only */}
-      <div
-        className="flex sm:hidden justify-center gap-1.5 mt-4"
-        aria-hidden="true"
-      >
-        {films.map((_, i) => (
-          <span
-            key={i}
-            className={`block rounded-none transition-all duration-300 ${
-              i === 0 ? 'w-4 h-1 bg-dusty-rose' : 'w-1 h-1 bg-shadow'
-            }`}
-          />
         ))}
       </div>
 
