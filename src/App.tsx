@@ -218,7 +218,7 @@ export function App() {
 
   return (
     <div
-      className="min-h-screen relative flex flex-col font-sans selection:bg-dusty-rose selection:text-shadow bg-pearl text-shadow"
+      className="min-h-screen relative flex flex-col font-sans selection:bg-dusty-rose selection:text-shadow bg-pearl text-shadow page-grain"
     >
       {/* Dynamic SEO JSON-LD injection */}
       <SEOSchema />

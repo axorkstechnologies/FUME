@@ -180,25 +180,25 @@ export const ReelStrip: React.FC<ReelStripProps> = ({ films, onOpenReel }) => {
   return (
     <section
       aria-labelledby="reel-strip-heading"
-      className="w-full overflow-hidden bg-pearl border-t border-shadow/[0.06] py-14 sm:py-20"
+      className="w-full overflow-hidden bg-pearl border-t border-shadow/[0.06] py-20 sm:py-28"
     >
       {/* Section header */}
-      <div className="px-5 sm:px-8 lg:px-16 mb-8 sm:mb-10 flex items-end justify-between gap-4">
-        <div className="space-y-1.5">
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#D4A59A]" />
-            <p className="text-[10px] uppercase tracking-[0.4em] text-dusty-rose font-sans font-semibold">
-              CINEMATIC ARCHIVE
+      <div className="px-5 sm:px-8 lg:px-16 mb-10 sm:mb-14 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div className="space-y-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 border border-shadow/10 bg-white/70 backdrop-blur-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D4A59A] animate-pulse" />
+            <p className="text-[9.5px] uppercase tracking-[0.4em] text-dusty-rose font-sans font-semibold">
+              CINEMATIC ARCHIVE • EST. 2024
             </p>
           </div>
           <h2
             id="reel-strip-heading"
-            className="font-serif text-2xl sm:text-3xl md:text-4xl uppercase tracking-[0.14em] text-shadow font-normal"
+            className="font-serif text-3xl sm:text-4xl md:text-5xl uppercase tracking-[0.14em] text-shadow font-normal"
           >
             Seen on Film
           </h2>
         </div>
-        <p className="hidden sm:block text-xs font-sans text-shadow/80 tracking-wide max-w-[280px] text-right leading-relaxed font-light">
+        <p className="text-xs sm:text-sm font-sans text-shadow/80 tracking-wide max-w-sm sm:text-right leading-relaxed font-light">
           Authentic client reviews, packaging unboxings, and editorial captures from across Pakistan.
         </p>
       </div>

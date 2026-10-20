@@ -240,11 +240,18 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
 
       <div className="max-w-[1400px] mx-auto space-y-16 md:space-y-24">
         {/* Header */}
-        <div className="text-center space-y-4 max-w-2xl mx-auto">
-          <span className="text-[10px] uppercase tracking-[0.45em] text-dusty-rose font-sans font-medium block">
-            HAUTE PARFUMERIE ATELIER • KARACHI
-          </span>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl font-normal uppercase tracking-[0.16em] text-shadow leading-tight">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center space-y-4 max-w-2xl mx-auto"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-shadow/10 bg-white/70 backdrop-blur-sm text-[9px] uppercase tracking-[0.45em] text-dusty-rose font-sans font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#D4A59A]" />
+            <span>HAUTE PARFUMERIE ATELIER • KARACHI</span>
+          </div>
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal uppercase tracking-[0.16em] text-shadow leading-tight">
             CREATE YOUR <br className="hidden sm:block" />
             <span className="italic font-normal text-dusty-rose">SIGNATURE</span>
           </h2>
@@ -252,7 +259,7 @@ export const CustomScentAtelier: React.FC<CustomScentAtelierProps> = ({
             Select your olfactory direction and hand-pick raw essence notes across the top, heart, and base tiers. 
             Compounded by our master perfumer into an individually engraved flacon.
           </p>
-        </div>
+        </motion.div>
 
         {/* Builder Interface */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">

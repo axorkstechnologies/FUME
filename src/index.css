@@ -11,6 +11,11 @@
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
+/* ═══════════════════════════════════════════════════════════
+   FUME — $20,000 LUXURY DIGITAL COMMISSION
+   Design System: Physical Light · Museum Gravity · Quiet Power
+   ═══════════════════════════════════════════════════════════ */
+
 /* === ARCHITECTURAL MINIMALISM BASELINE === */
 body {
   -webkit-font-smoothing: antialiased;
@@ -21,14 +26,14 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* Headings: precise kerning and geometric rendering */
+/* Headings: precise kerning — editorial tightness */
 h1, h2, h3, h4, h5, h6 {
   font-feature-settings: "kern" 1, "liga" 1;
   text-rendering: geometricPrecision;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
 
-/* Focus: visible but restrained */
+/* Focus: restrained, rose-gold accent */
 *:focus-visible {
   outline: 1px solid var(--color-shadow);
   outline-offset: 2px;
@@ -68,6 +73,11 @@ h1, h2, h3, h4, h5, h6 {
 html {
   scroll-behavior: auto;
 }
+
+
+/* ═══════════════════════════════════════════════════════════
+   STRUCTURAL LAYOUT — Header / Navigation (untouched)
+   ═══════════════════════════════════════════════════════════ */
 
 /* Header grid: 3-column on mobile, flex on desktop */
 .site-header {
@@ -143,140 +153,528 @@ html {
   }
 }
 
-/* Minimal scrollbar */
-::-webkit-scrollbar { width: 4px; height: 4px; }
-::-webkit-scrollbar-track { background: var(--color-pearl); }
-::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); }
-::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.3); }
 
-/* Buttons: solid, architectural */
+/* ═══════════════════════════════════════════════════════════
+   BUTTONS — Architectural baseline
+   ═══════════════════════════════════════════════════════════ */
 button {
   font-family: var(--font-sans);
   letter-spacing: 0.15em;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* === $20,000 LUXURY DIGITAL COMMISSION: ELEVATION DESIGN SYSTEM === */
 
-/* 1. Liquid Glass / Advanced Glassmorphism */
+/* ═══════════════════════════════════════════════════════════
+   1. LIQUID GLASS SYSTEM — True Optical Glassmorphism
+   Multi-layer shadows · Edge luminance · Inner glow depth
+   ═══════════════════════════════════════════════════════════ */
+
 .luxury-glass {
-  background: rgba(253, 251, 247, 0.82);
-  backdrop-filter: blur(24px) saturate(190%);
-  -webkit-backdrop-filter: blur(24px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: 
-    0 20px 45px -15px rgba(10, 10, 10, 0.06),
-    0 1px 2px rgba(10, 10, 10, 0.02),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.95);
+  position: relative;
+  background: rgba(253, 251, 247, 0.78);
+  backdrop-filter: blur(28px) saturate(200%) brightness(1.04);
+  -webkit-backdrop-filter: blur(28px) saturate(200%) brightness(1.04);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow:
+    /* ambient light diffusion */
+    0 24px 48px -16px rgba(10, 10, 10, 0.06),
+    /* contact shadow — object sits on surface */
+    0 2px 4px rgba(10, 10, 10, 0.02),
+    /* specular rim — light catching top edge */
+    0 -1px 0 rgba(255, 255, 255, 0.9),
+    /* inner glow depth */
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -1px 2px 0 rgba(10, 10, 10, 0.015);
+  transition: box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.5s ease;
 }
+
+/* Inner luminous border glow — edge refraction */
+.luxury-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(255, 255, 255, 0.25) 30%,
+    rgba(212, 165, 154, 0.08) 60%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.7;
+  transition: opacity 0.5s ease;
+}
+
+.luxury-glass:hover {
+  box-shadow:
+    0 28px 56px -16px rgba(10, 10, 10, 0.08),
+    0 2px 4px rgba(10, 10, 10, 0.03),
+    0 -1px 0 rgba(255, 255, 255, 1),
+    inset 0 1px 3px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 2px 0 rgba(10, 10, 10, 0.015);
+}
+
+.luxury-glass:hover::before {
+  opacity: 1;
+}
+
 
 .luxury-glass-dark {
-  background: rgba(10, 10, 10, 0.85);
-  backdrop-filter: blur(28px) saturate(180%);
-  -webkit-backdrop-filter: blur(28px) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 
-    0 25px 50px -12px rgba(0, 0, 0, 0.45),
-    0 2px 4px rgba(0, 0, 0, 0.2),
-    inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  background: rgba(10, 10, 10, 0.82);
+  backdrop-filter: blur(32px) saturate(180%) brightness(0.92);
+  -webkit-backdrop-filter: blur(32px) saturate(180%) brightness(0.92);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 28px 56px -16px rgba(0, 0, 0, 0.5),
+    0 4px 8px rgba(0, 0, 0, 0.25),
+    0 -1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -1px 3px 0 rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.5s ease;
 }
+
+.luxury-glass-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.04) 40%,
+    rgba(212, 165, 154, 0.06) 70%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
+}
+
+.luxury-glass-dark:hover {
+  box-shadow:
+    0 32px 64px -16px rgba(0, 0, 0, 0.55),
+    0 4px 10px rgba(0, 0, 0, 0.3),
+    0 -1px 0 rgba(255, 255, 255, 0.12),
+    inset 0 1px 2px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 3px 0 rgba(0, 0, 0, 0.3);
+}
+
+.luxury-glass-dark:hover::before {
+  opacity: 0.9;
+}
+
 
 .luxury-glass-card {
-  background: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(10, 10, 10, 0.06);
-  box-shadow: 
-    0 12px 32px -10px rgba(10, 10, 10, 0.04),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.85);
+  position: relative;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px) saturate(190%) brightness(1.02);
+  -webkit-backdrop-filter: blur(20px) saturate(190%) brightness(1.02);
+  border: 1px solid rgba(10, 10, 10, 0.04);
+  box-shadow:
+    0 16px 40px -12px rgba(10, 10, 10, 0.05),
+    0 1px 3px rgba(10, 10, 10, 0.02),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.9),
+    inset 0 -1px 0 0 rgba(10, 10, 10, 0.01);
+  transition: box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.5s ease;
 }
 
-/* 2. Museum Crystal Vitrine (Product Showcase) */
+.luxury-glass-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(245, 242, 239, 0.3) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+  transition: opacity 0.5s ease;
+}
+
+.luxury-glass-card:hover {
+  box-shadow:
+    0 20px 48px -12px rgba(10, 10, 10, 0.07),
+    0 1px 4px rgba(10, 10, 10, 0.03),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 0 rgba(10, 10, 10, 0.01);
+}
+
+.luxury-glass-card:hover::before {
+  opacity: 0.8;
+}
+
+
+.luxury-glass-elevated {
+  position: relative;
+  background: rgba(253, 251, 247, 0.88);
+  backdrop-filter: blur(36px) saturate(210%) brightness(1.06);
+  -webkit-backdrop-filter: blur(36px) saturate(210%) brightness(1.06);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow:
+    /* deep ambient — large spread, lifted presence */
+    0 40px 80px -20px rgba(10, 10, 10, 0.08),
+    /* mid contact */
+    0 12px 24px -8px rgba(10, 10, 10, 0.04),
+    /* tight contact */
+    0 2px 6px rgba(10, 10, 10, 0.02),
+    /* specular rim top */
+    0 -1px 0 rgba(255, 255, 255, 1),
+    /* inner luminance */
+    inset 0 2px 4px 0 rgba(255, 255, 255, 0.95),
+    inset 0 -2px 4px 0 rgba(10, 10, 10, 0.01);
+  transition: box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.5s ease;
+}
+
+.luxury-glass-elevated::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.3) 25%,
+    rgba(212, 165, 154, 0.1) 55%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
+}
+
+.luxury-glass-elevated:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 48px 96px -24px rgba(10, 10, 10, 0.1),
+    0 16px 32px -8px rgba(10, 10, 10, 0.05),
+    0 2px 8px rgba(10, 10, 10, 0.03),
+    0 -1px 0 rgba(255, 255, 255, 1),
+    inset 0 2px 4px 0 rgba(255, 255, 255, 1),
+    inset 0 -2px 4px 0 rgba(10, 10, 10, 0.01);
+}
+
+.luxury-glass-elevated:hover::before {
+  opacity: 1;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   2. CRYSTAL VITRINE SYSTEM — Museum Product Showcase
+   3D perspective · Specular sweep · Shadow cascade
+   ═══════════════════════════════════════════════════════════ */
+
 .crystal-vitrine {
   position: relative;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+  transform-style: preserve-3d;
+  transition:
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.5s ease;
+  box-shadow:
+    /* contact shadow */
+    0 2px 4px rgba(10, 10, 10, 0.04),
+    /* ambient shadow */
+    0 12px 28px -8px rgba(10, 10, 10, 0.06);
 }
 
+/* Specular reflection sweep */
 .crystal-vitrine::before {
   content: '';
   position: absolute;
   inset: 0;
+  border-radius: inherit;
   pointer-events: none;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0) 50%, rgba(212, 165, 154, 0.06) 100%);
-  opacity: 0;
-  transition: opacity 0.5s ease;
   z-index: 10;
+  background: linear-gradient(
+    105deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(255, 255, 255, 0.5) 45%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 55%,
+    transparent 100%
+  );
+  background-size: 250% 100%;
+  background-position: 200% 0;
+  opacity: 0;
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    background-position 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Subtle refraction edge glow */
+.crystal-vitrine::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 9;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    transparent 40%,
+    transparent 60%,
+    rgba(212, 165, 154, 0.05) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.crystal-vitrine:hover {
+  transform: perspective(1200px) rotateX(1.5deg) rotateY(-1deg) translateY(-4px);
+  box-shadow:
+    /* lifted contact shadow — softened */
+    0 4px 8px rgba(10, 10, 10, 0.03),
+    /* ambient glow — expanded */
+    0 20px 48px -10px rgba(10, 10, 10, 0.08),
+    /* deep lifted shadow */
+    0 40px 64px -20px rgba(10, 10, 10, 0.04);
 }
 
 .crystal-vitrine:hover::before {
   opacity: 1;
+  background-position: -50% 0;
 }
 
-/* 3. Illuminated Pedestal Plinth */
+.crystal-vitrine:hover::after {
+  opacity: 1;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   3. PEDESTAL LIGHTING — Museum Spot Illumination
+   Multi-stop radial · Breathing pulse · Caustic scatter
+   ═══════════════════════════════════════════════════════════ */
+
+@keyframes luminancePulse {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 .pedestal-light {
-  background: radial-gradient(circle at 50% 65%, rgba(255, 255, 255, 0.95) 0%, rgba(245, 242, 239, 0.5) 45%, rgba(245, 242, 239, 0) 75%);
+  position: relative;
+  background:
+    /* primary spot — tight pool of light */
+    radial-gradient(ellipse 60% 70% at 50% 60%,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(253, 251, 247, 0.7) 25%,
+      rgba(245, 242, 239, 0.35) 50%,
+      rgba(245, 242, 239, 0.08) 70%,
+      transparent 85%);
+  animation: luminancePulse 4s ease-in-out infinite;
+}
+
+/* Caustic scatter overlay */
+.pedestal-light::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(ellipse 30% 25% at 38% 55%,
+      rgba(255, 255, 255, 0.12) 0%,
+      transparent 70%),
+    radial-gradient(ellipse 20% 30% at 62% 48%,
+      rgba(253, 251, 247, 0.08) 0%,
+      transparent 65%),
+    radial-gradient(ellipse 40% 20% at 50% 75%,
+      rgba(212, 165, 154, 0.03) 0%,
+      transparent 60%);
+  z-index: 1;
+  animation: luminancePulse 6s ease-in-out infinite reverse;
 }
 
 .pedestal-light-dark {
-  background: radial-gradient(circle at 50% 65%, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 40%, transparent 70%);
+  position: relative;
+  background:
+    radial-gradient(ellipse 55% 65% at 50% 60%,
+      rgba(255, 255, 255, 0.09) 0%,
+      rgba(255, 255, 255, 0.04) 25%,
+      rgba(255, 255, 255, 0.015) 45%,
+      transparent 65%);
+  animation: luminancePulse 4s ease-in-out infinite;
 }
 
-/* 4. Luxury Skeuomorphic Tactile Buttons */
+.pedestal-light-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background:
+    radial-gradient(ellipse 25% 20% at 40% 55%,
+      rgba(255, 255, 255, 0.04) 0%,
+      transparent 65%),
+    radial-gradient(ellipse 18% 25% at 60% 50%,
+      rgba(255, 255, 255, 0.025) 0%,
+      transparent 60%);
+  z-index: 1;
+  animation: luminancePulse 6s ease-in-out infinite reverse;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   4. TACTILE BUTTON SYSTEM — Physical Depth & Bevel
+   Precision bevels · True depression · Rose-gold focus
+   ═══════════════════════════════════════════════════════════ */
+
 .tactile-button-dark {
-  background: #0A0A0A;
+  position: relative;
+  background: linear-gradient(180deg, #141212 0%, #0A0A0A 100%);
   color: #FDFBF7;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: 
-    0 4px 14px rgba(10, 10, 10, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    /* outer ambient */
+    0 6px 18px rgba(10, 10, 10, 0.2),
+    0 2px 4px rgba(10, 10, 10, 0.1),
+    /* top bevel — light catch */
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    /* bottom inner shadow — depth */
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tactile-button-dark:hover {
-  background: #1A1817;
-  border-color: rgba(255, 255, 255, 0.32);
-  box-shadow: 
-    0 8px 24px rgba(10, 10, 10, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.32);
+  background: linear-gradient(180deg, #1E1B1A 0%, #121010 100%);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow:
+    /* expanded ambient glow */
+    0 10px 30px rgba(10, 10, 10, 0.3),
+    0 4px 8px rgba(10, 10, 10, 0.15),
+    /* luminous rim glow */
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    /* top bevel — brighter on hover */
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
   transform: translateY(-1px);
 }
 
 .tactile-button-dark:active {
+  background: linear-gradient(180deg, #0A0A0A 0%, #111 100%);
   transform: translateY(1px) scale(0.99);
-  box-shadow: 
-    0 2px 6px rgba(10, 10, 10, 0.18),
-    inset 0 1px 2px rgba(0, 0, 0, 0.45);
+  box-shadow:
+    /* collapsed shadow — pressed into surface */
+    0 1px 3px rgba(10, 10, 10, 0.2),
+    /* deep inset — true depression */
+    inset 0 2px 4px rgba(0, 0, 0, 0.5),
+    inset 0 1px 1px rgba(0, 0, 0, 0.3),
+    /* bottom catch reverses — surface texture */
+    inset 0 -1px 0 rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
+.tactile-button-dark:focus-visible {
+  outline: 1.5px solid rgba(212, 165, 154, 0.7);
+  outline-offset: 3px;
+}
+
+
 .tactile-button-light {
-  background: #FFFFFF;
+  position: relative;
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAFAF8 100%);
   color: #0A0A0A;
-  border: 1px solid rgba(10, 10, 10, 0.12);
-  box-shadow: 
-    0 4px 12px rgba(10, 10, 10, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 1);
+  border: 1px solid rgba(10, 10, 10, 0.1);
+  box-shadow:
+    0 4px 14px rgba(10, 10, 10, 0.05),
+    0 1px 3px rgba(10, 10, 10, 0.03),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(10, 10, 10, 0.03);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tactile-button-light:hover {
-  border-color: rgba(10, 10, 10, 0.3);
-  box-shadow: 
-    0 8px 20px rgba(10, 10, 10, 0.08),
-    inset 0 1px 0 rgba(255, 255, 255, 1);
+  background: linear-gradient(180deg, #FFFFFF 0%, #F8F6F3 100%);
+  border-color: rgba(10, 10, 10, 0.22);
+  box-shadow:
+    0 8px 24px rgba(10, 10, 10, 0.08),
+    0 2px 6px rgba(10, 10, 10, 0.04),
+    0 0 0 1px rgba(10, 10, 10, 0.02),
+    inset 0 1px 0 rgba(255, 255, 255, 1),
+    inset 0 -1px 0 rgba(10, 10, 10, 0.03);
   transform: translateY(-1px);
 }
 
 .tactile-button-light:active {
+  background: linear-gradient(180deg, #F7F5F2 0%, #FAFAF8 100%);
   transform: translateY(1px) scale(0.99);
-  box-shadow: 
-    0 2px 4px rgba(10, 10, 10, 0.05),
-    inset 0 1px 2px rgba(10, 10, 10, 0.05);
+  box-shadow:
+    0 1px 2px rgba(10, 10, 10, 0.04),
+    inset 0 2px 4px rgba(10, 10, 10, 0.06),
+    inset 0 1px 1px rgba(10, 10, 10, 0.04),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.5);
+  border-color: rgba(10, 10, 10, 0.15);
 }
 
-/* 5. Luminous Sheen Animation */
+.tactile-button-light:focus-visible {
+  outline: 1.5px solid rgba(212, 165, 154, 0.7);
+  outline-offset: 3px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   5. LUMINOUS SHEEN — Real Light on Crystal
+   Slow, luxurious sweep · Low opacity · Natural skew
+   ═══════════════════════════════════════════════════════════ */
+
 @keyframes lightSheen {
-  0% { transform: translateX(-150%) skewX(-20deg); }
-  100% { transform: translateX(250%) skewX(-20deg); }
+  0% {
+    transform: translateX(-200%) skewX(-15deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(300%) skewX(-15deg);
+    opacity: 0;
+  }
 }
 
 .animate-sheen {
@@ -289,13 +687,319 @@ button {
   position: absolute;
   top: 0;
   left: 0;
-  width: 40%;
+  width: 35%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.28), transparent);
-  transform: translateX(-150%) skewX(-20deg);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.06) 30%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.06) 70%,
+    transparent 100%
+  );
+  transform: translateX(-200%) skewX(-15deg);
   pointer-events: none;
+  z-index: 5;
 }
 
 .animate-sheen:hover::after {
-  animation: lightSheen 1.2s ease-in-out;
+  animation: lightSheen 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   6. SCROLL REVEAL SYSTEM — Entrance Choreography
+   Luxury easing · Staggered reveals · Clip-path masks
+   ═══════════════════════════════════════════════════════════ */
+
+@keyframes revealUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes revealFade {
+  0% {
+    opacity: 0;
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes revealScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes textRevealMask {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+.reveal-up {
+  animation: revealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.reveal-fade {
+  animation: revealFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.reveal-scale {
+  animation: revealScale 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.reveal-text-mask {
+  animation: textRevealMask 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Stagger delays for choreographed entrances */
+.reveal-delay-1 { animation-delay: 0.1s; }
+.reveal-delay-2 { animation-delay: 0.2s; }
+.reveal-delay-3 { animation-delay: 0.35s; }
+.reveal-delay-4 { animation-delay: 0.5s; }
+.reveal-delay-5 { animation-delay: 0.65s; }
+.reveal-delay-6 { animation-delay: 0.8s; }
+
+
+/* ═══════════════════════════════════════════════════════════
+   7. AMBIENT MOTION — Living Atmosphere
+   Float · Breathe · Shimmer · Pulse
+   ═══════════════════════════════════════════════════════════ */
+
+@keyframes ambientFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes ambientBreath {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+}
+
+@keyframes shimmerGold {
+  0%, 100% {
+    color: var(--color-shadow);
+  }
+  25% {
+    color: #8B7355;
+  }
+  50% {
+    color: #C9A87C;
+  }
+  75% {
+    color: #B08D6A;
+  }
+}
+
+@keyframes shimmerRoseGold {
+  0%, 100% {
+    color: var(--color-shadow);
+  }
+  25% {
+    color: #B76E79;
+  }
+  50% {
+    color: #D4A59A;
+  }
+  75% {
+    color: #C08B82;
+  }
+}
+
+.animate-float {
+  animation: ambientFloat 5s ease-in-out infinite;
+}
+
+.animate-breath {
+  animation: ambientBreath 6s ease-in-out infinite;
+}
+
+.animate-shimmer-gold {
+  animation: shimmerGold 4s ease-in-out infinite;
+}
+
+.animate-shimmer-rose {
+  animation: shimmerRoseGold 4s ease-in-out infinite;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   8. 3D PERSPECTIVE UTILITIES
+   ═══════════════════════════════════════════════════════════ */
+
+.perspective-800 {
+  perspective: 800px;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   9. LUXURIOUS SCROLLBAR — Barely There, Always Beautiful
+   ═══════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-pearl);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(10, 10, 10, 0.1);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(10, 10, 10, 0.25);
+  width: 5px;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(10, 10, 10, 0.1) var(--color-pearl);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   10. TYPOGRAPHY ENHANCEMENTS
+   ═══════════════════════════════════════════════════════════ */
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Fine typographic details */
+.editorial-caps {
+  font-feature-settings: "kern" 1, "liga" 1, "smcp" 1;
+  letter-spacing: 0.14em;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   11. PAGE-LEVEL AMBIENT — Grain Texture Overlay
+   Ultra-subtle noise · Physical materiality
+   ═══════════════════════════════════════════════════════════ */
+
+.page-grain {
+  position: relative;
+}
+
+.page-grain::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  mix-blend-mode: multiply;
+  background-image:
+    repeating-radial-gradient(
+      circle at 17% 32%,
+      rgba(0, 0, 0, 0.06) 0px,
+      transparent 1px,
+      transparent 2px
+    ),
+    repeating-radial-gradient(
+      circle at 73% 68%,
+      rgba(0, 0, 0, 0.04) 0px,
+      transparent 1px,
+      transparent 3px
+    ),
+    repeating-radial-gradient(
+      circle at 41% 84%,
+      rgba(0, 0, 0, 0.05) 0px,
+      transparent 1px,
+      transparent 2px
+    );
+  background-size: 3px 3px, 4px 4px, 5px 5px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   12. PAGE TRANSITION EFFECTS
+   ═══════════════════════════════════════════════════════════ */
+
+@keyframes pageEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes pageFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.page-enter {
+  animation: pageEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.page-fade-in {
+  animation: pageFadeIn 0.5s ease both;
 }

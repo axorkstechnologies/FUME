@@ -25,8 +25,11 @@ export const Footer: React.FC<FooterProps> = ({
   };
 
   return (
-    <footer className="relative w-full bg-shadow text-pearl py-24 px-6 sm:px-8 md:px-12 lg:px-16 border-t border-white/[0.08]">
-      <div className="max-w-[1500px] mx-auto">
+    <footer className="relative w-full bg-shadow text-pearl py-24 md:py-32 px-6 sm:px-8 md:px-12 lg:px-16 border-t border-white/[0.08] overflow-hidden">
+      {/* Subtle Ambient Caustic Light Catch */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[radial-gradient(circle,rgba(212,165,154,0.04)_0%,transparent_70%)] pointer-events-none" />
+
+      <div className="max-w-[1540px] mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-20">
           
           {/* Brand Column */}
@@ -35,7 +38,7 @@ export const Footer: React.FC<FooterProps> = ({
               <span className="text-[10px] uppercase tracking-[0.45em] font-semibold text-[#D4A59A] block">
                 HAUTE PARFUMERIE
               </span>
-              <h3 className="font-serif text-2xl uppercase tracking-[0.16em] text-pearl">
+              <h3 className="font-serif text-3xl uppercase tracking-[0.18em] text-pearl">
                 FUME
               </h3>
             </div>
@@ -97,7 +100,7 @@ export const Footer: React.FC<FooterProps> = ({
               Join our register for bespoke flacon releases and private atelier compounding.
             </p>
             {subscribed ? (
-              <div className="p-3 bg-white/10 border border-white/20 text-xs font-sans tracking-[0.25em] text-[#D4A59A] uppercase">
+              <div className="p-3.5 bg-white/10 border border-white/20 text-xs font-sans tracking-[0.25em] text-[#D4A59A] uppercase">
                 Registry Confirmed.
               </div>
             ) : (
@@ -109,11 +112,11 @@ export const Footer: React.FC<FooterProps> = ({
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="PATRON EMAIL ADDRESS"
                   aria-label="Email address for newsletter"
-                  className="bg-white/[0.06] border border-white/20 px-3.5 py-3 text-xs font-sans tracking-widest text-pearl focus:outline-none focus:border-[#D4A59A] transition-colors rounded-none placeholder:text-pearl/30 uppercase"
+                  className="bg-white/[0.06] border border-white/20 px-4 py-3.5 text-xs font-sans tracking-widest text-pearl focus:outline-none focus:border-[#D4A59A] transition-colors rounded-none placeholder:text-pearl/30 uppercase"
                 />
                 <button
                   type="submit"
-                  className="py-3 px-6 text-[9px] uppercase tracking-[0.3em] font-sans font-semibold bg-pearl text-shadow hover:bg-white active:scale-[0.99] transition-all cursor-pointer"
+                  className="py-3.5 px-6 text-[9px] uppercase tracking-[0.3em] font-sans font-semibold tactile-button-light animate-sheen cursor-pointer hover:scale-[1.01] active:scale-[0.98]"
                 >
                   REQUEST ACCESS
                 </button>
