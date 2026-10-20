@@ -107,7 +107,7 @@ export function App() {
   const [isStoryOpen, setIsStoryOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isAccountOpen, setIsAccountOpen] = useState(false);
-  const [customScentDirection, setCustomScentDirection] = useState<string>('ORIENTAL');
+  const [customScentDirection, setCustomScentDirection] = useState<string>('UNISEX');
 
   // Dynamic SEO / AEO / GEO Metadata per view
   useEffect(() => {

@@ -9,10 +9,10 @@ interface FragranceDiscoveryProps {
   onAddToCart: (fragrance: Fragrance) => void;
   onViewAllPerfumes: () => void;
   themeMode: ThemeMode;
-  onSelectCustomCategory?: (category: 'FOR HER' | 'FOR HIM' | 'UNISEX' | 'ORIENTAL' | string) => void;
+  onSelectCustomCategory?: (category: 'FOR HER' | 'FOR HIM' | 'UNISEX' | string) => void;
 }
 
-type DiscoveryCategory = 'FOR HER' | 'FOR HIM' | 'UNISEX' | 'ORIENTAL' | 'FRESH' | 'WOODY';
+type DiscoveryCategory = 'FOR HER' | 'FOR HIM' | 'UNISEX';
 
 const CATEGORIES: {
   label: DiscoveryCategory;
@@ -20,10 +20,7 @@ const CATEGORIES: {
 }[] = [
   { label: 'FOR HER', description: 'Nocturnal jasmine, luminous white tuberose, and velvet bourbon vanilla.' },
   { label: 'FOR HIM', description: 'Commanding noble woods, mineral ambergris, and crisp bergamot.' },
-  { label: 'UNISEX', description: 'Tuscan leather, Florentine iris butter, and smoked oakmoss.' },
-  { label: 'ORIENTAL', description: 'Charred tonka bean, sacred frankincense, and warm amber resins.' },
-  { label: 'FRESH', description: 'Calabrian citrus, frost aldehydes, and pure oceanic accords.' },
-  { label: 'WOODY', description: 'Smoky birch, aged cedarwood, and cured Virginian tobacco.' }
+  { label: 'UNISEX', description: 'Tuscan leather, Florentine iris butter, and smoked oakmoss.' }
 ];
 
 export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
@@ -40,8 +37,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
       if (activeCategory === 'FOR HIM') return f.gender === 'him';
       if (activeCategory === 'FOR HER') return f.gender === 'her';
       if (activeCategory === 'UNISEX') return f.gender === 'unisex';
-      if (activeCategory === 'ORIENTAL') return f.families.includes('oriental') || f.olfactoryFamily === 'ORIENTAL';
-      return f.families.includes(activeCategory.toLowerCase());
+      return true;
     });
 
     // Ensure Discovery Set is always at the end if present
