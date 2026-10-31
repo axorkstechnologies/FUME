@@ -198,7 +198,7 @@ export const ReelStrip: React.FC<ReelStripProps> = ({ films, onOpenReel }) => {
             Seen on Film
           </h2>
         </div>
-        <p className="text-xs sm:text-sm font-sans text-shadow/80 tracking-wide max-w-sm sm:text-right leading-relaxed font-light">
+        <p className="text-xs sm:text-sm font-sans text-shadow/80 tracking-wide max-w-sm sm:text-right leading-relaxed font-normal">
           Authentic client reviews, packaging unboxings, and editorial captures from across Pakistan.
         </p>
       </div>

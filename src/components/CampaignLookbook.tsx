@@ -14,26 +14,26 @@ export const CampaignLookbook: React.FC = () => {
           transition={{ duration: 1.0, ease: [0.16, 1, 0.3, 1] }}
           className="text-center space-y-4 max-w-2xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-shadow/10 bg-white/70 backdrop-blur-sm text-[9px] uppercase tracking-[0.4em] text-dusty-rose font-sans font-medium">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 border border-shadow/10 bg-white/70 backdrop-blur-sm text-[9px] uppercase tracking-[0.4em] text-dusty-rose font-sans font-semibold">
             <span className="w-1.5 h-1.5 rounded-full bg-[#D4A59A]" />
             <span>EDITORIAL VISUAL ARCHIVE</span>
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal uppercase tracking-[0.16em] text-shadow leading-tight">
             THE CAMPAIGNS
           </h2>
-          <p className="text-xs sm:text-sm font-sans font-normal tracking-wide text-shadow/70 max-w-md mx-auto leading-relaxed">
+          <p className="text-xs sm:text-sm font-sans font-normal tracking-wide text-shadow/85 max-w-md mx-auto leading-relaxed">
             Cinematic visual chapters capturing the raw poetry and regal depth of FUME creations.
           </p>
         </motion.div>
 
         {/* Desert Collection Campaign Diptych */}
         <div className="space-y-8">
-          <div className="flex items-center justify-between border-b border-shadow/[0.08] pb-3 text-[10px] uppercase tracking-[0.3em] font-sans text-dusty-rose font-medium">
+          <div className="flex items-center justify-between border-b border-shadow/[0.08] pb-3 text-[10px] uppercase tracking-[0.3em] font-sans text-dusty-rose font-semibold">
             <span className="flex items-center gap-2">
-              <span className="font-serif italic font-normal text-shadow/60">I.</span>
+              <span className="font-serif italic font-normal text-shadow/80">I.</span>
               <span>CHAPTER I — DESERT ENIGMA</span>
             </span>
-            <span className="text-shadow/50 hidden sm:inline">AMBER &bull; SMOKED SANDALWOOD</span>
+            <span className="text-shadow/70 font-medium hidden sm:inline">AMBER &bull; SMOKED SANDALWOOD</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 items-center">

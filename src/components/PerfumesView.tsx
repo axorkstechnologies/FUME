@@ -230,18 +230,18 @@ export const PerfumesView: React.FC<PerfumesViewProps> = ({
 
                     {/* Metadata */}
                     <div className="flex flex-col flex-1 text-center">
-                      <h3 className="font-serif text-2xl uppercase tracking-[0.16em] text-shadow mb-2">
+                      <h3 className="font-serif text-2xl uppercase tracking-[0.16em] text-shadow mb-2 font-normal">
                         {getFragranceTitle(fragrance)}
                       </h3>
-                      <p className="text-[9px] uppercase tracking-[0.2em] text-shadow/60 font-sans mb-1">
+                      <p className="text-[9.5px] uppercase tracking-[0.2em] text-shadow/80 font-sans font-semibold mb-1">
                         {fragrance.subtitle}
                       </p>
-                      <p className="text-[9px] uppercase tracking-[0.15em] text-shadow/40 font-sans mb-5">
-                        {isDiscoverySet ? '5 A- 5 ML' : '50 ML EAU DE PARFUM'}
+                      <p className="text-[9.5px] uppercase tracking-[0.15em] text-shadow/70 font-sans font-medium mb-5">
+                        {isDiscoverySet ? '5 × 5 ML TESTERS' : '50 ML EAU DE PARFUM'}
                       </p>
 
                       <div className="mt-auto flex flex-col items-center">
-                        <span className="font-sans text-[11px] tracking-[0.1em] text-shadow mb-4">
+                        <span className="font-sans text-xs tracking-[0.1em] text-shadow font-semibold mb-4">
                           Rs {fragrance.price.toLocaleString()}
                         </span>
                         <button

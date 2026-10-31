@@ -53,7 +53,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
               </span>
             </div>
 
-            <div className="space-y-6 text-sm md:text-[15px] font-sans font-light leading-[1.8] text-shadow/90">
+            <div className="space-y-6 text-sm md:text-[15px] font-sans font-normal leading-[1.8] text-shadow/90">
               <p>
                 I didn't start Fume simply because I wanted to start a business.
                 I started it because I believed in something.
@@ -91,7 +91,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
         {/* Mission & Vision */}
         <section className="space-y-16 border-t border-shadow/[0.08] pt-24">
           <div className="text-center space-y-3 max-w-2xl mx-auto mb-4">
-            <span className="text-[10px] uppercase tracking-[0.4em] text-shadow/50 font-sans font-medium block">
+            <span className="text-[10px] uppercase tracking-[0.4em] text-shadow/70 font-sans font-medium block">
               PURPOSE & DIRECTION
             </span>
             <h2 className="font-serif text-3xl sm:text-4xl font-normal uppercase tracking-[0.16em] text-shadow">
@@ -112,7 +112,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
               <h3 className="font-serif text-2xl sm:text-3xl font-normal uppercase tracking-[0.14em] text-shadow leading-snug">
                 MAKING QUALITY ACCESSIBLE TO EVERYONE
               </h3>
-              <p className="text-sm font-sans font-light leading-[1.85] text-shadow/80">
+              <p className="text-sm font-sans font-normal leading-[1.8] text-shadow/90">
                 Our mission is to make authentic, high-quality fragrances accessible to everyone. We believe exceptional fragrance should not come with an unreasonable price tag, which is why we are committed to offering beautifully crafted, authentic products at prices that remain genuinely accessible.
               </p>
             </div>
@@ -128,7 +128,7 @@ export const StoryView: React.FC<StoryViewProps> = ({
               <h3 className="font-serif text-2xl sm:text-3xl font-normal uppercase tracking-[0.14em] text-shadow leading-snug">
                 PAKISTAN'S LEADING FRAGRANCE BRAND
               </h3>
-              <p className="text-sm font-sans font-light leading-[1.85] text-shadow/80">
+              <p className="text-sm font-sans font-normal leading-[1.8] text-shadow/90">
                 Our vision is to establish Fume as one of Pakistan's leading fragrance brands — a name recognised for its authenticity, uncompromising quality, accessibility, and the trust we build with every customer.
               </p>
             </div>

@@ -85,7 +85,7 @@ export const CollectionsView: React.FC<CollectionsViewProps> = ({
                         {collection.title}
                       </h2>
                     </div>
-                    <p className="text-sm font-sans font-light leading-relaxed text-shadow/80 max-w-md">
+                    <p className="text-sm font-sans font-normal leading-relaxed text-shadow/90 max-w-md">
                       {collection.description}
                     </p>
                     

@@ -113,7 +113,7 @@ export const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
                 {/* Product Narrative & Metadata */}
                 <div className="w-full md:w-1/2 flex flex-col justify-between pt-6 md:pt-0 md:pl-8 space-y-6">
                   <div className="space-y-3">
-                    <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-dusty-rose font-medium">
+                    <div className="flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-dusty-rose font-semibold">
                       <span>{fragrance.genderCategory}</span>
                       <span>•</span>
                       <span>{fragrance.olfactoryFamily}</span>
@@ -123,18 +123,18 @@ export const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
                       {getFragranceTitle(fragrance)}
                     </h4>
 
-                    <p className="text-[11px] uppercase tracking-[0.22em] text-shadow/60 font-sans font-medium">
+                    <p className="text-[11px] uppercase tracking-[0.22em] text-shadow/80 font-sans font-semibold">
                       {fragrance.subtitle}
                     </p>
 
-                    <p className="text-xs font-sans text-shadow/80 leading-relaxed pt-1 line-clamp-3">
+                    <p className="text-xs font-sans text-shadow/90 leading-relaxed pt-1 line-clamp-3 font-normal">
                       {fragrance.description}
                     </p>
                   </div>
 
                   <div className="space-y-4 pt-4 border-t border-shadow/[0.08]">
                     <div className="flex items-baseline justify-between">
-                      <span className="text-[10px] uppercase tracking-[0.25em] text-shadow/60 font-sans">
+                      <span className="text-[10px] uppercase tracking-[0.25em] text-shadow/75 font-sans font-medium">
                         50 ML EAU DE PARFUM
                       </span>
                       <span className="font-serif text-2xl sm:text-3xl font-medium text-dusty-rose">
@@ -244,13 +244,13 @@ export const FeaturedCollection: React.FC<FeaturedCollectionProps> = ({
                   {/* Metadata */}
                   <div className="pt-4 space-y-3 flex-1 flex flex-col justify-between">
                     <div className="space-y-1 text-center">
-                      <h4 className="font-serif text-base sm:text-lg uppercase tracking-[0.14em] text-shadow group-hover:text-dusty-rose transition-colors duration-300">
+                      <h4 className="font-serif text-base sm:text-lg uppercase tracking-[0.14em] text-shadow group-hover:text-dusty-rose transition-colors duration-300 font-normal">
                         {getFragranceTitle(fragrance)}
                       </h4>
-                      <p className="text-[10px] uppercase tracking-[0.2em] text-dusty-rose font-sans font-medium">
+                      <p className="text-[10px] uppercase tracking-[0.2em] text-dusty-rose font-sans font-semibold">
                         {fragrance.subtitle}
                       </p>
-                      <p className="text-[9px] uppercase tracking-[0.18em] text-shadow/60 font-sans">
+                      <p className="text-[9.5px] uppercase tracking-[0.18em] text-shadow/75 font-sans font-medium">
                         {isDiscoverySet ? '5 × 5 ML TESTERS' : '50 ML EAU DE PARFUM'}
                       </p>
                     </div>

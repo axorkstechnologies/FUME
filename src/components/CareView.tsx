@@ -30,7 +30,7 @@ export const CareView: React.FC<CareViewProps> = ({
       category: 'PERFORMANCE & LONGEVITY',
       question: 'HOW LONG DOES FUME PERFUME LAST ON SKIN AND TEXTILES?',
       answer:
-        'FUME Eau de Parfum creations are formulated with an uncompromised 22% to 28% pure perfume oil concentration. In real-world wear tests across Pakistan, our scents consistently deliver all-day active skin persistence and exceptional longevity on garments, remaining distinct and elegant even in warm summer climates.',
+        'FUME Eau de Parfum creations are formulated with an uncompromised high pure perfume oil concentration. In real-world wear tests across Pakistan, our scents consistently deliver all-day active skin persistence and exceptional longevity on garments, remaining distinct and elegant even in warm summer climates.',
       highlight: 'All-day verified skin persistence in warm climates.'
     },
     {

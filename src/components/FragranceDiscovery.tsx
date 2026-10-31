@@ -179,7 +179,7 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                       </span>
                     )}
 
-                    <span className="text-[9px] uppercase tracking-[0.2em] text-shadow/60 font-sans font-medium">
+                    <span className="text-[9.5px] uppercase tracking-[0.2em] text-shadow/80 font-sans font-semibold">
                       {fragrance.genderCategory}
                     </span>
                   </div>
@@ -197,13 +197,13 @@ export const FragranceDiscovery: React.FC<FragranceDiscoveryProps> = ({
                   {/* Metadata & Actions */}
                   <div className="pt-3 space-y-3 flex-1 flex flex-col justify-between">
                     <div className="space-y-1 text-center">
-                      <h4 className="font-serif text-lg uppercase tracking-[0.14em] text-shadow group-hover:text-dusty-rose transition-colors duration-300">
+                      <h4 className="font-serif text-lg uppercase tracking-[0.14em] text-shadow group-hover:text-dusty-rose transition-colors duration-300 font-normal">
                         {getFragranceTitle(fragrance)}
                       </h4>
-                      <p className="text-[10px] uppercase tracking-[0.2em] text-dusty-rose font-sans font-medium">
+                      <p className="text-[10px] uppercase tracking-[0.2em] text-dusty-rose font-sans font-semibold">
                         {fragrance.subtitle}
                       </p>
-                      <p className="text-[9px] uppercase tracking-[0.18em] text-shadow/60 font-sans">
+                      <p className="text-[9.5px] uppercase tracking-[0.18em] text-shadow/75 font-sans font-medium">
                         {isDiscoverySet ? '5 × 5 ML CURATED TESTERS' : '50 ML EAU DE PARFUM'}
                       </p>
                     </div>

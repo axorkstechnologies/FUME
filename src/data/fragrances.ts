@@ -8,16 +8,20 @@ export const EDITORIAL_IMAGE = '/campaigns/arab-girl-bg.jpg';
 
 
 export const getFragranceTitle = (fragrance: Fragrance): string => {
-  if (fragrance.title) return fragrance.title;
-  if (fragrance.id === 'discovery-set') return 'FUME FRAGRANCES Discovery Set';
-  return `FUME FRAGRANCES : ${fragrance.name}`;
+  if (fragrance.name) return fragrance.name;
+  if (fragrance.title) {
+    return fragrance.title
+      .replace(/^FUME(?:\s+FRAGRANCES)?\s*:\s*/i, '')
+      .replace(/^FUME\s+FRAGRANCES\s+/i, '');
+  }
+  return '';
 };
 
 export const DISCOVERY_SET: Fragrance = {
   id: 'discovery-set',
     productType: 'set',
   name: 'DISCOVERY SET',
-  title: 'FUME FRAGRANCES Discovery Set',
+  title: 'DISCOVERY SET',
   subtitle: '5 × 5ML CURATED TESTERS',
   concentration: 'Eau de Parfum',
   volume: '5 × 5 ML / 0.85 FL OZ',
@@ -400,7 +404,7 @@ const RAW_FRAGRANCES: Fragrance[] = [
     id: 'limm',
     productType: 'impression',
     name: "L'IMM",
-    title: "FUME FRAGRANCES : L'IMM",
+    title: "L'IMM",
     subtitle: 'AMBER WOODS & MINERAL AIR',
     concentration: 'Eau de Parfum',
     volume: '50 ML / 1.7 FL OZ',
@@ -501,7 +505,7 @@ const RAW_FRAGRANCES: Fragrance[] = [
     id: 'owood',
     productType: 'impression',
     name: "O'WOOD",
-    title: "FUME FRAGRANCES : O'WOOD",
+    title: "O'WOOD",
     subtitle: 'OAKMOSS & SMOKED WOODS',
     concentration: 'Eau de Parfum',
     volume: '50 ML / 1.7 FL OZ',

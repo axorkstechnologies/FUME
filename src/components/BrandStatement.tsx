@@ -54,10 +54,10 @@ export const BrandStatement: React.FC<BrandStatementProps> = () => {
           transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="space-y-6 max-w-2xl mx-auto"
         >
-          <p className="text-base sm:text-xl md:text-2xl font-serif italic leading-relaxed text-shadow/90 font-normal">
+          <p className="text-base sm:text-xl md:text-2xl font-serif italic leading-relaxed text-shadow font-normal">
             "True refinement does not clamor for attention. It commands through quiet presence and enduring depth."
           </p>
-          <p className="text-xs sm:text-sm font-sans font-light leading-relaxed max-w-xl mx-auto text-shadow/75">
+          <p className="text-xs sm:text-sm font-sans font-normal leading-relaxed max-w-xl mx-auto text-shadow/85">
             Founded in 2024, FUME crafts every fragrance with exceptional concentration. Formulated to bond with epidermal warmth, our noble woods and balsamic resins mature into an indelible personal signature that stays with you all day and into the night.
           </p>
         </motion.div>
@@ -74,7 +74,7 @@ export const BrandStatement: React.FC<BrandStatementProps> = () => {
             <span className="font-serif text-2xl sm:text-3xl text-dusty-rose font-normal block group-hover:scale-105 transition-transform duration-300">
               LONGEVITY
             </span>
-            <span className="text-[9.5px] uppercase tracking-[0.28em] font-sans block text-shadow/70 font-medium">
+            <span className="text-[9.5px] uppercase tracking-[0.28em] font-sans block text-shadow font-semibold">
               All-Day Skin Presence
             </span>
           </motion.div>
@@ -89,7 +89,7 @@ export const BrandStatement: React.FC<BrandStatementProps> = () => {
             <span className="font-serif text-2xl sm:text-3xl text-dusty-rose font-normal block group-hover:scale-105 transition-transform duration-300">
               PURITY
             </span>
-            <span className="text-[9.5px] uppercase tracking-[0.28em] font-sans block text-shadow/70 font-medium">
+            <span className="text-[9.5px] uppercase tracking-[0.28em] font-sans block text-shadow font-semibold">
               High Potency Oils
             </span>
           </motion.div>
@@ -104,7 +104,7 @@ export const BrandStatement: React.FC<BrandStatementProps> = () => {
             <span className="font-serif text-2xl sm:text-3xl text-dusty-rose font-normal block group-hover:scale-105 transition-transform duration-300">
               HERITAGE
             </span>
-            <span className="text-[9.5px] uppercase tracking-[0.28em] font-sans block text-shadow/70 font-medium">
+            <span className="text-[9.5px] uppercase tracking-[0.28em] font-sans block text-shadow font-semibold">
               Hand-Poured Since 2024
             </span>
           </motion.div>
@@ -112,7 +112,7 @@ export const BrandStatement: React.FC<BrandStatementProps> = () => {
 
         {/* Footer Monogram Note */}
         <div className="pt-6">
-          <p className="text-[8.5px] uppercase tracking-[0.35em] font-sans text-shadow/40">
+          <p className="text-[8.5px] uppercase tracking-[0.35em] font-sans text-shadow/60 font-medium">
             EST. 2024 &bull; KARACHI, PAKISTAN &bull; ARCHIVAL RELEASE
           </p>
         </div>

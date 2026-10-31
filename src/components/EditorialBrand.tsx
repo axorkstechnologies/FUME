@@ -58,11 +58,11 @@ export const EditorialBrand: React.FC<EditorialBrandProps> = ({
           >
             <div className="space-y-4">
               <div className="inline-flex items-center gap-3 px-4 py-1.5 border border-shadow/10 bg-white/70 backdrop-blur-sm">
-                <span className="text-[10px] uppercase tracking-[0.38em] text-dusty-rose font-sans font-medium block">
+                <span className="text-[10px] uppercase tracking-[0.38em] text-dusty-rose font-sans font-semibold block">
                   PHILOSOPHY & VISION
                 </span>
                 <span className="w-1 h-1 rounded-full bg-[#D4A59A]" />
-                <span className="text-[10px] uppercase tracking-[0.25em] text-shadow/70 font-sans">
+                <span className="text-[10px] uppercase tracking-[0.25em] text-shadow/85 font-sans font-medium">
                   SINCE 2024
                 </span>
               </div>
@@ -74,10 +74,10 @@ export const EditorialBrand: React.FC<EditorialBrandProps> = ({
             </div>
 
             <div className="space-y-6 text-sm sm:text-base font-sans font-normal leading-relaxed max-w-lg text-shadow">
-              <p className="font-serif italic text-lg sm:text-xl text-shadow/90 leading-relaxed">
+              <p className="font-serif italic text-lg sm:text-xl text-shadow leading-relaxed font-normal">
                 "FUME creates refined, long-lasting fragrances designed to evoke emotion, sophistication, and an indelible impression."
               </p>
-              <p className="text-xs sm:text-sm leading-relaxed text-shadow/80 font-light">
+              <p className="text-xs sm:text-sm leading-relaxed text-shadow/90 font-normal">
                 Established in 2024, our atelier merges time-honored artisanal enfleurage traditions with modern precision. Formulated at high perfume concentrations using rare botanicals, noble woods, and precious resins, each flacon is an intimate signature crafted to evolve with your skin's warmth.
               </p>
             </div>
@@ -86,9 +86,9 @@ export const EditorialBrand: React.FC<EditorialBrandProps> = ({
             <div className="pt-4 border-t border-shadow/[0.08] grid grid-cols-2 gap-5 max-w-md">
               <div className="p-5 luxury-glass-card border border-shadow/[0.08] space-y-1.5 shadow-[0_8px_20px_-8px_rgba(10,10,10,0.04)]">
                 <span className="font-serif text-2xl sm:text-3xl text-dusty-rose font-normal block">
-                  22–28%
+                  EXTRAIT
                 </span>
-                <span className="text-[9px] uppercase tracking-[0.28em] font-sans block text-shadow/80 font-medium">
+                <span className="text-[9px] uppercase tracking-[0.28em] font-sans block text-shadow font-semibold">
                   Pure Perfume Oil
                 </span>
               </div>
@@ -96,7 +96,7 @@ export const EditorialBrand: React.FC<EditorialBrandProps> = ({
                 <span className="font-serif text-2xl sm:text-3xl text-dusty-rose font-normal block">
                   ALL-DAY
                 </span>
-                <span className="text-[9px] uppercase tracking-[0.28em] font-sans block text-shadow/80 font-medium">
+                <span className="text-[9px] uppercase tracking-[0.28em] font-sans block text-shadow font-semibold">
                   Skin Longevity
                 </span>
               </div>
@@ -109,7 +109,7 @@ export const EditorialBrand: React.FC<EditorialBrandProps> = ({
               >
                 DISCOVER THE ATELIER
               </button>
-              <p className="text-[9px] uppercase tracking-[0.2em] text-shadow/50 font-sans">
+              <p className="text-[9px] uppercase tracking-[0.2em] text-shadow/75 font-sans font-medium">
                 Complimentary 2ml discovery vial included with every flacon order
               </p>
             </div>

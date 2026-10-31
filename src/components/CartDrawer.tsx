@@ -204,7 +204,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       <p className="font-serif text-xl uppercase tracking-[0.14em] text-shadow">
                         YOUR BAG IS EMPTY
                       </p>
-                      <p className="text-xs font-sans text-shadow/50 tracking-widest uppercase font-light">
+                      <p className="text-xs font-sans text-shadow/75 tracking-widest uppercase font-normal">
                         Explore our crown signature & impression flacons.
                       </p>
                     </div>

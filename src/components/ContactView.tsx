@@ -58,7 +58,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
               <h2 className="font-serif text-2xl uppercase tracking-[0.14em]">
                 DIRECT CORRESPONDENCE
               </h2>
-              <p className="text-sm font-sans font-light leading-relaxed text-shadow/80 max-w-md">
+              <p className="text-sm font-sans font-normal leading-relaxed text-shadow/90 max-w-md">
                 Our advisors are available to assist you with fragrance profiling, bespoke formulations, and securing reserved allocations.
               </p>
             </div>
@@ -114,7 +114,7 @@ export const ContactView: React.FC<ContactViewProps> = () => {
                 <h3 className="font-serif text-2xl uppercase tracking-[0.14em]">
                   INQUIRY RECEIVED
                 </h3>
-                <p className="text-sm font-sans font-light leading-relaxed text-shadow/80 max-w-xs mx-auto">
+                <p className="text-sm font-sans font-normal leading-relaxed text-shadow/90 max-w-xs mx-auto">
                   Your dossier has been transmitted. A FUME olfactory advisor will respond shortly.
                 </p>
               </div>
