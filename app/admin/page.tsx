@@ -6,6 +6,7 @@ import {
   Plus, Edit, Trash2, Check, ExternalLink, RefreshCw, AlertCircle, Eye, Search, Filter, X 
 } from 'lucide-react';
 import { FRAGRANCES } from '@/src/data/fragrances';
+import { supabaseClient } from '@/src/lib/supabase/client';
 
 interface AdminUser {
   email: string;
@@ -20,7 +21,8 @@ export default function AdminPage() {
   // Auth Inputs
   const [loginEmail, setLoginEmail] = useState('admin@fumefragrances.com');
   const [loginPassword, setLoginPassword] = useState('');
-  const [adminKey, setAdminKey] = useState('');
+  const [isCheckingSession, setIsCheckingSession] = useState(true);
+  const [failedAttempts, setFailedAttempts] = useState(0);
   const [authError, setAuthError] = useState<string | null>(null);
   const [isAuthenticating, setIsAuthenticating] = useState(false);
 
@@ -52,16 +54,77 @@ export default function AdminPage() {
   const [newAdminPassword, setNewAdminPassword] = useState('');
   const [changePasswordInput, setChangePasswordInput] = useState('');
 
-  // Check saved admin session on mount
+  // Secure Supabase Session Validation & Real-Time Sync on mount
   useEffect(() => {
+    let isMounted = true;
+    
+    // Purge any legacy unverified localStorage session artifacts
     try {
-      const saved = localStorage.getItem('fume_admin_session');
-      if (saved) {
-        setAdmin(JSON.parse(saved));
+      localStorage.removeItem('fume_admin_session');
+      sessionStorage.removeItem('fume_admin_session');
+    } catch {}
+
+    const validateAdminSession = async () => {
+      try {
+        const { data: { session }, error } = await supabaseClient.auth.getSession();
+        if (error || !session?.user) {
+          if (isMounted) {
+            setAdmin(null);
+            setIsCheckingSession(false);
+          }
+          return;
+        }
+
+        // Verify elevated privileges directly in admin_roles table
+        const { data: roleData, error: roleError } = await supabaseClient
+          .from('admin_roles')
+          .select('role')
+          .eq('user_id', session.user.id)
+          .single();
+
+        if (roleError || !roleData || !['admin', 'super_admin'].includes(roleData.role)) {
+          await supabaseClient.auth.signOut();
+          if (isMounted) {
+            setAdmin(null);
+            setIsCheckingSession(false);
+          }
+          return;
+        }
+
+        if (isMounted) {
+          setAdmin({
+            email: session.user.email || '',
+            role: roleData.role,
+            token: session.access_token
+          });
+          setIsCheckingSession(false);
+        }
+      } catch {
+        if (isMounted) {
+          setAdmin(null);
+          setIsCheckingSession(false);
+        }
       }
-    } catch {
-      // Ignore
-    }
+    };
+
+    validateAdminSession();
+
+    // Listen to official Supabase auth state transitions
+    const { data: { subscription } } = supabaseClient.auth.onAuthStateChange(async (event, session) => {
+      if (event === 'SIGNED_OUT' || !session) {
+        if (isMounted) {
+          setAdmin(null);
+          setIsCheckingSession(false);
+        }
+      } else if (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED') {
+        validateAdminSession();
+      }
+    });
+
+    return () => {
+      isMounted = false;
+      subscription?.unsubscribe();
+    };
   }, []);
 
   // Fetch data when authenticated
@@ -150,69 +213,77 @@ export default function AdminPage() {
     setTimeout(() => setAlertMsg(null), 4000);
   };
 
-  // ADMIN LOGIN
+  // PRODUCTION SUPABASE AUTHENTICATION
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isAuthenticating) return;
     setAuthError(null);
     setIsAuthenticating(true);
 
+    // Progressive throttle / anti-brute-force debounce
+    if (failedAttempts > 0) {
+      const penaltyMs = Math.min(1000 * Math.pow(1.5, failedAttempts), 8000);
+      await new Promise((r) => setTimeout(r, penaltyMs));
+    }
+
     try {
-      const res = await fetch('/api/admin/auth', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: loginEmail,
-          password: loginPassword,
-          adminKey: adminKey || undefined
-        })
+      const cleanEmail = loginEmail.trim().toLowerCase();
+
+      // 1. Authenticate with official Supabase GoTrue Auth
+      const { data, error } = await supabaseClient.auth.signInWithPassword({
+        email: cleanEmail,
+        password: loginPassword,
       });
 
-      const data = await res.json();
-      if (res.ok && data.success) {
-        const adminSession: AdminUser = {
-          email: data.email,
-          role: data.role || 'super_admin',
-          token: data.token
-        };
-        setAdmin(adminSession);
-        localStorage.setItem('fume_admin_session', JSON.stringify(adminSession));
-        showAlert('success', `Welcome, Administrator (${data.role}).`);
-      } else {
-        // Fallback for default password if offline
-        if (loginPassword === 'Fume@Karachi2026!' || adminKey.length > 10) {
-          const adminSession: AdminUser = {
-            email: loginEmail || 'admin@fumefragrances.com',
-            role: 'super_admin',
-            token: 'fume_admin_session_key'
-          };
-          setAdmin(adminSession);
-          localStorage.setItem('fume_admin_session', JSON.stringify(adminSession));
-          showAlert('success', 'Authenticated via Local Master Key.');
-        } else {
-          setAuthError(data.message || 'Invalid administrative credentials.');
-        }
+      if (error || !data.user) {
+        throw new Error('Authentication failed');
       }
+
+      // 2. Immediately verify administrative privileges in admin_roles table
+      const { data: roleData, error: roleError } = await supabaseClient
+        .from('admin_roles')
+        .select('role')
+        .eq('user_id', data.user.id)
+        .single();
+
+      if (roleError || !roleData || !['admin', 'super_admin'].includes(roleData.role)) {
+        await supabaseClient.auth.signOut();
+        throw new Error('Unauthorized role');
+      }
+
+      // 3. Set verified admin session
+      setFailedAttempts(0);
+      setAdmin({
+        email: data.user.email || cleanEmail,
+        role: roleData.role,
+        token: data.session?.access_token,
+      });
+      setLoginPassword('');
+      showAlert('success', `Authenticated as ${roleData.role.toUpperCase()}`);
     } catch (err: any) {
-      if (loginPassword === 'Fume@Karachi2026!' || adminKey.length > 10) {
-        const adminSession: AdminUser = {
-          email: loginEmail || 'admin@fumefragrances.com',
-          role: 'super_admin'
-        };
-        setAdmin(adminSession);
-        localStorage.setItem('fume_admin_session', JSON.stringify(adminSession));
-        showAlert('success', 'Authenticated via Local Master Key.');
-      } else {
-        setAuthError('Authentication server offline. Enter Master Key or verify credentials.');
-      }
+      setFailedAttempts((prev) => prev + 1);
+      // Strictly generic error message - never leak email validity or reason
+      setAuthError('Invalid administrative credentials. Access denied.');
     } finally {
       setIsAuthenticating(false);
     }
   };
 
-  // ADMIN SIGN OUT
-  const handleLogout = () => {
-    setAdmin(null);
-    localStorage.removeItem('fume_admin_session');
+  // CLEAN SUPABASE SIGN OUT
+  const handleLogout = async () => {
+    setIsAuthenticating(true);
+    try {
+      await supabaseClient.auth.signOut();
+    } catch {
+      // Ignore
+    } finally {
+      setAdmin(null);
+      try {
+        localStorage.removeItem('fume_admin_session');
+        sessionStorage.removeItem('fume_admin_session');
+      } catch {}
+      setIsAuthenticating(false);
+    }
   };
 
   // ADD PRODUCT
@@ -243,7 +314,7 @@ export default function AdminPage() {
         const localProd = {
           id: newProdName.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
           name: newProdName,
-          title: `FUME FRAGRANCES: ${newProdName.toUpperCase()}`,
+          title: newProdName.toUpperCase(),
           price: Number(newProdPrice),
           genderCategory: newProdCategory,
           olfactoryFamily: newProdFamily,
@@ -344,12 +415,23 @@ export default function AdminPage() {
     }
   };
 
-  // CHANGE PASSWORD
-  const handleChangePassword = (e: React.FormEvent) => {
+  // REAL SUPABASE PASSWORD UPDATE
+  const handleChangePassword = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!changePasswordInput) return;
-    showAlert('success', 'Admin master password successfully updated for future sessions.');
-    setChangePasswordInput('');
+    if (!changePasswordInput || changePasswordInput.length < 8) {
+      showAlert('error', 'Password must be at least 8 characters.');
+      return;
+    }
+    try {
+      const { error } = await supabaseClient.auth.updateUser({
+        password: changePasswordInput,
+      });
+      if (error) throw error;
+      showAlert('success', 'Your administrator password has been updated in Supabase Auth.');
+      setChangePasswordInput('');
+    } catch (err: any) {
+      showAlert('error', err.message || 'Failed to update password.');
+    }
   };
 
   // CREATE NEW ADMIN
@@ -361,6 +443,20 @@ export default function AdminPage() {
     setNewAdminPassword('');
   };
 
+  // SESSION VALIDATION LOADER
+  if (isCheckingSession) {
+    return (
+      <div className="min-h-screen bg-pearl text-shadow flex items-center justify-center p-6">
+        <div className="text-center space-y-4">
+          <div className="w-8 h-8 border-2 border-shadow/20 border-t-shadow rounded-full animate-spin mx-auto" />
+          <p className="text-[10px] uppercase tracking-[0.35em] text-shadow/70 font-sans font-medium">
+            VERIFYING SECURE ATELIER SESSION...
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   // LOGIN SCREEN
   if (!admin) {
     return (
@@ -368,7 +464,7 @@ export default function AdminPage() {
         <div className="w-full max-w-md bg-pearl border border-shadow/20 p-8 sm:p-12 space-y-8 shadow-2xl">
           <div className="text-center space-y-2">
             <span className="text-[10px] uppercase tracking-[0.45em] text-dusty-rose font-sans font-semibold block">
-              FUME HAUTE PARFUMERIE
+              FUME ATELIER MANAGEMENT
             </span>
             <h1 className="font-serif text-3xl uppercase tracking-[0.16em] text-shadow">
               ADMIN SANCTUARY
@@ -379,53 +475,40 @@ export default function AdminPage() {
           </div>
 
           {authError && (
-            <div className="p-3 bg-red-50 border border-red-200 text-red-900 text-xs font-sans">
+            <div className="p-3 bg-red-50 border border-red-200 text-red-900 text-xs font-sans text-center">
               {authError}
             </div>
           )}
 
           <form onSubmit={handleLogin} className="space-y-4 font-sans text-xs">
             <div className="space-y-1">
-              <label className="text-[9px] uppercase tracking-wider text-shadow/70">Admin Email</label>
+              <label className="text-[9px] uppercase tracking-wider text-shadow/70 font-medium">Admin Email</label>
               <input
                 type="email"
                 required
                 value={loginEmail}
                 onChange={(e) => setLoginEmail(e.target.value)}
                 placeholder="admin@fumefragrances.com"
-                className="w-full bg-white border border-shadow/20 p-3 focus:outline-none focus:border-dusty-rose"
+                className="w-full bg-white border border-shadow/20 p-3 focus:outline-none focus:border-dusty-rose font-medium text-xs"
               />
             </div>
 
             <div className="space-y-1">
-              <label className="text-[9px] uppercase tracking-wider text-shadow/70">Password</label>
+              <label className="text-[9px] uppercase tracking-wider text-shadow/70 font-medium">Password</label>
               <input
                 type="password"
                 required
                 value={loginPassword}
                 onChange={(e) => setLoginPassword(e.target.value)}
                 placeholder="••••••••••••"
-                className="w-full bg-white border border-shadow/20 p-3 focus:outline-none focus:border-dusty-rose"
-              />
-            </div>
-
-            <div className="pt-2 border-t border-shadow/10">
-              <label className="text-[9px] uppercase tracking-wider text-shadow/60 block mb-1">
-                Or Supabase Secret Master Key (Direct Access)
-              </label>
-              <input
-                type="password"
-                value={adminKey}
-                onChange={(e) => setAdminKey(e.target.value)}
-                placeholder="eyJh... (Optional secret key)"
-                className="w-full bg-white border border-shadow/20 p-2.5 text-xs focus:outline-none focus:border-dusty-rose"
+                className="w-full bg-white border border-shadow/20 p-3 focus:outline-none focus:border-dusty-rose font-medium text-xs"
               />
             </div>
 
             <button
               type="submit"
               disabled={isAuthenticating}
-              className="w-full py-4 bg-shadow text-pearl hover:bg-dusty-rose text-[10px] uppercase tracking-[0.28em] font-sans font-semibold transition-colors cursor-pointer mt-4"
+              className="w-full py-4 bg-shadow text-pearl hover:bg-dusty-rose text-[10px] uppercase tracking-[0.28em] font-sans font-semibold transition-colors cursor-pointer mt-4 disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {isAuthenticating ? 'VERIFYING CREDENTIALS...' : 'AUTHENTICATE & ENTER'}
             </button>
@@ -434,7 +517,7 @@ export default function AdminPage() {
           <div className="text-center pt-2">
             <a
               href="/"
-              className="text-[9px] uppercase tracking-[0.2em] text-shadow/60 hover:text-dusty-rose transition-colors"
+              className="text-[9px] uppercase tracking-[0.2em] text-shadow/60 hover:text-dusty-rose transition-colors font-medium"
             >
               ← Return to Public Storefront
             </a>
