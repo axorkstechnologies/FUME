@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://fume-six.vercel.app/sitemap.xml
-
-# FUME FRAGRANCES (SMC-PRIVATE) LIMITED
-# https://fume-six.vercel.app
+Sitemap: https://fumefragrances.store/sitemap.xml
